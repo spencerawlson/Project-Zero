@@ -15,6 +15,7 @@ for mod in (pz_assets_bld, pz_assets_veh, pz_assets_eqp, pz_assets_inf, pz_asset
 cat, fn, opts = REG[AID]
 fn()
 if "dry" in _args[2:]:
+    A.resolve_figure_clashes()
     mn, mx = A.scene_bbox()
     print("DRY_OK", AID, [round(v, 1) for v in mn], [round(v, 1) for v in mx], len(A.NOTES), "notes")
 else:

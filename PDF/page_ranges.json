@@ -27,31 +27,31 @@
  [
   "Buildings BLD-02 \u2026 BLD-29",
   30,
-  82
+  91
  ],
  [
   "Vehicles VEH-01 \u2026 VEH-16",
-  83,
-  110
+  92,
+  122
  ],
  [
   "Equipment & weapons EQP-01 \u2026 EQP-27",
-  111,
-  137
+  123,
+  154
  ],
  [
   "Infrastructure INF-01 \u2026 INF-20",
-  138,
-  158
+  155,
+  175
  ],
  [
   "Interiors & props INT-02 \u2026 INT-16",
-  159,
-  159
+  176,
+  195
  ],
  [
   "Quality assurance",
-  160,
-  160
+  196,
+  196
  ]
 ]

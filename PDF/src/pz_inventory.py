@@ -139,4 +139,4 @@ def roblox_name(a):
 def status(a):
     if a[0].startswith("CHR"):
         return "SHEET %s" % a[0]
-    return "SF-01–05 (approved)" if a[0] == "BLD-01" else ("in BLD-01 package" if a[0] == "INT-01" else "sheet Rev C")
+    return "SF-01–05 (approved)" if a[0] == "BLD-01" else ("in BLD-01 package" if a[0] == "INT-01" else "sheet Rev D")

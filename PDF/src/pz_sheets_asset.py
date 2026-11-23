@@ -190,7 +190,7 @@ def sheet_bld_veh(aid):
 
 def sheet_eqp(aid):
     fig = new_sheet()
-    head(fig, aid, "Three-quarter · detail close-up · scale vs Cypher (6.0 studs) · five orthographic views", 1, 1)
+    head(fig, aid, "Three-quarter · detail close-up · scale vs 6-stud stand-in figure (Cypher height) · five orthographic views", 1, 1)
     hero_panel(fig, (0.012, 0.5, 0.4, 0.412), aid, maxn=5)
     cc = os.path.join(ROOT, CATDIR["EQP"], aid, "concept_crop.png")
     if os.path.exists(cc):
@@ -198,7 +198,7 @@ def sheet_eqp(aid):
         image_axes(fig, (0.42, 0.5, 0.26, 0.412), cc)
     else:
         hero_panel(fig, (0.42, 0.5, 0.26, 0.412), aid, "detail", "DETAIL CLOSE-UP", "Cycles", notes=False)
-    ortho_panel(fig, (0.688, 0.5, 0.3, 0.412), aid, "scale", "SCALE vs CYPHER (6.0)", dims=True)
+    ortho_panel(fig, (0.688, 0.5, 0.3, 0.412), aid, "scale", "SCALE vs 6.0-STUD FIGURE", dims=True)
     for i, (shot, t) in enumerate((("front", "FRONT"), ("rear", "BACK"), ("left", "LEFT"), ("right", "RIGHT"), ("top", "TOP"))):
         ortho_panel(fig, (0.012 + i * 0.1956, 0.27, 0.1896, 0.222), aid, shot, t)
     spec_panels(fig, aid, y0=0.05, h=0.212)
@@ -206,7 +206,7 @@ def sheet_eqp(aid):
 
 def sheet_inf(aid):
     fig = new_sheet()
-    head(fig, aid, "Three-quarter render · four elevations · top view · family robot for scale", 1, 1)
+    head(fig, aid, "Three-quarter render · four elevations · top view · stand-in figure for scale", 1, 1)
     hero_panel(fig, (0.012, 0.45, 0.44, 0.462), aid)
     for i, (shot, t) in enumerate((("front", "FRONT"), ("rear", "REAR"), ("left", "LEFT"), ("right", "RIGHT"))):
         ortho_panel(fig, (0.46 + (i % 2) * 0.266, 0.45 + (1 - i // 2) * 0.233, 0.26, 0.229), aid, shot, t)

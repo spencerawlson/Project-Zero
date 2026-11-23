@@ -66,9 +66,90 @@ def dome(name, x, y, z, r, m, flat=1.0):
     o = sphere(name, x, y, z, r, m); o.scale = (1, 1, flat)
     return o
 
+# Blockout scenes use neutral grey stand-in figures, not the finished robot models: mixing finished
+# characters into box blockouts read as "two different games" (user review 2026-11-23). The figure keeps the
+# robot's design height so scale stays honest. Real robots appear on character and supplied-model sheets only.
+STANDIN_M = mat("standin_grey", "#A3A9B2", 0.0, 0.65)
+FIGURES = []         # (pivot, frame name, height)
+
 def robot(name, frame, x, y, rz=0.0, z=0.0):
-    e = K.robot_instance(name, frame, x, y, z, rz); e["grp"] = "robots"; e["robot"] = 1
-    return e
+    h = K.L.ROBOTS[frame]["height"]
+    piv = K.mannequin(name, x, y, z, h, STANDIN_M, rz)   # parts are built at z; pivot stays at floor level
+    piv["grp"] = "robots"; piv["robot"] = 1; piv["frame"] = frame; piv["z0"] = z
+    for c in piv.children:
+        c["robot"] = 1; c["grp"] = "robots"
+    FIGURES.append((piv, frame, h))
+    return piv
+
+def _figure_proxy(x, y, z0, h, r):
+    from mathutils.bvhtree import BVHTree
+    zs, ze = z0 + 0.35, z0 + h * 0.95
+    v = [Vector((x + sx * r, y + sy * r, zz)) for zz in (zs, ze) for sx, sy in ((-1, -1), (1, -1), (1, 1), (-1, 1))]
+    f = [(0, 1, 2, 3), (4, 5, 6, 7), (0, 1, 5, 4), (1, 2, 6, 5), (2, 3, 7, 6), (3, 0, 4, 7)]
+    return BVHTree.FromPolygons(v, f), Vector((x - r, y - r, zs)), Vector((x + r, y + r, ze))
+
+def resolve_figure_clashes():
+    """Move any stand-in figure that intersects scenery to the nearest clear floor spot (searching outward
+    up to 8 studs). Uses real mesh surfaces (BVH), not bounding boxes, so hollow shells and vaults don't count."""
+    from mathutils.bvhtree import BVHTree
+    if not FIGURES:
+        return
+    bpy.context.view_layer.update()
+    dg = bpy.context.evaluated_depsgraph_get()
+    obs = []
+    for o in bpy.context.scene.objects:
+        if o.type not in ("MESH", "FONT") or o.get("robot") or o.get("ground") or o.hide_render:
+            continue
+        bb = [o.matrix_world @ Vector(c) for c in o.bound_box]
+        mn = Vector([min(p[i] for p in bb) for i in range(3)]); mx = Vector([max(p[i] for p in bb) for i in range(3)])
+        if mx.z <= 0.36:                     # floor slabs, painted strips
+            continue
+        obs.append((o, mn, mx, None))
+    def tree(i):
+        o, mn, mx, t = obs[i]
+        if t is None:
+            t = BVHTree.FromObject(o, dg); obs[i] = (o, mn, mx, t)
+        return t
+    def clear(x, y, z0, h, r):
+        prox, pmn, pmx = _figure_proxy(x, y, z0, h, r)
+        for i, (o, mn, mx, _) in enumerate(obs):
+            if mx.x < pmn.x or mn.x > pmx.x or mx.y < pmn.y or mn.y > pmx.y or mx.z < pmn.z or mn.z > pmx.z:
+                continue
+            if tree(i).overlap(prox):
+                return False
+            if mn.x <= pmn.x and mx.x >= pmx.x and mn.y <= pmn.y and mx.y >= pmx.y and mn.z <= pmn.z and mx.z >= pmx.z \
+                    and o.type == "MESH" and len(o.data.polygons) <= 12:
+                return False                  # figure buried inside a solid box (no surface crossing)
+        return True
+    for piv, frame, h in FIGURES:
+        x, y, z0 = piv.location.x, piv.location.y, piv.get("z0", 0.0)
+        r = 1.25 * h / 7.0 + 0.15
+        if clear(x, y, z0, h, r):
+            continue
+        spot = None
+        for ring in range(1, 17):
+            d = ring * 0.5
+            for k in range(16):
+                a = 2 * math.pi * k / 16
+                nx, ny = x + d * math.cos(a), y + d * math.sin(a)
+                if clear(nx, ny, z0, h, r):
+                    spot = (nx, ny); break
+            if spot:
+                break
+        if spot:
+            piv.location.x, piv.location.y = spot
+            print(f"STANDIN_MOVED {piv.name} ({frame}) from ({x:.1f},{y:.1f}) to ({spot[0]:.1f},{spot[1]:.1f})")
+        else:
+            print(f"STANDIN_REMOVED {piv.name} ({frame}) at ({x:.1f},{y:.1f}): no clear spot within 8 studs")
+            for c in list(piv.children):
+                bpy.data.objects.remove(c)
+            bpy.data.objects.remove(piv)
+    bpy.context.view_layer.update()
+
+def _wb(w, h):
+    """Workbench ortho setup for asset sheets: light steel object outlines so dark parts read on the dark sheets."""
+    K.setup_workbench(w, h)
+    bpy.context.scene.display.shading.object_outline_color = (0.42, 0.46, 0.52)
 
 def text(name, body, x, y, z, size, m, rz=0.0, facing="-Y"):
     t = bpy.data.curves.new(name, "FONT"); t.body = body; t.size = size; t.extrude = 0.08; t.align_x = "CENTER"
@@ -239,8 +320,29 @@ def explode(flag, mn, mx):
                 o.location.z = o["z0"]
     bpy.context.view_layer.update()   # refresh matrix_world so framing sees the exploded positions
 
+def _fit_ortho(cam, w, h, pad=1.08):
+    """Recentre an ortho camera and set its scale from the projected extent of every visible object,
+    so tall exploded stacks are not clipped by the shorter image axis."""
+    bpy.context.view_layer.update()
+    inv = cam.matrix_world.inverted()
+    pts = []
+    for o in bpy.context.scene.objects:
+        if o.get("ground") or o.hide_render:
+            continue
+        if o.type in ("MESH", "FONT"):
+            pts += [inv @ (o.matrix_world @ Vector(c)) for c in o.bound_box]
+        elif o.get("robot"):
+            pts += [inv @ o.location, inv @ (o.location + Vector((0, 0, 6)))]
+    if not pts:
+        return
+    xs = [p.x for p in pts]; ys = [p.y for p in pts]
+    cam.location = cam.matrix_world @ Vector(((min(xs) + max(xs)) / 2, (min(ys) + max(ys)) / 2, 0))
+    cam.data.ortho_scale = max(max(xs) - min(xs), (max(ys) - min(ys)) * w / h) * pad
+    bpy.context.view_layer.update()
+
 def run_shots(cat, outdir, quick=False, hero_dir=(-0.75, -1.0, 0.42), lens=32, robots_in_ortho=True, outside_hero=False):
     os.makedirs(outdir, exist_ok=True)
+    resolve_figure_clashes()
     SC = bpy.context.scene
     mn, mx = scene_bbox(robots=(cat != "EQP")); c, s = _views(mn, mx)
     mo, xo = scene_bbox(robots=False)
@@ -266,7 +368,7 @@ def run_shots(cat, outdir, quick=False, hero_dir=(-0.75, -1.0, 0.42), lens=32, r
         if shot == "scale":
             mn2, mx2 = scene_bbox(robots=True); c2, s2 = _views(mn2, mx2)
             scale = max(s2.y, s2.z * 2.0) * 1.2
-            K.setup_workbench(2000, 1000)
+            _wb(2000, 1000)
             cam = K.camera("cam", ortho=scale); K.look(cam, Vector((c2.x - 200, c2.y, c2.z)), (c2.x, c2.y, c2.z))
             meta.update(ortho=scale, center=list(c2), res=[2000, 1000], bbox=[list(mn2), list(mx2)])
             K.render(shot, cam, meta)
@@ -299,14 +401,14 @@ def run_shots(cat, outdir, quick=False, hero_dir=(-0.75, -1.0, 0.42), lens=32, r
             o.hide_render = (not robots_in_ortho) or cat == "EQP"
         if shot == "section":
             scale = max(s.x, s.z * 2.0) * 1.14
-            K.setup_workbench(2000, 1000)
+            _wb(2000, 1000)
             cam = K.camera("cam", ortho=scale); cam.data.clip_start = 0.001
             cam.location = (c.x, c.y, c.z); cam.rotation_euler = (math.radians(90), 0, 0)
             meta.update(ortho=scale, center=list(c), res=[2000, 1000], cut_y=c.y)
         elif shot in ("front", "rear", "left", "right"):
             horiz = s.x if shot in ("front", "rear") else s.y
             scale = max(horiz, s.z * 2.0) * 1.14
-            K.setup_workbench(2000, 1000)
+            _wb(2000, 1000)
             cam = K.camera("cam", ortho=scale)
             D = max(s.length, 10) * 3
             dirs = {"front": (0, -1), "rear": (0, 1), "left": (-1, 0), "right": (1, 0)}[shot]
@@ -315,7 +417,7 @@ def run_shots(cat, outdir, quick=False, hero_dir=(-0.75, -1.0, 0.42), lens=32, r
             meta.update(ortho=scale, center=list(c), res=[2000, 1000])
         elif shot in ("top", "plan"):
             scale = max(s.x, s.y) * 1.12
-            K.setup_workbench(1600, 1600)
+            _wb(1600, 1600)
             cam = K.camera("cam", ortho=scale)
             z = mx.z + 50 if shot == "top" else CUT_H[0]
             cam.location = (c.x, c.y, z); cam.rotation_euler = (0, 0, 0)
@@ -323,7 +425,7 @@ def run_shots(cat, outdir, quick=False, hero_dir=(-0.75, -1.0, 0.42), lens=32, r
                 cam.data.clip_start = 0.001
             meta.update(ortho=scale, center=list(c), res=[1600, 1600])
         elif shot in ("cutaway", "exploded"):
-            K.setup_workbench(2000, 1400)
+            _wb(2000, 1400)
             if shot == "cutaway":
                 hide_upper(True)
             else:
@@ -335,6 +437,8 @@ def run_shots(cat, outdir, quick=False, hero_dir=(-0.75, -1.0, 0.42), lens=32, r
             scale = max(s2.x, s2.y, s2.z) * 1.35
             cam = K.camera("cam", ortho=scale)
             K.look(cam, c2 + Vector((1.0, -1.15, 0.95)).normalized() * max(s2.length, 10) * 3, c2)
+            if shot == "exploded":
+                _fit_ortho(cam, 2000, 1400)
         K.render(shot, cam, meta)
         if shot == "cutaway":
             hide_upper(False)
