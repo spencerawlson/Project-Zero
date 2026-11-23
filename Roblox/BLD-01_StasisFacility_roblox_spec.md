@@ -4,7 +4,7 @@ Status: **design for review**. Do not mass-import other assets until this protot
 All dimensions are design assumptions in studs. Source of truth: `Blender/scripts/pz_layout.py`.
 
 ## Build order
-1. Greybox from SF-02. Use an 8-stud grid, origin at the front-centre of the footprint (X = 0, Y = 0), and face the entrance −Z in Studio (layout −Y maps to Studio −Z).
+1. Greybox from SF-02. Use an 8-stud grid, origin at the front-centre of the footprint (X = 0, Y = 0), and the entrance faces +Z in Studio (layout −Y maps to Studio +Z, per the mapping below; the building extends toward −Z).
 2. Walk the routes with real Cypher, Sentinel and Patch rigs and the default camera. Check the 6×10 doors, the 12-stud aisle, and the mezzanine headroom.
 3. Replace blockout parts with kit modules K01–K10 (SF-05), one module type at a time.
 4. Add the pod model `PZ_AWK_StasisPod_A` with its hinge, then wire the wake sequence (SF-04 sheet 2).

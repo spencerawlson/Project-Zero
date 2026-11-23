@@ -1,4 +1,4 @@
-"""Assemble the full Production Bible PDF (Rev C) from page/sheet PNGs, write manifest.csv.
+"""Assemble the full Production Bible PDF (Rev D) from page/sheet PNGs, write manifest.csv.
 Order and contents page numbers are computed from the files that exist."""
 import os, sys, csv, glob, json
 from PIL import Image
@@ -10,7 +10,7 @@ PAGES = os.path.join(ROOT, "PDF", "pages")
 SHEETS = os.path.join(ROOT, "Stasis_Facility", "sheets")
 CHS = os.path.join(ROOT, "Characters", "sheets")
 RENDERS = os.path.join(ROOT, "Stasis_Facility", "renders")
-OUT_PDF = os.path.join(ROOT, "PDF", "PROJECT_ZERO_NEXUS-01_Production_Bible_RevC.pdf")
+OUT_PDF = os.path.join(ROOT, "PDF", "PROJECT_ZERO_NEXUS-01_Production_Bible_RevD.pdf")
 CATDIR = {"BLD": "Buildings", "VEH": "Vehicles", "EQP": "Equipment", "INF": "Infrastructure", "INT": "Interiors"}
 
 def P(name): return os.path.join(PAGES, name)
@@ -87,7 +87,7 @@ def manifest(order):
 def build_pdf(order):
     W, H = 17 * 72, 11 * 72
     c = canvas.Canvas(OUT_PDF, pagesize=(W, H))
-    c.setTitle("PROJECT ZERO — NEXUS-01 ASSET & ARCHITECTURE PRODUCTION BIBLE (Rev C)")
+    c.setTitle("PROJECT ZERO — NEXUS-01 ASSET & ARCHITECTURE PRODUCTION BIBLE (Rev D)")
     c.setAuthor("Project Zero art & architecture")
     tmp = os.path.join(ROOT, "PDF", "_jpg"); os.makedirs(tmp, exist_ok=True)
     for i, (f, title) in enumerate(order):

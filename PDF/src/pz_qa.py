@@ -38,8 +38,12 @@ def run():
         "exterior + chamber on 8-grid; interior partition on 4-stud half-module: " + ", ".join(sorted(set(off))))
     eg = [d for d in L.DOORS if d[7] == "egress"]
     add("Two independent emergency exits", len(eg) >= 2, f"{len(eg)} egress doors ({', '.join(d[0] for d in eg)}), never lock")
-    narrow = [d[0] for d in L.DOORS if d[5] < 4 or d[6] < 9]
-    add("Door clear size ≥ 4×9 studs", not narrow, "smallest 4×9" if not narrow else str(narrow))
+    # Roblox Studio check 2026-11-23: widest canonical robot at design scale is Patch 4.4 studs (Sentinel 4.2,
+    # Cypher 3.4); tallest is Sentinel 7.5. Require 1 stud side clearance and 2.5 studs headroom.
+    narrow = [d[0] for d in L.DOORS if d[5] < 6 or d[6] < 10]
+    sw = min(d[5] for d in L.DOORS); sh = min(d[6] for d in L.DOORS)
+    add("Door clear size ≥ 6×10 studs (fits widest robot)", not narrow,
+        f"smallest {sw}×{sh}; widest robot Patch 4.4, tallest Sentinel 7.5 (measured in Studio)" if not narrow else str(narrow))
     add("Pod count consistent (layout ↔ sheets)", len(L.PODS) == 8, f"{len(L.PODS)} pods in pz_layout.py; SF-02/SF-03/SF-05 state 8")
     nblank = []
     for f in glob.glob(os.path.join(ROOT, "*", "*", "renders", "*.png")):
@@ -78,7 +82,7 @@ def run():
     add("User 3D models needing remesh", "NOTE", "VEH-11 5.6 M tris, VEH-10/12 textured raw GLBs — remesh before Roblox")
     os.makedirs(os.path.join(ROOT, "QA"), exist_ok=True)
     with open(os.path.join(ROOT, "QA", "qa_report.md"), "w", encoding="utf-8") as fh:
-        fh.write("# QA report — sample section Rev A\n\n| Check | Result | Detail |\n|---|---|---|\n")
+        fh.write("# QA report — Rev D\n\n| Check | Result | Detail |\n|---|---|---|\n")
         for r in res:
             fh.write(f"| {r[0]} | {r[1]} | {r[2]} |\n")
     for r in res:

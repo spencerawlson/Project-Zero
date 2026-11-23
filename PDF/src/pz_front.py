@@ -22,7 +22,7 @@ def cover():
     fig.text(0.07, 0.725, "PRODUCTION BIBLE", fontsize=24, weight="bold", color=C["cyan"], zorder=3)
     fig.text(0.07, 0.655, "Year 2187 · the City of Forgotten Machines", fontsize=13, color=C["text"], zorder=3)
     text_block(fig, 0.07, 0.56, [
-        ("REV C — FULL BIBLE: ALL ASSET SHEETS", "o"),
+        ("REV D — FULL BIBLE: ALL ASSET SHEETS", "o"),
         "Reference audit · consistency spec · asset inventory (60 assets)",
         "Robot family: Cypher, Sentinel, Patch + family design language (CHR-00…04)",
         "Stasis Facility architectural package: sheets SF-01 to SF-05 (9 pages)",
@@ -35,7 +35,7 @@ def cover():
         "layout file, so every elevation, plan, section and render shows the same object.",
         "Dimensions are design assumptions in Roblox studs, not measurements of concept art.",
     ], fs=9.5, lh=0.026)
-    fig.text(0.07, 0.05, "REV C  ·  2026-11-19  ·  STATUS: FOR REVIEW", fontsize=9, color=C["muted"], zorder=3)
+    fig.text(0.07, 0.05, "REV D  ·  2026-11-23  ·  STATUS: FOR REVIEW", fontsize=9, color=C["muted"], zorder=3)
     fig.text(0.97, 0.05, "Interior: Stasis Pod Chamber (BLD-01 / INT-01)", fontsize=8, color=C["text"], ha="right", zorder=3)
     save(fig, os.path.join(OUT, "P01_Cover.png"))
 

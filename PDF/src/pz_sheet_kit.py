@@ -16,7 +16,7 @@ W_IN, H_IN, DPI = 17.0, 11.0, 160
 C = dict(bg="#0B1220", panel="#101A2B", panel2="#0E1626", line="#2A3A55", cyan="#22D3EE",
          orange="#E8731A", amber="#FFB020", text="#DCE6F2", muted="#8FA3BF", red="#E5383B",
          green="#35D07F", violet="#8B5CF6", white="#FFFFFF")
-REV = "REV C  ·  2026-11-19"
+REV = "REV D  ·  2026-11-23"
 plt.rcParams.update({"font.family": "DejaVu Sans", "text.color": C["text"], "axes.edgecolor": C["line"]})
 
 def new_sheet():

@@ -239,6 +239,26 @@ def explode(flag, mn, mx):
                 o.location.z = o["z0"]
     bpy.context.view_layer.update()   # refresh matrix_world so framing sees the exploded positions
 
+def _fit_ortho(cam, w, h, pad=1.08):
+    """Recentre an ortho camera and set its scale from the projected extent of every visible object,
+    so tall exploded stacks are not clipped by the shorter image axis."""
+    bpy.context.view_layer.update()
+    inv = cam.matrix_world.inverted()
+    pts = []
+    for o in bpy.context.scene.objects:
+        if o.get("ground") or o.hide_render:
+            continue
+        if o.type in ("MESH", "FONT"):
+            pts += [inv @ (o.matrix_world @ Vector(c)) for c in o.bound_box]
+        elif o.get("robot"):
+            pts += [inv @ o.location, inv @ (o.location + Vector((0, 0, 6)))]
+    if not pts:
+        return
+    xs = [p.x for p in pts]; ys = [p.y for p in pts]
+    cam.location = cam.matrix_world @ Vector(((min(xs) + max(xs)) / 2, (min(ys) + max(ys)) / 2, 0))
+    cam.data.ortho_scale = max(max(xs) - min(xs), (max(ys) - min(ys)) * w / h) * pad
+    bpy.context.view_layer.update()
+
 def run_shots(cat, outdir, quick=False, hero_dir=(-0.75, -1.0, 0.42), lens=32, robots_in_ortho=True, outside_hero=False):
     os.makedirs(outdir, exist_ok=True)
     SC = bpy.context.scene
@@ -335,6 +355,8 @@ def run_shots(cat, outdir, quick=False, hero_dir=(-0.75, -1.0, 0.42), lens=32, r
             scale = max(s2.x, s2.y, s2.z) * 1.35
             cam = K.camera("cam", ortho=scale)
             K.look(cam, c2 + Vector((1.0, -1.15, 0.95)).normalized() * max(s2.length, 10) * 3, c2)
+            if shot == "exploded":
+                _fit_ortho(cam, 2000, 1400)
         K.render(shot, cam, meta)
         if shot == "cutaway":
             hide_upper(False)

@@ -52,18 +52,18 @@ DOORS = [
     ("D04", "Service roll-up door",             "x", 0,   120, 16, 14, "rollup"),
     ("D05", "Emergency exit W",                 "y", 80,  -44, 6,  10, "egress"),
     ("D06", "Emergency exit E",                 "y", 112, 44,  6,  10, "egress"),
-    ("D07", "Security office",                  "y", 12,  -24, 4,  9,  "std"),
-    ("D08", "Lockers",                          "y", 12,  24,  4,  9,  "std"),
+    ("D07", "Security office",                  "y", 12,  -24, 6,  10, "std"),
+    ("D08", "Lockers",                          "y", 12,  24,  6,  10, "std"),
     ("D09", "Medical monitoring",               "y", 30,  24,  6,  10, "std"),
     ("D10", "Energy control",                   "y", 90,  24,  6,  10, "std"),
     ("D11", "Maint. corridor N",                "x", -28, 104, 6,  10, "std"),
     ("D12", "Cryo plant",                       "y", 48,  -32, 6,  10, "std"),
     ("D13", "Exit W vestibule",                 "y", 80,  -32, 6,  10, "std"),
-    ("D14", "Spares store",                     "y", 96,  -32, 4,  9,  "std"),
+    ("D14", "Spares store",                     "y", 96,  -32, 6,  10, "std"),
     ("D15", "Exit E vestibule",                 "x", 34,  96,  6,  10, "std"),
     ("D16", "Service stair",                    "y", 112, -24, 6,  10, "std"),
-    ("D17", "Maint. corridor S hatch",          "x", -28, 24,  4,  9,  "std"),
-    ("D18", "Medical -> energy",                "x", 34,  60,  4,  9,  "std"),
+    ("D17", "Maint. corridor S hatch",          "x", -28, 24,  6,  10, "std"),
+    ("D18", "Medical -> energy",                "x", 34,  60,  6,  10, "std"),
 ]
 
 # Stasis pods: 8 bays, 4 per side, facing aisle.
