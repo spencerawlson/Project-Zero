@@ -1,0 +1,27 @@
+{
+ "standard": {
+  "max_h": 7.5,
+  "max_w": 4.4,
+  "seat_w": 4.8,
+  "seat_top": 1.6,
+  "pan_d": 2.4,
+  "back_t": 0.4,
+  "back_h": 3.4,
+  "walk_w": 5.0,
+  "walk_h": 8.0
+ },
+ "checks": [
+  {
+   "kind": "walk",
+   "name": "platform",
+   "ok": true,
+   "at": [
+    -4,
+    4,
+    6.2
+   ],
+   "face": null,
+   "blocked_by": []
+  }
+ ]
+}

@@ -1,0 +1,399 @@
+{
+ "standard": {
+  "max_h": 7.5,
+  "max_w": 4.4,
+  "seat_w": 4.8,
+  "seat_top": 1.6,
+  "pan_d": 2.4,
+  "back_t": 0.4,
+  "back_h": 3.4,
+  "walk_w": 5.0,
+  "walk_h": 8.0
+ },
+ "checks": [
+  {
+   "kind": "walk",
+   "name": "cab_doorW",
+   "ok": true,
+   "at": [
+    -7.75,
+    -24.0,
+    2.8
+   ],
+   "face": null,
+   "blocked_by": []
+  },
+  {
+   "kind": "walk",
+   "name": "cab_doorE",
+   "ok": true,
+   "at": [
+    7.75,
+    -24.0,
+    2.8
+   ],
+   "face": null,
+   "blocked_by": []
+  },
+  {
+   "kind": "walk",
+   "name": "cab_gangN",
+   "ok": true,
+   "at": [
+    0,
+    -13.25,
+    2.8
+   ],
+   "face": null,
+   "blocked_by": []
+  },
+  {
+   "kind": "walk",
+   "name": "p1_doorW",
+   "ok": true,
+   "at": [
+    -7.75,
+    -0.5,
+    2.8
+   ],
+   "face": null,
+   "blocked_by": []
+  },
+  {
+   "kind": "walk",
+   "name": "p1_doorE",
+   "ok": true,
+   "at": [
+    7.75,
+    -0.5,
+    2.8
+   ],
+   "face": null,
+   "blocked_by": []
+  },
+  {
+   "kind": "walk",
+   "name": "p1_gangS",
+   "ok": true,
+   "at": [
+    0,
+    -11.25,
+    2.8
+   ],
+   "face": null,
+   "blocked_by": []
+  },
+  {
+   "kind": "walk",
+   "name": "p1_gangN",
+   "ok": true,
+   "at": [
+    0,
+    10.25,
+    2.8
+   ],
+   "face": null,
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "p1_s0L",
+   "ok": true,
+   "at": [
+    -5.1,
+    -8.7,
+    2.8
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "p1_s0R",
+   "ok": true,
+   "at": [
+    5.1,
+    -8.7,
+    2.8
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "p1_s1L",
+   "ok": true,
+   "at": [
+    -5.1,
+    -4.8,
+    2.8
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "p1_s1R",
+   "ok": true,
+   "at": [
+    5.1,
+    -4.8,
+    2.8
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "p1_s2L",
+   "ok": true,
+   "at": [
+    -5.1,
+    4.3,
+    2.8
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "p1_s2R",
+   "ok": true,
+   "at": [
+    5.1,
+    4.3,
+    2.8
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "p1_s3L",
+   "ok": true,
+   "at": [
+    -5.1,
+    8.2,
+    2.8
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "p1_s3R",
+   "ok": true,
+   "at": [
+    5.1,
+    8.2,
+    2.8
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "walk",
+   "name": "p1_aisleF",
+   "ok": true,
+   "at": [
+    0,
+    -7.0,
+    2.8
+   ],
+   "face": null,
+   "blocked_by": []
+  },
+  {
+   "kind": "walk",
+   "name": "p1_aisleR",
+   "ok": true,
+   "at": [
+    0,
+    6.0,
+    2.8
+   ],
+   "face": null,
+   "blocked_by": []
+  },
+  {
+   "kind": "walk",
+   "name": "p2_doorW",
+   "ok": true,
+   "at": [
+    -7.75,
+    23.0,
+    2.8
+   ],
+   "face": null,
+   "blocked_by": []
+  },
+  {
+   "kind": "walk",
+   "name": "p2_doorE",
+   "ok": true,
+   "at": [
+    7.75,
+    23.0,
+    2.8
+   ],
+   "face": null,
+   "blocked_by": []
+  },
+  {
+   "kind": "walk",
+   "name": "p2_gangS",
+   "ok": true,
+   "at": [
+    0,
+    12.25,
+    2.8
+   ],
+   "face": null,
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "p2_s0L",
+   "ok": true,
+   "at": [
+    -5.1,
+    14.8,
+    2.8
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "p2_s0R",
+   "ok": true,
+   "at": [
+    5.1,
+    14.8,
+    2.8
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "p2_s1L",
+   "ok": true,
+   "at": [
+    -5.1,
+    18.7,
+    2.8
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "p2_s1R",
+   "ok": true,
+   "at": [
+    5.1,
+    18.7,
+    2.8
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "p2_s2L",
+   "ok": true,
+   "at": [
+    -5.1,
+    27.8,
+    2.8
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "p2_s2R",
+   "ok": true,
+   "at": [
+    5.1,
+    27.8,
+    2.8
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "p2_s3L",
+   "ok": true,
+   "at": [
+    -5.1,
+    31.7,
+    2.8
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "p2_s3R",
+   "ok": true,
+   "at": [
+    5.1,
+    31.7,
+    2.8
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "walk",
+   "name": "p2_aisleF",
+   "ok": true,
+   "at": [
+    0,
+    16.5,
+    2.8
+   ],
+   "face": null,
+   "blocked_by": []
+  },
+  {
+   "kind": "walk",
+   "name": "p2_aisleR",
+   "ok": true,
+   "at": [
+    0,
+    29.5,
+    2.8
+   ],
+   "face": null,
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "cab_driver",
+   "ok": true,
+   "at": [
+    0,
+    -30.2,
+    2.8
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "walk",
+   "name": "cab_floor",
+   "ok": true,
+   "at": [
+    0,
+    -24,
+    2.8
+   ],
+   "face": null,
+   "blocked_by": []
+  }
+ ]
+}

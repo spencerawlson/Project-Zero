@@ -8,4 +8,4 @@
 
 **Target after Blender:** Body ≤ 8 k tris; wheels and rotors separate meshes with pivots at axles; 1024² trim + decals.
 
-_Dimensions (48×10×12 studs) are design assumptions._
+_Dimensions (57×16×16 (crew std) studs) are design assumptions._

@@ -4,7 +4,7 @@
 |---|---|
 | Roblox name | `PZ_HUB_AutonomousRobotShuttle_A` |
 | Purpose | Driverless robot shuttle for civic districts. |
-| Interaction | Hail · board · sit (4 seats) |
+| Interaction | Hail · board (5 × 8 door) · sit (4 robot seats, facing pairs) |
 | Animation | Door slide, eye blink, wheels |
 | Modular construction | Separate models per car / body / chassis / bogies; seats are Seat instances; doors are hinge models. |
 | Implementation | Scripted path following (TweenService / AlignPosition, network owner = server); passengers weld to seats. |

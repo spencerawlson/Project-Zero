@@ -1,0 +1,327 @@
+{
+ "standard": {
+  "max_h": 7.5,
+  "max_w": 4.4,
+  "seat_w": 4.8,
+  "seat_top": 1.6,
+  "pan_d": 2.4,
+  "back_t": 0.4,
+  "back_h": 3.4,
+  "walk_w": 5.0,
+  "walk_h": 8.0
+ },
+ "checks": [
+  {
+   "kind": "walk",
+   "name": "car0_doorW",
+   "ok": true,
+   "at": [
+    -7.75,
+    -12.0,
+    5.4
+   ],
+   "face": null,
+   "blocked_by": []
+  },
+  {
+   "kind": "walk",
+   "name": "car0_doorE",
+   "ok": true,
+   "at": [
+    7.75,
+    -12.0,
+    5.4
+   ],
+   "face": null,
+   "blocked_by": []
+  },
+  {
+   "kind": "walk",
+   "name": "car0_gang",
+   "ok": true,
+   "at": [
+    0,
+    -0.25,
+    5.4
+   ],
+   "face": null,
+   "blocked_by": []
+  },
+  {
+   "kind": "walk",
+   "name": "car0_aisleF",
+   "ok": true,
+   "at": [
+    0,
+    -19.0,
+    5.4
+   ],
+   "face": null,
+   "blocked_by": []
+  },
+  {
+   "kind": "walk",
+   "name": "car0_aisleR",
+   "ok": true,
+   "at": [
+    0,
+    -5.0,
+    5.4
+   ],
+   "face": null,
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "car0_s0L",
+   "ok": true,
+   "at": [
+    -5.1,
+    -21.2,
+    5.4
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "car0_s0R",
+   "ok": true,
+   "at": [
+    5.1,
+    -21.2,
+    5.4
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "car0_s1L",
+   "ok": true,
+   "at": [
+    -5.1,
+    -16.3,
+    5.4
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "car0_s1R",
+   "ok": true,
+   "at": [
+    5.1,
+    -16.3,
+    5.4
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "car0_s2L",
+   "ok": true,
+   "at": [
+    -5.1,
+    -7.2,
+    5.4
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "car0_s2R",
+   "ok": true,
+   "at": [
+    5.1,
+    -7.2,
+    5.4
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "car0_s3L",
+   "ok": true,
+   "at": [
+    -5.1,
+    -2.3,
+    5.4
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "car0_s3R",
+   "ok": true,
+   "at": [
+    5.1,
+    -2.3,
+    5.4
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "walk",
+   "name": "car1_doorW",
+   "ok": true,
+   "at": [
+    -7.75,
+    13.0,
+    5.4
+   ],
+   "face": null,
+   "blocked_by": []
+  },
+  {
+   "kind": "walk",
+   "name": "car1_doorE",
+   "ok": true,
+   "at": [
+    7.75,
+    13.0,
+    5.4
+   ],
+   "face": null,
+   "blocked_by": []
+  },
+  {
+   "kind": "walk",
+   "name": "car1_gang",
+   "ok": true,
+   "at": [
+    0,
+    1.25,
+    5.4
+   ],
+   "face": null,
+   "blocked_by": []
+  },
+  {
+   "kind": "walk",
+   "name": "car1_aisleF",
+   "ok": true,
+   "at": [
+    0,
+    6.0,
+    5.4
+   ],
+   "face": null,
+   "blocked_by": []
+  },
+  {
+   "kind": "walk",
+   "name": "car1_aisleR",
+   "ok": true,
+   "at": [
+    0,
+    20.0,
+    5.4
+   ],
+   "face": null,
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "car1_s0L",
+   "ok": true,
+   "at": [
+    -5.1,
+    3.8,
+    5.4
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "car1_s0R",
+   "ok": true,
+   "at": [
+    5.1,
+    3.8,
+    5.4
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "car1_s1L",
+   "ok": true,
+   "at": [
+    -5.1,
+    8.7,
+    5.4
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "car1_s1R",
+   "ok": true,
+   "at": [
+    5.1,
+    8.7,
+    5.4
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "car1_s2L",
+   "ok": true,
+   "at": [
+    -5.1,
+    17.8,
+    5.4
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "car1_s2R",
+   "ok": true,
+   "at": [
+    5.1,
+    17.8,
+    5.4
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "car1_s3L",
+   "ok": true,
+   "at": [
+    -5.1,
+    22.7,
+    5.4
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "car1_s3R",
+   "ok": true,
+   "at": [
+    5.1,
+    22.7,
+    5.4
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  }
+ ]
+}

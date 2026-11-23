@@ -16,6 +16,7 @@ cat, fn, opts = REG[AID]
 fn()
 if "dry" in _args[2:]:
     A.resolve_figure_clashes()
+    A.run_crew_checks(OUTDIR)
     mn, mx = A.scene_bbox()
     print("DRY_OK", AID, [round(v, 1) for v in mn], [round(v, 1) for v in mx], len(A.NOTES), "notes")
 else:

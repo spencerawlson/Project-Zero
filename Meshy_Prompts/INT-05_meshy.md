@@ -8,4 +8,4 @@
 
 **Target after Blender:** Props ≤ 2 k tris each; baked AO optional; shared interior trim sheet.
 
-_Dimensions (cab interior studs) are design assumptions._
+_Dimensions (17×12×8.6 cab interior studs) are design assumptions._

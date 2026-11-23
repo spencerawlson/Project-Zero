@@ -1,0 +1,183 @@
+{
+ "standard": {
+  "max_h": 7.5,
+  "max_w": 4.4,
+  "seat_w": 4.8,
+  "seat_top": 1.6,
+  "pan_d": 2.4,
+  "back_t": 0.4,
+  "back_h": 3.4,
+  "walk_w": 5.0,
+  "walk_h": 8.0
+ },
+ "checks": [
+  {
+   "kind": "seat",
+   "name": "seat0L",
+   "ok": true,
+   "at": [
+    -5.1,
+    -8.2,
+    0.1
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "seat0R",
+   "ok": true,
+   "at": [
+    5.1,
+    -8.2,
+    0.1
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "seat1L",
+   "ok": true,
+   "at": [
+    -5.1,
+    -4.3,
+    0.1
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "seat1R",
+   "ok": true,
+   "at": [
+    5.1,
+    -4.3,
+    0.1
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "seat2L",
+   "ok": true,
+   "at": [
+    -5.1,
+    4.8,
+    0.1
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "seat2R",
+   "ok": true,
+   "at": [
+    5.1,
+    4.8,
+    0.1
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "seat3L",
+   "ok": true,
+   "at": [
+    -5.1,
+    8.7,
+    0.1
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "seat3R",
+   "ok": true,
+   "at": [
+    5.1,
+    8.7,
+    0.1
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "walk",
+   "name": "aisleF",
+   "ok": true,
+   "at": [
+    0,
+    -6.5,
+    0.1
+   ],
+   "face": null,
+   "blocked_by": []
+  },
+  {
+   "kind": "walk",
+   "name": "aisleR",
+   "ok": true,
+   "at": [
+    0,
+    6.5,
+    0.1
+   ],
+   "face": null,
+   "blocked_by": []
+  },
+  {
+   "kind": "walk",
+   "name": "doorW",
+   "ok": true,
+   "at": [
+    -8.0,
+    0,
+    0.1
+   ],
+   "face": null,
+   "blocked_by": []
+  },
+  {
+   "kind": "walk",
+   "name": "doorE",
+   "ok": true,
+   "at": [
+    8.0,
+    0,
+    0.1
+   ],
+   "face": null,
+   "blocked_by": []
+  },
+  {
+   "kind": "walk",
+   "name": "gangS",
+   "ok": true,
+   "at": [
+    0,
+    -11.0,
+    0.1
+   ],
+   "face": null,
+   "blocked_by": []
+  },
+  {
+   "kind": "walk",
+   "name": "gangN",
+   "ok": true,
+   "at": [
+    0,
+    11.0,
+    0.1
+   ],
+   "face": null,
+   "blocked_by": []
+  }
+ ]
+}

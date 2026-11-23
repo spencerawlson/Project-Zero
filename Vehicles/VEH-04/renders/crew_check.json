@@ -1,0 +1,99 @@
+{
+ "standard": {
+  "max_h": 7.5,
+  "max_w": 4.4,
+  "seat_w": 4.8,
+  "seat_top": 1.6,
+  "pan_d": 2.4,
+  "back_t": 0.4,
+  "back_h": 3.4,
+  "walk_w": 5.0,
+  "walk_h": 8.0
+ },
+ "checks": [
+  {
+   "kind": "seat",
+   "name": "drv_L",
+   "ok": true,
+   "at": [
+    -2.5,
+    -9.0,
+    2.6
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "drv_R",
+   "ok": true,
+   "at": [
+    2.5,
+    -9.0,
+    2.6
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "crew_L",
+   "ok": true,
+   "at": [
+    -2.5,
+    0.0,
+    2.6
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "seat",
+   "name": "crew_R",
+   "ok": true,
+   "at": [
+    2.5,
+    0.0,
+    2.6
+   ],
+   "face": "-Y",
+   "blocked_by": []
+  },
+  {
+   "kind": "walk",
+   "name": "doorW",
+   "ok": true,
+   "at": [
+    -5.2,
+    -4.7,
+    2.6
+   ],
+   "face": null,
+   "blocked_by": []
+  },
+  {
+   "kind": "walk",
+   "name": "doorE",
+   "ok": true,
+   "at": [
+    5.2,
+    -4.7,
+    2.6
+   ],
+   "face": null,
+   "blocked_by": []
+  },
+  {
+   "kind": "walk",
+   "name": "cab_floor",
+   "ok": true,
+   "at": [
+    0,
+    -4.7,
+    2.6
+   ],
+   "face": null,
+   "blocked_by": []
+  }
+ ]
+}
