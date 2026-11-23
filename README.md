@@ -42,4 +42,5 @@ python pz_export_md.py                                      # Meshy prompts + Ro
 - Cypher, Sentinel and Patch are the canonical robots and are used unmodified. Every other robot belongs to the same family. No faceless figures are used.
 - Weapons are blockouts and concept crops until the Meshy models arrive.
 - The Roblox Studio build is a greybox only: plain parts at the layout's dimensions, no kit modules or gameplay scripts yet.
-- Blockout scenes still show the finished robots, and some interiors place them inside furniture (for example INT-04). A fix is pending a style decision.
+- Blockout scenes show grey stand-in figures at each robot's design height, not the finished robots, so blockout and final art don't mix. A clash check (`resolve_figure_clashes` in `pz_asset_lib.py`) moves any figure that intersects scenery to the nearest clear spot and logs a `STANDIN_MOVED` line. Real robots appear only on character and supplied-model sheets, and in the Stasis pods.
+- Vehicle crews are drawn standing beside their vehicles. Most cabs and cockpits are too small for a standing figure, so seated poses or larger cabs are an open design question.

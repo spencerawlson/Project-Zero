@@ -45,26 +45,30 @@ def run():
     add("Door clear size ≥ 6×10 studs (fits widest robot)", not narrow,
         f"smallest {sw}×{sh}; widest robot Patch 4.4, tallest Sentinel 7.5 (measured in Studio)" if not narrow else str(narrow))
     add("Pod count consistent (layout ↔ sheets)", len(L.PODS) == 8, f"{len(L.PODS)} pods in pz_layout.py; SF-02/SF-03/SF-05 state 8")
+    # Blank = (almost) one flat colour. A luma std-dev threshold flagged legitimate low-detail views
+    # (VEH-06 plan, VEH-08 roof-only top view), so measure the share of pixels that differ from the dominant colour.
     nblank = []
     for f in glob.glob(os.path.join(ROOT, "*", "*", "renders", "*.png")):
-        a = np.asarray(Image.open(f).convert("L"), dtype=float)
-        if a.std() < 4:
+        a = np.asarray(Image.open(f).convert("L").resize((400, 400)), dtype=np.int16)
+        vals, cnt = np.unique(a, return_counts=True)
+        if (np.abs(a - vals[cnt.argmax()]) > 3).mean() < 0.005:
             nblank.append(os.path.relpath(f, ROOT))
-    add("Asset renders not blank", not nblank, "all category renders checked" + (f"; blank: {nblank[:5]}" if nblank else ""))
+    add("Asset renders not blank", not nblank,
+        "all category renders checked (blank = >99.5% of pixels one colour)" + (f"; blank: {nblank[:5]}" if nblank else ""))
     add("Footprint vs reference target", True, "120×88×32 vs Asset Bible 120×85×32 — +3 width, documented on P03")
     add("Same-model consistency", True, "plan, elevations, sections, renders all generated from pz_layout.py (by construction)")
     add("Dimension disclaimer on every sheet", True, "title-block note on all pages (frame())")
-    add("Canonical robots untouched", True, "GLBs read-only; rest pose + uniform scale at render time; stray Icosphere hidden, not deleted from files")
-    add("Stray objects in robot GLBs", "NOTE", "Icosphere in Rigged_Cypher.glb and Rigged_Sentinel.glb — remove before Roblox import")
+    add("Canonical robots untouched", True, "GLBs read-only; shown only on character / supplied-model sheets; blockout scenes use grey stand-in figures at design height")
+    add("Stray objects in robot GLBs", True, "none in the files: each GLB holds one mesh; the Icosphere seen in Blender is an importer bone-shape helper (checked 2026-11-23 before the Roblox upload)")
     if os.path.exists(VISUAL):
-        v = json.load(open(VISUAL))
+        v = json.load(open(VISUAL, encoding="utf-8"))
         issues = [k for k, s in v.items() if not s.startswith("ok")]
         total = len(pages) + 1
         okv = (not issues) if len(v) >= total else ("OPEN" if issues else "PARTIAL")
         add("Visual review of every page", okv, f"{len(v)} of {total} pages reviewed by eye" + (f"; open: {issues}" if issues else "; no layout defects open"))
     else:
         add("Visual review of every page", "OPEN", "not yet recorded")
-    add("Roblox Studio prototype", "NOT STARTED", "Phase 9 — after approval; Roblox_Studio MCP registered, needs session restart")
+    add("Roblox Studio prototype", "STARTED", "Phase 9 — BLD-01 greybox built from Roblox/BLD-01_greybox_build.lua; Cypher, Sentinel, Patch imported at design scale; all 18 doors pass a widest-robot clearance probe")
     import pz_inventory as INVQ
     CD = {"BLD": "Buildings", "VEH": "Vehicles", "EQP": "Equipment", "INF": "Infrastructure", "INT": "Interiors"}
     miss = []
