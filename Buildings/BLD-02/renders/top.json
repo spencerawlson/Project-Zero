@@ -1,0 +1,162 @@
+{
+ "shot": "top",
+ "res": [
+  1600,
+  1600
+ ],
+ "cam_loc": [
+  0.0,
+  -5.75,
+  92.0
+ ],
+ "anchors": {
+  "bay": [
+   800.0,
+   1288.1142377853394,
+   84.0
+  ],
+  "gear": [
+   800.0,
+   1296.665120124817,
+   70.5
+  ],
+  "crane": [
+   1248.9226341247559,
+   411.64636611938477,
+   50.0
+  ],
+  "holo": [
+   800.0,
+   718.0538177490234,
+   82.30000305175781
+  ],
+  "bench0": [
+   286.94560527801514,
+   376.01757049560547,
+   83.0
+  ],
+  "mission_term": [
+   1313.054370880127,
+   817.8143978118896,
+   86.0
+  ],
+  "archive_wall": [
+   123.05324077606201,
+   718.0538177490234,
+   80.0
+  ],
+  "test_bay": [
+   1156.2877655029297,
+   1088.5931015014648,
+   91.69999694824219
+  ]
+ },
+ "ortho_scale": 112.268798828125,
+ "bbox": [
+  [
+   -50.119998931884766,
+   -52.0,
+   0.0
+  ],
+  [
+   50.119998931884766,
+   40.5,
+   42.0
+  ]
+ ],
+ "bbox_obj": [
+  [
+   -50.119998931884766,
+   -48.0,
+   0.0
+  ],
+  [
+   50.119998931884766,
+   40.5,
+   42.0
+  ]
+ ],
+ "notes": {
+  "bay": [
+   [
+    0,
+    -40,
+    8
+   ],
+   "Open repair bay 36 \u00d7 15 (no door: always welcoming)",
+   "body"
+  ],
+  "gear": [
+   [
+    0,
+    -40.6,
+    21.5
+   ],
+   "Orange gear emblem \u2014 Resistance identity",
+   "body"
+  ],
+  "crane": [
+   [
+    31.5,
+    21.5,
+    42
+   ],
+   "Rooftop salvage crane (animated jib)",
+   "roof"
+  ],
+  "holo": [
+   [
+    0,
+    0,
+    9.7
+   ],
+   "Holo customization platform: previews the player's robot",
+   "interior"
+  ],
+  "bench0": [
+   [
+    -36,
+    24,
+    9
+   ],
+   "Workbench + mechanical arm \u00d74 (crafting)",
+   "interior"
+  ],
+  "mission_term": [
+   [
+    36,
+    -7,
+    6
+   ],
+   "Mission terminal (party queue)",
+   "interior"
+  ],
+  "archive_wall": [
+   [
+    -47.5,
+    0,
+    12
+   ],
+   "Archive wall (memory fragments)",
+   "interior"
+  ],
+  "test_bay": [
+   [
+    25,
+    -26,
+    0.3
+   ],
+   "Testing bay (non-reward sandbox)",
+   "interior"
+  ]
+ },
+ "cut": 10,
+ "cat": "BLD",
+ "view": "top",
+ "ortho": 112.26879760742189,
+ "center": [
+  0.0,
+  -5.75,
+  21.0
+ ]
+}

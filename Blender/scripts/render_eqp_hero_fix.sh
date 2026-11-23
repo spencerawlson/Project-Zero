@@ -1,0 +1,6 @@
+#!/bin/sh
+LOG="C:/Users/spenc/AppData/Local/Temp/claude/61d04c85e440f3a3/9f88cfaa-bf1d-4ea6-bfcd-21e7252f56c4/tasks/bn1ajt6a0.output"
+while ! grep -q INTFIX_DONE "$LOG"; do sleep 30; done
+export PZ_SHOTS=hero,detail
+sh "D:/Project Zero_Roblox/Project_Zero_Production_Bible/Blender/scripts/render_assets.sh" EQP-01 EQP-02 EQP-03 EQP-04 EQP-05 EQP-06 EQP-07 EQP-08 EQP-09 EQP-10 EQP-11 EQP-12 EQP-13 EQP-14 EQP-15 EQP-16 EQP-17 EQP-18 EQP-19 EQP-20 EQP-21 EQP-22 EQP-23 EQP-24 EQP-25
+echo EQPFIX_DONE

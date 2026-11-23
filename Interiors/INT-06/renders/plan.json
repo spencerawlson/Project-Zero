@@ -1,0 +1,106 @@
+{
+ "shot": "plan",
+ "res": [
+  1600,
+  1600
+ ],
+ "cam_loc": [
+  0.0,
+  0.0,
+  9.0
+ ],
+ "anchors": {
+  "holo_globe": [
+   800.0,
+   800.0,
+   1.0
+  ],
+  "scr1": [
+   502.38094329833984,
+   978.5714149475098,
+   3.0
+  ],
+  "partition": [
+   1157.1428298950195,
+   621.4285850524902,
+   -1.0
+  ],
+  "vault2": [
+   800.0,
+   502.38094329833984,
+   -2.0
+  ]
+ },
+ "ortho_scale": 53.7599983215332,
+ "bbox": [
+  [
+   -24.0,
+   -16.0,
+   0.0
+  ],
+  [
+   24.0,
+   16.0,
+   16.799999237060547
+  ]
+ ],
+ "bbox_obj": [
+  [
+   -24.0,
+   -16.0,
+   0.0
+  ],
+  [
+   24.0,
+   16.0,
+   16.799999237060547
+  ]
+ ],
+ "notes": {
+  "holo_globe": [
+   [
+    0,
+    0,
+    8
+   ],
+   "Holo analysis table (memory playback)",
+   "interior"
+  ],
+  "scr1": [
+   [
+    -10,
+    -6,
+    6
+   ],
+   "Lab benches, violet terminals",
+   "interior"
+  ],
+  "partition": [
+   [
+    12,
+    6,
+    10
+   ],
+   "Glass partition to sealed vault",
+   "interior"
+  ],
+  "vault2": [
+   [
+    0,
+    10,
+    11
+   ],
+   "Evidence vault racks (access levels)",
+   "interior"
+  ]
+ },
+ "cut": 9,
+ "cat": "INT",
+ "view": "plan",
+ "ortho": 53.760000000000005,
+ "center": [
+  0.0,
+  0.0,
+  8.399999618530273
+ ]
+}

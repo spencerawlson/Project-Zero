@@ -1,0 +1,134 @@
+{
+ "shot": "top",
+ "res": [
+  1600,
+  1600
+ ],
+ "cam_loc": [
+  0.0,
+  -6.0,
+  89.0
+ ],
+ "anchors": {
+  "tower_cab": [
+   1103.5714149475098,
+   657.1428298950195,
+   53.0
+  ],
+  "beacon": [
+   1103.5714149475098,
+   532.1428298950195,
+   50.0
+  ],
+  "emblem": [
+   800.0,
+   1028.5714149475098,
+   78.0
+  ],
+  "gate_bar": [
+   800.0,
+   1210.7142925262451,
+   79.0
+  ],
+  "monwall": [
+   621.4285850524902,
+   425.0,
+   80.0
+  ],
+  "cells": [
+   1050.0,
+   889.2857074737549,
+   81.0
+  ]
+ },
+ "ortho_scale": 89.5999984741211,
+ "bbox": [
+  [
+   -40.0,
+   -30.0,
+   0.0
+  ],
+  [
+   40.0,
+   18.0,
+   39.0
+  ]
+ ],
+ "bbox_obj": [
+  [
+   -40.0,
+   -30.0,
+   0.0
+  ],
+  [
+   40.0,
+   18.0,
+   39.0
+  ]
+ ],
+ "notes": {
+  "tower_cab": [
+   [
+    17,
+    2,
+    36
+   ],
+   "Watchtower cab \u2014 red surveillance strip",
+   "body"
+  ],
+  "beacon": [
+   [
+    17,
+    9,
+    39
+   ],
+   "Alert beacon (Security state)",
+   "body"
+  ],
+  "emblem": [
+   [
+    0,
+    -18.8,
+    11
+   ],
+   "ZERO security emblem (red)",
+   "body"
+  ],
+  "gate_bar": [
+   [
+    0,
+    -29,
+    10
+   ],
+   "Checkpoint barrier (INF-04 pattern)",
+   "body"
+  ],
+  "monwall": [
+   [
+    -10,
+    15,
+    9
+   ],
+   "Surveillance wall",
+   "interior"
+  ],
+  "cells": [
+   [
+    14,
+    -11,
+    8
+   ],
+   "Holding cells (bypass puzzle)",
+   "interior"
+  ]
+ },
+ "cut": 8,
+ "cat": "BLD",
+ "view": "top",
+ "ortho": 89.60000000000001,
+ "center": [
+  0.0,
+  -6.0,
+  19.5
+ ]
+}

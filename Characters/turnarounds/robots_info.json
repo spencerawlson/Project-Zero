@@ -1,0 +1,48 @@
+{
+ "Utility": {
+  "file": "Meshy_AI_Rigged_Futuristic_Utility_Robot_20261120_animated_mixamo_All_animation.glb",
+  "size": [
+   1.194,
+   0.56,
+   1.8
+  ],
+  "tris": 10138,
+  "stray_objects": [
+   "Icosphere"
+  ]
+ },
+ "Cypher": {
+  "file": "Rigged_Cypher.glb",
+  "size": [
+   0.97,
+   0.532,
+   1.7
+  ],
+  "tris": 10296,
+  "stray_objects": [
+   "Icosphere"
+  ]
+ },
+ "Sentinel": {
+  "file": "Rigged_Sentinel.glb",
+  "size": [
+   0.954,
+   0.521,
+   1.7
+  ],
+  "tris": 10273,
+  "stray_objects": [
+   "Icosphere.001"
+  ]
+ },
+ "Patch": {
+  "file": "Patch_LowPoly.glb",
+  "size": [
+   1.57,
+   0.983,
+   1.898
+  ],
+  "tris": 6542,
+  "stray_objects": []
+ }
+}

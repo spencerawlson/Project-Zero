@@ -1,0 +1,12 @@
+# Extracted copies of the supplied 3D models (1.1 GB; originals live outside this repo)
+Source_Documents/user_models/
+
+# Build intermediates
+PDF/_jpg/
+__pycache__/
+*.pyc
+*.blend1
+*.blend@
+*.tmp
+Thumbs.db
+desktop.ini

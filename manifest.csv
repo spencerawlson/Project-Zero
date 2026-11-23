@@ -1,0 +1,852 @@
+asset_id,file,kind,view,camera_meta,source
+BLD-02,Buildings\BLD-02\renders\cutaway.png,render,cutaway,Buildings\BLD-02\renders\cutaway.json,Blender/scripts (procedural or user GLB audit)
+BLD-02,Buildings\BLD-02\renders\front.png,render,front,Buildings\BLD-02\renders\front.json,Blender/scripts (procedural or user GLB audit)
+BLD-02,Buildings\BLD-02\renders\hero.png,render,hero,Buildings\BLD-02\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+BLD-02,Buildings\BLD-02\renders\left.png,render,left,Buildings\BLD-02\renders\left.json,Blender/scripts (procedural or user GLB audit)
+BLD-02,Buildings\BLD-02\renders\plan.png,render,plan,Buildings\BLD-02\renders\plan.json,Blender/scripts (procedural or user GLB audit)
+BLD-02,Buildings\BLD-02\renders\rear.png,render,rear,Buildings\BLD-02\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+BLD-02,Buildings\BLD-02\renders\right.png,render,right,Buildings\BLD-02\renders\right.json,Blender/scripts (procedural or user GLB audit)
+BLD-02,Buildings\BLD-02\renders\top.png,render,top,Buildings\BLD-02\renders\top.json,Blender/scripts (procedural or user GLB audit)
+BLD-03,Buildings\BLD-03\renders\cutaway.png,render,cutaway,Buildings\BLD-03\renders\cutaway.json,Blender/scripts (procedural or user GLB audit)
+BLD-03,Buildings\BLD-03\renders\front.png,render,front,Buildings\BLD-03\renders\front.json,Blender/scripts (procedural or user GLB audit)
+BLD-03,Buildings\BLD-03\renders\hero.png,render,hero,Buildings\BLD-03\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+BLD-03,Buildings\BLD-03\renders\left.png,render,left,Buildings\BLD-03\renders\left.json,Blender/scripts (procedural or user GLB audit)
+BLD-03,Buildings\BLD-03\renders\plan.png,render,plan,Buildings\BLD-03\renders\plan.json,Blender/scripts (procedural or user GLB audit)
+BLD-03,Buildings\BLD-03\renders\rear.png,render,rear,Buildings\BLD-03\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+BLD-03,Buildings\BLD-03\renders\right.png,render,right,Buildings\BLD-03\renders\right.json,Blender/scripts (procedural or user GLB audit)
+BLD-03,Buildings\BLD-03\renders\top.png,render,top,Buildings\BLD-03\renders\top.json,Blender/scripts (procedural or user GLB audit)
+BLD-04,Buildings\BLD-04\renders\cutaway.png,render,cutaway,Buildings\BLD-04\renders\cutaway.json,Blender/scripts (procedural or user GLB audit)
+BLD-04,Buildings\BLD-04\renders\front.png,render,front,Buildings\BLD-04\renders\front.json,Blender/scripts (procedural or user GLB audit)
+BLD-04,Buildings\BLD-04\renders\hero.png,render,hero,Buildings\BLD-04\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+BLD-04,Buildings\BLD-04\renders\left.png,render,left,Buildings\BLD-04\renders\left.json,Blender/scripts (procedural or user GLB audit)
+BLD-04,Buildings\BLD-04\renders\plan.png,render,plan,Buildings\BLD-04\renders\plan.json,Blender/scripts (procedural or user GLB audit)
+BLD-04,Buildings\BLD-04\renders\rear.png,render,rear,Buildings\BLD-04\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+BLD-04,Buildings\BLD-04\renders\right.png,render,right,Buildings\BLD-04\renders\right.json,Blender/scripts (procedural or user GLB audit)
+BLD-04,Buildings\BLD-04\renders\top.png,render,top,Buildings\BLD-04\renders\top.json,Blender/scripts (procedural or user GLB audit)
+BLD-05,Buildings\BLD-05\renders\cutaway.png,render,cutaway,Buildings\BLD-05\renders\cutaway.json,Blender/scripts (procedural or user GLB audit)
+BLD-05,Buildings\BLD-05\renders\front.png,render,front,Buildings\BLD-05\renders\front.json,Blender/scripts (procedural or user GLB audit)
+BLD-05,Buildings\BLD-05\renders\hero.png,render,hero,Buildings\BLD-05\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+BLD-05,Buildings\BLD-05\renders\left.png,render,left,Buildings\BLD-05\renders\left.json,Blender/scripts (procedural or user GLB audit)
+BLD-05,Buildings\BLD-05\renders\plan.png,render,plan,Buildings\BLD-05\renders\plan.json,Blender/scripts (procedural or user GLB audit)
+BLD-05,Buildings\BLD-05\renders\rear.png,render,rear,Buildings\BLD-05\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+BLD-05,Buildings\BLD-05\renders\right.png,render,right,Buildings\BLD-05\renders\right.json,Blender/scripts (procedural or user GLB audit)
+BLD-05,Buildings\BLD-05\renders\top.png,render,top,Buildings\BLD-05\renders\top.json,Blender/scripts (procedural or user GLB audit)
+BLD-06,Buildings\BLD-06\renders\cutaway.png,render,cutaway,Buildings\BLD-06\renders\cutaway.json,Blender/scripts (procedural or user GLB audit)
+BLD-06,Buildings\BLD-06\renders\front.png,render,front,Buildings\BLD-06\renders\front.json,Blender/scripts (procedural or user GLB audit)
+BLD-06,Buildings\BLD-06\renders\hero.png,render,hero,Buildings\BLD-06\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+BLD-06,Buildings\BLD-06\renders\left.png,render,left,Buildings\BLD-06\renders\left.json,Blender/scripts (procedural or user GLB audit)
+BLD-06,Buildings\BLD-06\renders\plan.png,render,plan,Buildings\BLD-06\renders\plan.json,Blender/scripts (procedural or user GLB audit)
+BLD-06,Buildings\BLD-06\renders\rear.png,render,rear,Buildings\BLD-06\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+BLD-06,Buildings\BLD-06\renders\right.png,render,right,Buildings\BLD-06\renders\right.json,Blender/scripts (procedural or user GLB audit)
+BLD-06,Buildings\BLD-06\renders\top.png,render,top,Buildings\BLD-06\renders\top.json,Blender/scripts (procedural or user GLB audit)
+BLD-07,Buildings\BLD-07\renders\cutaway.png,render,cutaway,Buildings\BLD-07\renders\cutaway.json,Blender/scripts (procedural or user GLB audit)
+BLD-07,Buildings\BLD-07\renders\front.png,render,front,Buildings\BLD-07\renders\front.json,Blender/scripts (procedural or user GLB audit)
+BLD-07,Buildings\BLD-07\renders\hero.png,render,hero,Buildings\BLD-07\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+BLD-07,Buildings\BLD-07\renders\left.png,render,left,Buildings\BLD-07\renders\left.json,Blender/scripts (procedural or user GLB audit)
+BLD-07,Buildings\BLD-07\renders\plan.png,render,plan,Buildings\BLD-07\renders\plan.json,Blender/scripts (procedural or user GLB audit)
+BLD-07,Buildings\BLD-07\renders\rear.png,render,rear,Buildings\BLD-07\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+BLD-07,Buildings\BLD-07\renders\right.png,render,right,Buildings\BLD-07\renders\right.json,Blender/scripts (procedural or user GLB audit)
+BLD-07,Buildings\BLD-07\renders\top.png,render,top,Buildings\BLD-07\renders\top.json,Blender/scripts (procedural or user GLB audit)
+BLD-08,Buildings\BLD-08\renders\cutaway.png,render,cutaway,Buildings\BLD-08\renders\cutaway.json,Blender/scripts (procedural or user GLB audit)
+BLD-08,Buildings\BLD-08\renders\front.png,render,front,Buildings\BLD-08\renders\front.json,Blender/scripts (procedural or user GLB audit)
+BLD-08,Buildings\BLD-08\renders\hero.png,render,hero,Buildings\BLD-08\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+BLD-08,Buildings\BLD-08\renders\left.png,render,left,Buildings\BLD-08\renders\left.json,Blender/scripts (procedural or user GLB audit)
+BLD-08,Buildings\BLD-08\renders\plan.png,render,plan,Buildings\BLD-08\renders\plan.json,Blender/scripts (procedural or user GLB audit)
+BLD-08,Buildings\BLD-08\renders\rear.png,render,rear,Buildings\BLD-08\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+BLD-08,Buildings\BLD-08\renders\right.png,render,right,Buildings\BLD-08\renders\right.json,Blender/scripts (procedural or user GLB audit)
+BLD-08,Buildings\BLD-08\renders\top.png,render,top,Buildings\BLD-08\renders\top.json,Blender/scripts (procedural or user GLB audit)
+BLD-09,Buildings\BLD-09\renders\cutaway.png,render,cutaway,Buildings\BLD-09\renders\cutaway.json,Blender/scripts (procedural or user GLB audit)
+BLD-09,Buildings\BLD-09\renders\front.png,render,front,Buildings\BLD-09\renders\front.json,Blender/scripts (procedural or user GLB audit)
+BLD-09,Buildings\BLD-09\renders\hero.png,render,hero,Buildings\BLD-09\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+BLD-09,Buildings\BLD-09\renders\left.png,render,left,Buildings\BLD-09\renders\left.json,Blender/scripts (procedural or user GLB audit)
+BLD-09,Buildings\BLD-09\renders\plan.png,render,plan,Buildings\BLD-09\renders\plan.json,Blender/scripts (procedural or user GLB audit)
+BLD-09,Buildings\BLD-09\renders\rear.png,render,rear,Buildings\BLD-09\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+BLD-09,Buildings\BLD-09\renders\right.png,render,right,Buildings\BLD-09\renders\right.json,Blender/scripts (procedural or user GLB audit)
+BLD-09,Buildings\BLD-09\renders\top.png,render,top,Buildings\BLD-09\renders\top.json,Blender/scripts (procedural or user GLB audit)
+BLD-10,Buildings\BLD-10\renders\cutaway.png,render,cutaway,Buildings\BLD-10\renders\cutaway.json,Blender/scripts (procedural or user GLB audit)
+BLD-10,Buildings\BLD-10\renders\front.png,render,front,Buildings\BLD-10\renders\front.json,Blender/scripts (procedural or user GLB audit)
+BLD-10,Buildings\BLD-10\renders\hero.png,render,hero,Buildings\BLD-10\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+BLD-10,Buildings\BLD-10\renders\left.png,render,left,Buildings\BLD-10\renders\left.json,Blender/scripts (procedural or user GLB audit)
+BLD-10,Buildings\BLD-10\renders\plan.png,render,plan,Buildings\BLD-10\renders\plan.json,Blender/scripts (procedural or user GLB audit)
+BLD-10,Buildings\BLD-10\renders\rear.png,render,rear,Buildings\BLD-10\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+BLD-10,Buildings\BLD-10\renders\right.png,render,right,Buildings\BLD-10\renders\right.json,Blender/scripts (procedural or user GLB audit)
+BLD-10,Buildings\BLD-10\renders\top.png,render,top,Buildings\BLD-10\renders\top.json,Blender/scripts (procedural or user GLB audit)
+BLD-11,Buildings\BLD-11\renders\cutaway.png,render,cutaway,Buildings\BLD-11\renders\cutaway.json,Blender/scripts (procedural or user GLB audit)
+BLD-11,Buildings\BLD-11\renders\front.png,render,front,Buildings\BLD-11\renders\front.json,Blender/scripts (procedural or user GLB audit)
+BLD-11,Buildings\BLD-11\renders\hero.png,render,hero,Buildings\BLD-11\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+BLD-11,Buildings\BLD-11\renders\left.png,render,left,Buildings\BLD-11\renders\left.json,Blender/scripts (procedural or user GLB audit)
+BLD-11,Buildings\BLD-11\renders\plan.png,render,plan,Buildings\BLD-11\renders\plan.json,Blender/scripts (procedural or user GLB audit)
+BLD-11,Buildings\BLD-11\renders\rear.png,render,rear,Buildings\BLD-11\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+BLD-11,Buildings\BLD-11\renders\right.png,render,right,Buildings\BLD-11\renders\right.json,Blender/scripts (procedural or user GLB audit)
+BLD-11,Buildings\BLD-11\renders\top.png,render,top,Buildings\BLD-11\renders\top.json,Blender/scripts (procedural or user GLB audit)
+BLD-12,Buildings\BLD-12\renders\cutaway.png,render,cutaway,Buildings\BLD-12\renders\cutaway.json,Blender/scripts (procedural or user GLB audit)
+BLD-12,Buildings\BLD-12\renders\front.png,render,front,Buildings\BLD-12\renders\front.json,Blender/scripts (procedural or user GLB audit)
+BLD-12,Buildings\BLD-12\renders\hero.png,render,hero,Buildings\BLD-12\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+BLD-12,Buildings\BLD-12\renders\left.png,render,left,Buildings\BLD-12\renders\left.json,Blender/scripts (procedural or user GLB audit)
+BLD-12,Buildings\BLD-12\renders\plan.png,render,plan,Buildings\BLD-12\renders\plan.json,Blender/scripts (procedural or user GLB audit)
+BLD-12,Buildings\BLD-12\renders\rear.png,render,rear,Buildings\BLD-12\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+BLD-12,Buildings\BLD-12\renders\right.png,render,right,Buildings\BLD-12\renders\right.json,Blender/scripts (procedural or user GLB audit)
+BLD-12,Buildings\BLD-12\renders\top.png,render,top,Buildings\BLD-12\renders\top.json,Blender/scripts (procedural or user GLB audit)
+BLD-13,Buildings\BLD-13\renders\cutaway.png,render,cutaway,Buildings\BLD-13\renders\cutaway.json,Blender/scripts (procedural or user GLB audit)
+BLD-13,Buildings\BLD-13\renders\front.png,render,front,Buildings\BLD-13\renders\front.json,Blender/scripts (procedural or user GLB audit)
+BLD-13,Buildings\BLD-13\renders\hero.png,render,hero,Buildings\BLD-13\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+BLD-13,Buildings\BLD-13\renders\left.png,render,left,Buildings\BLD-13\renders\left.json,Blender/scripts (procedural or user GLB audit)
+BLD-13,Buildings\BLD-13\renders\plan.png,render,plan,Buildings\BLD-13\renders\plan.json,Blender/scripts (procedural or user GLB audit)
+BLD-13,Buildings\BLD-13\renders\rear.png,render,rear,Buildings\BLD-13\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+BLD-13,Buildings\BLD-13\renders\right.png,render,right,Buildings\BLD-13\renders\right.json,Blender/scripts (procedural or user GLB audit)
+BLD-13,Buildings\BLD-13\renders\top.png,render,top,Buildings\BLD-13\renders\top.json,Blender/scripts (procedural or user GLB audit)
+BLD-14,Buildings\BLD-14\renders\cutaway.png,render,cutaway,Buildings\BLD-14\renders\cutaway.json,Blender/scripts (procedural or user GLB audit)
+BLD-14,Buildings\BLD-14\renders\front.png,render,front,Buildings\BLD-14\renders\front.json,Blender/scripts (procedural or user GLB audit)
+BLD-14,Buildings\BLD-14\renders\hero.png,render,hero,Buildings\BLD-14\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+BLD-14,Buildings\BLD-14\renders\left.png,render,left,Buildings\BLD-14\renders\left.json,Blender/scripts (procedural or user GLB audit)
+BLD-14,Buildings\BLD-14\renders\plan.png,render,plan,Buildings\BLD-14\renders\plan.json,Blender/scripts (procedural or user GLB audit)
+BLD-14,Buildings\BLD-14\renders\rear.png,render,rear,Buildings\BLD-14\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+BLD-14,Buildings\BLD-14\renders\right.png,render,right,Buildings\BLD-14\renders\right.json,Blender/scripts (procedural or user GLB audit)
+BLD-14,Buildings\BLD-14\renders\top.png,render,top,Buildings\BLD-14\renders\top.json,Blender/scripts (procedural or user GLB audit)
+BLD-15,Buildings\BLD-15\renders\cutaway.png,render,cutaway,Buildings\BLD-15\renders\cutaway.json,Blender/scripts (procedural or user GLB audit)
+BLD-15,Buildings\BLD-15\renders\front.png,render,front,Buildings\BLD-15\renders\front.json,Blender/scripts (procedural or user GLB audit)
+BLD-15,Buildings\BLD-15\renders\hero.png,render,hero,Buildings\BLD-15\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+BLD-15,Buildings\BLD-15\renders\left.png,render,left,Buildings\BLD-15\renders\left.json,Blender/scripts (procedural or user GLB audit)
+BLD-15,Buildings\BLD-15\renders\plan.png,render,plan,Buildings\BLD-15\renders\plan.json,Blender/scripts (procedural or user GLB audit)
+BLD-15,Buildings\BLD-15\renders\rear.png,render,rear,Buildings\BLD-15\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+BLD-15,Buildings\BLD-15\renders\right.png,render,right,Buildings\BLD-15\renders\right.json,Blender/scripts (procedural or user GLB audit)
+BLD-15,Buildings\BLD-15\renders\top.png,render,top,Buildings\BLD-15\renders\top.json,Blender/scripts (procedural or user GLB audit)
+BLD-16,Buildings\BLD-16\renders\front.png,render,front,Buildings\BLD-16\renders\front.json,Blender/scripts (procedural or user GLB audit)
+BLD-16,Buildings\BLD-16\renders\hero.png,render,hero,Buildings\BLD-16\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+BLD-16,Buildings\BLD-16\renders\left.png,render,left,Buildings\BLD-16\renders\left.json,Blender/scripts (procedural or user GLB audit)
+BLD-16,Buildings\BLD-16\renders\rear.png,render,rear,Buildings\BLD-16\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+BLD-16,Buildings\BLD-16\renders\right.png,render,right,Buildings\BLD-16\renders\right.json,Blender/scripts (procedural or user GLB audit)
+BLD-16,Buildings\BLD-16\renders\top.png,render,top,Buildings\BLD-16\renders\top.json,Blender/scripts (procedural or user GLB audit)
+BLD-17,Buildings\BLD-17\renders\front.png,render,front,Buildings\BLD-17\renders\front.json,Blender/scripts (procedural or user GLB audit)
+BLD-17,Buildings\BLD-17\renders\hero.png,render,hero,Buildings\BLD-17\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+BLD-17,Buildings\BLD-17\renders\left.png,render,left,Buildings\BLD-17\renders\left.json,Blender/scripts (procedural or user GLB audit)
+BLD-17,Buildings\BLD-17\renders\rear.png,render,rear,Buildings\BLD-17\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+BLD-17,Buildings\BLD-17\renders\right.png,render,right,Buildings\BLD-17\renders\right.json,Blender/scripts (procedural or user GLB audit)
+BLD-17,Buildings\BLD-17\renders\top.png,render,top,Buildings\BLD-17\renders\top.json,Blender/scripts (procedural or user GLB audit)
+BLD-18,Buildings\BLD-18\renders\front.png,render,front,Buildings\BLD-18\renders\front.json,Blender/scripts (procedural or user GLB audit)
+BLD-18,Buildings\BLD-18\renders\hero.png,render,hero,Buildings\BLD-18\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+BLD-18,Buildings\BLD-18\renders\left.png,render,left,Buildings\BLD-18\renders\left.json,Blender/scripts (procedural or user GLB audit)
+BLD-18,Buildings\BLD-18\renders\rear.png,render,rear,Buildings\BLD-18\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+BLD-18,Buildings\BLD-18\renders\right.png,render,right,Buildings\BLD-18\renders\right.json,Blender/scripts (procedural or user GLB audit)
+BLD-18,Buildings\BLD-18\renders\top.png,render,top,Buildings\BLD-18\renders\top.json,Blender/scripts (procedural or user GLB audit)
+BLD-19,Buildings\BLD-19\renders\front.png,render,front,Buildings\BLD-19\renders\front.json,Blender/scripts (procedural or user GLB audit)
+BLD-19,Buildings\BLD-19\renders\hero.png,render,hero,Buildings\BLD-19\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+BLD-19,Buildings\BLD-19\renders\left.png,render,left,Buildings\BLD-19\renders\left.json,Blender/scripts (procedural or user GLB audit)
+BLD-19,Buildings\BLD-19\renders\rear.png,render,rear,Buildings\BLD-19\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+BLD-19,Buildings\BLD-19\renders\right.png,render,right,Buildings\BLD-19\renders\right.json,Blender/scripts (procedural or user GLB audit)
+BLD-19,Buildings\BLD-19\renders\top.png,render,top,Buildings\BLD-19\renders\top.json,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\renders\family_hero.png,render,family_hero,Characters\renders\family_hero.json,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\renders\family_ortho.png,render,family_ortho,Characters\renders\family_ortho.json,Blender/scripts (procedural or user GLB audit)
+EQP-01,Equipment\EQP-01\renders\detail.png,render,detail,Equipment\EQP-01\renders\detail.json,Blender/scripts (procedural or user GLB audit)
+EQP-01,Equipment\EQP-01\renders\front.png,render,front,Equipment\EQP-01\renders\front.json,Blender/scripts (procedural or user GLB audit)
+EQP-01,Equipment\EQP-01\renders\hero.png,render,hero,Equipment\EQP-01\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+EQP-01,Equipment\EQP-01\renders\left.png,render,left,Equipment\EQP-01\renders\left.json,Blender/scripts (procedural or user GLB audit)
+EQP-01,Equipment\EQP-01\renders\rear.png,render,rear,Equipment\EQP-01\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+EQP-01,Equipment\EQP-01\renders\right.png,render,right,Equipment\EQP-01\renders\right.json,Blender/scripts (procedural or user GLB audit)
+EQP-01,Equipment\EQP-01\renders\scale.png,render,scale,Equipment\EQP-01\renders\scale.json,Blender/scripts (procedural or user GLB audit)
+EQP-01,Equipment\EQP-01\renders\top.png,render,top,Equipment\EQP-01\renders\top.json,Blender/scripts (procedural or user GLB audit)
+EQP-02,Equipment\EQP-02\renders\detail.png,render,detail,Equipment\EQP-02\renders\detail.json,Blender/scripts (procedural or user GLB audit)
+EQP-02,Equipment\EQP-02\renders\front.png,render,front,Equipment\EQP-02\renders\front.json,Blender/scripts (procedural or user GLB audit)
+EQP-02,Equipment\EQP-02\renders\hero.png,render,hero,Equipment\EQP-02\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+EQP-02,Equipment\EQP-02\renders\left.png,render,left,Equipment\EQP-02\renders\left.json,Blender/scripts (procedural or user GLB audit)
+EQP-02,Equipment\EQP-02\renders\rear.png,render,rear,Equipment\EQP-02\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+EQP-02,Equipment\EQP-02\renders\right.png,render,right,Equipment\EQP-02\renders\right.json,Blender/scripts (procedural or user GLB audit)
+EQP-02,Equipment\EQP-02\renders\scale.png,render,scale,Equipment\EQP-02\renders\scale.json,Blender/scripts (procedural or user GLB audit)
+EQP-02,Equipment\EQP-02\renders\top.png,render,top,Equipment\EQP-02\renders\top.json,Blender/scripts (procedural or user GLB audit)
+EQP-03,Equipment\EQP-03\renders\detail.png,render,detail,Equipment\EQP-03\renders\detail.json,Blender/scripts (procedural or user GLB audit)
+EQP-03,Equipment\EQP-03\renders\front.png,render,front,Equipment\EQP-03\renders\front.json,Blender/scripts (procedural or user GLB audit)
+EQP-03,Equipment\EQP-03\renders\hero.png,render,hero,Equipment\EQP-03\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+EQP-03,Equipment\EQP-03\renders\left.png,render,left,Equipment\EQP-03\renders\left.json,Blender/scripts (procedural or user GLB audit)
+EQP-03,Equipment\EQP-03\renders\rear.png,render,rear,Equipment\EQP-03\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+EQP-03,Equipment\EQP-03\renders\right.png,render,right,Equipment\EQP-03\renders\right.json,Blender/scripts (procedural or user GLB audit)
+EQP-03,Equipment\EQP-03\renders\scale.png,render,scale,Equipment\EQP-03\renders\scale.json,Blender/scripts (procedural or user GLB audit)
+EQP-03,Equipment\EQP-03\renders\top.png,render,top,Equipment\EQP-03\renders\top.json,Blender/scripts (procedural or user GLB audit)
+EQP-04,Equipment\EQP-04\renders\detail.png,render,detail,Equipment\EQP-04\renders\detail.json,Blender/scripts (procedural or user GLB audit)
+EQP-04,Equipment\EQP-04\renders\front.png,render,front,Equipment\EQP-04\renders\front.json,Blender/scripts (procedural or user GLB audit)
+EQP-04,Equipment\EQP-04\renders\hero.png,render,hero,Equipment\EQP-04\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+EQP-04,Equipment\EQP-04\renders\left.png,render,left,Equipment\EQP-04\renders\left.json,Blender/scripts (procedural or user GLB audit)
+EQP-04,Equipment\EQP-04\renders\rear.png,render,rear,Equipment\EQP-04\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+EQP-04,Equipment\EQP-04\renders\right.png,render,right,Equipment\EQP-04\renders\right.json,Blender/scripts (procedural or user GLB audit)
+EQP-04,Equipment\EQP-04\renders\scale.png,render,scale,Equipment\EQP-04\renders\scale.json,Blender/scripts (procedural or user GLB audit)
+EQP-04,Equipment\EQP-04\renders\top.png,render,top,Equipment\EQP-04\renders\top.json,Blender/scripts (procedural or user GLB audit)
+EQP-05,Equipment\EQP-05\renders\detail.png,render,detail,Equipment\EQP-05\renders\detail.json,Blender/scripts (procedural or user GLB audit)
+EQP-05,Equipment\EQP-05\renders\front.png,render,front,Equipment\EQP-05\renders\front.json,Blender/scripts (procedural or user GLB audit)
+EQP-05,Equipment\EQP-05\renders\hero.png,render,hero,Equipment\EQP-05\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+EQP-05,Equipment\EQP-05\renders\left.png,render,left,Equipment\EQP-05\renders\left.json,Blender/scripts (procedural or user GLB audit)
+EQP-05,Equipment\EQP-05\renders\rear.png,render,rear,Equipment\EQP-05\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+EQP-05,Equipment\EQP-05\renders\right.png,render,right,Equipment\EQP-05\renders\right.json,Blender/scripts (procedural or user GLB audit)
+EQP-05,Equipment\EQP-05\renders\scale.png,render,scale,Equipment\EQP-05\renders\scale.json,Blender/scripts (procedural or user GLB audit)
+EQP-05,Equipment\EQP-05\renders\top.png,render,top,Equipment\EQP-05\renders\top.json,Blender/scripts (procedural or user GLB audit)
+EQP-06,Equipment\EQP-06\renders\detail.png,render,detail,Equipment\EQP-06\renders\detail.json,Blender/scripts (procedural or user GLB audit)
+EQP-06,Equipment\EQP-06\renders\front.png,render,front,Equipment\EQP-06\renders\front.json,Blender/scripts (procedural or user GLB audit)
+EQP-06,Equipment\EQP-06\renders\hero.png,render,hero,Equipment\EQP-06\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+EQP-06,Equipment\EQP-06\renders\left.png,render,left,Equipment\EQP-06\renders\left.json,Blender/scripts (procedural or user GLB audit)
+EQP-06,Equipment\EQP-06\renders\rear.png,render,rear,Equipment\EQP-06\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+EQP-06,Equipment\EQP-06\renders\right.png,render,right,Equipment\EQP-06\renders\right.json,Blender/scripts (procedural or user GLB audit)
+EQP-06,Equipment\EQP-06\renders\scale.png,render,scale,Equipment\EQP-06\renders\scale.json,Blender/scripts (procedural or user GLB audit)
+EQP-06,Equipment\EQP-06\renders\top.png,render,top,Equipment\EQP-06\renders\top.json,Blender/scripts (procedural or user GLB audit)
+EQP-07,Equipment\EQP-07\renders\detail.png,render,detail,Equipment\EQP-07\renders\detail.json,Blender/scripts (procedural or user GLB audit)
+EQP-07,Equipment\EQP-07\renders\front.png,render,front,Equipment\EQP-07\renders\front.json,Blender/scripts (procedural or user GLB audit)
+EQP-07,Equipment\EQP-07\renders\hero.png,render,hero,Equipment\EQP-07\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+EQP-07,Equipment\EQP-07\renders\left.png,render,left,Equipment\EQP-07\renders\left.json,Blender/scripts (procedural or user GLB audit)
+EQP-07,Equipment\EQP-07\renders\rear.png,render,rear,Equipment\EQP-07\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+EQP-07,Equipment\EQP-07\renders\right.png,render,right,Equipment\EQP-07\renders\right.json,Blender/scripts (procedural or user GLB audit)
+EQP-07,Equipment\EQP-07\renders\scale.png,render,scale,Equipment\EQP-07\renders\scale.json,Blender/scripts (procedural or user GLB audit)
+EQP-07,Equipment\EQP-07\renders\top.png,render,top,Equipment\EQP-07\renders\top.json,Blender/scripts (procedural or user GLB audit)
+EQP-08,Equipment\EQP-08\renders\detail.png,render,detail,Equipment\EQP-08\renders\detail.json,Blender/scripts (procedural or user GLB audit)
+EQP-08,Equipment\EQP-08\renders\front.png,render,front,Equipment\EQP-08\renders\front.json,Blender/scripts (procedural or user GLB audit)
+EQP-08,Equipment\EQP-08\renders\hero.png,render,hero,Equipment\EQP-08\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+EQP-08,Equipment\EQP-08\renders\left.png,render,left,Equipment\EQP-08\renders\left.json,Blender/scripts (procedural or user GLB audit)
+EQP-08,Equipment\EQP-08\renders\rear.png,render,rear,Equipment\EQP-08\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+EQP-08,Equipment\EQP-08\renders\right.png,render,right,Equipment\EQP-08\renders\right.json,Blender/scripts (procedural or user GLB audit)
+EQP-08,Equipment\EQP-08\renders\scale.png,render,scale,Equipment\EQP-08\renders\scale.json,Blender/scripts (procedural or user GLB audit)
+EQP-08,Equipment\EQP-08\renders\top.png,render,top,Equipment\EQP-08\renders\top.json,Blender/scripts (procedural or user GLB audit)
+EQP-09,Equipment\EQP-09\renders\detail.png,render,detail,Equipment\EQP-09\renders\detail.json,Blender/scripts (procedural or user GLB audit)
+EQP-09,Equipment\EQP-09\renders\front.png,render,front,Equipment\EQP-09\renders\front.json,Blender/scripts (procedural or user GLB audit)
+EQP-09,Equipment\EQP-09\renders\hero.png,render,hero,Equipment\EQP-09\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+EQP-09,Equipment\EQP-09\renders\left.png,render,left,Equipment\EQP-09\renders\left.json,Blender/scripts (procedural or user GLB audit)
+EQP-09,Equipment\EQP-09\renders\rear.png,render,rear,Equipment\EQP-09\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+EQP-09,Equipment\EQP-09\renders\right.png,render,right,Equipment\EQP-09\renders\right.json,Blender/scripts (procedural or user GLB audit)
+EQP-09,Equipment\EQP-09\renders\scale.png,render,scale,Equipment\EQP-09\renders\scale.json,Blender/scripts (procedural or user GLB audit)
+EQP-09,Equipment\EQP-09\renders\top.png,render,top,Equipment\EQP-09\renders\top.json,Blender/scripts (procedural or user GLB audit)
+EQP-10,Equipment\EQP-10\renders\detail.png,render,detail,Equipment\EQP-10\renders\detail.json,Blender/scripts (procedural or user GLB audit)
+EQP-10,Equipment\EQP-10\renders\front.png,render,front,Equipment\EQP-10\renders\front.json,Blender/scripts (procedural or user GLB audit)
+EQP-10,Equipment\EQP-10\renders\hero.png,render,hero,Equipment\EQP-10\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+EQP-10,Equipment\EQP-10\renders\left.png,render,left,Equipment\EQP-10\renders\left.json,Blender/scripts (procedural or user GLB audit)
+EQP-10,Equipment\EQP-10\renders\rear.png,render,rear,Equipment\EQP-10\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+EQP-10,Equipment\EQP-10\renders\right.png,render,right,Equipment\EQP-10\renders\right.json,Blender/scripts (procedural or user GLB audit)
+EQP-10,Equipment\EQP-10\renders\scale.png,render,scale,Equipment\EQP-10\renders\scale.json,Blender/scripts (procedural or user GLB audit)
+EQP-10,Equipment\EQP-10\renders\top.png,render,top,Equipment\EQP-10\renders\top.json,Blender/scripts (procedural or user GLB audit)
+EQP-11,Equipment\EQP-11\renders\detail.png,render,detail,Equipment\EQP-11\renders\detail.json,Blender/scripts (procedural or user GLB audit)
+EQP-11,Equipment\EQP-11\renders\front.png,render,front,Equipment\EQP-11\renders\front.json,Blender/scripts (procedural or user GLB audit)
+EQP-11,Equipment\EQP-11\renders\hero.png,render,hero,Equipment\EQP-11\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+EQP-11,Equipment\EQP-11\renders\left.png,render,left,Equipment\EQP-11\renders\left.json,Blender/scripts (procedural or user GLB audit)
+EQP-11,Equipment\EQP-11\renders\rear.png,render,rear,Equipment\EQP-11\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+EQP-11,Equipment\EQP-11\renders\right.png,render,right,Equipment\EQP-11\renders\right.json,Blender/scripts (procedural or user GLB audit)
+EQP-11,Equipment\EQP-11\renders\scale.png,render,scale,Equipment\EQP-11\renders\scale.json,Blender/scripts (procedural or user GLB audit)
+EQP-11,Equipment\EQP-11\renders\top.png,render,top,Equipment\EQP-11\renders\top.json,Blender/scripts (procedural or user GLB audit)
+EQP-12,Equipment\EQP-12\renders\detail.png,render,detail,Equipment\EQP-12\renders\detail.json,Blender/scripts (procedural or user GLB audit)
+EQP-12,Equipment\EQP-12\renders\front.png,render,front,Equipment\EQP-12\renders\front.json,Blender/scripts (procedural or user GLB audit)
+EQP-12,Equipment\EQP-12\renders\hero.png,render,hero,Equipment\EQP-12\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+EQP-12,Equipment\EQP-12\renders\left.png,render,left,Equipment\EQP-12\renders\left.json,Blender/scripts (procedural or user GLB audit)
+EQP-12,Equipment\EQP-12\renders\rear.png,render,rear,Equipment\EQP-12\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+EQP-12,Equipment\EQP-12\renders\right.png,render,right,Equipment\EQP-12\renders\right.json,Blender/scripts (procedural or user GLB audit)
+EQP-12,Equipment\EQP-12\renders\scale.png,render,scale,Equipment\EQP-12\renders\scale.json,Blender/scripts (procedural or user GLB audit)
+EQP-12,Equipment\EQP-12\renders\top.png,render,top,Equipment\EQP-12\renders\top.json,Blender/scripts (procedural or user GLB audit)
+EQP-13,Equipment\EQP-13\renders\detail.png,render,detail,Equipment\EQP-13\renders\detail.json,Blender/scripts (procedural or user GLB audit)
+EQP-13,Equipment\EQP-13\renders\front.png,render,front,Equipment\EQP-13\renders\front.json,Blender/scripts (procedural or user GLB audit)
+EQP-13,Equipment\EQP-13\renders\hero.png,render,hero,Equipment\EQP-13\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+EQP-13,Equipment\EQP-13\renders\left.png,render,left,Equipment\EQP-13\renders\left.json,Blender/scripts (procedural or user GLB audit)
+EQP-13,Equipment\EQP-13\renders\rear.png,render,rear,Equipment\EQP-13\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+EQP-13,Equipment\EQP-13\renders\right.png,render,right,Equipment\EQP-13\renders\right.json,Blender/scripts (procedural or user GLB audit)
+EQP-13,Equipment\EQP-13\renders\scale.png,render,scale,Equipment\EQP-13\renders\scale.json,Blender/scripts (procedural or user GLB audit)
+EQP-13,Equipment\EQP-13\renders\top.png,render,top,Equipment\EQP-13\renders\top.json,Blender/scripts (procedural or user GLB audit)
+EQP-14,Equipment\EQP-14\renders\detail.png,render,detail,Equipment\EQP-14\renders\detail.json,Blender/scripts (procedural or user GLB audit)
+EQP-14,Equipment\EQP-14\renders\front.png,render,front,Equipment\EQP-14\renders\front.json,Blender/scripts (procedural or user GLB audit)
+EQP-14,Equipment\EQP-14\renders\hero.png,render,hero,Equipment\EQP-14\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+EQP-14,Equipment\EQP-14\renders\left.png,render,left,Equipment\EQP-14\renders\left.json,Blender/scripts (procedural or user GLB audit)
+EQP-14,Equipment\EQP-14\renders\rear.png,render,rear,Equipment\EQP-14\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+EQP-14,Equipment\EQP-14\renders\right.png,render,right,Equipment\EQP-14\renders\right.json,Blender/scripts (procedural or user GLB audit)
+EQP-14,Equipment\EQP-14\renders\scale.png,render,scale,Equipment\EQP-14\renders\scale.json,Blender/scripts (procedural or user GLB audit)
+EQP-14,Equipment\EQP-14\renders\top.png,render,top,Equipment\EQP-14\renders\top.json,Blender/scripts (procedural or user GLB audit)
+EQP-15,Equipment\EQP-15\renders\detail.png,render,detail,Equipment\EQP-15\renders\detail.json,Blender/scripts (procedural or user GLB audit)
+EQP-15,Equipment\EQP-15\renders\front.png,render,front,Equipment\EQP-15\renders\front.json,Blender/scripts (procedural or user GLB audit)
+EQP-15,Equipment\EQP-15\renders\hero.png,render,hero,Equipment\EQP-15\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+EQP-15,Equipment\EQP-15\renders\left.png,render,left,Equipment\EQP-15\renders\left.json,Blender/scripts (procedural or user GLB audit)
+EQP-15,Equipment\EQP-15\renders\rear.png,render,rear,Equipment\EQP-15\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+EQP-15,Equipment\EQP-15\renders\right.png,render,right,Equipment\EQP-15\renders\right.json,Blender/scripts (procedural or user GLB audit)
+EQP-15,Equipment\EQP-15\renders\scale.png,render,scale,Equipment\EQP-15\renders\scale.json,Blender/scripts (procedural or user GLB audit)
+EQP-15,Equipment\EQP-15\renders\top.png,render,top,Equipment\EQP-15\renders\top.json,Blender/scripts (procedural or user GLB audit)
+EQP-16,Equipment\EQP-16\renders\detail.png,render,detail,Equipment\EQP-16\renders\detail.json,Blender/scripts (procedural or user GLB audit)
+EQP-16,Equipment\EQP-16\renders\front.png,render,front,Equipment\EQP-16\renders\front.json,Blender/scripts (procedural or user GLB audit)
+EQP-16,Equipment\EQP-16\renders\hero.png,render,hero,Equipment\EQP-16\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+EQP-16,Equipment\EQP-16\renders\left.png,render,left,Equipment\EQP-16\renders\left.json,Blender/scripts (procedural or user GLB audit)
+EQP-16,Equipment\EQP-16\renders\rear.png,render,rear,Equipment\EQP-16\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+EQP-16,Equipment\EQP-16\renders\right.png,render,right,Equipment\EQP-16\renders\right.json,Blender/scripts (procedural or user GLB audit)
+EQP-16,Equipment\EQP-16\renders\scale.png,render,scale,Equipment\EQP-16\renders\scale.json,Blender/scripts (procedural or user GLB audit)
+EQP-16,Equipment\EQP-16\renders\top.png,render,top,Equipment\EQP-16\renders\top.json,Blender/scripts (procedural or user GLB audit)
+EQP-17,Equipment\EQP-17\renders\detail.png,render,detail,Equipment\EQP-17\renders\detail.json,Blender/scripts (procedural or user GLB audit)
+EQP-17,Equipment\EQP-17\renders\front.png,render,front,Equipment\EQP-17\renders\front.json,Blender/scripts (procedural or user GLB audit)
+EQP-17,Equipment\EQP-17\renders\hero.png,render,hero,Equipment\EQP-17\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+EQP-17,Equipment\EQP-17\renders\left.png,render,left,Equipment\EQP-17\renders\left.json,Blender/scripts (procedural or user GLB audit)
+EQP-17,Equipment\EQP-17\renders\rear.png,render,rear,Equipment\EQP-17\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+EQP-17,Equipment\EQP-17\renders\right.png,render,right,Equipment\EQP-17\renders\right.json,Blender/scripts (procedural or user GLB audit)
+EQP-17,Equipment\EQP-17\renders\scale.png,render,scale,Equipment\EQP-17\renders\scale.json,Blender/scripts (procedural or user GLB audit)
+EQP-17,Equipment\EQP-17\renders\top.png,render,top,Equipment\EQP-17\renders\top.json,Blender/scripts (procedural or user GLB audit)
+EQP-18,Equipment\EQP-18\renders\detail.png,render,detail,Equipment\EQP-18\renders\detail.json,Blender/scripts (procedural or user GLB audit)
+EQP-18,Equipment\EQP-18\renders\front.png,render,front,Equipment\EQP-18\renders\front.json,Blender/scripts (procedural or user GLB audit)
+EQP-18,Equipment\EQP-18\renders\hero.png,render,hero,Equipment\EQP-18\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+EQP-18,Equipment\EQP-18\renders\left.png,render,left,Equipment\EQP-18\renders\left.json,Blender/scripts (procedural or user GLB audit)
+EQP-18,Equipment\EQP-18\renders\rear.png,render,rear,Equipment\EQP-18\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+EQP-18,Equipment\EQP-18\renders\right.png,render,right,Equipment\EQP-18\renders\right.json,Blender/scripts (procedural or user GLB audit)
+EQP-18,Equipment\EQP-18\renders\scale.png,render,scale,Equipment\EQP-18\renders\scale.json,Blender/scripts (procedural or user GLB audit)
+EQP-18,Equipment\EQP-18\renders\top.png,render,top,Equipment\EQP-18\renders\top.json,Blender/scripts (procedural or user GLB audit)
+EQP-19,Equipment\EQP-19\renders\detail.png,render,detail,Equipment\EQP-19\renders\detail.json,Blender/scripts (procedural or user GLB audit)
+EQP-19,Equipment\EQP-19\renders\front.png,render,front,Equipment\EQP-19\renders\front.json,Blender/scripts (procedural or user GLB audit)
+EQP-19,Equipment\EQP-19\renders\hero.png,render,hero,Equipment\EQP-19\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+EQP-19,Equipment\EQP-19\renders\left.png,render,left,Equipment\EQP-19\renders\left.json,Blender/scripts (procedural or user GLB audit)
+EQP-19,Equipment\EQP-19\renders\rear.png,render,rear,Equipment\EQP-19\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+EQP-19,Equipment\EQP-19\renders\right.png,render,right,Equipment\EQP-19\renders\right.json,Blender/scripts (procedural or user GLB audit)
+EQP-19,Equipment\EQP-19\renders\scale.png,render,scale,Equipment\EQP-19\renders\scale.json,Blender/scripts (procedural or user GLB audit)
+EQP-19,Equipment\EQP-19\renders\top.png,render,top,Equipment\EQP-19\renders\top.json,Blender/scripts (procedural or user GLB audit)
+EQP-20,Equipment\EQP-20\renders\detail.png,render,detail,Equipment\EQP-20\renders\detail.json,Blender/scripts (procedural or user GLB audit)
+EQP-20,Equipment\EQP-20\renders\front.png,render,front,Equipment\EQP-20\renders\front.json,Blender/scripts (procedural or user GLB audit)
+EQP-20,Equipment\EQP-20\renders\hero.png,render,hero,Equipment\EQP-20\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+EQP-20,Equipment\EQP-20\renders\left.png,render,left,Equipment\EQP-20\renders\left.json,Blender/scripts (procedural or user GLB audit)
+EQP-20,Equipment\EQP-20\renders\rear.png,render,rear,Equipment\EQP-20\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+EQP-20,Equipment\EQP-20\renders\right.png,render,right,Equipment\EQP-20\renders\right.json,Blender/scripts (procedural or user GLB audit)
+EQP-20,Equipment\EQP-20\renders\scale.png,render,scale,Equipment\EQP-20\renders\scale.json,Blender/scripts (procedural or user GLB audit)
+EQP-20,Equipment\EQP-20\renders\top.png,render,top,Equipment\EQP-20\renders\top.json,Blender/scripts (procedural or user GLB audit)
+EQP-21,Equipment\EQP-21\renders\detail.png,render,detail,Equipment\EQP-21\renders\detail.json,Blender/scripts (procedural or user GLB audit)
+EQP-21,Equipment\EQP-21\renders\front.png,render,front,Equipment\EQP-21\renders\front.json,Blender/scripts (procedural or user GLB audit)
+EQP-21,Equipment\EQP-21\renders\hero.png,render,hero,Equipment\EQP-21\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+EQP-21,Equipment\EQP-21\renders\left.png,render,left,Equipment\EQP-21\renders\left.json,Blender/scripts (procedural or user GLB audit)
+EQP-21,Equipment\EQP-21\renders\rear.png,render,rear,Equipment\EQP-21\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+EQP-21,Equipment\EQP-21\renders\right.png,render,right,Equipment\EQP-21\renders\right.json,Blender/scripts (procedural or user GLB audit)
+EQP-21,Equipment\EQP-21\renders\scale.png,render,scale,Equipment\EQP-21\renders\scale.json,Blender/scripts (procedural or user GLB audit)
+EQP-21,Equipment\EQP-21\renders\top.png,render,top,Equipment\EQP-21\renders\top.json,Blender/scripts (procedural or user GLB audit)
+EQP-22,Equipment\EQP-22\renders\detail.png,render,detail,Equipment\EQP-22\renders\detail.json,Blender/scripts (procedural or user GLB audit)
+EQP-22,Equipment\EQP-22\renders\front.png,render,front,Equipment\EQP-22\renders\front.json,Blender/scripts (procedural or user GLB audit)
+EQP-22,Equipment\EQP-22\renders\hero.png,render,hero,Equipment\EQP-22\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+EQP-22,Equipment\EQP-22\renders\left.png,render,left,Equipment\EQP-22\renders\left.json,Blender/scripts (procedural or user GLB audit)
+EQP-22,Equipment\EQP-22\renders\rear.png,render,rear,Equipment\EQP-22\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+EQP-22,Equipment\EQP-22\renders\right.png,render,right,Equipment\EQP-22\renders\right.json,Blender/scripts (procedural or user GLB audit)
+EQP-22,Equipment\EQP-22\renders\scale.png,render,scale,Equipment\EQP-22\renders\scale.json,Blender/scripts (procedural or user GLB audit)
+EQP-22,Equipment\EQP-22\renders\top.png,render,top,Equipment\EQP-22\renders\top.json,Blender/scripts (procedural or user GLB audit)
+EQP-23,Equipment\EQP-23\renders\detail.png,render,detail,Equipment\EQP-23\renders\detail.json,Blender/scripts (procedural or user GLB audit)
+EQP-23,Equipment\EQP-23\renders\front.png,render,front,Equipment\EQP-23\renders\front.json,Blender/scripts (procedural or user GLB audit)
+EQP-23,Equipment\EQP-23\renders\hero.png,render,hero,Equipment\EQP-23\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+EQP-23,Equipment\EQP-23\renders\left.png,render,left,Equipment\EQP-23\renders\left.json,Blender/scripts (procedural or user GLB audit)
+EQP-23,Equipment\EQP-23\renders\rear.png,render,rear,Equipment\EQP-23\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+EQP-23,Equipment\EQP-23\renders\right.png,render,right,Equipment\EQP-23\renders\right.json,Blender/scripts (procedural or user GLB audit)
+EQP-23,Equipment\EQP-23\renders\scale.png,render,scale,Equipment\EQP-23\renders\scale.json,Blender/scripts (procedural or user GLB audit)
+EQP-23,Equipment\EQP-23\renders\top.png,render,top,Equipment\EQP-23\renders\top.json,Blender/scripts (procedural or user GLB audit)
+EQP-24,Equipment\EQP-24\renders\detail.png,render,detail,Equipment\EQP-24\renders\detail.json,Blender/scripts (procedural or user GLB audit)
+EQP-24,Equipment\EQP-24\renders\front.png,render,front,Equipment\EQP-24\renders\front.json,Blender/scripts (procedural or user GLB audit)
+EQP-24,Equipment\EQP-24\renders\hero.png,render,hero,Equipment\EQP-24\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+EQP-24,Equipment\EQP-24\renders\left.png,render,left,Equipment\EQP-24\renders\left.json,Blender/scripts (procedural or user GLB audit)
+EQP-24,Equipment\EQP-24\renders\rear.png,render,rear,Equipment\EQP-24\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+EQP-24,Equipment\EQP-24\renders\right.png,render,right,Equipment\EQP-24\renders\right.json,Blender/scripts (procedural or user GLB audit)
+EQP-24,Equipment\EQP-24\renders\scale.png,render,scale,Equipment\EQP-24\renders\scale.json,Blender/scripts (procedural or user GLB audit)
+EQP-24,Equipment\EQP-24\renders\top.png,render,top,Equipment\EQP-24\renders\top.json,Blender/scripts (procedural or user GLB audit)
+EQP-25,Equipment\EQP-25\renders\detail.png,render,detail,Equipment\EQP-25\renders\detail.json,Blender/scripts (procedural or user GLB audit)
+EQP-25,Equipment\EQP-25\renders\front.png,render,front,Equipment\EQP-25\renders\front.json,Blender/scripts (procedural or user GLB audit)
+EQP-25,Equipment\EQP-25\renders\hero.png,render,hero,Equipment\EQP-25\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+EQP-25,Equipment\EQP-25\renders\left.png,render,left,Equipment\EQP-25\renders\left.json,Blender/scripts (procedural or user GLB audit)
+EQP-25,Equipment\EQP-25\renders\rear.png,render,rear,Equipment\EQP-25\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+EQP-25,Equipment\EQP-25\renders\right.png,render,right,Equipment\EQP-25\renders\right.json,Blender/scripts (procedural or user GLB audit)
+EQP-25,Equipment\EQP-25\renders\scale.png,render,scale,Equipment\EQP-25\renders\scale.json,Blender/scripts (procedural or user GLB audit)
+EQP-25,Equipment\EQP-25\renders\top.png,render,top,Equipment\EQP-25\renders\top.json,Blender/scripts (procedural or user GLB audit)
+INF-01,Infrastructure\INF-01\renders\front.png,render,front,Infrastructure\INF-01\renders\front.json,Blender/scripts (procedural or user GLB audit)
+INF-01,Infrastructure\INF-01\renders\hero.png,render,hero,Infrastructure\INF-01\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+INF-01,Infrastructure\INF-01\renders\left.png,render,left,Infrastructure\INF-01\renders\left.json,Blender/scripts (procedural or user GLB audit)
+INF-01,Infrastructure\INF-01\renders\rear.png,render,rear,Infrastructure\INF-01\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+INF-01,Infrastructure\INF-01\renders\right.png,render,right,Infrastructure\INF-01\renders\right.json,Blender/scripts (procedural or user GLB audit)
+INF-01,Infrastructure\INF-01\renders\top.png,render,top,Infrastructure\INF-01\renders\top.json,Blender/scripts (procedural or user GLB audit)
+INF-02,Infrastructure\INF-02\renders\front.png,render,front,Infrastructure\INF-02\renders\front.json,Blender/scripts (procedural or user GLB audit)
+INF-02,Infrastructure\INF-02\renders\hero.png,render,hero,Infrastructure\INF-02\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+INF-02,Infrastructure\INF-02\renders\left.png,render,left,Infrastructure\INF-02\renders\left.json,Blender/scripts (procedural or user GLB audit)
+INF-02,Infrastructure\INF-02\renders\rear.png,render,rear,Infrastructure\INF-02\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+INF-02,Infrastructure\INF-02\renders\right.png,render,right,Infrastructure\INF-02\renders\right.json,Blender/scripts (procedural or user GLB audit)
+INF-02,Infrastructure\INF-02\renders\top.png,render,top,Infrastructure\INF-02\renders\top.json,Blender/scripts (procedural or user GLB audit)
+INF-03,Infrastructure\INF-03\renders\front.png,render,front,Infrastructure\INF-03\renders\front.json,Blender/scripts (procedural or user GLB audit)
+INF-03,Infrastructure\INF-03\renders\hero.png,render,hero,Infrastructure\INF-03\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+INF-03,Infrastructure\INF-03\renders\left.png,render,left,Infrastructure\INF-03\renders\left.json,Blender/scripts (procedural or user GLB audit)
+INF-03,Infrastructure\INF-03\renders\rear.png,render,rear,Infrastructure\INF-03\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+INF-03,Infrastructure\INF-03\renders\right.png,render,right,Infrastructure\INF-03\renders\right.json,Blender/scripts (procedural or user GLB audit)
+INF-03,Infrastructure\INF-03\renders\top.png,render,top,Infrastructure\INF-03\renders\top.json,Blender/scripts (procedural or user GLB audit)
+INF-04,Infrastructure\INF-04\renders\front.png,render,front,Infrastructure\INF-04\renders\front.json,Blender/scripts (procedural or user GLB audit)
+INF-04,Infrastructure\INF-04\renders\hero.png,render,hero,Infrastructure\INF-04\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+INF-04,Infrastructure\INF-04\renders\left.png,render,left,Infrastructure\INF-04\renders\left.json,Blender/scripts (procedural or user GLB audit)
+INF-04,Infrastructure\INF-04\renders\rear.png,render,rear,Infrastructure\INF-04\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+INF-04,Infrastructure\INF-04\renders\right.png,render,right,Infrastructure\INF-04\renders\right.json,Blender/scripts (procedural or user GLB audit)
+INF-04,Infrastructure\INF-04\renders\top.png,render,top,Infrastructure\INF-04\renders\top.json,Blender/scripts (procedural or user GLB audit)
+INF-05,Infrastructure\INF-05\renders\front.png,render,front,Infrastructure\INF-05\renders\front.json,Blender/scripts (procedural or user GLB audit)
+INF-05,Infrastructure\INF-05\renders\hero.png,render,hero,Infrastructure\INF-05\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+INF-05,Infrastructure\INF-05\renders\left.png,render,left,Infrastructure\INF-05\renders\left.json,Blender/scripts (procedural or user GLB audit)
+INF-05,Infrastructure\INF-05\renders\rear.png,render,rear,Infrastructure\INF-05\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+INF-05,Infrastructure\INF-05\renders\right.png,render,right,Infrastructure\INF-05\renders\right.json,Blender/scripts (procedural or user GLB audit)
+INF-05,Infrastructure\INF-05\renders\top.png,render,top,Infrastructure\INF-05\renders\top.json,Blender/scripts (procedural or user GLB audit)
+INF-06,Infrastructure\INF-06\renders\front.png,render,front,Infrastructure\INF-06\renders\front.json,Blender/scripts (procedural or user GLB audit)
+INF-06,Infrastructure\INF-06\renders\hero.png,render,hero,Infrastructure\INF-06\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+INF-06,Infrastructure\INF-06\renders\left.png,render,left,Infrastructure\INF-06\renders\left.json,Blender/scripts (procedural or user GLB audit)
+INF-06,Infrastructure\INF-06\renders\rear.png,render,rear,Infrastructure\INF-06\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+INF-06,Infrastructure\INF-06\renders\right.png,render,right,Infrastructure\INF-06\renders\right.json,Blender/scripts (procedural or user GLB audit)
+INF-06,Infrastructure\INF-06\renders\top.png,render,top,Infrastructure\INF-06\renders\top.json,Blender/scripts (procedural or user GLB audit)
+INF-07,Infrastructure\INF-07\renders\front.png,render,front,Infrastructure\INF-07\renders\front.json,Blender/scripts (procedural or user GLB audit)
+INF-07,Infrastructure\INF-07\renders\hero.png,render,hero,Infrastructure\INF-07\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+INF-07,Infrastructure\INF-07\renders\left.png,render,left,Infrastructure\INF-07\renders\left.json,Blender/scripts (procedural or user GLB audit)
+INF-07,Infrastructure\INF-07\renders\rear.png,render,rear,Infrastructure\INF-07\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+INF-07,Infrastructure\INF-07\renders\right.png,render,right,Infrastructure\INF-07\renders\right.json,Blender/scripts (procedural or user GLB audit)
+INF-07,Infrastructure\INF-07\renders\top.png,render,top,Infrastructure\INF-07\renders\top.json,Blender/scripts (procedural or user GLB audit)
+INF-08,Infrastructure\INF-08\renders\front.png,render,front,Infrastructure\INF-08\renders\front.json,Blender/scripts (procedural or user GLB audit)
+INF-08,Infrastructure\INF-08\renders\hero.png,render,hero,Infrastructure\INF-08\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+INF-08,Infrastructure\INF-08\renders\left.png,render,left,Infrastructure\INF-08\renders\left.json,Blender/scripts (procedural or user GLB audit)
+INF-08,Infrastructure\INF-08\renders\rear.png,render,rear,Infrastructure\INF-08\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+INF-08,Infrastructure\INF-08\renders\right.png,render,right,Infrastructure\INF-08\renders\right.json,Blender/scripts (procedural or user GLB audit)
+INF-08,Infrastructure\INF-08\renders\top.png,render,top,Infrastructure\INF-08\renders\top.json,Blender/scripts (procedural or user GLB audit)
+INF-09,Infrastructure\INF-09\renders\front.png,render,front,Infrastructure\INF-09\renders\front.json,Blender/scripts (procedural or user GLB audit)
+INF-09,Infrastructure\INF-09\renders\hero.png,render,hero,Infrastructure\INF-09\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+INF-09,Infrastructure\INF-09\renders\left.png,render,left,Infrastructure\INF-09\renders\left.json,Blender/scripts (procedural or user GLB audit)
+INF-09,Infrastructure\INF-09\renders\rear.png,render,rear,Infrastructure\INF-09\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+INF-09,Infrastructure\INF-09\renders\right.png,render,right,Infrastructure\INF-09\renders\right.json,Blender/scripts (procedural or user GLB audit)
+INF-09,Infrastructure\INF-09\renders\top.png,render,top,Infrastructure\INF-09\renders\top.json,Blender/scripts (procedural or user GLB audit)
+INF-10,Infrastructure\INF-10\renders\front.png,render,front,Infrastructure\INF-10\renders\front.json,Blender/scripts (procedural or user GLB audit)
+INF-10,Infrastructure\INF-10\renders\hero.png,render,hero,Infrastructure\INF-10\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+INF-10,Infrastructure\INF-10\renders\left.png,render,left,Infrastructure\INF-10\renders\left.json,Blender/scripts (procedural or user GLB audit)
+INF-10,Infrastructure\INF-10\renders\rear.png,render,rear,Infrastructure\INF-10\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+INF-10,Infrastructure\INF-10\renders\right.png,render,right,Infrastructure\INF-10\renders\right.json,Blender/scripts (procedural or user GLB audit)
+INF-10,Infrastructure\INF-10\renders\top.png,render,top,Infrastructure\INF-10\renders\top.json,Blender/scripts (procedural or user GLB audit)
+INF-11,Infrastructure\INF-11\renders\front.png,render,front,Infrastructure\INF-11\renders\front.json,Blender/scripts (procedural or user GLB audit)
+INF-11,Infrastructure\INF-11\renders\hero.png,render,hero,Infrastructure\INF-11\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+INF-11,Infrastructure\INF-11\renders\left.png,render,left,Infrastructure\INF-11\renders\left.json,Blender/scripts (procedural or user GLB audit)
+INF-11,Infrastructure\INF-11\renders\rear.png,render,rear,Infrastructure\INF-11\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+INF-11,Infrastructure\INF-11\renders\right.png,render,right,Infrastructure\INF-11\renders\right.json,Blender/scripts (procedural or user GLB audit)
+INF-11,Infrastructure\INF-11\renders\top.png,render,top,Infrastructure\INF-11\renders\top.json,Blender/scripts (procedural or user GLB audit)
+INF-12,Infrastructure\INF-12\renders\front.png,render,front,Infrastructure\INF-12\renders\front.json,Blender/scripts (procedural or user GLB audit)
+INF-12,Infrastructure\INF-12\renders\hero.png,render,hero,Infrastructure\INF-12\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+INF-12,Infrastructure\INF-12\renders\left.png,render,left,Infrastructure\INF-12\renders\left.json,Blender/scripts (procedural or user GLB audit)
+INF-12,Infrastructure\INF-12\renders\rear.png,render,rear,Infrastructure\INF-12\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+INF-12,Infrastructure\INF-12\renders\right.png,render,right,Infrastructure\INF-12\renders\right.json,Blender/scripts (procedural or user GLB audit)
+INF-12,Infrastructure\INF-12\renders\top.png,render,top,Infrastructure\INF-12\renders\top.json,Blender/scripts (procedural or user GLB audit)
+INF-13,Infrastructure\INF-13\renders\front.png,render,front,Infrastructure\INF-13\renders\front.json,Blender/scripts (procedural or user GLB audit)
+INF-13,Infrastructure\INF-13\renders\hero.png,render,hero,Infrastructure\INF-13\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+INF-13,Infrastructure\INF-13\renders\left.png,render,left,Infrastructure\INF-13\renders\left.json,Blender/scripts (procedural or user GLB audit)
+INF-13,Infrastructure\INF-13\renders\rear.png,render,rear,Infrastructure\INF-13\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+INF-13,Infrastructure\INF-13\renders\right.png,render,right,Infrastructure\INF-13\renders\right.json,Blender/scripts (procedural or user GLB audit)
+INF-13,Infrastructure\INF-13\renders\top.png,render,top,Infrastructure\INF-13\renders\top.json,Blender/scripts (procedural or user GLB audit)
+INF-14,Infrastructure\INF-14\renders\front.png,render,front,Infrastructure\INF-14\renders\front.json,Blender/scripts (procedural or user GLB audit)
+INF-14,Infrastructure\INF-14\renders\hero.png,render,hero,Infrastructure\INF-14\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+INF-14,Infrastructure\INF-14\renders\left.png,render,left,Infrastructure\INF-14\renders\left.json,Blender/scripts (procedural or user GLB audit)
+INF-14,Infrastructure\INF-14\renders\rear.png,render,rear,Infrastructure\INF-14\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+INF-14,Infrastructure\INF-14\renders\right.png,render,right,Infrastructure\INF-14\renders\right.json,Blender/scripts (procedural or user GLB audit)
+INF-14,Infrastructure\INF-14\renders\top.png,render,top,Infrastructure\INF-14\renders\top.json,Blender/scripts (procedural or user GLB audit)
+INF-15,Infrastructure\INF-15\renders\front.png,render,front,Infrastructure\INF-15\renders\front.json,Blender/scripts (procedural or user GLB audit)
+INF-15,Infrastructure\INF-15\renders\hero.png,render,hero,Infrastructure\INF-15\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+INF-15,Infrastructure\INF-15\renders\left.png,render,left,Infrastructure\INF-15\renders\left.json,Blender/scripts (procedural or user GLB audit)
+INF-15,Infrastructure\INF-15\renders\rear.png,render,rear,Infrastructure\INF-15\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+INF-15,Infrastructure\INF-15\renders\right.png,render,right,Infrastructure\INF-15\renders\right.json,Blender/scripts (procedural or user GLB audit)
+INF-15,Infrastructure\INF-15\renders\top.png,render,top,Infrastructure\INF-15\renders\top.json,Blender/scripts (procedural or user GLB audit)
+INT-02,Interiors\INT-02\renders\cutaway.png,render,cutaway,Interiors\INT-02\renders\cutaway.json,Blender/scripts (procedural or user GLB audit)
+INT-02,Interiors\INT-02\renders\hero.png,render,hero,Interiors\INT-02\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+INT-02,Interiors\INT-02\renders\plan.png,render,plan,Interiors\INT-02\renders\plan.json,Blender/scripts (procedural or user GLB audit)
+INT-02,Interiors\INT-02\renders\section.png,render,section,Interiors\INT-02\renders\section.json,Blender/scripts (procedural or user GLB audit)
+INT-03,Interiors\INT-03\renders\cutaway.png,render,cutaway,Interiors\INT-03\renders\cutaway.json,Blender/scripts (procedural or user GLB audit)
+INT-03,Interiors\INT-03\renders\hero.png,render,hero,Interiors\INT-03\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+INT-03,Interiors\INT-03\renders\plan.png,render,plan,Interiors\INT-03\renders\plan.json,Blender/scripts (procedural or user GLB audit)
+INT-03,Interiors\INT-03\renders\section.png,render,section,Interiors\INT-03\renders\section.json,Blender/scripts (procedural or user GLB audit)
+INT-04,Interiors\INT-04\renders\cutaway.png,render,cutaway,Interiors\INT-04\renders\cutaway.json,Blender/scripts (procedural or user GLB audit)
+INT-04,Interiors\INT-04\renders\hero.png,render,hero,Interiors\INT-04\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+INT-04,Interiors\INT-04\renders\plan.png,render,plan,Interiors\INT-04\renders\plan.json,Blender/scripts (procedural or user GLB audit)
+INT-04,Interiors\INT-04\renders\section.png,render,section,Interiors\INT-04\renders\section.json,Blender/scripts (procedural or user GLB audit)
+INT-05,Interiors\INT-05\renders\cutaway.png,render,cutaway,Interiors\INT-05\renders\cutaway.json,Blender/scripts (procedural or user GLB audit)
+INT-05,Interiors\INT-05\renders\hero.png,render,hero,Interiors\INT-05\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+INT-05,Interiors\INT-05\renders\plan.png,render,plan,Interiors\INT-05\renders\plan.json,Blender/scripts (procedural or user GLB audit)
+INT-05,Interiors\INT-05\renders\section.png,render,section,Interiors\INT-05\renders\section.json,Blender/scripts (procedural or user GLB audit)
+INT-06,Interiors\INT-06\renders\cutaway.png,render,cutaway,Interiors\INT-06\renders\cutaway.json,Blender/scripts (procedural or user GLB audit)
+INT-06,Interiors\INT-06\renders\hero.png,render,hero,Interiors\INT-06\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+INT-06,Interiors\INT-06\renders\plan.png,render,plan,Interiors\INT-06\renders\plan.json,Blender/scripts (procedural or user GLB audit)
+INT-06,Interiors\INT-06\renders\section.png,render,section,Interiors\INT-06\renders\section.json,Blender/scripts (procedural or user GLB audit)
+INT-07,Interiors\INT-07\renders\cutaway.png,render,cutaway,Interiors\INT-07\renders\cutaway.json,Blender/scripts (procedural or user GLB audit)
+INT-07,Interiors\INT-07\renders\hero.png,render,hero,Interiors\INT-07\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+INT-07,Interiors\INT-07\renders\plan.png,render,plan,Interiors\INT-07\renders\plan.json,Blender/scripts (procedural or user GLB audit)
+INT-07,Interiors\INT-07\renders\section.png,render,section,Interiors\INT-07\renders\section.json,Blender/scripts (procedural or user GLB audit)
+INT-08,Interiors\INT-08\renders\cutaway.png,render,cutaway,Interiors\INT-08\renders\cutaway.json,Blender/scripts (procedural or user GLB audit)
+INT-08,Interiors\INT-08\renders\hero.png,render,hero,Interiors\INT-08\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+INT-08,Interiors\INT-08\renders\plan.png,render,plan,Interiors\INT-08\renders\plan.json,Blender/scripts (procedural or user GLB audit)
+INT-08,Interiors\INT-08\renders\section.png,render,section,Interiors\INT-08\renders\section.json,Blender/scripts (procedural or user GLB audit)
+INT-09,Interiors\INT-09\renders\cutaway.png,render,cutaway,Interiors\INT-09\renders\cutaway.json,Blender/scripts (procedural or user GLB audit)
+INT-09,Interiors\INT-09\renders\hero.png,render,hero,Interiors\INT-09\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+INT-09,Interiors\INT-09\renders\plan.png,render,plan,Interiors\INT-09\renders\plan.json,Blender/scripts (procedural or user GLB audit)
+INT-09,Interiors\INT-09\renders\section.png,render,section,Interiors\INT-09\renders\section.json,Blender/scripts (procedural or user GLB audit)
+INT-10,Interiors\INT-10\renders\cutaway.png,render,cutaway,Interiors\INT-10\renders\cutaway.json,Blender/scripts (procedural or user GLB audit)
+INT-10,Interiors\INT-10\renders\hero.png,render,hero,Interiors\INT-10\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+INT-10,Interiors\INT-10\renders\plan.png,render,plan,Interiors\INT-10\renders\plan.json,Blender/scripts (procedural or user GLB audit)
+INT-10,Interiors\INT-10\renders\section.png,render,section,Interiors\INT-10\renders\section.json,Blender/scripts (procedural or user GLB audit)
+BLD-01,Stasis_Facility\renders\cutaway_axo.png,render,cutaway_axo,Stasis_Facility\renders\cutaway_axo.json,Blender/scripts (procedural or user GLB audit)
+BLD-01,Stasis_Facility\renders\cutaway_axo_sheet.png,render,cutaway_axo_sheet,,Blender/scripts (procedural or user GLB audit)
+BLD-01,Stasis_Facility\renders\elev_front.png,render,elev_front,Stasis_Facility\renders\elev_front.json,Blender/scripts (procedural or user GLB audit)
+BLD-01,Stasis_Facility\renders\elev_left.png,render,elev_left,Stasis_Facility\renders\elev_left.json,Blender/scripts (procedural or user GLB audit)
+BLD-01,Stasis_Facility\renders\elev_rear.png,render,elev_rear,Stasis_Facility\renders\elev_rear.json,Blender/scripts (procedural or user GLB audit)
+BLD-01,Stasis_Facility\renders\elev_right.png,render,elev_right,Stasis_Facility\renders\elev_right.json,Blender/scripts (procedural or user GLB audit)
+BLD-01,Stasis_Facility\renders\ext_hero.png,render,ext_hero,Stasis_Facility\renders\ext_hero.json,Blender/scripts (procedural or user GLB audit)
+BLD-01,Stasis_Facility\renders\int_chamber.png,render,int_chamber,Stasis_Facility\renders\int_chamber.json,Blender/scripts (procedural or user GLB audit)
+BLD-01,Stasis_Facility\renders\kit_axo.png,render,kit_axo,Stasis_Facility\renders\kit_axo.json,Blender/scripts (procedural or user GLB audit)
+BLD-01,Stasis_Facility\renders\light_lockdown.png,render,light_lockdown,Stasis_Facility\renders\light_lockdown.json,Blender/scripts (procedural or user GLB audit)
+BLD-01,Stasis_Facility\renders\light_normal.png,render,light_normal,Stasis_Facility\renders\light_normal.json,Blender/scripts (procedural or user GLB audit)
+BLD-01,Stasis_Facility\renders\light_offline.png,render,light_offline,Stasis_Facility\renders\light_offline.json,Blender/scripts (procedural or user GLB audit)
+BLD-01,Stasis_Facility\renders\light_wake.png,render,light_wake,Stasis_Facility\renders\light_wake.json,Blender/scripts (procedural or user GLB audit)
+BLD-01,Stasis_Facility\renders\plan_cut.png,render,plan_cut,Stasis_Facility\renders\plan_cut.json,Blender/scripts (procedural or user GLB audit)
+BLD-01,Stasis_Facility\renders\pod_closed_front.png,render,pod_closed_front,Stasis_Facility\renders\pod_closed_front.json,Blender/scripts (procedural or user GLB audit)
+BLD-01,Stasis_Facility\renders\pod_closed_hero.png,render,pod_closed_hero,Stasis_Facility\renders\pod_closed_hero.json,Blender/scripts (procedural or user GLB audit)
+BLD-01,Stasis_Facility\renders\pod_closed_left.png,render,pod_closed_left,Stasis_Facility\renders\pod_closed_left.json,Blender/scripts (procedural or user GLB audit)
+BLD-01,Stasis_Facility\renders\pod_closed_plancut.png,render,pod_closed_plancut,Stasis_Facility\renders\pod_closed_plancut.json,Blender/scripts (procedural or user GLB audit)
+BLD-01,Stasis_Facility\renders\pod_closed_rear.png,render,pod_closed_rear,Stasis_Facility\renders\pod_closed_rear.json,Blender/scripts (procedural or user GLB audit)
+BLD-01,Stasis_Facility\renders\pod_closed_right.png,render,pod_closed_right,Stasis_Facility\renders\pod_closed_right.json,Blender/scripts (procedural or user GLB audit)
+BLD-01,Stasis_Facility\renders\pod_closed_section.png,render,pod_closed_section,Stasis_Facility\renders\pod_closed_section.json,Blender/scripts (procedural or user GLB audit)
+BLD-01,Stasis_Facility\renders\pod_closed_top.png,render,pod_closed_top,Stasis_Facility\renders\pod_closed_top.json,Blender/scripts (procedural or user GLB audit)
+BLD-01,Stasis_Facility\renders\pod_open_front.png,render,pod_open_front,Stasis_Facility\renders\pod_open_front.json,Blender/scripts (procedural or user GLB audit)
+BLD-01,Stasis_Facility\renders\pod_open_hero.png,render,pod_open_hero,Stasis_Facility\renders\pod_open_hero.json,Blender/scripts (procedural or user GLB audit)
+BLD-01,Stasis_Facility\renders\pod_open_left.png,render,pod_open_left,Stasis_Facility\renders\pod_open_left.json,Blender/scripts (procedural or user GLB audit)
+BLD-01,Stasis_Facility\renders\pod_open_plancut.png,render,pod_open_plancut,Stasis_Facility\renders\pod_open_plancut.json,Blender/scripts (procedural or user GLB audit)
+BLD-01,Stasis_Facility\renders\pod_open_top.png,render,pod_open_top,Stasis_Facility\renders\pod_open_top.json,Blender/scripts (procedural or user GLB audit)
+BLD-01,Stasis_Facility\renders\roof_plan.png,render,roof_plan,Stasis_Facility\renders\roof_plan.json,Blender/scripts (procedural or user GLB audit)
+BLD-01,Stasis_Facility\renders\section_chamber.png,render,section_chamber,Stasis_Facility\renders\section_chamber.json,Blender/scripts (procedural or user GLB audit)
+VEH-01,Vehicles\VEH-01\renders\exploded.png,render,exploded,Vehicles\VEH-01\renders\exploded.json,Blender/scripts (procedural or user GLB audit)
+VEH-01,Vehicles\VEH-01\renders\front.png,render,front,Vehicles\VEH-01\renders\front.json,Blender/scripts (procedural or user GLB audit)
+VEH-01,Vehicles\VEH-01\renders\hero.png,render,hero,Vehicles\VEH-01\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+VEH-01,Vehicles\VEH-01\renders\left.png,render,left,Vehicles\VEH-01\renders\left.json,Blender/scripts (procedural or user GLB audit)
+VEH-01,Vehicles\VEH-01\renders\plan.png,render,plan,Vehicles\VEH-01\renders\plan.json,Blender/scripts (procedural or user GLB audit)
+VEH-01,Vehicles\VEH-01\renders\rear.png,render,rear,Vehicles\VEH-01\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+VEH-01,Vehicles\VEH-01\renders\right.png,render,right,Vehicles\VEH-01\renders\right.json,Blender/scripts (procedural or user GLB audit)
+VEH-01,Vehicles\VEH-01\renders\top.png,render,top,Vehicles\VEH-01\renders\top.json,Blender/scripts (procedural or user GLB audit)
+VEH-02,Vehicles\VEH-02\renders\exploded.png,render,exploded,Vehicles\VEH-02\renders\exploded.json,Blender/scripts (procedural or user GLB audit)
+VEH-02,Vehicles\VEH-02\renders\front.png,render,front,Vehicles\VEH-02\renders\front.json,Blender/scripts (procedural or user GLB audit)
+VEH-02,Vehicles\VEH-02\renders\hero.png,render,hero,Vehicles\VEH-02\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+VEH-02,Vehicles\VEH-02\renders\left.png,render,left,Vehicles\VEH-02\renders\left.json,Blender/scripts (procedural or user GLB audit)
+VEH-02,Vehicles\VEH-02\renders\plan.png,render,plan,Vehicles\VEH-02\renders\plan.json,Blender/scripts (procedural or user GLB audit)
+VEH-02,Vehicles\VEH-02\renders\rear.png,render,rear,Vehicles\VEH-02\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+VEH-02,Vehicles\VEH-02\renders\right.png,render,right,Vehicles\VEH-02\renders\right.json,Blender/scripts (procedural or user GLB audit)
+VEH-02,Vehicles\VEH-02\renders\top.png,render,top,Vehicles\VEH-02\renders\top.json,Blender/scripts (procedural or user GLB audit)
+VEH-03,Vehicles\VEH-03\renders\exploded.png,render,exploded,Vehicles\VEH-03\renders\exploded.json,Blender/scripts (procedural or user GLB audit)
+VEH-03,Vehicles\VEH-03\renders\front.png,render,front,Vehicles\VEH-03\renders\front.json,Blender/scripts (procedural or user GLB audit)
+VEH-03,Vehicles\VEH-03\renders\hero.png,render,hero,Vehicles\VEH-03\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+VEH-03,Vehicles\VEH-03\renders\left.png,render,left,Vehicles\VEH-03\renders\left.json,Blender/scripts (procedural or user GLB audit)
+VEH-03,Vehicles\VEH-03\renders\plan.png,render,plan,Vehicles\VEH-03\renders\plan.json,Blender/scripts (procedural or user GLB audit)
+VEH-03,Vehicles\VEH-03\renders\rear.png,render,rear,Vehicles\VEH-03\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+VEH-03,Vehicles\VEH-03\renders\right.png,render,right,Vehicles\VEH-03\renders\right.json,Blender/scripts (procedural or user GLB audit)
+VEH-03,Vehicles\VEH-03\renders\top.png,render,top,Vehicles\VEH-03\renders\top.json,Blender/scripts (procedural or user GLB audit)
+VEH-04,Vehicles\VEH-04\renders\exploded.png,render,exploded,Vehicles\VEH-04\renders\exploded.json,Blender/scripts (procedural or user GLB audit)
+VEH-04,Vehicles\VEH-04\renders\front.png,render,front,Vehicles\VEH-04\renders\front.json,Blender/scripts (procedural or user GLB audit)
+VEH-04,Vehicles\VEH-04\renders\hero.png,render,hero,Vehicles\VEH-04\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+VEH-04,Vehicles\VEH-04\renders\left.png,render,left,Vehicles\VEH-04\renders\left.json,Blender/scripts (procedural or user GLB audit)
+VEH-04,Vehicles\VEH-04\renders\plan.png,render,plan,Vehicles\VEH-04\renders\plan.json,Blender/scripts (procedural or user GLB audit)
+VEH-04,Vehicles\VEH-04\renders\rear.png,render,rear,Vehicles\VEH-04\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+VEH-04,Vehicles\VEH-04\renders\right.png,render,right,Vehicles\VEH-04\renders\right.json,Blender/scripts (procedural or user GLB audit)
+VEH-04,Vehicles\VEH-04\renders\top.png,render,top,Vehicles\VEH-04\renders\top.json,Blender/scripts (procedural or user GLB audit)
+VEH-05,Vehicles\VEH-05\renders\exploded.png,render,exploded,Vehicles\VEH-05\renders\exploded.json,Blender/scripts (procedural or user GLB audit)
+VEH-05,Vehicles\VEH-05\renders\front.png,render,front,Vehicles\VEH-05\renders\front.json,Blender/scripts (procedural or user GLB audit)
+VEH-05,Vehicles\VEH-05\renders\hero.png,render,hero,Vehicles\VEH-05\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+VEH-05,Vehicles\VEH-05\renders\left.png,render,left,Vehicles\VEH-05\renders\left.json,Blender/scripts (procedural or user GLB audit)
+VEH-05,Vehicles\VEH-05\renders\plan.png,render,plan,Vehicles\VEH-05\renders\plan.json,Blender/scripts (procedural or user GLB audit)
+VEH-05,Vehicles\VEH-05\renders\rear.png,render,rear,Vehicles\VEH-05\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+VEH-05,Vehicles\VEH-05\renders\right.png,render,right,Vehicles\VEH-05\renders\right.json,Blender/scripts (procedural or user GLB audit)
+VEH-05,Vehicles\VEH-05\renders\top.png,render,top,Vehicles\VEH-05\renders\top.json,Blender/scripts (procedural or user GLB audit)
+VEH-06,Vehicles\VEH-06\renders\exploded.png,render,exploded,Vehicles\VEH-06\renders\exploded.json,Blender/scripts (procedural or user GLB audit)
+VEH-06,Vehicles\VEH-06\renders\front.png,render,front,Vehicles\VEH-06\renders\front.json,Blender/scripts (procedural or user GLB audit)
+VEH-06,Vehicles\VEH-06\renders\hero.png,render,hero,Vehicles\VEH-06\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+VEH-06,Vehicles\VEH-06\renders\left.png,render,left,Vehicles\VEH-06\renders\left.json,Blender/scripts (procedural or user GLB audit)
+VEH-06,Vehicles\VEH-06\renders\plan.png,render,plan,Vehicles\VEH-06\renders\plan.json,Blender/scripts (procedural or user GLB audit)
+VEH-06,Vehicles\VEH-06\renders\rear.png,render,rear,Vehicles\VEH-06\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+VEH-06,Vehicles\VEH-06\renders\right.png,render,right,Vehicles\VEH-06\renders\right.json,Blender/scripts (procedural or user GLB audit)
+VEH-06,Vehicles\VEH-06\renders\top.png,render,top,Vehicles\VEH-06\renders\top.json,Blender/scripts (procedural or user GLB audit)
+VEH-07,Vehicles\VEH-07\renders\exploded.png,render,exploded,Vehicles\VEH-07\renders\exploded.json,Blender/scripts (procedural or user GLB audit)
+VEH-07,Vehicles\VEH-07\renders\front.png,render,front,Vehicles\VEH-07\renders\front.json,Blender/scripts (procedural or user GLB audit)
+VEH-07,Vehicles\VEH-07\renders\hero.png,render,hero,Vehicles\VEH-07\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+VEH-07,Vehicles\VEH-07\renders\left.png,render,left,Vehicles\VEH-07\renders\left.json,Blender/scripts (procedural or user GLB audit)
+VEH-07,Vehicles\VEH-07\renders\plan.png,render,plan,Vehicles\VEH-07\renders\plan.json,Blender/scripts (procedural or user GLB audit)
+VEH-07,Vehicles\VEH-07\renders\rear.png,render,rear,Vehicles\VEH-07\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+VEH-07,Vehicles\VEH-07\renders\right.png,render,right,Vehicles\VEH-07\renders\right.json,Blender/scripts (procedural or user GLB audit)
+VEH-07,Vehicles\VEH-07\renders\top.png,render,top,Vehicles\VEH-07\renders\top.json,Blender/scripts (procedural or user GLB audit)
+VEH-08,Vehicles\VEH-08\renders\exploded.png,render,exploded,Vehicles\VEH-08\renders\exploded.json,Blender/scripts (procedural or user GLB audit)
+VEH-08,Vehicles\VEH-08\renders\front.png,render,front,Vehicles\VEH-08\renders\front.json,Blender/scripts (procedural or user GLB audit)
+VEH-08,Vehicles\VEH-08\renders\hero.png,render,hero,Vehicles\VEH-08\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+VEH-08,Vehicles\VEH-08\renders\left.png,render,left,Vehicles\VEH-08\renders\left.json,Blender/scripts (procedural or user GLB audit)
+VEH-08,Vehicles\VEH-08\renders\plan.png,render,plan,Vehicles\VEH-08\renders\plan.json,Blender/scripts (procedural or user GLB audit)
+VEH-08,Vehicles\VEH-08\renders\rear.png,render,rear,Vehicles\VEH-08\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+VEH-08,Vehicles\VEH-08\renders\right.png,render,right,Vehicles\VEH-08\renders\right.json,Blender/scripts (procedural or user GLB audit)
+VEH-08,Vehicles\VEH-08\renders\top.png,render,top,Vehicles\VEH-08\renders\top.json,Blender/scripts (procedural or user GLB audit)
+VEH-09,Vehicles\VEH-09\renders\exploded.png,render,exploded,Vehicles\VEH-09\renders\exploded.json,Blender/scripts (procedural or user GLB audit)
+VEH-09,Vehicles\VEH-09\renders\front.png,render,front,Vehicles\VEH-09\renders\front.json,Blender/scripts (procedural or user GLB audit)
+VEH-09,Vehicles\VEH-09\renders\hero.png,render,hero,Vehicles\VEH-09\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+VEH-09,Vehicles\VEH-09\renders\left.png,render,left,Vehicles\VEH-09\renders\left.json,Blender/scripts (procedural or user GLB audit)
+VEH-09,Vehicles\VEH-09\renders\plan.png,render,plan,Vehicles\VEH-09\renders\plan.json,Blender/scripts (procedural or user GLB audit)
+VEH-09,Vehicles\VEH-09\renders\rear.png,render,rear,Vehicles\VEH-09\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+VEH-09,Vehicles\VEH-09\renders\right.png,render,right,Vehicles\VEH-09\renders\right.json,Blender/scripts (procedural or user GLB audit)
+VEH-09,Vehicles\VEH-09\renders\top.png,render,top,Vehicles\VEH-09\renders\top.json,Blender/scripts (procedural or user GLB audit)
+VEH-10,Vehicles\VEH-10\renders\front.png,render,front,Vehicles\VEH-10\renders\front.json,Blender/scripts (procedural or user GLB audit)
+VEH-10,Vehicles\VEH-10\renders\hero.png,render,hero,Vehicles\VEH-10\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+VEH-10,Vehicles\VEH-10\renders\left.png,render,left,Vehicles\VEH-10\renders\left.json,Blender/scripts (procedural or user GLB audit)
+VEH-10,Vehicles\VEH-10\renders\rear.png,render,rear,Vehicles\VEH-10\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+VEH-10,Vehicles\VEH-10\renders\right.png,render,right,Vehicles\VEH-10\renders\right.json,Blender/scripts (procedural or user GLB audit)
+VEH-10,Vehicles\VEH-10\renders\top.png,render,top,Vehicles\VEH-10\renders\top.json,Blender/scripts (procedural or user GLB audit)
+VEH-11,Vehicles\VEH-11\renders\front.png,render,front,Vehicles\VEH-11\renders\front.json,Blender/scripts (procedural or user GLB audit)
+VEH-11,Vehicles\VEH-11\renders\hero.png,render,hero,Vehicles\VEH-11\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+VEH-11,Vehicles\VEH-11\renders\left.png,render,left,Vehicles\VEH-11\renders\left.json,Blender/scripts (procedural or user GLB audit)
+VEH-11,Vehicles\VEH-11\renders\rear.png,render,rear,Vehicles\VEH-11\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+VEH-11,Vehicles\VEH-11\renders\right.png,render,right,Vehicles\VEH-11\renders\right.json,Blender/scripts (procedural or user GLB audit)
+VEH-11,Vehicles\VEH-11\renders\top.png,render,top,Vehicles\VEH-11\renders\top.json,Blender/scripts (procedural or user GLB audit)
+VEH-12,Vehicles\VEH-12\renders\front.png,render,front,Vehicles\VEH-12\renders\front.json,Blender/scripts (procedural or user GLB audit)
+VEH-12,Vehicles\VEH-12\renders\hero.png,render,hero,Vehicles\VEH-12\renders\hero.json,Blender/scripts (procedural or user GLB audit)
+VEH-12,Vehicles\VEH-12\renders\left.png,render,left,Vehicles\VEH-12\renders\left.json,Blender/scripts (procedural or user GLB audit)
+VEH-12,Vehicles\VEH-12\renders\rear.png,render,rear,Vehicles\VEH-12\renders\rear.json,Blender/scripts (procedural or user GLB audit)
+VEH-12,Vehicles\VEH-12\renders\right.png,render,right,Vehicles\VEH-12\renders\right.json,Blender/scripts (procedural or user GLB audit)
+VEH-12,Vehicles\VEH-12\renders\top.png,render,top,Vehicles\VEH-12\renders\top.json,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\models\Cargo\front.png,render,front,Characters\models\Cargo\front.json,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\models\Cargo\hero.png,render,hero,Characters\models\Cargo\hero.json,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\models\Cargo\left.png,render,left,Characters\models\Cargo\left.json,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\models\Cargo\rear.png,render,rear,Characters\models\Cargo\rear.json,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\models\Cargo\right.png,render,right,Characters\models\Cargo\right.json,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\models\Cargo\top.png,render,top,Characters\models\Cargo\top.json,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\models\Research\front.png,render,front,Characters\models\Research\front.json,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\models\Research\hero.png,render,hero,Characters\models\Research\hero.json,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\models\Research\left.png,render,left,Characters\models\Research\left.json,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\models\Research\rear.png,render,rear,Characters\models\Research\rear.json,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\models\Research\right.png,render,right,Characters\models\Research\right.json,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\models\Research\top.png,render,top,Characters\models\Research\top.json,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\models\Utility\front.png,render,front,Characters\models\Utility\front.json,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\models\Utility\hero.png,render,hero,Characters\models\Utility\hero.json,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\models\Utility\left.png,render,left,Characters\models\Utility\left.json,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\models\Utility\rear.png,render,rear,Characters\models\Utility\rear.json,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\models\Utility\right.png,render,right,Characters\models\Utility\right.json,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\models\Utility\top.png,render,top,Characters\models\Utility\top.json,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\turnarounds\Cypher_back.png,render,Cypher_back,,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\turnarounds\Cypher_basecolor.png,render,Cypher_basecolor,,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\turnarounds\Cypher_front.png,render,Cypher_front,,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\turnarounds\Cypher_q34.png,render,Cypher_q34,,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\turnarounds\Cypher_side.png,render,Cypher_side,,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\turnarounds\Patch_back.png,render,Patch_back,,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\turnarounds\Patch_basecolor.png,render,Patch_basecolor,,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\turnarounds\Patch_front.png,render,Patch_front,,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\turnarounds\Patch_q34.png,render,Patch_q34,,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\turnarounds\Patch_side.png,render,Patch_side,,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\turnarounds\Sentinel_back.png,render,Sentinel_back,,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\turnarounds\Sentinel_basecolor.png,render,Sentinel_basecolor,,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\turnarounds\Sentinel_front.png,render,Sentinel_front,,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\turnarounds\Sentinel_q34.png,render,Sentinel_q34,,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\turnarounds\Sentinel_side.png,render,Sentinel_side,,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\turnarounds\Utility_back.png,render,Utility_back,,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\turnarounds\Utility_basecolor.png,render,Utility_basecolor,,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\turnarounds\Utility_front.png,render,Utility_front,,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\turnarounds\Utility_q34.png,render,Utility_q34,,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\turnarounds\Utility_side.png,render,Utility_side,,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\turnarounds\robots_lineup_front.png,render,robots_lineup_front,,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\turnarounds\variant_archivist.png,render,variant_archivist,,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\turnarounds\variant_dormant.png,render,variant_dormant,,Blender/scripts (procedural or user GLB audit)
+CHR,Characters\turnarounds\variant_enforcer.png,render,variant_enforcer,,Blender/scripts (procedural or user GLB audit)
+Cover,PDF\pages\P01_Cover.png,sheet/page,Cover,,PDF page 1
+Contents,PDF\pages\P02_Contents.png,sheet/page,Contents,,PDF page 2
+3A,PDF\pages\P03_Reference_Audit.png,sheet/page,3A Reference audit,,PDF page 3
+3C,PDF\pages\P03C_Supplied_Assets.png,sheet/page,3C Supplied assets (Nov batch),,PDF page 4
+3B,PDF\pages\P04_Visual_Consistency.png,sheet/page,3B Visual consistency,,PDF page 5
+4A,PDF\pages\P05_Asset_Inventory.png,sheet/page,4A Asset inventory,,PDF page 6
+4A,PDF\pages\P05_Asset_Inventory_2.png,sheet/page,4A Asset inventory (2),,PDF page 7
+4B,PDF\pages\P06_Naming_Workflow.png,sheet/page,4B Naming & workflow,,PDF page 8
+CHR-00,Characters\sheets\CHR-00_Family_Lineup.png,sheet/page,CHR-00 Family Lineup,,PDF page 9
+CHR-01,Characters\sheets\CHR-01_Cypher.png,sheet/page,CHR-01 Cypher,,PDF page 10
+CHR-02,Characters\sheets\CHR-02_Sentinel.png,sheet/page,CHR-02 Sentinel,,PDF page 11
+CHR-03,Characters\sheets\CHR-03_Patch.png,sheet/page,CHR-03 Patch,,PDF page 12
+CHR-04,Characters\sheets\CHR-04_Family_Design_Language.png,sheet/page,CHR-04 Family Design Language,,PDF page 13
+CHR-05,Characters\sheets\CHR-05_MED7.png,sheet/page,CHR-05 MED7,,PDF page 14
+CHR-06,Characters\sheets\CHR-06_MEDIX.png,sheet/page,CHR-06 MEDIX,,PDF page 15
+CHR-07,Characters\sheets\CHR-07_ORION.png,sheet/page,CHR-07 ORION,,PDF page 16
+CHR-08,Characters\sheets\CHR-08_ORBIT7.png,sheet/page,CHR-08 ORBIT7,,PDF page 17
+CHR-09,Characters\sheets\CHR-09_AURORA.png,sheet/page,CHR-09 AURORA,,PDF page 18
+CHR-10,Characters\sheets\CHR-10_RTRN02.png,sheet/page,CHR-10 RTRN02,,PDF page 19
+CHR-11,Characters\sheets\CHR-11_Utility.png,sheet/page,CHR-11 Utility,,PDF page 20
+SF-01,Stasis_Facility\sheets\SF-01_Exterior_1_Render_Roof.png,sheet/page,SF-01 Exterior 1 Render Roof,,PDF page 21
+SF-01,Stasis_Facility\sheets\SF-01_Exterior_2_Elevations.png,sheet/page,SF-01 Exterior 2 Elevations,,PDF page 22
+SF-02,Stasis_Facility\sheets\SF-02_FloorPlan.png,sheet/page,SF-02 FloorPlan,,PDF page 23
+SF-03,Stasis_Facility\sheets\SF-03_Interior_1_Chamber_Lighting.png,sheet/page,SF-03 Interior 1 Chamber Lighting,,PDF page 24
+SF-03,Stasis_Facility\sheets\SF-03_Interior_2_Construction_Systems.png,sheet/page,SF-03 Interior 2 Construction Systems,,PDF page 25
+SF-04,Stasis_Facility\sheets\SF-04_StasisPod_1_Ortho.png,sheet/page,SF-04 StasisPod 1 Ortho,,PDF page 26
+SF-04,Stasis_Facility\sheets\SF-04_StasisPod_2_States.png,sheet/page,SF-04 StasisPod 2 States,,PDF page 27
+SF-05,Stasis_Facility\sheets\SF-05_Roblox_1_Kit_Collision.png,sheet/page,SF-05 Roblox 1 Kit Collision,,PDF page 28
+SF-05,Stasis_Facility\sheets\SF-05_Roblox_2_Implementation.png,sheet/page,SF-05 Roblox 2 Implementation,,PDF page 29
+BLD-02,Buildings\BLD-02\BLD-02_1_Exterior.png,sheet/page,BLD-02 1 Exterior,,PDF page 30
+BLD-02,Buildings\BLD-02\BLD-02_2_Plan_Spec.png,sheet/page,BLD-02 2 Plan Spec,,PDF page 31
+BLD-02,Buildings\BLD-02\BLD-02_3_UserModel.png,sheet/page,BLD-02 3 UserModel,,PDF page 32
+BLD-03,Buildings\BLD-03\BLD-03_1_Exterior.png,sheet/page,BLD-03 1 Exterior,,PDF page 33
+BLD-03,Buildings\BLD-03\BLD-03_2_Plan_Spec.png,sheet/page,BLD-03 2 Plan Spec,,PDF page 34
+BLD-03,Buildings\BLD-03\BLD-03_3_UserModel.png,sheet/page,BLD-03 3 UserModel,,PDF page 35
+BLD-04,Buildings\BLD-04\BLD-04_1_Exterior.png,sheet/page,BLD-04 1 Exterior,,PDF page 36
+BLD-04,Buildings\BLD-04\BLD-04_2_Plan_Spec.png,sheet/page,BLD-04 2 Plan Spec,,PDF page 37
+BLD-04,Buildings\BLD-04\BLD-04_3_UserModel.png,sheet/page,BLD-04 3 UserModel,,PDF page 38
+BLD-05,Buildings\BLD-05\BLD-05_1_Exterior.png,sheet/page,BLD-05 1 Exterior,,PDF page 39
+BLD-05,Buildings\BLD-05\BLD-05_2_Plan_Spec.png,sheet/page,BLD-05 2 Plan Spec,,PDF page 40
+BLD-06,Buildings\BLD-06\BLD-06_1_Exterior.png,sheet/page,BLD-06 1 Exterior,,PDF page 41
+BLD-06,Buildings\BLD-06\BLD-06_2_Plan_Spec.png,sheet/page,BLD-06 2 Plan Spec,,PDF page 42
+BLD-07,Buildings\BLD-07\BLD-07_1_Exterior.png,sheet/page,BLD-07 1 Exterior,,PDF page 43
+BLD-07,Buildings\BLD-07\BLD-07_2_Plan_Spec.png,sheet/page,BLD-07 2 Plan Spec,,PDF page 44
+BLD-07,Buildings\BLD-07\BLD-07_3_UserModel.png,sheet/page,BLD-07 3 UserModel,,PDF page 45
+BLD-08,Buildings\BLD-08\BLD-08_1_Exterior.png,sheet/page,BLD-08 1 Exterior,,PDF page 46
+BLD-08,Buildings\BLD-08\BLD-08_2_Plan_Spec.png,sheet/page,BLD-08 2 Plan Spec,,PDF page 47
+BLD-09,Buildings\BLD-09\BLD-09_1_Exterior.png,sheet/page,BLD-09 1 Exterior,,PDF page 48
+BLD-09,Buildings\BLD-09\BLD-09_2_Plan_Spec.png,sheet/page,BLD-09 2 Plan Spec,,PDF page 49
+BLD-09,Buildings\BLD-09\BLD-09_3_UserModel.png,sheet/page,BLD-09 3 UserModel,,PDF page 50
+BLD-10,Buildings\BLD-10\BLD-10_1_Exterior.png,sheet/page,BLD-10 1 Exterior,,PDF page 51
+BLD-10,Buildings\BLD-10\BLD-10_2_Plan_Spec.png,sheet/page,BLD-10 2 Plan Spec,,PDF page 52
+BLD-11,Buildings\BLD-11\BLD-11_1_Exterior.png,sheet/page,BLD-11 1 Exterior,,PDF page 53
+BLD-11,Buildings\BLD-11\BLD-11_2_Plan_Spec.png,sheet/page,BLD-11 2 Plan Spec,,PDF page 54
+BLD-12,Buildings\BLD-12\BLD-12_1_Exterior.png,sheet/page,BLD-12 1 Exterior,,PDF page 55
+BLD-12,Buildings\BLD-12\BLD-12_2_Plan_Spec.png,sheet/page,BLD-12 2 Plan Spec,,PDF page 56
+BLD-13,Buildings\BLD-13\BLD-13_1_Exterior.png,sheet/page,BLD-13 1 Exterior,,PDF page 57
+BLD-13,Buildings\BLD-13\BLD-13_2_Plan_Spec.png,sheet/page,BLD-13 2 Plan Spec,,PDF page 58
+BLD-14,Buildings\BLD-14\BLD-14_1_Exterior.png,sheet/page,BLD-14 1 Exterior,,PDF page 59
+BLD-14,Buildings\BLD-14\BLD-14_2_Plan_Spec.png,sheet/page,BLD-14 2 Plan Spec,,PDF page 60
+BLD-15,Buildings\BLD-15\BLD-15_1_Exterior.png,sheet/page,BLD-15 1 Exterior,,PDF page 61
+BLD-15,Buildings\BLD-15\BLD-15_2_Plan_Spec.png,sheet/page,BLD-15 2 Plan Spec,,PDF page 62
+BLD-16,Buildings\BLD-16\BLD-16_Sheet.png,sheet/page,BLD-16 Sheet,,PDF page 63
+BLD-17,Buildings\BLD-17\BLD-17_Sheet.png,sheet/page,BLD-17 Sheet,,PDF page 64
+BLD-18,Buildings\BLD-18\BLD-18_Sheet.png,sheet/page,BLD-18 Sheet,,PDF page 65
+BLD-19,Buildings\BLD-19\BLD-19_Sheet.png,sheet/page,BLD-19 Sheet,,PDF page 66
+BLD-20,Buildings\BLD-20\BLD-20_1_Exterior.png,sheet/page,BLD-20 1 Exterior,,PDF page 67
+BLD-20,Buildings\BLD-20\BLD-20_2_Plan_Spec.png,sheet/page,BLD-20 2 Plan Spec,,PDF page 68
+BLD-21,Buildings\BLD-21\BLD-21_Sheet.png,sheet/page,BLD-21 Sheet,,PDF page 69
+BLD-22,Buildings\BLD-22\BLD-22_Sheet.png,sheet/page,BLD-22 Sheet,,PDF page 70
+BLD-23,Buildings\BLD-23\BLD-23_Sheet.png,sheet/page,BLD-23 Sheet,,PDF page 71
+BLD-24,Buildings\BLD-24\BLD-24_Sheet.png,sheet/page,BLD-24 Sheet,,PDF page 72
+BLD-25,Buildings\BLD-25\BLD-25_1_Exterior.png,sheet/page,BLD-25 1 Exterior,,PDF page 73
+BLD-25,Buildings\BLD-25\BLD-25_2_Plan_Spec.png,sheet/page,BLD-25 2 Plan Spec,,PDF page 74
+BLD-26,Buildings\BLD-26\BLD-26_1_Exterior.png,sheet/page,BLD-26 1 Exterior,,PDF page 75
+BLD-26,Buildings\BLD-26\BLD-26_2_Plan_Spec.png,sheet/page,BLD-26 2 Plan Spec,,PDF page 76
+BLD-27,Buildings\BLD-27\BLD-27_1_Exterior.png,sheet/page,BLD-27 1 Exterior,,PDF page 77
+BLD-27,Buildings\BLD-27\BLD-27_2_Plan_Spec.png,sheet/page,BLD-27 2 Plan Spec,,PDF page 78
+BLD-28,Buildings\BLD-28\BLD-28_1_Exterior.png,sheet/page,BLD-28 1 Exterior,,PDF page 79
+BLD-28,Buildings\BLD-28\BLD-28_2_Plan_Spec.png,sheet/page,BLD-28 2 Plan Spec,,PDF page 80
+BLD-29,Buildings\BLD-29\BLD-29_1_Exterior.png,sheet/page,BLD-29 1 Exterior,,PDF page 81
+BLD-29,Buildings\BLD-29\BLD-29_2_Plan_Spec.png,sheet/page,BLD-29 2 Plan Spec,,PDF page 82
+VEH-01,Vehicles\VEH-01\VEH-01_1_Exterior.png,sheet/page,VEH-01 1 Exterior,,PDF page 83
+VEH-01,Vehicles\VEH-01\VEH-01_2_Plan_Spec.png,sheet/page,VEH-01 2 Plan Spec,,PDF page 84
+VEH-02,Vehicles\VEH-02\VEH-02_1_Exterior.png,sheet/page,VEH-02 1 Exterior,,PDF page 85
+VEH-02,Vehicles\VEH-02\VEH-02_2_Plan_Spec.png,sheet/page,VEH-02 2 Plan Spec,,PDF page 86
+VEH-03,Vehicles\VEH-03\VEH-03_1_Exterior.png,sheet/page,VEH-03 1 Exterior,,PDF page 87
+VEH-03,Vehicles\VEH-03\VEH-03_2_Plan_Spec.png,sheet/page,VEH-03 2 Plan Spec,,PDF page 88
+VEH-04,Vehicles\VEH-04\VEH-04_1_Exterior.png,sheet/page,VEH-04 1 Exterior,,PDF page 89
+VEH-04,Vehicles\VEH-04\VEH-04_2_Plan_Spec.png,sheet/page,VEH-04 2 Plan Spec,,PDF page 90
+VEH-05,Vehicles\VEH-05\VEH-05_1_Exterior.png,sheet/page,VEH-05 1 Exterior,,PDF page 91
+VEH-05,Vehicles\VEH-05\VEH-05_2_Plan_Spec.png,sheet/page,VEH-05 2 Plan Spec,,PDF page 92
+VEH-06,Vehicles\VEH-06\VEH-06_1_Exterior.png,sheet/page,VEH-06 1 Exterior,,PDF page 93
+VEH-06,Vehicles\VEH-06\VEH-06_2_Plan_Spec.png,sheet/page,VEH-06 2 Plan Spec,,PDF page 94
+VEH-07,Vehicles\VEH-07\VEH-07_1_Exterior.png,sheet/page,VEH-07 1 Exterior,,PDF page 95
+VEH-07,Vehicles\VEH-07\VEH-07_2_Plan_Spec.png,sheet/page,VEH-07 2 Plan Spec,,PDF page 96
+VEH-08,Vehicles\VEH-08\VEH-08_1_Exterior.png,sheet/page,VEH-08 1 Exterior,,PDF page 97
+VEH-08,Vehicles\VEH-08\VEH-08_2_Plan_Spec.png,sheet/page,VEH-08 2 Plan Spec,,PDF page 98
+VEH-09,Vehicles\VEH-09\VEH-09_1_Exterior.png,sheet/page,VEH-09 1 Exterior,,PDF page 99
+VEH-09,Vehicles\VEH-09\VEH-09_2_Plan_Spec.png,sheet/page,VEH-09 2 Plan Spec,,PDF page 100
+VEH-10,Vehicles\VEH-10\VEH-10_Sheet.png,sheet/page,VEH-10 Sheet,,PDF page 101
+VEH-11,Vehicles\VEH-11\VEH-11_Sheet.png,sheet/page,VEH-11 Sheet,,PDF page 102
+VEH-12,Vehicles\VEH-12\VEH-12_Sheet.png,sheet/page,VEH-12 Sheet,,PDF page 103
+VEH-13,Vehicles\VEH-13\VEH-13_Sheet.png,sheet/page,VEH-13 Sheet,,PDF page 104
+VEH-14,Vehicles\VEH-14\VEH-14_1_Exterior.png,sheet/page,VEH-14 1 Exterior,,PDF page 105
+VEH-14,Vehicles\VEH-14\VEH-14_2_Plan_Spec.png,sheet/page,VEH-14 2 Plan Spec,,PDF page 106
+VEH-15,Vehicles\VEH-15\VEH-15_1_Exterior.png,sheet/page,VEH-15 1 Exterior,,PDF page 107
+VEH-15,Vehicles\VEH-15\VEH-15_2_Plan_Spec.png,sheet/page,VEH-15 2 Plan Spec,,PDF page 108
+VEH-16,Vehicles\VEH-16\VEH-16_1_Exterior.png,sheet/page,VEH-16 1 Exterior,,PDF page 109
+VEH-16,Vehicles\VEH-16\VEH-16_2_Plan_Spec.png,sheet/page,VEH-16 2 Plan Spec,,PDF page 110
+EQP-01,Equipment\EQP-01\EQP-01_Sheet.png,sheet/page,EQP-01 Sheet,,PDF page 111
+EQP-02,Equipment\EQP-02\EQP-02_Sheet.png,sheet/page,EQP-02 Sheet,,PDF page 112
+EQP-03,Equipment\EQP-03\EQP-03_Sheet.png,sheet/page,EQP-03 Sheet,,PDF page 113
+EQP-04,Equipment\EQP-04\EQP-04_Sheet.png,sheet/page,EQP-04 Sheet,,PDF page 114
+EQP-05,Equipment\EQP-05\EQP-05_Sheet.png,sheet/page,EQP-05 Sheet,,PDF page 115
+EQP-06,Equipment\EQP-06\EQP-06_Sheet.png,sheet/page,EQP-06 Sheet,,PDF page 116
+EQP-07,Equipment\EQP-07\EQP-07_Sheet.png,sheet/page,EQP-07 Sheet,,PDF page 117
+EQP-08,Equipment\EQP-08\EQP-08_Sheet.png,sheet/page,EQP-08 Sheet,,PDF page 118
+EQP-09,Equipment\EQP-09\EQP-09_Sheet.png,sheet/page,EQP-09 Sheet,,PDF page 119
+EQP-10,Equipment\EQP-10\EQP-10_Sheet.png,sheet/page,EQP-10 Sheet,,PDF page 120
+EQP-11,Equipment\EQP-11\EQP-11_Sheet.png,sheet/page,EQP-11 Sheet,,PDF page 121
+EQP-12,Equipment\EQP-12\EQP-12_Sheet.png,sheet/page,EQP-12 Sheet,,PDF page 122
+EQP-13,Equipment\EQP-13\EQP-13_Sheet.png,sheet/page,EQP-13 Sheet,,PDF page 123
+EQP-14,Equipment\EQP-14\EQP-14_Sheet.png,sheet/page,EQP-14 Sheet,,PDF page 124
+EQP-15,Equipment\EQP-15\EQP-15_Sheet.png,sheet/page,EQP-15 Sheet,,PDF page 125
+EQP-16,Equipment\EQP-16\EQP-16_Sheet.png,sheet/page,EQP-16 Sheet,,PDF page 126
+EQP-17,Equipment\EQP-17\EQP-17_Sheet.png,sheet/page,EQP-17 Sheet,,PDF page 127
+EQP-18,Equipment\EQP-18\EQP-18_Sheet.png,sheet/page,EQP-18 Sheet,,PDF page 128
+EQP-19,Equipment\EQP-19\EQP-19_Sheet.png,sheet/page,EQP-19 Sheet,,PDF page 129
+EQP-20,Equipment\EQP-20\EQP-20_Sheet.png,sheet/page,EQP-20 Sheet,,PDF page 130
+EQP-21,Equipment\EQP-21\EQP-21_Sheet.png,sheet/page,EQP-21 Sheet,,PDF page 131
+EQP-22,Equipment\EQP-22\EQP-22_Sheet.png,sheet/page,EQP-22 Sheet,,PDF page 132
+EQP-23,Equipment\EQP-23\EQP-23_Sheet.png,sheet/page,EQP-23 Sheet,,PDF page 133
+EQP-24,Equipment\EQP-24\EQP-24_Sheet.png,sheet/page,EQP-24 Sheet,,PDF page 134
+EQP-25,Equipment\EQP-25\EQP-25_Sheet.png,sheet/page,EQP-25 Sheet,,PDF page 135
+EQP-26,Equipment\EQP-26\EQP-26_Sheet.png,sheet/page,EQP-26 Sheet,,PDF page 136
+EQP-27,Equipment\EQP-27\EQP-27_Sheet.png,sheet/page,EQP-27 Sheet,,PDF page 137
+INF-01,Infrastructure\INF-01\INF-01_Sheet.png,sheet/page,INF-01 Sheet,,PDF page 138
+INF-02,Infrastructure\INF-02\INF-02_Sheet.png,sheet/page,INF-02 Sheet,,PDF page 139
+INF-03,Infrastructure\INF-03\INF-03_Sheet.png,sheet/page,INF-03 Sheet,,PDF page 140
+INF-04,Infrastructure\INF-04\INF-04_Sheet.png,sheet/page,INF-04 Sheet,,PDF page 141
+INF-05,Infrastructure\INF-05\INF-05_Sheet.png,sheet/page,INF-05 Sheet,,PDF page 142
+INF-06,Infrastructure\INF-06\INF-06_Sheet.png,sheet/page,INF-06 Sheet,,PDF page 143
+INF-07,Infrastructure\INF-07\INF-07_Sheet.png,sheet/page,INF-07 Sheet,,PDF page 144
+INF-08,Infrastructure\INF-08\INF-08_Sheet.png,sheet/page,INF-08 Sheet,,PDF page 145
+INF-09,Infrastructure\INF-09\INF-09_Sheet.png,sheet/page,INF-09 Sheet,,PDF page 146
+INF-10,Infrastructure\INF-10\INF-10_Sheet.png,sheet/page,INF-10 Sheet,,PDF page 147
+INF-11,Infrastructure\INF-11\INF-11_Sheet.png,sheet/page,INF-11 Sheet,,PDF page 148
+INF-11,Infrastructure\INF-11\INF-11_UserModel.png,sheet/page,INF-11 UserModel,,PDF page 149
+INF-12,Infrastructure\INF-12\INF-12_Sheet.png,sheet/page,INF-12 Sheet,,PDF page 150
+INF-13,Infrastructure\INF-13\INF-13_Sheet.png,sheet/page,INF-13 Sheet,,PDF page 151
+INF-14,Infrastructure\INF-14\INF-14_Sheet.png,sheet/page,INF-14 Sheet,,PDF page 152
+INF-15,Infrastructure\INF-15\INF-15_Sheet.png,sheet/page,INF-15 Sheet,,PDF page 153
+INF-16,Infrastructure\INF-16\INF-16_Sheet.png,sheet/page,INF-16 Sheet,,PDF page 154
+INF-17,Infrastructure\INF-17\INF-17_Sheet.png,sheet/page,INF-17 Sheet,,PDF page 155
+INF-18,Infrastructure\INF-18\INF-18_Sheet.png,sheet/page,INF-18 Sheet,,PDF page 156
+INF-19,Infrastructure\INF-19\INF-19_Sheet.png,sheet/page,INF-19 Sheet,,PDF page 157
+INF-20,Infrastructure\INF-20\INF-20_Sheet.png,sheet/page,INF-20 Sheet,,PDF page 158
+INT-08,Interiors\INT-08\INT-08_UserModel.png,sheet/page,INT-08 UserModel,,PDF page 159
+QA,PDF\pages\P16_QA.png,sheet/page,QA checklist,,PDF page 160
+reference,Source_Documents\NEXUS_01_City_Infrastructure_Architecture_Bible.pdf,source,,,supplied
+reference,Source_Documents\Project Zero Design Bible.png,source,,,supplied
+reference,Source_Documents\Project_Zero_Asset_Architecture_Reference_Bible.pdf,source,,,supplied
+reference,Source_Documents\Project_Zero_Complete_Bible_With_Visual_References.pdf,source,,,supplied
+reference,Source_Documents\audit_renders\AssetBible_p02_StasisSheet.png,source,,,supplied
+reference,Source_Documents\audit_renders\NEXUS01_p10_StasisReference.png,source,,,supplied
+reference,Source_Documents\audit_renders\NEXUS01_p12_LastSanctuary.png,source,,,supplied
+reference,Source_Documents\audit_renders\PROTOTYPE_07_Remeshed_q34.png,source,,,supplied
+reference,Source_Documents\new_refs\Nexus-01_Robotic_Metropolis.png,source,,,supplied
+reference,Source_Documents\new_refs\Project Zero_ Nexus-01 Equipment Sheets.png,source,,,supplied
+reference,Source_Documents\robot_audit\Cypher_back.png,source,,,supplied
+reference,Source_Documents\robot_audit\Cypher_front.png,source,,,supplied
+reference,Source_Documents\robot_audit\Cypher_q34.png,source,,,supplied
+reference,Source_Documents\robot_audit\Cypher_side.png,source,,,supplied
+reference,Source_Documents\robot_audit\Patch_back.png,source,,,supplied
+reference,Source_Documents\robot_audit\Patch_front.png,source,,,supplied
+reference,Source_Documents\robot_audit\Patch_q34.png,source,,,supplied
+reference,Source_Documents\robot_audit\Patch_side.png,source,,,supplied
+reference,Source_Documents\robot_audit\Sentinel_back.png,source,,,supplied
+reference,Source_Documents\robot_audit\Sentinel_front.png,source,,,supplied
+reference,Source_Documents\robot_audit\Sentinel_q34.png,source,,,supplied
+reference,Source_Documents\robot_audit\Sentinel_side.png,source,,,supplied
+reference,Source_Documents\robot_audit\robots_info.json,source,,,supplied
+reference,Source_Documents\robot_audit\robots_lineup_front.png,source,,,supplied
+reference,Source_Documents\triage\A_sleek_starship_cap.png,source,,,supplied
+reference,Source_Documents\triage\A_standalone_sci_fi_m.png,source,,,supplied
+reference,Source_Documents\triage\Aegis_Orbital_Station.png,source,,,supplied
+reference,Source_Documents\triage\Aegis_Outpost.png,source,,,supplied
+reference,Source_Documents\triage\Aegis_Reactor_Bastion.png,source,,,supplied
+reference,Source_Documents\triage\Aegis_Refinery_Comple.png,source,,,supplied
+reference,Source_Documents\triage\Alien_Ship_Officer.png,source,,,supplied
+reference,Source_Documents\triage\Battlemech.png,source,,,supplied
+reference,Source_Documents\triage\Command_Center_Chair.png,source,,,supplied
+reference,Source_Documents\triage\DROE_Titan_Rover.png,source,,,supplied
+reference,Source_Documents\triage\Desert_Sentinel_8x8.png,source,,,supplied
+reference,Source_Documents\triage\Drone_Hive.png,source,,,supplied
+reference,Source_Documents\triage\Jet2.png,source,,,supplied
+reference,Source_Documents\triage\Mars_Vanguard_Rover.png,source,,,supplied
+reference,Source_Documents\triage\Nebula_Command_Consol.png,source,,,supplied
+reference,Source_Documents\triage\Orbital_Research_Outp_1121020042_texture.png,source,,,supplied
+reference,Source_Documents\triage\Outpost_Emberfall.png,source,,,supplied
+reference,Source_Documents\triage\Quantum_Core_Nova_7.png,source,,,supplied
+reference,Source_Documents\triage\Quantum_Gateway.png,source,,,supplied
+reference,Source_Documents\triage\Quantum_Ring_Engine.png,source,,,supplied
+reference,Source_Documents\triage\Sci_Fi_Command_Base.png,source,,,supplied
+reference,Source_Documents\triage\Sci_Fi_Energy_Core_Sp.png,source,,,supplied
+reference,Source_Documents\triage\Starship_Command_Cons.png,source,,,supplied
+reference,Source_Documents\triage\Steel_Citadel.png,source,,,supplied
+reference,Source_Documents\triage\Three_Armored_Sentinels_20261121_animated_mixamo_All_animation.png,source,,,supplied
+reference,Source_Documents\triage\Thunderfang_X_804.png,source,,,supplied
+reference,Source_Documents\triage\internal_mother_ship_.png,source,,,supplied
+reference,Source_Documents\triage\mars_habitat_hybrid.png,source,,,supplied
+reference,Source_Documents\triage\unnamed_1121180752.png,source,,,supplied
+reference,Source_Documents\triage\unnamed_1121180856.png,source,,,supplied
+reference,Source_Documents\triage\vehicle_tracked_haule.png,source,,,supplied
+reference,Source_Documents\user_models\Arena_textured.glb,source,,,supplied
+reference,Source_Documents\user_models\ContainmentChamber_textured.glb,source,,,supplied
+reference,Source_Documents\user_models\EnergyBlaster_textured.glb,source,,,supplied
+reference,Source_Documents\user_models\FreightTrain_textured.glb,source,,,supplied
+reference,Source_Documents\user_models\GarageInterior_textured.glb,source,,,supplied
+reference,Source_Documents\user_models\HospitalRepairHall_textured.glb,source,,,supplied
+reference,Source_Documents\user_models\RiotShield_textured.glb,source,,,supplied
+reference,Source_Documents\user_models\SecurityPulseRifle_textured.glb,source,,,supplied
+reference,Source_Documents\user_models\SecurityVTOL_textured.glb,source,,,supplied
+reference,Source_Documents\user_models\Skybridge_textured.glb,source,,,supplied
+reference,Source_Documents\user_models\Walkway_textured.glb,source,,,supplied

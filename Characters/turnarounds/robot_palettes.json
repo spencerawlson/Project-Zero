@@ -1,0 +1,120 @@
+{
+ "Cypher": [
+  [
+   "light shell",
+   "#D6D6DA",
+   41.9
+  ],
+  [
+   "mid metal",
+   "#808286",
+   7.9
+  ],
+  [
+   "dark joint",
+   "#1B1C1E",
+   16.9
+  ],
+  [
+   "teal/cyan",
+   "#3BB3BD",
+   4.2
+  ],
+  [
+   "navy/blue",
+   "#1B2E45",
+   8.7
+  ],
+  [
+   "cyan emissive",
+   "#4BE7ED",
+   2.4
+  ]
+ ],
+ "Sentinel": [
+  [
+   "mid metal",
+   "#696968",
+   4.2
+  ],
+  [
+   "dark joint",
+   "#2F2F30",
+   80.5
+  ],
+  [
+   "orange/hazard",
+   "#8F692E",
+   10.2
+  ],
+  [
+   "teal/cyan",
+   "#4B8F99",
+   0.8
+  ],
+  [
+   "cyan emissive",
+   "#65D2E0",
+   0.2
+  ]
+ ],
+ "Patch": [
+  [
+   "light shell",
+   "#DDDBDE",
+   7.8
+  ],
+  [
+   "mid metal",
+   "#818384",
+   2.0
+  ],
+  [
+   "dark joint",
+   "#242526",
+   57.6
+  ],
+  [
+   "orange/hazard",
+   "#C0791A",
+   9.1
+  ],
+  [
+   "yellow",
+   "#78713B",
+   0.5
+  ],
+  [
+   "teal/cyan",
+   "#156672",
+   15.0
+  ],
+  [
+   "cyan emissive",
+   "#62E1E5",
+   0.1
+  ]
+ ],
+ "Utility": [
+  [
+   "light shell",
+   "#D9D9D9",
+   14.8
+  ],
+  [
+   "mid metal",
+   "#7C7C7D",
+   12.9
+  ],
+  [
+   "dark joint",
+   "#313235",
+   69.4
+  ],
+  [
+   "orange/hazard",
+   "#9B754E",
+   1.2
+  ]
+ ]
+}

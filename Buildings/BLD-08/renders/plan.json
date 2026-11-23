@@ -1,0 +1,134 @@
+{
+ "shot": "plan",
+ "res": [
+  1600,
+  1600
+ ],
+ "cam_loc": [
+  0.0,
+  -3.5,
+  10.0
+ ],
+ "anchors": {
+  "ring0": [
+   1094.5508003234863,
+   748.4536170959473,
+   -51.0
+  ],
+  "core": [
+   800.0,
+   866.2739276885986,
+   -100.0
+  ],
+  "tier1": [
+   800.0,
+   1411.1929297447205,
+   -4.0
+  ],
+  "crown": [
+   800.0,
+   748.4536170959473,
+   -166.0
+  ],
+  "platform1": [
+   962.0029449462891,
+   748.4536170959473,
+   -84.0
+  ],
+  "ctrl_roof": [
+   800.0,
+   1322.827696800232,
+   1.0
+  ]
+ },
+ "ortho_scale": 108.63999938964844,
+ "bbox": [
+  [
+   -45.0,
+   -52.0,
+   0.0
+  ],
+  [
+   45.0,
+   45.0,
+   180.0
+  ]
+ ],
+ "bbox_obj": [
+  [
+   -45.0,
+   -45.0,
+   0.0
+  ],
+  [
+   45.0,
+   45.0,
+   180.0
+  ]
+ ],
+ "notes": {
+  "ring0": [
+   [
+    20,
+    0,
+    61
+   ],
+   "Concentric energy rings (state colour)",
+   "body"
+  ],
+  "core": [
+   [
+    0,
+    -8,
+    110
+   ],
+   "Exposed cyan core \u2014 power state readable city-wide",
+   "body"
+  ],
+  "tier1": [
+   [
+    0,
+    -45,
+    14
+   ],
+   "Tiered octagonal reactor base 90 \u00d7 90",
+   "body"
+  ],
+  "crown": [
+   [
+    0,
+    0,
+    176
+   ],
+   "Crown emitter (red in Lockdown)",
+   "body"
+  ],
+  "platform1": [
+   [
+    11,
+    0,
+    94
+   ],
+   "Maintenance platforms",
+   "body"
+  ],
+  "ctrl_roof": [
+   [
+    0,
+    -39,
+    9
+   ],
+   "Reactor control entry (INT-10)",
+   "body"
+  ]
+ },
+ "cut": 10,
+ "cat": "BLD",
+ "view": "plan",
+ "ortho": 108.64000000000001,
+ "center": [
+  0.0,
+  -3.5,
+  90.0
+ ]
+}
