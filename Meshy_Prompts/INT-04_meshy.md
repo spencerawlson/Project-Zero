@@ -8,4 +8,4 @@
 
 **Target after Blender:** Props ≤ 2 k tris each; baked AO optional; shared interior trim sheet.
 
-_Dimensions (car interior studs) are design assumptions._
+_Dimensions (17×23×8.6 car interior studs) are design assumptions._

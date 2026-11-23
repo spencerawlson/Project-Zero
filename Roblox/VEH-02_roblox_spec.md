@@ -4,7 +4,7 @@
 |---|---|
 | Roblox name | `PZ_TRN_Nexus01Monorail_A` |
 | Purpose | Everyday fast travel between districts. |
-| Interaction | Board · choose destination · ride camera |
+| Interaction | Board (5 × 8 doors) · sit (8 robot seats / car) · choose destination · ride camera |
 | Animation | Path follow along guideway, doors |
 | Modular construction | Separate models per car / body / chassis / bogies; seats are Seat instances; doors are hinge models. |
 | Implementation | Scripted path following (TweenService / AlignPosition, network owner = server); passengers weld to seats. |

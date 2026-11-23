@@ -83,6 +83,18 @@ def run():
         if not ok:
             miss.append(aid)
     add("Every inventory asset has a sheet", not miss, f"{len(INVQ.ASSETS)} assets checked" + (f"; missing: {', '.join(miss)}" if miss else "; all present"))
+    # Crew standard (owner decision 2026-11-23): every vehicle seat and doorway is tested at render time against
+    # the largest robot (Patch 4.4 wide, Sentinel 7.5 tall) and written to <asset>/renders/crew_check.json.
+    crew = []
+    for f in sorted(glob.glob(os.path.join(ROOT, "*", "*", "renders", "crew_check.json"))):
+        aid = os.path.basename(os.path.dirname(os.path.dirname(f)))
+        for c in json.load(open(f, encoding="utf-8"))["checks"]:
+            crew.append((aid, c))
+    bad = [f"{a} {c['kind']} {c['name']}" for a, c in crew if not c["ok"]]
+    seats = sum(1 for _, c in crew if c["kind"] == "seat"); walks = len(crew) - seats
+    add("Robots fit vehicle cabs (crew standard)", bool(crew) and not bad,
+        (f"{seats} seats + {walks} doors/aisles in {len({a for a, _ in crew})} assets clear for the largest robot"
+         if crew else "no crew checks found") + (f"; blocked: {bad[:6]}" if bad else ""))
     add("User 3D models needing remesh", "NOTE", "VEH-11 5.6 M tris, VEH-10/12 textured raw GLBs — remesh before Roblox")
     os.makedirs(os.path.join(ROOT, "QA"), exist_ok=True)
     with open(os.path.join(ROOT, "QA", "qa_report.md"), "w", encoding="utf-8") as fh:

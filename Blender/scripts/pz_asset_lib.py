@@ -122,6 +122,8 @@ def resolve_figure_clashes():
                 return False                  # figure buried inside a solid box (no surface crossing)
         return True
     for piv, frame, h in FIGURES:
+        if piv.get("seated"):
+            continue                          # seated figures are verified by run_crew_checks instead
         x, y, z0 = piv.location.x, piv.location.y, piv.get("z0", 0.0)
         r = 1.25 * h / 7.0 + 0.15
         if clear(x, y, z0, h, r):
@@ -145,6 +147,144 @@ def resolve_figure_clashes():
                 bpy.data.objects.remove(c)
             bpy.data.objects.remove(piv)
     bpy.context.view_layer.update()
+
+# ------------------------------------------------------------------ crew standard (vehicles + vehicle interiors)
+# Owner decision 2026-11-23: robots must be able to get into cabs. Sizes measured in Roblox Studio at design scale:
+# widest robot Patch 4.4 studs, tallest Sentinel 7.5. All crew spaces are walk-in for the largest robot.
+CREW = dict(max_h=7.5, max_w=4.4,                 # largest-robot envelope used by every check
+            seat_w=4.8, seat_top=1.6, pan_d=2.4,   # seat pan: width per robot, height above floor, depth
+            back_t=0.4, back_h=3.4,                # backrest thickness / height above the pan
+            walk_w=5.0, walk_h=8.0)                # door and aisle clear width / clear height
+CREW_CHECKS = []      # (kind, name, ok, detail) -> crew_check.json beside the renders
+FACE_RZ = {"-Y": 0.0, "+Y": math.pi, "+X": math.pi / 2, "-X": -math.pi / 2}
+
+def _local(face, lx, ly):
+    """Local seat axes (lx = right, ly = forward is -ly... local -Y faces the way the robot looks) -> world dx, dy."""
+    a = FACE_RZ[face]
+    return lx * math.cos(a) - ly * math.sin(a), lx * math.sin(a) + ly * math.cos(a)
+
+def _lbox(name, x, y, face, lx0, lx1, ly0, ly1, z0, z1, m):
+    """Axis-aligned box given in seat-local coordinates (faces are multiples of 90 degrees)."""
+    xs, ys = [], []
+    for lx in (lx0, lx1):
+        for ly in (ly0, ly1):
+            dx, dy = _local(face, lx, ly); xs.append(x + dx); ys.append(y + dy)
+    return box(name, min(xs), max(xs), min(ys), max(ys), z0, z1, m)
+
+def cabin(name, x0, x1, y0, y1, zf, zr, t=0.4, wall_m=None, openings=None, roof_m=None, floor_m=None, roof=True):
+    """Hollow vehicle body: floor slab (top at zf), four walls of thickness t inside the bounds, door/window
+    openings, roof slab at zr. openings: (side, centre, width, bottom_above_floor, top_above_floor), side in S N W E."""
+    wall_m = wall_m or M["graphite"]; openings = openings or []
+    box(name + "_floor", x0, x1, y0, y1, zf - 0.4, zf, floor_m or M["panel"])
+    for side in "SNWE":
+        if side in "SN":
+            yy = y0 if side == "S" else y1 - t; a, b = x0, x1
+            seg = lambda s0, s1, z0, z1, k, yy=yy, side=side: box(f"{name}_w{side}{k}", s0, s1, yy, yy + t, z0, z1, wall_m)
+        else:
+            xx = x0 if side == "W" else x1 - t; a, b = y0, y1
+            seg = lambda s0, s1, z0, z1, k, xx=xx, side=side: box(f"{name}_w{side}{k}", xx, xx + t, s0, s1, z0, z1, wall_m)
+        ops = sorted([(c - w / 2, c + w / 2, zb, zt) for (sd, c, w, zb, zt) in openings if sd == side])
+        cur, k = a, 0
+        for o0, o1, zb, zt in ops:
+            _wall_split(seg, cur, o0, zf, zr, k); k += 2
+            if zb > 0:
+                _wall_split(seg, o0, o1, zf, zf + zb, k); k += 2
+            if zf + zt < zr:
+                _wall_split(seg, o0, o1, zf + zt, zr, k); k += 2
+            cur = o1
+        _wall_split(seg, cur, b, zf, zr, k)
+    if roof:
+        prev = GROUP[0]; grp("roof")
+        box(name + "_roof", x0, x1, y0, y1, zr, zr + 0.4, roof_m or wall_m)
+        grp(prev)
+
+def robot_seat(prefix, x, y, zf, face="-Y", m=None):
+    """One robot seat sized for the largest robot: pan CREW.seat_w wide, backrest behind. (x, y) = pan centre."""
+    m = m or M["orange"]; c = CREW; hw, hd = c["seat_w"] / 2, c["pan_d"] / 2
+    _lbox(prefix, x, y, face, -hw, hw, -hd, hd, zf, zf + c["seat_top"], m)
+    _lbox(prefix + "_back", x, y, face, -hw, hw, hd, hd + c["back_t"], zf + c["seat_top"], zf + c["seat_top"] + c["back_h"], m)
+
+def seated_robot(name, frame, x, y, zf, face="-Y"):
+    """Grey stand-in sitting on a robot_seat at (x, y): same proportions as K.mannequin, seated."""
+    h = K.L.ROBOTS[frame]["height"]; s = h / 7.0; m = STANDIN_M
+    zs = zf + CREW["seat_top"]
+    parts = []
+    for side in (-1, 1):
+        parts.append(K.cbox(f"{name}_thigh{side}", side * 0.35 * s, -0.75 * s, zs + 0.3 * s, 0.6 * s, 1.7 * s, 0.55 * s, m))
+        parts.append(K.cyl(f"{name}_shin{side}", side * 0.35 * s, -1.55 * s, zf, zs - zf + 0.3 * s, 0.26 * s, m, 12))
+        parts.append(K.cyl(f"{name}_arm{side}", side * 0.98 * s, 0.1 * s, zs + 0.6 * s, 1.9 * s, 0.22 * s, m, 10))
+    parts.append(K.cbox(f"{name}_pelvis", 0, 0, zs + 0.3 * s, 1.2 * s, 0.8 * s, 0.6 * s, m))
+    parts.append(K.cbox(f"{name}_torso", 0, 0.1 * s, zs + 1.55 * s, 1.5 * s, 0.85 * s, 1.9 * s, m))
+    parts.append(K.cyl(f"{name}_neck", 0, 0.1 * s, zs + 2.5 * s, 0.3 * s, 0.18 * s, m, 10))
+    parts.append(K.sphere(f"{name}_head", 0, 0.1 * s, zs + 3.15 * s, 0.6 * s, m))
+    piv = bpy.data.objects.new(name, None); K.COLL.objects.link(piv)
+    for p in parts:
+        p.parent = piv; p["robot"] = 1; p["grp"] = "robots"
+    piv.location = (x, y, 0); piv.rotation_euler = (0, 0, FACE_RZ[face])
+    piv["grp"] = "robots"; piv["robot"] = 1; piv["frame"] = frame; piv["seated"] = 1
+    return piv
+
+def crew_seat(prefix, x, y, zf, face="-Y", occupant=None):
+    """Seat + fit check for the largest robot (+ optional seated stand-in for the render)."""
+    robot_seat(prefix, x, y, zf, face)
+    CREW_CHECKS.append(("seat", prefix, (x, y, zf, face)))
+    if occupant:
+        seated_robot(prefix + "_fig", occupant, x, y, zf, face)
+
+def walk_check(name, x, y, zf):
+    """Standing envelope of the largest robot (max_w square x max_h + 0.3) must be clear at this floor point."""
+    CREW_CHECKS.append(("walk", name, (x, y, zf, None)))
+
+def _crew_envelopes(kind, x, y, zf, face):
+    c = CREW; s = c["max_h"] / 7.0; hw = c["max_w"] / 2; zs = zf + c["seat_top"]
+    if kind == "walk":
+        return [(x - hw, x + hw, y - hw, y + hw, zf + 0.15, zf + c["max_h"] + 0.3)]
+    out = []
+    for (lx0, lx1, ly0, ly1, z0, z1) in ((-hw, hw, -1.9 * s, 0.6, zs + 0.15, zs + 3.75 * s + 0.1),     # body, head, thighs
+                                         (-0.75 * s, 0.75 * s, -1.95 * s, -1.3, zf + 0.15, zs + 0.15)):  # shins and feet
+        xs, ys = [], []
+        for lx in (lx0, lx1):
+            for ly in (ly0, ly1):
+                dx, dy = _local(face, lx, ly); xs.append(x + dx); ys.append(y + dy)
+        out.append((min(xs), max(xs), min(ys), max(ys), z0, z1))
+    return out
+
+def run_crew_checks(outdir):
+    """Test every registered seat / walk envelope against real scenery surfaces; write crew_check.json."""
+    from mathutils.bvhtree import BVHTree
+    if not CREW_CHECKS:
+        return
+    os.makedirs(outdir, exist_ok=True)
+    bpy.context.view_layer.update()
+    dg = bpy.context.evaluated_depsgraph_get()
+    obs = []
+    for o in bpy.context.scene.objects:
+        if o.type not in ("MESH", "FONT") or o.get("robot") or o.get("ground") or o.hide_render:
+            continue
+        bb = [o.matrix_world @ Vector(cc) for cc in o.bound_box]
+        obs.append([o, Vector([min(p[i] for p in bb) for i in range(3)]), Vector([max(p[i] for p in bb) for i in range(3)]), None])
+    def hits(b):
+        x0, x1, y0, y1, z0, z1 = b
+        v = [Vector((xx, yy, zz)) for zz in (z0, z1) for xx, yy in ((x0, y0), (x1, y0), (x1, y1), (x0, y1))]
+        f = [(0, 1, 2, 3), (4, 5, 6, 7), (0, 1, 5, 4), (1, 2, 6, 5), (2, 3, 7, 6), (3, 0, 4, 7)]
+        prox = BVHTree.FromPolygons(v, f); out = []
+        for e in obs:
+            o, mn, mx, t = e
+            if mx.x < x0 or mn.x > x1 or mx.y < y0 or mn.y > y1 or mx.z < z0 or mn.z > z1:
+                continue
+            if t is None:
+                t = e[3] = BVHTree.FromObject(o, dg)
+            inside = mn.x <= x0 and mx.x >= x1 and mn.y <= y0 and mx.y >= y1 and mn.z <= z0 and mx.z >= z1
+            if t.overlap(prox) or (inside and o.type == "MESH" and len(o.data.polygons) <= 12):
+                out.append(o.name)
+        return out
+    res = []
+    for kind, name, (x, y, zf, face) in CREW_CHECKS:
+        hit = sorted({n for b in _crew_envelopes(kind, x, y, zf, face) for n in hits(b)})
+        res.append(dict(kind=kind, name=name, ok=not hit, at=[round(x, 2), round(y, 2), round(zf, 2)], face=face, blocked_by=hit))
+        print(("CREW_OK " if not hit else "CREW_FAIL ") + f"{kind} {name}" + (f" blocked by {hit}" if hit else ""))
+    with open(os.path.join(outdir, "crew_check.json"), "w") as fh:
+        json.dump(dict(standard=CREW, checks=res), fh, indent=1)
 
 def _wb(w, h):
     """Workbench ortho setup for asset sheets: light steel object outlines so dark parts read on the dark sheets."""
@@ -343,6 +483,7 @@ def _fit_ortho(cam, w, h, pad=1.08):
 def run_shots(cat, outdir, quick=False, hero_dir=(-0.75, -1.0, 0.42), lens=32, robots_in_ortho=True, outside_hero=False):
     os.makedirs(outdir, exist_ok=True)
     resolve_figure_clashes()
+    run_crew_checks(outdir)
     SC = bpy.context.scene
     mn, mx = scene_bbox(robots=(cat != "EQP")); c, s = _views(mn, mx)
     mo, xo = scene_bbox(robots=False)

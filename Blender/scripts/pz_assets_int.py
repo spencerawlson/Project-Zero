@@ -57,42 +57,50 @@ def int03():
     robot("patient", "Sentinel", 0, 2, 0.0, z=1.2)
     robot("mech", "Patch", -4, -5, 0.6)
 
-# ------------------------------------------------------------------ INT-04 Train Passenger Compartment 11 × 22 × 8
+# ------------------------------------------------------------------ INT-04 Train Passenger Compartment 17 × 23 × 8.6
+# Interior of a VEH-01 passenger car, built to the crew standard: inner 15 × 21 × 8.5, 1+1 robot seats (4.8 wide),
+# 5.4 aisle, 5 × 8 doors on both sides and both gangway ends.
 def int04():
     CUT_H[0] = 5.5
+    ZF = 0.1
     grp("interior")
-    room(11, 22, 8, openings=[("S", 0, 3, 7), ("N", 0, 3, 7)], floor_m=M["panel"])
-    for k, y in enumerate(range(-8, 9, 4)):
-        seat = M["orange"]
-        for x in (-4, -2.6, 2.6, 4):
-            box(f"seat{k}{x}", x - 0.65, x + 0.65, y - 0.7, y + 0.7, 0, 1.4, seat)
-            box(f"back{k}{x}", x - 0.65, x + 0.65, y + 0.55, y + 0.75, 1.4, 3, seat)
+    room(17, 23, 8.6, openings=[("S", 0, 5, 8.1), ("N", 0, 5, 8.1), ("W", 0, 5, 8.1), ("E", 0, 5, 8.1)], floor_m=M["panel"])
+    for r, y in enumerate((-8.2, -4.3, 4.8, 8.7)):
+        for x in (-5.1, 5.1):
+            occ = {(1, -5.1): "Cypher", (2, 5.1): "Patch"}.get((r, x))
+            crew_seat(f"seat{r}{'L' if x < 0 else 'R'}", x, y, ZF, "-Y", occ)
     for s in (-1, 1):
-        win_band(f"win{s}", "W" if s < 0 else "E", -9, 9, 3.6, 6.2, -5.5, 5.5, -11, 11, m=M["amber_e"], step=4, gap=0.8)
-        box(f"rail{s}", s * 1.4 - 0.08, s * 1.4 + 0.08, -10, 10, 6.6, 6.75, M["steel"])
-    box("aisle", -1, 1, -10.5, 10.5, 0.1, 0.15, M["amber_e"])
-    box("door_n", -1.5, 1.5, 10.4, 10.6, 0, 7, M["cyan_soft"])
-    note("seat23", (-3.3, 0, 3), "2+2 seating, orange upholstery"); note("win1", (5.5, -6, 6.2), "Amber window glow (Ghost Train)")
-    note("aisle", (0, 9, 0.2), "Lit aisle guide"); note("rail1", (1.4, 4, 6.75), "Grab rails")
-    robot("p1", "Cypher", -3.3, -4, 0.0); robot("p2", "Patch", 3.3, 4, 0.0)
+        for k, (a, b) in enumerate(((-10, -3), (3, 10))):
+            win_band(f"win{s}{k}", "W" if s < 0 else "E", a, b, 3.6, 6.6, -8.5, 8.5, -11.5, 11.5, m=M["amber_e"], step=3.5, gap=0.7)
+        box(f"rail{s}", s * 2.7 - 0.08, s * 2.7 + 0.08, -10, 10, 7.6, 7.75, M["steel"])
+    box("aisle", -1, 1, -10.5, 10.5, ZF, ZF + 0.05, M["amber_e"])
+    for k, x in enumerate((-2.5, 2.5)):
+        box(f"door_frame{k}", x - 0.15, x + 0.15, 10.4, 10.6, 0, 8.1, M["cyan_soft"])
+    walk_check("aisleF", 0, -6.5, ZF); walk_check("aisleR", 0, 6.5, ZF)
+    walk_check("doorW", -8.0, 0, ZF); walk_check("doorE", 8.0, 0, ZF)
+    walk_check("gangS", 0, -11.0, ZF); walk_check("gangN", 0, 11.0, ZF)
+    note("seat1L", (-5.1, -4.3, 3.2), "1+1 robot seats (4.8 wide), orange upholstery"); note("win00", (-8.5, -6, 6.6), "Amber window glow (Ghost Train)")
+    note("aisle", (0, 9, 0.2), "Lit aisle guide, 5.4 clear"); note("rail1", (2.7, 4, 7.75), "Grab rails over the seat edge (clear of the aisle)")
 
-# ------------------------------------------------------------------ INT-05 Train Control Cabin 11 × 10 × 8
+# ------------------------------------------------------------------ INT-05 Train Control Cabin 17 × 12 × 8.6
+# Driver cabin of the VEH-01 cab car, built to the crew standard: robot seat, 5 × 8 rear door.
 def int05():
     CUT_H[0] = 5.5
+    ZF = 0.1
     grp("interior")
-    room(11, 10, 8, openings=[("N", 0, 3, 7)], floor_m=M["panel"])
-    box("windscreen", -4.5, 4.5, -5.1, -4.9, 3.6, 7, M["cyan_soft"])
-    cbox("console", 0, -3.6, 2.2, 9, 2, 1.2, M["graphite"], rot=(math.radians(-15), 0, 0))
-    for k, x in enumerate((-3, 0, 3)):
-        cbox(f"disp{k}", x, -3.9, 3.2, 2.4, 0.1, 1.2, M["cyan_e"] if k != 1 else M["amber_e"], rot=(math.radians(-25), 0, 0))
-    box("seat", -1, 1, -1, 1, 0, 1.6, M["orange"]); box("seatb", -1, 1, 0.8, 1.1, 1.6, 3.6, M["orange"])
-    box("lever", 2.4, 2.8, -3, -2.6, 2.2, 3.6, M["red_e"])
-    box("panel_side", 4.6, 5.4, -3, 3, 1, 6, M["panel"])
+    room(17, 12, 8.6, openings=[("N", 0, 5, 8.1)], floor_m=M["panel"])
+    box("windscreen", -6.5, 6.5, -6.1, -5.9, 3.6, 7.4, M["cyan_soft"])
+    cbox("console", 0, -4.3, 2.2, 13, 1.4, 1.2, M["graphite"], rot=(math.radians(-15), 0, 0))
+    for k, x in enumerate((-4, 0, 4)):
+        cbox(f"disp{k}", x, -4.6, 3.2, 2.8, 0.1, 1.2, M["cyan_e"] if k != 1 else M["amber_e"], rot=(math.radians(-25), 0, 0))
+    crew_seat("seat", 0, -1.2, ZF, "-Y", "Patch")
+    box("lever", 3.0, 3.4, -3.4, -3.0, 2.2, 3.6, M["red_e"])
+    box("panel_side", 6.6, 7.4, -3, 3, 1, 6, M["panel"])
     for k in range(4):
-        box(f"sw{k}", 4.55, 4.6, -2.4 + k * 1.4, -1.6 + k * 1.4, 3, 4, M["cyan_e"])
-    note("windscreen", (0, -5, 7), "Wrap windscreen (tunnel view)"); note("disp1", (0, -3.9, 3.8), "Route / speed displays")
-    note("lever", (2.6, -2.8, 3.6), "Emergency stop (mission event)"); note("seat", (0, 0, 1.6), "Driver seat")
-    robot("drv", "Patch", 0, 1.8, math.pi)
+        box(f"sw{k}", 6.55, 6.6, -2.4 + k * 1.4, -1.6 + k * 1.4, 3, 4, M["cyan_e"])
+    walk_check("door", 0, 5.5, ZF); walk_check("behind_seat", 0, 2.8, ZF)
+    note("windscreen", (0, -6, 7.4), "Wrap windscreen (tunnel view)"); note("disp1", (0, -4.6, 3.8), "Route / speed displays")
+    note("lever", (3.2, -3.2, 3.6), "Emergency stop (mission event)"); note("seat", (0, -1.2, 1.7), "Driver seat sized for the largest robot")
 
 # ------------------------------------------------------------------ INT-06 Research Laboratory Interior 48×32×16
 def int06():

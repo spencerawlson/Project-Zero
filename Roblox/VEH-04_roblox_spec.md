@@ -4,7 +4,7 @@
 |---|---|
 | Roblox name | `PZ_IND_CargoTransportTitanR1_A` |
 | Purpose | Ground utility transport (TITAN-R1 reference): personnel, cargo, field power. |
-| Interaction | Drive · 4 crew seats · cargo access · winch · mobile charging dock |
+| Interaction | Enter via 5 × 8 side doors · drive (2 cab seats) · 2 crew seats · winch · rear power core |
 | Animation | Wheels, suspension, doors, winch, roof modules |
 | Modular construction | Separate models per car / body / chassis / bogies; seats are Seat instances; doors are hinge models. |
 | Implementation | Scripted path following (TweenService / AlignPosition, network owner = server); passengers weld to seats. |

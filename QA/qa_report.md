@@ -19,4 +19,5 @@
 | Visual review of every page | PARTIAL | 110 of 196 pages reviewed by eye; no layout defects open |
 | Roblox Studio prototype | STARTED | Phase 9 — BLD-01 greybox built from Roblox/BLD-01_greybox_build.lua; Cypher, Sentinel, Patch imported at design scale; all 18 doors pass a widest-robot clearance probe |
 | Every inventory asset has a sheet | PASS | 118 assets checked; all present |
+| Robots fit vehicle cabs (crew standard) | PASS | 60 seats + 47 doors/aisles in 10 assets clear for the largest robot |
 | User 3D models needing remesh | NOTE | VEH-11 5.6 M tris, VEH-10/12 textured raw GLBs — remesh before Roblox |
