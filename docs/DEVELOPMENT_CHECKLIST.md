@@ -47,14 +47,12 @@ Related documents: [Technical Architecture](TECHNICAL_ARCHITECTURE.md) · [Asset
 - [ ] **Introduce the mysterious corrupted memory fragment.**
   Blocked by D3. The design bible already has memory fragments and Cypher's ZERO fragment.
 - [ ] **Implement the first playable mission.**
-- [ ] **Implement persistent player identity and save data.**
-  *Implemented, not yet verified against a real DataStore:*
-  - `ProfileSchema` (versioned profile, migration, starter chassis `CypherFrame`).
-  - `ProfileStore` (session-locked load/save, stale-lock takeover, refuses to overwrite another server's data).
-  - `PlayerDataService` (load with retry and backoff, autosave every 120 s, save and release on leave and on shutdown, honest unsaved fallback).
-  - Unit tests 18/18 pass (2026-11-23).
-  - Live playtest: Studio refused the DataStore write (403, API access off), the player got an unsaved profile with `PZ_PersistentSave = false`, and no false save was claimed.
-  - **Blocked by D4** for the real save, then rejoin, then data-present round trip.
+- [x] **Implement persistent player identity and save data.**
+  Verified 2026-11-23:
+  - **Profile:** keyed by Roblox UserId; schema v1; starter chassis `CypherFrame`; `createdAt` set.
+  - **Session-locked store, unit tests:** 18/18 pass.
+  - **Real DataStore round trip in Studio** (API access on): session 1 wrote marker `RT-1795474515` and stopped. Session 2, a new server, loaded the marker and the session count 3, and loaded instantly, which proves the shutdown save released the lock. `PZ_PersistentSave = true`. The test marker was then removed.
+  - *Follow-up (part of activation, not this item):* the player-chosen `identity.designation` is set during the activation sequence.
 
 **Completion:** a new player can activate, complete the introductory mission, and return with progress preserved.
 
@@ -140,10 +138,24 @@ Related documents: [Technical Architecture](TECHNICAL_ARCHITECTURE.md) · [Asset
 | D1 | Adopt Rojo, keeping game code in `src/` in this repo and synced to Studio | All code tasks, commit references | Owner | **Decided 2026-11-23: Rojo + git** |
 | D2 | Starter chassis: which robot or frame is the player's first body, and Roblox R15 auto-setup vs a custom rig | Phase 1 chassis, movement, animation; Phase 3 | Owner | **Decided 2026-11-23: Cypher-style frame** (rig approach still to be proven) |
 | D3 | Narrative canon: define The Source, the Great Silence, the three factions, NEXUS Credits and careers, and reconcile them with the existing "The Awakening" bible (ZERO, co-op trio) | Phase 1 cinematic, dialogue, memory fragment; Phase 6 | Owner | **Decided 2026-11-23: merge both; Claude drafts `docs/STORY_CANON.md` for owner approval** |
-| D4 | Turn on *Game Settings → Security → Enable Studio Access to API Services*, plus the MCP DataStore scopes, so saves can be tested in Studio | Phase 1 persistence | Owner (Studio setting) | Open |
+| D4 | Turn on *Experience Settings → Security → Enable Studio Access to API Services* so saves can be tested in Studio | Phase 1 persistence | Owner (Studio setting) | **Done 2026-11-23** (verified by the round-trip test) |
 | B1 | The Studio AI-assistant plugin changed version mid-session; Studio recommends a restart | Tool stability | Owner | Restart after saving |
 
 ## Session log
+
+### 2026-11-23 (later): persistence verified
+1. **Completed and verified:** persistent player identity and save data (see Phase 1). The owner enabled Studio API access (D4).
+2. **In progress:**
+   - Story canon draft awaiting approval.
+   - Rojo live sync (needs a Studio restart and Connect).
+   - Bible vehicle re-render.
+3. **Blocked:** canon questions; the Rojo connect.
+4. **Files:**
+   - `src/server/Services/PlayerDataService.luau`: Studio-only `ServerStorage.PZ_DevProfile` test hook. A test `require` gets a separate module copy, so the first attempt at this test wrote to the wrong copy. Caught and redone.
+5. **Tests:**
+   - DataStore round trip across two Studio servers: PASS (marker and session count restored; lock released on shutdown).
+   - No save errors in the console.
+6. **Next:** the starter chassis. Make the Cypher-style frame a playable character spawning in a Stasis player pod.
 
 ### 2026-11-23 (later): Phase 1 start
 1. **Completed and verified:**

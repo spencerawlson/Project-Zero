@@ -126,7 +126,36 @@ function PlayerDataService.IsPersistent(player: Player): boolean
 	return persistent[player] == true
 end
 
+-- Studio-only test hook: ServerStorage.PZ_DevProfile (BindableFunction, server-side only, never created in live games).
+-- Lets playtest assertions read and change the LIVE service state (a test `require` gets a separate module copy).
+--   Invoke("get", userId)               -> profile table copy (or nil)
+--   Invoke("setMission", userId, id, v) -> true if the profile was updated (v = nil removes the entry)
+local function createDevHook()
+	if not RunService:IsStudio() then
+		return
+	end
+	local hook = Instance.new("BindableFunction")
+	hook.Name = "PZ_DevProfile"
+	hook.OnInvoke = function(action: string, userId: number, ...)
+		local player = Players:GetPlayerByUserId(userId)
+		if not player then
+			return nil
+		end
+		if action == "get" then
+			return profiles[player]
+		elseif action == "setMission" then
+			local id, value = ...
+			return PlayerDataService.Update(player, function(p)
+				p.progress.missions[id] = value
+			end)
+		end
+		return nil
+	end
+	hook.Parent = game:GetService("ServerStorage")
+end
+
 function PlayerDataService.Start()
+	createDevHook()
 	Players.PlayerAdded:Connect(onPlayerAdded)
 	for _, p in ipairs(Players:GetPlayers()) do
 		task.spawn(onPlayerAdded, p)
