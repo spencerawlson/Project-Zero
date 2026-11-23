@@ -8,7 +8,7 @@ Repository: https://github.com/spencerawlson/Project-Zero · Roblox place: Proje
 - Don't claim a feature works without testing it.
 - Priority: a small, fully playable Project Zero first. Don't build the city at scale while fundamental gameplay systems are missing.
 
-Related documents: [Technical Architecture](TECHNICAL_ARCHITECTURE.md) · [Asset Inventory](ASSET_INVENTORY.md) · [Vehicles in Studio](../Roblox/vehicles_in_studio.md)
+Related documents: [Technical Architecture](TECHNICAL_ARCHITECTURE.md) · [Asset Inventory](ASSET_INVENTORY.md) · [Story Canon (draft)](STORY_CANON.md) · [Vehicles in Studio](../Roblox/vehicles_in_studio.md)
 
 ---
 
@@ -144,6 +144,34 @@ Related documents: [Technical Architecture](TECHNICAL_ARCHITECTURE.md) · [Asset
 | B1 | The Studio AI-assistant plugin changed version mid-session; Studio recommends a restart | Tool stability | Owner | Restart after saving |
 
 ## Session log
+
+### 2026-11-23 (later): Phase 1 start
+1. **Completed and verified:**
+   - Decisions D1 (Rojo + git), D2 (Cypher-style starter frame) and D3 (merged canon, Claude drafts) recorded.
+   - Rojo project builds (`rojo build`).
+   - Save-data unit tests: 18/18 pass in Studio.
+2. **In progress:**
+   - Persistent save data: implemented, but the real round trip is blocked by D4.
+   - `docs/STORY_CANON.md`: draft awaiting the owner's approval.
+   - Bible re-render of the user vehicles (background).
+3. **Blocked:**
+   - D4: Studio API access.
+   - Rojo live sync needs Studio restarted (the plugin is installed) and *Connect* clicked in the Rojo panel while `rojo serve` runs. Until then, code was pushed into Studio at the exact Rojo paths, and byte counts match the repo for 7/7 files.
+   - Canon questions 1–4 in STORY_CANON.md.
+4. **Files:**
+   - `default.project.json`
+   - `src/shared/ProfileSchema.luau`
+   - `src/server/ProfileStore.luau`, `src/server/Services/PlayerDataService.luau`, `src/server/Main.server.luau`
+   - `tests/RunUnitTest.luau`, `tests/Cases/ProfileSchema_Test.luau`, `tests/Cases/ProfileStore_Test.luau`
+   - `docs/STORY_CANON.md`
+   - Commit `01ecb3a`.
+5. **Tests:**
+   - Unit tests: 18 run, 18 passed, 0 failed.
+   - Playtest: profile loads instantly. The DataStore 403 is detected and the player gets an unsaved profile (`PZ_PersistentSave = false`). No other errors from the new code.
+   - The console shows `rbxassetid://203785492 asset type mismatch` from existing place content, not traced yet.
+6. **Next:**
+   - Once D4 is on: a save, rejoin, data-present round-trip test.
+   - Starter chassis: convert Cypher into a playable character, spawning in a player pod.
 
 ### 2026-11-23: Phase 0 audit (plus the bible and vehicle work that preceded it)
 1. **Completed and verified:** all six Phase 0 tasks (evidence above).
