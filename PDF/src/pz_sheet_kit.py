@@ -19,12 +19,18 @@ C = dict(bg="#0B1220", panel="#101A2B", panel2="#0E1626", line="#2A3A55", cyan="
 REV = "REV D  ·  2026-11-23"
 plt.rcParams.update({"font.family": "DejaVu Sans", "text.color": C["text"], "axes.edgecolor": C["line"]})
 
+# Stasis Facility package SF-01..05: approved 2026-11-19, re-approved by the owner 2026-11-23 after the
+# 6x10 door change (D07, D08, D14, D17, D18).
+SF_STATUS = "APPROVED"
+
 def new_sheet():
     fig = plt.figure(figsize=(W_IN, H_IN), dpi=DPI, facecolor=C["bg"])
     return fig
 
 def frame(fig, sheet_id, title, subtitle, page, total, status="FOR REVIEW", asset="BLD-01  ·  PZ_AWK_StasisFacility",
           note="Dimensions are DESIGN ASSUMPTIONS in Roblox studs — not measurements taken from concept art."):
+    if status == "FOR REVIEW" and sheet_id.startswith("SF-"):
+        status = SF_STATUS
     # header band
     fig.patches.append(mp.Rectangle((0, 0.925), 1, 0.075, transform=fig.transFigure, color="#0F1E33", zorder=0))
     fig.patches.append(mp.Rectangle((0, 0.922), 1, 0.003, transform=fig.transFigure, color=C["orange"], zorder=1))

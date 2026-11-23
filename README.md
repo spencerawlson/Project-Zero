@@ -1,6 +1,6 @@
 # Project Zero — NEXUS-01 Asset & Architecture Production Bible
 
-**Status: Rev D, for review.** The bible covers 118 inventory assets across robots, buildings, vehicles, equipment and weapons, infrastructure, and interiors and props; every asset now has a sheet (196 pages). The Stasis Facility benchmark (SF-01…05) was approved on 2026-11-19. It has since been re-rendered with five doors widened from 4×9 to 6×10 after the Studio scale check, so it is back to FOR REVIEW until re-approved. The other sheets are marked FOR REVIEW.
+**Status: Rev D, for review.** The bible covers 118 inventory assets across robots, buildings, vehicles, equipment and weapons, infrastructure, and interiors and props; every asset now has a sheet (196 pages). The Stasis Facility benchmark (SF-01…05) is **approved**: first on 2026-11-19, then re-approved on 2026-11-23 after five doors were widened from 4×9 to 6×10 following the Studio scale check. The other sheets are marked FOR REVIEW.
 
 Phase 9, the Roblox Studio build, has started: the Stasis Facility greybox is built from `Roblox/BLD-01_greybox_build.lua`, and Cypher, Sentinel and Patch are imported at design scale (6, 7.5 and 4.5 studs).
 
