@@ -48,7 +48,13 @@ Related documents: [Technical Architecture](TECHNICAL_ARCHITECTURE.md) · [Asset
   Blocked by D3. The design bible already has memory fragments and Cypher's ZERO fragment.
 - [ ] **Implement the first playable mission.**
 - [ ] **Implement persistent player identity and save data.**
-  Needs D4 (Studio API access).
+  *Implemented, not yet verified against a real DataStore:*
+  - `ProfileSchema` (versioned profile, migration, starter chassis `CypherFrame`).
+  - `ProfileStore` (session-locked load/save, stale-lock takeover, refuses to overwrite another server's data).
+  - `PlayerDataService` (load with retry and backoff, autosave every 120 s, save and release on leave and on shutdown, honest unsaved fallback).
+  - Unit tests 18/18 pass (2026-11-23).
+  - Live playtest: Studio refused the DataStore write (403, API access off), the player got an unsaved profile with `PZ_PersistentSave = false`, and no false save was claimed.
+  - **Blocked by D4** for the real save, then rejoin, then data-present round trip.
 
 **Completion:** a new player can activate, complete the introductory mission, and return with progress preserved.
 
@@ -131,9 +137,9 @@ Related documents: [Technical Architecture](TECHNICAL_ARCHITECTURE.md) · [Asset
 
 | ID | Decision or blocker | Blocks | Owner | Status |
 |---|---|---|---|---|
-| D1 | Adopt Rojo, keeping game code in `src/` in this repo and synced to Studio (recommended) | All code tasks, commit references | Owner | Open |
-| D2 | Starter chassis: which robot or frame is the player's first body, and Roblox R15 auto-setup vs a custom rig | Phase 1 chassis, movement, animation; Phase 3 | Owner | Open |
-| D3 | Narrative canon: define The Source, the Great Silence, the three factions, NEXUS Credits and careers, and reconcile them with the existing "The Awakening" bible (ZERO, co-op trio) | Phase 1 cinematic, dialogue, memory fragment; Phase 6 | Owner | Open |
+| D1 | Adopt Rojo, keeping game code in `src/` in this repo and synced to Studio | All code tasks, commit references | Owner | **Decided 2026-11-23: Rojo + git** |
+| D2 | Starter chassis: which robot or frame is the player's first body, and Roblox R15 auto-setup vs a custom rig | Phase 1 chassis, movement, animation; Phase 3 | Owner | **Decided 2026-11-23: Cypher-style frame** (rig approach still to be proven) |
+| D3 | Narrative canon: define The Source, the Great Silence, the three factions, NEXUS Credits and careers, and reconcile them with the existing "The Awakening" bible (ZERO, co-op trio) | Phase 1 cinematic, dialogue, memory fragment; Phase 6 | Owner | **Decided 2026-11-23: merge both; Claude drafts `docs/STORY_CANON.md` for owner approval** |
 | D4 | Turn on *Game Settings → Security → Enable Studio Access to API Services*, plus the MCP DataStore scopes, so saves can be tested in Studio | Phase 1 persistence | Owner (Studio setting) | Open |
 | B1 | The Studio AI-assistant plugin changed version mid-session; Studio recommends a restart | Tool stability | Owner | Restart after saving |
 
