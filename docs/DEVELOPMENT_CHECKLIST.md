@@ -143,6 +143,38 @@ Related documents: [Technical Architecture](TECHNICAL_ARCHITECTURE.md) · [Asset
 
 ## Session log
 
+### 2026-11-23 (evening): damaged vehicle assets re-baked
+1. **Completed and verified:**
+   - **Damage measurement.** All 12 imported models were scored against their originals (3 views, colour difference inside the silhouettes, 0 = identical, about 25 = visibly torn).
+     - Robots: 0.6–1.5 (undamaged).
+     - Vehicles: 4.6–13.8.
+     - Only the train was torn by its decimation (confirmed by eye).
+   - **Re-bake.** All 9 vehicles were re-baked (`pz_vehicle_prep.py ... bake`): 3–4 pieces × 18k triangles, each with its own 1024 px colour, normal, roughness and metalness set baked from the full original.
+     - Scores after: 5.6–13.0. The train dropped to 5.6; the rest are within a few points, slightly softer but with clean UVs.
+   - **Metalness bug.** Every bake had been rendering as chrome in Roblox: Roblox ignores glTF `metallicFactor`. Fixed in the GLBs (`pz_glb_fix_metal.py`) and at the source (the bake now writes metalness into the texture). A verification bake gave factor 1.0 and blue 57.7 (= 0.226).
+   - **In Studio.** 8 of 9 vehicles were re-uploaded as revisions, swapped, aligned and visually checked (crisp, matte). All 41 crew seats were rebuilt; the enclosure check passed on every one.
+2. **In progress:** VEH-04 Titan (rev 8) still renders as the coarse, untextured placeholder in this Studio session. The output log shows "Asset content representation is being generated" failures. Each Titan revision was inserted within a minute of upload, and Studio does not retry in the same session.
+   - Ruled out: bad images (each map loads as a decal), UVs (correct in the stored mesh), metalness, orientation, quality settings, overlapping parts, and non-manifold edges (fixed anyway).
+   - Next check: after a Studio restart.
+3. **Blocked:** Titan verification needs a Studio restart (also needed for B1 and for the Rojo plugin).
+4. **Files:**
+   - `Blender/scripts/pz_vehicle_prep.py`: bake writes metalness into the texture.
+   - New scripts:
+     - `pz_glb_fix_metal.py`
+     - `pz_fix_nonmanifold.py`
+     - `pz_damage_views.py`
+     - `PDF/src/pz_damage_score.py`
+   - `Roblox/vehicles_in_studio.md`: revisions and pipeline lessons.
+   - Studio-only dev module `ServerStorage.PZ_CrewTools` (align, crew layer, map refresh).
+5. **Tests:**
+   - Damage scores before and after (above).
+   - Crew-layer enclosure check: 41/41 seats.
+   - Verification bake: metalness correct.
+   - Play mode confirmed the Titan placeholder is not an Edit-mode-only effect.
+6. **Next:**
+   - Restart Studio and confirm the Titan textures load. If not, re-prep the Titan from a Meshy remesh (Meshy MCP is now configured).
+   - Then the starter chassis (Phase 1).
+
 ### 2026-11-23 (later): persistence verified
 1. **Completed and verified:** persistent player identity and save data (see Phase 1). The owner enabled Studio API access (D4).
 2. **In progress:**
