@@ -135,6 +135,8 @@ end
 --   Invoke("setActivated", userId, b)   -> true if the profile was updated (test the first-wake path again)
 --   Invoke("resetProgress", userId)     -> true: not activated, no missions, no fragments, no designation
 --   Invoke("addCredits", userId, n)     -> true: adds n NEXUS Credits (testing purchases)
+--   Invoke("removeItem", userId, id)    -> true: removes an owned item and unequips it (re-test the wing platform);
+--                                          the character's back is refreshed by the caller (respawn or re-equip)
 local function createDevHook()
 	if not RunService:IsStudio() then
 		return
@@ -162,6 +164,14 @@ local function createDevHook()
 			local n = ...
 			return PlayerDataService.Update(player, function(p)
 				p.wallet.credits += (tonumber(n) or 0)
+			end)
+		elseif action == "removeItem" then
+			local id = ...
+			return PlayerDataService.Update(player, function(p)
+				p.items[id] = nil
+				for slot, equipped in pairs(p.equipped) do
+					if equipped == id then p.equipped[slot] = nil end
+				end
 			end)
 		elseif action == "resetProgress" then
 			return PlayerDataService.Update(player, function(p)

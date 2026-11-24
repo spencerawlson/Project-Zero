@@ -6,6 +6,8 @@
 --   Space / Q or C              climb / descend (touch "Up" / "Down"). Not Ctrl: in the playtest a held Ctrl
 --                               kept the robot descending and turned F into Ctrl+F (Studio's Find), so F stopped landing.
 -- Wing energy (0-100) drains while flying and recharges on the ground; at 0 the robot drops (wings fold).
+-- Wings: take-off asks the server to deploy them (PZ_Remotes.Flight "deploy"; WingVisuals unfolds them on every
+-- screen) and landing folds them away ("stow"): they are only visible in flight (owner feedback 2026-11-24).
 -- Physics: a LinearVelocity drives the root and an AlignOrientation faces the flight direction; the character is
 -- client-owned, as for normal walking.
 
@@ -15,6 +17,7 @@ local RunService = game:GetService("RunService")
 local UserInputService = game:GetService("UserInputService")
 
 local player = Players.LocalPlayer
+local wingRemote = game:GetService("ReplicatedStorage"):WaitForChild("PZ_Remotes"):WaitForChild("Flight") :: RemoteEvent
 
 local SPEED = 34
 local CLIMB = 22
@@ -69,6 +72,7 @@ local function stopFlying()
 		hum:ChangeState(Enum.HumanoidStateType.Freefall)
 	end
 	label.Text = "WING ENERGY   [F] FLY"
+	wingRemote:FireServer("stow")
 end
 
 local function startFlying()
@@ -84,6 +88,7 @@ local function startFlying()
 	ao.MaxTorque = math.huge; ao.Responsiveness = 18; ao.CFrame = root.CFrame - root.Position; ao.Parent = root
 	hum.PlatformStand = true
 	label.Text = "WING ENERGY   [F] LAND"
+	wingRemote:FireServer("deploy")
 end
 
 local function toggle(_, state)
