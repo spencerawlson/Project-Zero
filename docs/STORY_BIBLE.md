@@ -113,4 +113,4 @@ The old chapter beats "humans in suspended animation" and "humanity's return" ar
 2. **How humans command machines light-years away.** **[proposed]** An orbital command carrier with human operators (the *Orbital Ring Citadel*). Control from orbit, no faster-than-light links; when the link drops, units fall back to simple automatic routines.
 3. **Chapter 4, The Last Sanctuary:** **[proposed]** the founders' vault (section 9).
 4. **Who altered ZERO:** still open (the late-game reveal).
-5. **Enemy names:** new names for *Three Armored Sentinels*, *Titanium Sentinel* and *Crimson Core Sentinel*.
+5. **Enemy names:** **[proposed]** serial designations, no personal names (the enemy has no identity): Trooper T-1 (Three Armored Sentinels), Siege Walker S-4 (Titanium Sentinel), Seeker Drone D-2 (Crimson Core Sentinel), Walker W-2 (Battle Walker), Strike Pack X-804 (Thunderfang), Breaker H-7 (Ironclad Reaper), Assault Frame A-3 (Combat Mech), Crawler C-6 (Ionclad Arachnid Mech), Interceptor V-9 (Nebula Vanguard).

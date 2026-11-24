@@ -188,8 +188,8 @@ Rules (Story Bible §7): weapons only from platforms and only in war missions, n
 | D8 | Where memory fragments come from | MF-001/002 dialogue, Phase 6 | Owner | **Decided 2026-11-24: the robots' memories of being programmed on Earth before hibernation (their mission)** |
 | D9 | Combat rules | Phase 7 | Owner | **Decided 2026-11-24:** weapons only from the platforms (same as wings), only in war missions; no PvP; enemies are the HECF machines (Battle Walker, Thunderfang, …); robots never fight humans |
 | D10 | Write v2's 30 documents gradually, when each phase starts | Docs | Owner | *Proposed, awaiting the owner* |
-| D11 | Pushing and merging: keep the earlier permission to merge after QA, or ask before every push (v2 rule 11) | Commits, PRs | Owner | *Open; until answered, work is committed locally and not pushed* |
-| D12 | Story gaps: why the player's pod wakes now; how humans command machines from Earth; Chapter 4 content; enemy names | Phase 6–7 | Owner | *Open; proposals in Story Bible §10* |
+| D11 | Pushing and merging: keep the earlier permission to merge after QA, or ask before every push (v2 rule 11) | Commits, PRs | Owner | **Decided 2026-11-24: Claude may push and merge (after QA). Publishing the game to players still needs the owner's explicit approval** |
+| D12 | Story gaps: why the player's pod wakes now; how humans command machines from Earth; Chapter 4 content; enemy names | Phase 6–7 | Owner | *Open; proposals in Story Bible §10, recommended to the owner 2026-11-24 (HECF serial designations: Trooper T-1, Siege Walker S-4, Seeker Drone D-2, Walker W-2, Strike Pack X-804, Breaker H-7, Assault Frame A-3, Crawler C-6, Interceptor V-9); awaiting a yes* |
 | B1 | The Studio AI-assistant plugin changed version mid-session; Studio recommends a restart | Tool stability | Owner | **Done 2026-11-23** (Studio restarted) |
 
 ## Session log
@@ -212,9 +212,7 @@ Rules (Story Bible §7): weapons only from platforms and only in war missions, n
      - New decisions: D6–D12.
    - **Owner's newest models reviewed** (thumbnails in `Source_Documents/triage/`): all dark, standardised machines, each mapped to an enemy role in Story Bible §8. Weapons found: hammer, baton, blaster, rifle, ion cannon, Violet Singularity Cannon, riot shield, dome shield.
 2. **In progress:** none.
-3. **Blocked:**
-   - D11 (push and merge permission): this work is committed locally only.
-   - D12 (story gaps) is open.
+3. **Blocked:** D12 (story gaps) is open. D11 was answered later the same day: push and merge allowed.
 4. **Files:**
    - `docs/STORY_BIBLE.md` and `docs/TIMELINE.md` (new).
    - `docs/proposals/*` (new).
