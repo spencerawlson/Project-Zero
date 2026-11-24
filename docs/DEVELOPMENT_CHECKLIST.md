@@ -137,11 +137,23 @@ Related documents: [Technical Architecture](TECHNICAL_ARCHITECTURE.md) · [Asset
 |---|---|---|---|---|
 | D1 | Adopt Rojo, keeping game code in `src/` in this repo and synced to Studio | All code tasks, commit references | Owner | **Decided 2026-11-23: Rojo + git. Live sync verified 2026-11-23** |
 | D2 | Starter chassis: which robot or frame is the player's first body, and Roblox R15 auto-setup vs a custom rig | Phase 1 chassis, movement, animation; Phase 3 | Owner | **Decided 2026-11-23: Cypher-style frame** (rig approach still to be proven) |
-| D3 | Narrative canon: define The Source, the Great Silence, the three factions, NEXUS Credits and careers, and reconcile them with the existing "The Awakening" bible (ZERO, co-op trio) | Phase 1 cinematic, dialogue, memory fragment; Phase 6 | Owner | **Decided 2026-11-23: merge both; Claude drafts `docs/STORY_CANON.md` for owner approval** |
+| D3 | Narrative canon: define The Source, the Great Silence, the three factions, NEXUS Credits and careers, and reconcile them with the existing "The Awakening" bible (ZERO, co-op trio) | Phase 1 cinematic, dialogue, memory fragment; Phase 6 | Owner | **Decided 2026-11-23: merge both. `docs/STORY_CANON.md` approved by the owner 2026-11-23 (suggested answers; the saboteur stays open until Chapter 4)** |
 | D4 | Turn on *Experience Settings → Security → Enable Studio Access to API Services* so saves can be tested in Studio | Phase 1 persistence | Owner (Studio setting) | **Done 2026-11-23** (verified by the round-trip test) |
 | B1 | The Studio AI-assistant plugin changed version mid-session; Studio recommends a restart | Tool stability | Owner | **Done 2026-11-23** (Studio restarted) |
 
 ## Session log
+
+### 2026-11-23 (night): story canon approved
+1. **Completed and verified:** the owner approved `docs/STORY_CANON.md` with the suggested answers.
+   - The Source and ZERO are one being: ZERO is its corrupted security core.
+   - MF-001 is a human expedition member's memory.
+   - The game is co-op for 1–4 players, with solo careers and city play.
+   - The saboteur stays open until Chapter 4.
+2. **In progress:** none.
+3. **Blocked:** none. D3 is closed.
+4. **Files:** `docs/STORY_CANON.md`; this checklist (D3).
+5. **Tests:** n/a (documentation).
+6. **Next:** starter chassis (Phase 1). Co-op means pods P02–P06 are assigned per player on the server.
 
 ### 2026-11-23 (night): Rojo live sync connected
 1. **Completed and verified:** the owner connected the Rojo plugin to `rojo serve` (port 34872).

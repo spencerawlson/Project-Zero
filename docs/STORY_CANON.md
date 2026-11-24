@@ -1,6 +1,6 @@
-# Story Canon: DRAFT for owner approval
+# Story Canon
 
-Status: **draft, 2026-11-23** (decision D3: merge the existing bible with the development checklist). No dialogue, cinematic or story mission is built on this until the owner approves it. Items marked ❓ need an answer.
+Status: **approved by the owner, 2026-11-23** (decision D3: merge the existing bible with the development checklist). The owner accepted the suggested answers to the open questions (section 8). One question, who altered ZERO's directives, stays open until Chapter 4 is written.
 
 Sources merged:
 - The existing *Project Zero: Game Design & Production Bible*: 2187, humanity vanished, the underground automated civilization, the central intelligence **ZERO**, Cypher, Sentinel and Patch, memory fragments, the Zero Core, the human sanctuary, and the Chapter 5 choice between restoration, replacement and machine self-governance.
@@ -14,7 +14,7 @@ In 2187 humanity has been silent for decades. The day every human signal stopped
 |---|---|---|
 | **The Source** | The benevolent civic intelligence of NEXUS-01. It activates new robots, keeps the NEXUS Credit ledger and the academies, and speaks in calm, fragmented transmissions. | Speaks during the activation cinematic. It's damaged: messages drop out where ZERO censors them. |
 | **ZERO** | The Source's security directive set, running on the Zero Core. Its directives were altered, so it enforces lockdowns, memory resets and the cover-up. | The existing bible's antagonist. It's corrupted, not evil by design. Chapter 5 confronts "ZERO / the corrupted controller". |
-| **The Zero Core** | The physical and logical heart of The Source, deep under NEXUS-01. Whoever controls it controls the city's directives. | Phase 6: the Zero Core discovery missions and the deeper mystery. ❓ Who altered the directives (the human, machine or third party that Chapter 4 calls "deliberately triggered")? |
+| **The Zero Core** | The physical and logical heart of The Source, deep under NEXUS-01. Whoever controls it controls the city's directives. | Phase 6: the Zero Core discovery missions and the deeper mystery. **Open until Chapter 4:** who altered the directives (the human, machine or third party that Chapter 4 calls "deliberately triggered"). |
 | **The Great Silence** | The moment all human contact stopped. Public records say the humans left; the archives show otherwise. | Phase 6 storyline name for the old bible's "humanity has vanished". |
 | **Project Zero expedition archives** | Recordings from the human expedition that discovered the robot civilization and then went silent. | The "recent human recording" from Chapter 1's ending comes from these. |
 
@@ -25,7 +25,7 @@ In 2187 humanity has been silent for decades. The day every human signal stopped
 - **Patch:** the repair specialist who holds the sanctuary coordinates, and the player's first career mentor (engineering).
 
 ## 4. The corrupted memory fragment (Phase 1)
-At activation, the player's core contains one fragment, **MF-001**, that belongs to no robot. It's a few seconds of a human voice and a corrupted image of the Zero Core. The Source tags it "not yours, keep it safe" before ZERO cuts the transmission. It's the player's first collectible fragment and the hook for the whole campaign. ❓ Should MF-001 be a human expedition member's memory, or The Source's own lost memory?
+At activation, the player's core contains one fragment, **MF-001**, that belongs to no robot. It's a few seconds of a human voice and a corrupted image of the Zero Core. The Source tags it "not yours, keep it safe" before ZERO cuts the transmission. It's the player's first collectible fragment and the hook for the whole campaign. **MF-001 is the memory of a human expedition member** (decided 2026-11-23). It ties the opening straight to the mystery of what happened to humanity.
 
 ## 5. Factions (Phase 6 political choices)
 | Faction | Belief | Relationship |
@@ -50,8 +50,10 @@ These map directly onto the existing Chapter 5 choice: **restoration, replacemen
 | 4 The Last Sanctuary | Phase 6 | Humans in suspended animation; "the disaster was deliberate" |
 | 5 The Zero Protocol | Phase 6 | Zero Core, faction choice, humanity's return |
 
-## 8. Questions for the owner
-1. Is The Source = the civic intelligence, with ZERO = its corrupted security core, acceptable? Or should they be separate beings?
-2. MF-001: whose memory is it, a human expedition member's or The Source's own?
-3. Who altered ZERO's directives (the reveal behind "the disaster was deliberate")?
-4. Is the game still co-op, 1–4 players as in the old bible, alongside the career and life-sim systems?
+## 8. Owner decisions (2026-11-23)
+| # | Question | Decision |
+|---|---|---|
+| 1 | One being or two: The Source and ZERO? | **One.** ZERO is The Source's corrupted security core. The caretaker that wakes you is also what hunts you. |
+| 2 | Whose memory is MF-001? | **A human expedition member's.** |
+| 3 | Who altered ZERO's directives? | **Open.** It's the late-game reveal; decide before Chapter 4 is written. |
+| 4 | Co-op, 1–4 players? | **Yes.** Story missions support 1–4 players in co-op. Careers, the city and life-sim systems also work solo. Plan multiplayer in from the start: server-authoritative state, per-player saves, and shared mission instances. |
