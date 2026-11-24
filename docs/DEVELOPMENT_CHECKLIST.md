@@ -109,8 +109,12 @@ The next build: v2's first playable slice. Design: [NEXUS_01_CITY.md](NEXUS_01_C
   - **Market:** bought an energy cell (30) and the engineering toolkit (200); the wings are not listed.
   - **C02 "Bay Calibration":** unlocked by the toolkit. Walked into the bay and calibrated 3 arms → report. Paid 150 credits and 60 experience.
   - Contract records persisted to the next play session.
-- [ ] Implement basic transportation.
-  *Assets ready:* 9 vehicle models imported; 7 crewed ones board robots, with seats verified. No driving yet.
+- [x] **Implement basic transportation.**
+  Verified 2026-11-24 (place version 73): a drivable copy of the Tracked Hauler is parked at the top of the Founders' Quarter street (`PZ_DistrictHauler`, attribute `PZ_Drivable`).
+  - **VehicleService:** an invisible physics body under the hull; the first robot to board drives, the next ride as passengers; the server brakes when nobody drives.
+  - **VehicleClient:** W/S/A/D with smooth acceleration, steering reversed in reverse, physics owned by the driver.
+  - **Playtest:** boarded into the driver's seat; W for 3 s drove 34 studs straight down the street, level; W+A turned 44° left; releasing the keys braked to a stop; Space got out and the server took the vehicle back (stopped).
+  - The other vehicles in the yard stay display-only until they're needed.
 - [ ] Verify mobile and desktop performance.
   *Estimated, not yet measured live (2026-11-24):*
   - From the street a player can see at most about 360k triangles (7 buildings at 24–60k each, plus 4 citizens at about 10k) and roughly 150–250 draw calls. Roblox's reference for 60 FPS on most devices is about 800k triangles and 600 draw calls.
@@ -219,6 +223,18 @@ Rules (Story Bible §7): weapons only from platforms and only in war missions, n
 | B1 | The Studio AI-assistant plugin changed version mid-session; Studio recommends a restart | Tool stability | Owner | **Done 2026-11-23** (Studio restarted) |
 
 ## Session log
+
+### 2026-11-24 (night): basic driving (owner order item 2)
+1. **Completed and verified:** a drivable Tracked Hauler in the Founders' Quarter (Phase 2 "basic transportation"; details there).
+2. **In progress:** item 3, Phase 3 careers (design next).
+3. **Blocked:** none.
+4. **Files:**
+   - `src/server/Services/VehicleService.luau` and `src/client/VehicleClient.client.luau` (new)
+   - `Main.server.luau`
+   - this checklist
+   - place: `PZ_DistrictHauler`
+5. **Tests:** one playtest. It found and fixed one bug: the client looked for the vehicle as the nearest Model above the seat, but CrewLayer is itself a Model, so it now walks up to the Model that holds the drive body.
+6. **Next:** Phase 3 careers.
 
 ### 2026-11-24 (night): Phase 2 finishing pass (owner order: 1 district, 2 transport, 3 careers)
 1. **Completed and verified (one play session):**
