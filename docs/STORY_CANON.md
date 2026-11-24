@@ -1,4 +1,6 @@
-# Story Canon
+# Story Canon (superseded)
+
+> **Superseded 2026-11-24** by [STORY_BIBLE.md](STORY_BIBLE.md): the owner adopted the Master Development Prompt v2 as the master plan (decision D6). Kept for history; where they differ, the Story Bible wins. ZERO, Cypher, Sentinel and Patch carry over unchanged.
 
 Status: **approved by the owner, 2026-11-23** (decision D3: merge the existing bible with the development checklist). The owner accepted the suggested answers to the open questions (section 8). One question, who altered ZERO's directives, stays open until Chapter 4 is written.
 

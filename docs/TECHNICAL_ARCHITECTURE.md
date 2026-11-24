@@ -70,7 +70,7 @@ Existing Studio content (the facility greybox, vehicles and robots) stays in the
 ### 3c. Decisions (all decided 2026-11-23)
 1. **Code workflow:** Rojo with game code in this repository. Live sync is verified.
 2. **Starter chassis:** a Cypher-style standard frame. The rig approach (R15 auto-setup or a custom rig) gets settled while building it.
-3. **Canon:** merged. See `docs/STORY_CANON.md`, approved.
+3. **Canon:** see `docs/STORY_BIBLE.md` (master plan, 2026-11-24; supersedes `docs/STORY_CANON.md`).
 4. **Studio API access:** on. The DataStore round trip is verified.
 5. **Server topology (D5):** see 3d.
 

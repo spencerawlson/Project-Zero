@@ -8,152 +8,169 @@ Repository: https://github.com/spencerawlson/Project-Zero · Roblox place: Proje
 - Don't claim a feature works without testing it.
 - Priority: a small, fully playable Project Zero first. Don't build the city at scale while fundamental gameplay systems are missing.
 
-Related documents: [Technical Architecture](TECHNICAL_ARCHITECTURE.md) · [Asset Inventory](ASSET_INVENTORY.md) · [Story Canon (draft)](STORY_CANON.md) · [Vehicles in Studio](../Roblox/vehicles_in_studio.md)
+Related documents: [Story Bible](STORY_BIBLE.md) · [Timeline](TIMELINE.md) · [Technical Architecture](TECHNICAL_ARCHITECTURE.md) · [Asset Inventory](ASSET_INVENTORY.md) · [Master plan v2 (source)](proposals/2026-11-24_master_prompt_v2.md) · [v2 analysis](proposals/2026-11-24_master_prompt_v2_analysis.md) · [Vehicles in Studio](../Roblox/vehicles_in_studio.md)
+
+**Master plan (2026-11-24):** the owner adopted the *Master Development Prompt v2* as the master plan, with ZERO kept, memory fragments from the robots' programming on Earth, and weapons found only on platforms during war missions (decisions D6–D9). The phases below follow v2's roadmap (Phases 0–9). Items verified under the earlier 8-phase checklist keep their check and evidence; renumbering doesn't change what was verified.
 
 ---
 
 ## Phase 0: Repository Audit
 
-- [x] **Inspect the entire repository and identify its existing architecture.**
-  The repo is the production bible plus asset pipeline: Python, Blender and Luau builders, 29 `.py`, 25 `.sh`, 2 `.lua`, and about 2,000 generated images and JSON files. There is no game code. See Technical Architecture §1a.
-- [x] **Confirm the Roblox Studio and Luau development workflow.**
-  Confirmed working: Studio over MCP (Edit-mode Luau, playtests with server-side assertions, console checks, screen captures); Open Cloud uploads with `asset:read`/`asset:write` granted and an approved upload folder.
-  Gap: game code isn't in git. Rojo 7.7.0 is installed but not configured (decision D1).
-- [x] **Inventory existing robots, buildings, vehicles, weapons, animations and other assets.**
-  119 bible assets plus loose files; 12 in Studio plus the Stasis Facility greybox. See [Asset Inventory](ASSET_INVENTORY.md).
-- [x] **Identify reusable code and missing dependencies.**
-  - Reusable: `vehicle_crew_layer.lua` (seats, Board prompt, server boarding script, yaw alignment, enclosure check); `BLD-01_greybox_build.lua`; `pz_vehicle_prep.py`; the crew standard and its fit checks; the Roblox specs per asset.
-  - Missing: playable robot rig (G2), persistence (G3), UI, remotes and input (G4), narrative canon (G5), Luau tests (G6). See Technical Architecture §2.
-- [x] **Create the technical architecture and asset inventory documents.**
-  `docs/TECHNICAL_ARCHITECTURE.md` and `docs/ASSET_INVENTORY.md`.
-- [x] **Verify the existing project can be opened or built.**
-  - **Place:** opens in Studio in Edit mode (`list_roblox_studios` → mode Edit, saved to Roblox).
-  - **Playtest:** starts and stops cleanly. All 7 crewed vehicles board a player into seat 1, and the console shows no script errors, only Studio's plugin-version warning.
-  - **Bible:** the build passes (`pz_finalize.py` exit 0; 196 pages; QA has no FAIL rows).
+- [x] **Inspect the complete repository.**
+  The repo is the production bible plus asset pipeline: Python, Blender and Luau builders, 29 `.py`, 25 `.sh`, 2 `.lua`, and about 2,000 generated images and JSON files. There was no game code at the audit. See Technical Architecture §1a.
+- [x] **Verify the Roblox development workflow.**
+  Confirmed working: Studio over MCP (Edit-mode Luau, playtests with server-side assertions, console checks, screen captures); Open Cloud uploads with `asset:read`/`asset:write`. Rojo 7.7.0 + git adopted (D1), live sync verified 2026-11-23.
+- [x] **Inventory existing assets.**
+  119 bible assets plus loose files. See [Asset Inventory](ASSET_INVENTORY.md). The owner's newest models (2026-11-24: weapons and enemy machines) are listed in the Story Bible §8 and still need inventory rows.
+- [x] **Identify existing functional systems.**
+  At the audit: `vehicle_crew_layer.lua` (seats, Board prompt, server boarding, yaw alignment, enclosure check), `BLD-01_greybox_build.lua`, `pz_vehicle_prep.py`, the crew standard and its fit checks.
+- [x] **Document missing dependencies.**
+  Playable robot rig (G2), persistence (G3), UI, remotes and input (G4), narrative canon (G5), Luau tests (G6). See Technical Architecture §2. All of them are resolved now.
+- [x] **Identify technical and narrative conflicts.**
+  Done 2026-11-24 for the master plan: [v2 analysis](proposals/2026-11-24_master_prompt_v2_analysis.md) §4 (10 conflicts, each reconciled or decided).
+- [x] **Establish a verified development baseline.**
+  2026-11-23: the place opens in Studio; the playtest starts and stops cleanly; all 7 crewed vehicles board a player; no script errors. The bible build passes (`pz_finalize.py` exit 0, 196 pages, QA has no FAIL rows).
+- [x] **Create the story bible and architecture documents.**
+  `docs/STORY_BIBLE.md` and `docs/TIMELINE.md` (2026-11-24, master plan); `docs/TECHNICAL_ARCHITECTURE.md`. The other v2 documents (Part XIV) are written when their phase starts (decision D10, proposed).
 
-**Phase 0 completion:** audit report, asset inventory and verified baseline are done (2026-11-23).
+**Phase 0 completion:** audit report, asset inventory and verified baseline are done (2026-11-23); the master-plan conflict audit and story bible are done (2026-11-24).
 
 ## Phase 1: First Consciousness
 
-- [ ] **Create the robotic activation facility.**
-  *In progress:* the BLD-01 Stasis Facility is the activation facility. It's approved (SF-01 to 05) and the greybox is built in Studio: 13 rooms, 18 doors at least 6×10 that pass a widest-robot probe, and 8 pods.
+- [ ] **Build the activation facility.**
+  *In progress:* the BLD-01 Stasis Facility is the activation facility. It's approved (SF-01 to 05) and built in Studio: 13 rooms, 18 doors at least 6×10 that pass a widest-robot probe, and 8 pods.
   *Done 2026-11-23:* `StasisService` assigns each party member their own player pod (P02, P03, P04, P06, using the `PodRoster` unit tests). A new player is held in the closed pod; holding **Activate** (E) opens the glass, frees the robot and saves `progress.activated = true`. A returning player spawns in front of their open pod. Verified in playtests with the real DataStore across sessions.
   *Done 2026-11-23:* the pods are the owner's **Robot Containment Chamber** (INT-12): two chambers, four pods each, one along each side wall of R04 with the open side facing the aisle.
   - **R04 widened** from 48 to 64 studs (facility 88 to 104 wide; decided by the owner) so both fit at a scale where a pod holds Sentinel (7.5).
-  - **Closed state:** each pod is closed by a cyan stasis field on its platform, which fades out on activation. The model's glass panels sit at the back of each bay and stay as decoration.
+  - **Closed state:** each pod is closed by a cyan stasis field on its platform, which fades out on activation.
   - **Verified in playtests:** spawn on the pod platform, the full cinematic, walking out to the aisle, and the returning player standing on the chamber floor.
-  Not done: lighting states, sound, the bible SF sheets for the widened R04 (layout data updated; renders pending), kit modules.
+  Not done: sound, the bible SF sheets for the widened R04 (renders pending), kit modules.
 - [x] **Implement the standard starter chassis.**
   Verified 2026-11-23 in Studio playtests:
-  - **Rig:** the Cypher mesh was auto-rigged with Roblox Avatar Auto Setup (Development) into an R15 character, 6.3 studs tall. It is installed as `StarterPlayer.StarterCharacter`, with a master copy at `ServerStorage.Chassis.CypherFrame`. The canonical `PZ_Cypher` is untouched.
-  - **Movement:** walks with the rig's own animations (Running state).
-  - **Fit:** walked from the pod chamber out through the facility's doors to the outside spawn.
-- [ ] **Implement movement, camera and interaction.**
-  *Partial:* ProximityPrompt boarding with server validation works on 7 vehicles. Movement and camera are still Roblox defaults.
-- [x] **Create the activation cinematic and dialogue with The Source.**
+  - **Rig:** the Cypher mesh was auto-rigged with Roblox Avatar Auto Setup into an R15 character, 6.3 studs tall. It is installed as `StarterPlayer.StarterCharacter`, with a master copy at `ServerStorage.Chassis.CypherFrame`. The canonical `PZ_Cypher` is untouched.
+  - **Movement:** walks with the rig's own animations.
+  - **Fit:** walked from the pod chamber out through the facility's doors.
+  - **Colours** (owner request, 2026-11-24): a 10-colour palette, a per-player default and the PAINT picker, saved.
+- [ ] **Implement movement and interaction.**
+  *Partial:* ProximityPrompt interaction works (pods, breakers, consoles, vehicle boarding with server validation). Movement and camera are still Roblox defaults. Known issue: the camera ends up pressed against the pod after the wake-up scene.
+- [x] **Introduce The Source.**
   Verified 2026-11-23 in playtests:
-  - **Script:** `src/shared/ActivationScript.luau`, 10 beats from the approved canon, 32.5 s. Covers The Source, ZERO's censorship, the human memory flash, "MF-001 acquired" and "signal lost".
-  - **Client scene:** `src/client/ActivationCinematic.client.luau`. Letterbox, the camera pushes in through the glass, typewriter subtitles, a red glitch, flicker and shake for ZERO, a warm desaturated grade for the memory, and a Skip button.
+  - **Script:** `src/shared/ActivationScript.luau`, 10 beats, 32.5 s. Covers The Source, ZERO's censorship, the memory flash, "MF-001 acquired" and "signal lost".
+  - **Client scene:** `src/client/ActivationCinematic.client.luau`. Letterbox, a camera push-in, typewriter subtitles, ZERO's red glitch, a memory grade, and a Skip button.
   - **Server:** holds the pod closed until the client reports done, with a timeout.
-  - Placeholder until a dialogue pass: there is no voice or sound yet.
-- [x] **Introduce the mysterious corrupted memory fragment.**
-  Verified 2026-11-23: activation grants **MF-001** (a human expedition member's memory, tagged "not yours, keep it safe"). It's saved as `progress.memoryFragments["MF-001"] = true`. The Source's designation is saved as `identity.designation` (e.g. CX-6170; stable per player). A fragment viewer comes with the memory-fragment system later.
-- [x] **Implement the first playable mission.**
-  M01 "The Awakening" (owner-approved plan, 2026-11-24): find Cypher, then restore power (3 breakers in a random order shown on a console), then free Sentinel, then escape through D03 / R12 / D04 during ZERO's lockdown. Optional: MF-002 medical console. Cypher and Sentinel follow the player. No combat.
-  - **Code:**
-    - `Shared.MissionM01` (pure rules and dialogue, 8 tests)
-    - `MissionService`
-    - `FacilityService` (doors, lighting states, props)
-    - `NpcService` (R15 companions, pathfinding follow)
-    - `MissionHUD` client (objective panel, waypoints, subtitles)
-  - **Verified 2026-11-24, one solo playthrough in Studio with the real DataStore:**
-    - Every step played, with the right dialogue and lighting at each.
-    - A wrong breaker order resets.
-    - MF-002 granted.
-    - Resuming from the restore-power checkpoint works, as does free roam after completion.
-  - *Not yet tested:* co-op with 2+ players.
-- [x] **Implement persistent player identity and save data.**
-  Verified 2026-11-23:
-  - **Profile:** keyed by Roblox UserId; schema v1; starter chassis `CypherFrame`; `createdAt` set.
-  - **Session-locked store, unit tests:** 18/18 pass.
-  - **Real DataStore round trip in Studio** (API access on): session 1 wrote marker `RT-1795474515` and stopped. Session 2, a new server, loaded the marker and the session count 3, and loaded instantly, which proves the shutdown save released the lock. `PZ_PersistentSave = true`. The test marker was then removed.
-  - *Follow-up:* The Source assigns `identity.designation` at activation (done 2026-11-23). Letting the player rename it later needs Roblox text filtering.
+  - There is no voice or sound yet.
+- [x] **Implement the corrupted memory fragment.**
+  Verified 2026-11-23: activation grants **MF-001**, saved as `progress.memoryFragments["MF-001"] = true`, and The Source's designation is saved as `identity.designation` (e.g. CX-6170).
+- [ ] **Update the memory dialogue to the master plan** (Story Bible §5).
+  MF-001 and MF-002 become memories of the robots' programming on Earth. The current lines describe humans living on PX-01. Also add v2's welcome line ("Activation successful. Welcome to NEXUS-01…") before ZERO cuts in.
+- [x] **Create the introductory mission.**
+  M01 "The Awakening" (owner-approved plan, 2026-11-24): find Cypher, then restore power (3 breakers in a random order), then free Sentinel, then escape through D03 / R12 / D04 during ZERO's lockdown. Optional: MF-002. Cypher and Sentinel follow the player. No combat.
+  - **Code:** `Shared.MissionM01` (8 tests), `MissionService`, `FacilityService`, `NpcService`, the `MissionHUD` client.
+  - **Verified 2026-11-24, solo playthrough with the real DataStore:** every step, wrong-order reset, MF-002, checkpoint resume, free roam after completion.
+  - Name tags show only for the current objective's character or while it speaks (owner feedback, 2026-11-24).
+- [x] **Implement persistent player identity.**
+  Verified 2026-11-23: profile keyed by UserId, versioned schema, session-locked store (18 unit tests), real DataStore round trip across two servers. Renaming the designation later needs Roblox text filtering.
+- [ ] **Test the complete onboarding experience.**
+  *Partial:* the solo path is verified. Not yet: co-op with 2+ players; v2's first ten minutes (§42), which also needs the Phase 2 district straight after M01.
 
-**Completion:** a new player can activate, complete the introductory mission, and return with progress preserved.
-*Met in a solo Studio playthrough 2026-11-24.* Open in this phase: the movement / camera item, facility polish (sound, kit modules), and a co-op test.
+**Completion:** a new player can activate, complete the introductory mission, and return with progress preserved. *Met solo (2026-11-24).* Open: movement and camera, the dialogue update, a co-op test.
 
-## Phase 2: Skills and Careers
-- [ ] Implement skill trees and experience progression.
-- [ ] Create engineering, medicine, research, security and exploration career paths.
-- [ ] Implement professional training academies.
-- [ ] Implement certification examinations and practical assessments.
-- [ ] Create freelance jobs and reputation progression.
-- [ ] Allow players to pursue multiple careers.
+**Built ahead of plan (owner requests, 2026-11-24):**
+- **Nightwing wings:** found on the wing platform in R03 (powered once main power is restored). The wings unfold from a back module only in flight. Free flight runs on wing energy.
+- **NEXUS Credits wallet:** M01 pays 150 once.
 
-**Completion:** players can learn skills, earn certifications, perform jobs and gain reputation.
+## Phase 2: Civilian City Vertical Slice
+The next build. This is v2's first playable slice; about half of it is already done in Phase 1.
+- [ ] Build one functioning NEXUS-01 district (reached straight after M01).
+  *Assets:* 29 building models (BLD-01 to 29) and 20 infrastructure models. The prep-and-bake pipeline is proven (platform: 2.3 M → 45k triangles).
+- [ ] Implement robotic NPC citizens with routines.
+- [ ] Create accessible building interiors, including **one professional facility** (proposed: Patch's workshop, INT-03 / BLD-02).
+- [ ] Implement charging and maintenance.
+- [ ] Create introductory civilian jobs: **one introductory career mission** (engineering with Patch).
+- [ ] Implement basic transportation.
+  *Assets ready:* 9 vehicle models imported; 7 crewed ones board robots, with seats verified. No driving yet.
+- [ ] Verify mobile and desktop performance.
 
-## Phase 3: Chassis Evolution
-- [ ] Create a robotic chassis marketplace.
-- [ ] Implement specialized medical, engineering, research, security and exploration bodies.
+**Completion:** wake, finish M01, walk into the district, meet citizens, take a first job, charge, and earn and spend NEXUS Credits.
+
+## Phase 3: Skills and Careers
+- [ ] Implement skill progression.
+- [ ] Create professional academies.
+- [ ] Implement certifications (examinations and practical assessments).
+- [ ] Implement reputation.
+- [ ] Create professional contracts and freelance jobs.
+- [ ] Support multiple career paths (start with 2–3 of v2's 16 professions, each with real gameplay).
+- [ ] Verify persistent progression.
+
+## Phase 4: Chassis Evolution
+- [ ] Create the chassis marketplace.
+- [ ] Implement specialized bodies.
   *Assets:* concept sheets exist for MED-7, MEDI-X, ORION, ORBIT-7, AURORA, R-TRN-02 and UT-01 (CHR-05 to 11).
-- [ ] Implement chassis purchasing using NEXUS Credits.
-- [ ] Implement secure consciousness transfers.
-- [ ] Preserve identity, memories, skills and ownership during transfers.
-- [ ] Allow players to store and switch between owned bodies.
-- [ ] Restrict specialized equipment according to chassis capabilities and qualifications.
-
-**Completion:** a player can purchase another body, transfer into it, use its abilities, and return to their original chassis.
-
-## Phase 4: NEXUS-01 City
-- [ ] Build a functional starter district.
-- [ ] Implement robotic residences and garages.
-- [ ] Implement hospitals and repair facilities.
-- [ ] Implement factories, laboratories and power stations.
-- [ ] Implement roads, transportation and vehicles.
-  *Assets ready:* 9 user vehicle models are imported. The 7 crewed ones board robots, with seats verified inside each hull. There's no driving, routing or vehicle physics yet. Deliberately paused until Phase 1 is playable.
-- [ ] Implement NPC routines and city services.
-- [ ] Add interactive interiors.
-- [ ] Expand the city incrementally while maintaining performance.
-
-**Completion:** NEXUS-01 functions as a populated, interactive robot-first city.
+- [ ] Implement ownership (purchase with NEXUS Credits).
+- [ ] Implement consciousness transfer, preserving identity, memories, skills and ownership.
+- [ ] Implement chassis storage and switching.
+- [ ] Enforce professional requirements and chassis capabilities.
+- [ ] Test transfers and data integrity.
 
 ## Phase 5: Economy and Businesses
-- [ ] Implement server-authoritative NEXUS Credits.
-- [ ] Add earnings from jobs, missions and contracts.
-- [ ] Implement purchases, inventories and transaction records.
-- [ ] Allow qualified players to establish businesses.
-- [ ] Implement garages, clinics, laboratories and transportation companies.
-- [ ] Create business operating expenses and revenue systems.
-- [ ] Integrate optional Roblox monetization using supported Roblox services.
-- [ ] Ensure core progression remains available without Robux.
-
-**Completion:** players can earn, spend, own assets and operate functioning businesses.
+- [ ] Implement NEXUS Credits.
+  *Partial (2026-11-24):* server-authoritative wallet in the profile; one-time rewards (M01: 150); balance on screen. Nothing to spend credits on yet.
+- [ ] Implement secure transactions and records.
+- [ ] Implement property ownership.
+- [ ] Implement business ownership.
+- [ ] Implement business operating expenses and revenue.
+- [ ] Create NPC-backed commercial demand.
+- [ ] Test economic balance.
+- [ ] Test transaction exploit resistance.
 
 ## Phase 6: Main Story
-- [ ] Implement Project Zero expedition archives.
-- [ ] Build the Zero Core discovery missions.
-- [ ] Implement The Great Silence storyline.
-- [ ] Introduce the Guardians, Reconciliation Movement and Ascendants.
-- [ ] Implement faction reputation and political choices.
-- [ ] Create missions revealing humanity's discovery of the robotic civilization.
-- [ ] Develop humanity's eventual return.
-- [ ] Introduce the deeper mystery surrounding the Zero Core.
+- [ ] Implement the expedition archives and playable memories (fragments from the robots' Earth programming).
+- [ ] Introduce the Zero Core discovery.
+- [ ] Implement The Great Silence.
+- [ ] Introduce the political factions (Guardians, Reconciliation Movement, Ascendants) with reputation and choices.
+- [ ] Develop the player's memory mystery.
+- [ ] Introduce humanity's discovery of NEXUS-01.
+- [ ] Establish the invasion storyline.
+- [ ] Develop the ZERO storyline toward the reveal of who altered it.
 
-**Completion:** players can progress through implemented story chapters with persistent decisions and meaningful gameplay.
+## Phase 7: The War for Zero
+Rules (Story Bible §7): weapons only from platforms and only in war missions, no PvP, robots never fight humans.
+- [ ] Prepare the enemy machines (Story Bible §8): one dark HECF look (recolour the Battle Walker), split the Thunderfang squad, rig or animate the walkers, rename the "Sentinel" enemy models.
+- [ ] Introduce human-controlled enemy machines (behaviour: coordinated commands; fallback routines when the link drops).
+- [ ] Implement the invasion cinematic.
+- [ ] Create The Price of Survival mission (the first weapon).
+- [ ] Implement **weapon platforms** (the same platform as the wings): stand in the ring to receive the weapon it holds; handed out only inside war missions and removed after.
+- [ ] Implement combat: health, hits validated by the server, respawn at the last platform or pod, no PvP.
+- [ ] Introduce defensive research.
+- [ ] Implement shields (EQP-19 riot shield, EQP-20 dome projector, then building and district shields).
+- [ ] Implement authorized combat platforms and vehicles.
+- [ ] Implement civilian protection and rescue missions.
+- [ ] Implement wartime professional contracts.
+- [ ] Implement reconstruction gameplay.
+- [ ] Verify that civilian players and the civilian city remain protected.
 
-## Phase 7: Testing and Release Preparation
-- [ ] Test new-player onboarding.
-- [ ] Test skill and certification progression.
-- [ ] Test chassis transfers and persistent ownership.
-- [ ] Test economy transactions and exploit resistance.
+## Phase 8: Monetization
+- [ ] Create premium chassis appearances.
+- [ ] Create premium vehicle appearances.
+- [ ] Create premium property customization.
+- [ ] Implement supported Roblox commerce (server-side receipts, idempotent fulfilment).
+- [ ] Verify purchase fulfilment and entitlement persistence.
+- [ ] Test duplicate transaction prevention.
+- [ ] Verify that purchases create no unfair advantage (nothing functional is sold; wings and weapons are never sold).
+- [ ] Implement commercial analytics.
+- [ ] Validate pricing assumptions.
+
+## Phase 9: Expansion and Optimization
+- [ ] Expand NEXUS-01.
+- [ ] Add additional professions and businesses.
+- [ ] Expand transportation infrastructure.
+- [ ] Introduce advanced exploration regions.
+- [ ] Expand the Zero Core mystery (ancient structures).
+- [ ] Profile client and server performance.
 - [ ] Test multiplayer synchronization.
-- [ ] Test business ownership and permissions.
-- [ ] Test missions, dialogue and faction progression.
-- [ ] Profile Roblox client and server performance.
 - [ ] Validate mobile, desktop and supported console controls.
 - [ ] Verify data persistence, recovery and regression tests.
-
-**Completion:** a stable, tested Roblox experience suitable for release preparation.
+- [ ] Prepare release documentation.
 
 ---
 
@@ -162,13 +179,50 @@ Related documents: [Technical Architecture](TECHNICAL_ARCHITECTURE.md) · [Asset
 | ID | Decision or blocker | Blocks | Owner | Status |
 |---|---|---|---|---|
 | D1 | Adopt Rojo, keeping game code in `src/` in this repo and synced to Studio | All code tasks, commit references | Owner | **Decided 2026-11-23: Rojo + git. Live sync verified 2026-11-23** |
-| D2 | Starter chassis: which robot or frame is the player's first body, and Roblox R15 auto-setup vs a custom rig | Phase 1 chassis, movement, animation; Phase 3 | Owner | **Decided 2026-11-23: Cypher-style frame; rig = R15 via Avatar Auto Setup (proven 2026-11-23)** |
-| D3 | Narrative canon: define The Source, the Great Silence, the three factions, NEXUS Credits and careers, and reconcile them with the existing "The Awakening" bible (ZERO, co-op trio) | Phase 1 cinematic, dialogue, memory fragment; Phase 6 | Owner | **Decided 2026-11-23: merge both. `docs/STORY_CANON.md` approved by the owner 2026-11-23 (suggested answers; the saboteur stays open until Chapter 4)** |
+| D2 | Starter chassis: which robot or frame is the player's first body, and Roblox R15 auto-setup vs a custom rig | Phase 1 chassis, movement, animation; Phase 4 | Owner | **Decided 2026-11-23: Cypher-style frame; rig = R15 via Avatar Auto Setup (proven 2026-11-23)** |
+| D3 | Narrative canon: merge the existing "The Awakening" bible with the checklist's world | Phase 1 cinematic, dialogue, memory fragment; Phase 6 | Owner | **Decided 2026-11-23** (`STORY_CANON.md`); **superseded 2026-11-24 by D6** |
 | D4 | Turn on *Experience Settings → Security → Enable Studio Access to API Services* so saves can be tested in Studio | Phase 1 persistence | Owner (Studio setting) | **Done 2026-11-23** (verified by the round-trip test) |
-| D5 | Server topology: city hub servers (about 20–30 players) plus reserved-server mission instances for parties of 1–4; unlimited concurrent groups | Phase 1 pods, every mission, Phase 4 city | Owner | **Decided 2026-11-23** (see `docs/TECHNICAL_ARCHITECTURE.md` §3d) |
+| D5 | Server topology: city hub servers (about 20–30 players) plus reserved-server mission instances for parties of 1–4; unlimited concurrent groups | Phase 1 pods, every mission, Phase 2 city, Phase 7 war instances | Owner | **Decided 2026-11-23** (see `docs/TECHNICAL_ARCHITECTURE.md` §3d) |
+| D6 | Master plan: adopt the *Master Development Prompt v2* | Everything | Owner | **Decided 2026-11-24** (`docs/STORY_BIBLE.md`, this checklist) |
+| D7 | Keep ZERO? | Cinematic, M01, Phase 6 | Owner | **Decided 2026-11-24: keep ZERO, unchanged** |
+| D8 | Where memory fragments come from | MF-001/002 dialogue, Phase 6 | Owner | **Decided 2026-11-24: the robots' memories of being programmed on Earth before hibernation (their mission)** |
+| D9 | Combat rules | Phase 7 | Owner | **Decided 2026-11-24:** weapons only from the platforms (same as wings), only in war missions; no PvP; enemies are the HECF machines (Battle Walker, Thunderfang, …); robots never fight humans |
+| D10 | Write v2's 30 documents gradually, when each phase starts | Docs | Owner | *Proposed, awaiting the owner* |
+| D11 | Pushing and merging: keep the earlier permission to merge after QA, or ask before every push (v2 rule 11) | Commits, PRs | Owner | **Decided 2026-11-24: Claude may push and merge (after QA). Publishing the game to players still needs the owner's explicit approval** |
+| D12 | Story gaps: why the player's pod wakes now; how humans command machines from Earth; Chapter 4 content; enemy names | Phase 6–7 | Owner | *Open; proposals in Story Bible §10, recommended to the owner 2026-11-24 (HECF serial designations: Trooper T-1, Siege Walker S-4, Seeker Drone D-2, Walker W-2, Strike Pack X-804, Breaker H-7, Assault Frame A-3, Crawler C-6, Interceptor V-9); awaiting a yes* |
 | B1 | The Studio AI-assistant plugin changed version mid-session; Studio recommends a restart | Tool stability | Owner | **Done 2026-11-23** (Studio restarted) |
 
 ## Session log
+
+### 2026-11-24 (evening): master plan adopted (v2), story bible
+1. **Completed and verified:**
+   - **Master plan.** The owner adopted the *Master Development Prompt v2* with these decisions:
+     - D6: v2 is the master plan.
+     - D7: keep ZERO, unchanged.
+     - D8: memory fragments are the robots' memories of being programmed on Earth.
+     - D9: weapons only from the platforms and only in war missions; no PvP; enemies are the HECF machines; never fight humans.
+   - **Saved:** the prompt is in `docs/proposals/` with its analysis (10 conflicts, each reconciled or decided).
+   - **New story documents:**
+     - `docs/STORY_BIBLE.md`: merged canon, enemy roster, rules of violence, chapters, open questions.
+     - `docs/TIMELINE.md`.
+     - `STORY_CANON.md` is marked superseded.
+   - **Checklist restructured** to v2's Phases 0–9:
+     - Verified items carried over with their evidence.
+     - New items: the dialogue update (Phase 1), the city vertical slice as the next build (Phase 2), the war and weapon platforms (Phase 7), monetization (Phase 8).
+     - New decisions: D6–D12.
+   - **Owner's newest models reviewed** (thumbnails in `Source_Documents/triage/`): all dark, standardised machines, each mapped to an enemy role in Story Bible §8. Weapons found: hammer, baton, blaster, rifle, ion cannon, Violet Singularity Cannon, riot shield, dome shield.
+2. **In progress:** none.
+3. **Blocked:** D12 (story gaps) is open. D11 was answered later the same day: push and merge allowed.
+4. **Files:**
+   - `docs/STORY_BIBLE.md` and `docs/TIMELINE.md` (new).
+   - `docs/proposals/*` (new).
+   - `docs/STORY_CANON.md` (superseded header).
+   - `docs/TECHNICAL_ARCHITECTURE.md` (canon link).
+   - This checklist.
+5. **Tests:** documentation only; no code changed this session. The game is unchanged: last verified at 53/53 unit tests and the wing-platform playtest.
+6. **Next:**
+   - Rewrite the MF-001 and MF-002 lines to Earth programming memories, and add v2's welcome line (Phase 1).
+   - Then the Phase 2 district: citizens, Patch's workshop, the first engineering job, charging.
 
 ### 2026-11-24 (later): wing platform, wings only in flight (owner feedback)
 1. **Completed and verified:**
