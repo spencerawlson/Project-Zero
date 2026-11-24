@@ -1,7 +1,10 @@
-# PROPOSAL (not approved): Master Development Prompt v2
+# Master Development Plan v2 (ADOPTED by the owner 2026-11-24, decision D6)
 
 Received from the owner 2026-11-24, saved word for word (only the formatting was converted to Markdown).
-Status: **under review**. Nothing in this file is canon or a task until the owner decides. The analysis is in
+Status: **adopted as the master plan** (D6, 2026-11-24). It ranks second in the documentation hierarchy, after the
+recorded owner decisions ([Project_Zero_Owner_Decisions.md](../../Project_Zero_Owner_Decisions.md)); where they
+differ, the owner decisions win. Owner choices that adjust it (ZERO kept, memory fragments, combat rules, …) are in
+[docs/STORY_BIBLE.md](../STORY_BIBLE.md) and the checklist's decision table. The analysis is in
 [2026-11-24_master_prompt_v2_analysis.md](2026-11-24_master_prompt_v2_analysis.md).
 
 ---

@@ -9,7 +9,8 @@
 --   * Everything starts stowed (invisible). The character attribute PZ_WingsOut = true deploys it: every
 --     client's WingVisuals script unfolds the wings out of the module (and folds them back when it turns false).
 --   * FlightController asks for deploy / stow on PZ_Remotes.Flight ("deploy" | "stow"); the server only
---     deploys wings on a character that has them (PZ_CanFly).
+--     deploys wings on a living, unseated character that has them (PZ_CanFly) and enough wing energy
+--     (MovementGuard, server authoritative; audit step 4). Requests are rate limited.
 -- Mounting: every part is welded straight to the UpperTorso with a classic Weld (explicit offset). Parts are
 -- massless and non-colliding, so walking and flight are unchanged. (Roblox Accessories were tried first:
 -- AddAccessory rescales accessory parts on R15 bodies and dropped parts in the playtest.)
@@ -26,6 +27,7 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local ServerStorage = game:GetService("ServerStorage")
 
 local PlayerDataService = require(script.Parent.PlayerDataService)
+local MovementGuard = require(script.Parent.MovementGuard)
 
 local EquipmentService = {}
 
@@ -157,10 +159,18 @@ function EquipmentService.Start()
 	local remote = Instance.new("RemoteEvent")
 	remote.Name = "Flight"
 	remote.Parent = ReplicatedStorage:WaitForChild("PZ_Remotes")
+	local lastRequest: { [Player]: number } = {}
+	Players.PlayerRemoving:Connect(function(p) lastRequest[p] = nil end)
 	remote.OnServerEvent:Connect(function(player, action)
 		local c = player.Character
-		if c and (action == "deploy" or action == "stow") then
-			EquipmentService.SetDeployed(c, action == "deploy")
+		if not c or (action ~= "deploy" and action ~= "stow") then return end
+		if action == "stow" then EquipmentService.SetDeployed(c, false) return end
+		local now = os.clock()
+		if lastRequest[player] and now - lastRequest[player] < 0.25 then return end
+		lastRequest[player] = now
+		local hum = c:FindFirstChildOfClass("Humanoid")
+		if hum and hum.Health > 0 and not hum.SeatPart and MovementGuard.CanTakeOff(player) then
+			EquipmentService.SetDeployed(c, true)
 		end
 	end)
 	local function onCharacter(player: Player, character: Model)

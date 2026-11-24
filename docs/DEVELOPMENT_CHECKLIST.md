@@ -217,12 +217,37 @@ Rules (Story Bible §7): weapons only from platforms and only in war missions, n
 | D7 | Keep ZERO? | Cinematic, M01, Phase 6 | Owner | **Decided 2026-11-24: keep ZERO, unchanged** |
 | D8 | Where memory fragments come from | MF-001/002 dialogue, Phase 6 | Owner | **Decided 2026-11-24: the robots' memories of being programmed on Earth before hibernation (their mission)** |
 | D9 | Combat rules | Phase 7 | Owner | **Decided 2026-11-24:** weapons only from the platforms (same as wings), only in war missions; no PvP; enemies are the HECF machines (Battle Walker, Thunderfang, …); robots never fight humans |
-| D10 | Write v2's 30 documents gradually, when each phase starts | Docs | Owner | *Proposed, awaiting the owner* |
+| D10 | Write v2's 30 documents gradually, when each phase starts | Docs | Owner | **Decided 2026-11-24** (owner decision 9 in `Project_Zero_Owner_Decisions.md`: produced progressively as each phase requires them) |
 | D11 | Pushing and merging: keep the earlier permission to merge after QA, or ask before every push (v2 rule 11) | Commits, PRs | Owner | **Decided 2026-11-24: Claude may push and merge (after QA). Publishing the game to players still needs the owner's explicit approval** |
 | D12 | Story gaps: why the player's pod wakes now; how humans command machines from Earth; Chapter 4 content; enemy names | Phase 6–7 | Owner | **Decided 2026-11-24 ("yes" to the recommendations):** wake on detecting Earth's fleet; orbital command carrier (Orbital Ring Citadel); Ch. 4 = founders' vault; HECF serial designations. Cypher, Sentinel and Patch keep their names (as in *Road to CISSP*). See Story Bible §10 |
+| D13 | Ten product rulings from the audit response (350×350 block retired; workshop ramp deferred, stays open; factory mission deferred; elevators only when multistorey buildings need them; Energy Spire reserved and inaccessible; Scrap retired, NEXUS Credits only; flight preserved; combat preserved as defensive warfare only; planning docs produced progressively; Asset Bible Rev D approved only after owner review) | Scope | Owner | **Decided 2026-11-24 13:18 EST**: `Project_Zero_Owner_Decisions.md` (highest authority) |
+| D14 | Canonical robot dimensions: Cypher 6 studs (1.68 m), Sentinel 7.5 (2.10 m), Patch 4.5 (1.26 m); source mesh sizes are separate | All scale-dependent work | Owner | **Decided 2026-11-24 13:19 EST**, on condition that the actual rigs are verified first (the installed CypherFrame is 6.3 studs) |
+| D15 | Documentation authority: (1) owner decisions, (2) Master Plan v2, (3) Story Bible + Asset Bible Rev D (subject to review), (4) Technical Architecture, (5) this checklist. NEXUS-01 Bible v1.3 archived for history, with supersession recorded where approved | Every document | Owner | **Decided 2026-11-24 13:19 EST** |
+| D16 | Vehicle registration (dynamic vehicles set up after service start) and vehicle recovery (overturned / abandoned / out of bounds) | Driving work | Owner | *Open: the owner names them before they're worked from the remediation table* |
 | B1 | The Studio AI-assistant plugin changed version mid-session; Studio recommends a restart | Tool stability | Owner | **Done 2026-11-23** (Studio restarted) |
 
 ## Session log
+
+### 2026-11-24 (late night): audit remediation steps 1–4; owner batch placed
+Following the pulled audit response (§6 order); full detail in `docs/AUDIT_REMEDIATION.md`.
+1. **Completed and verified (Studio, place version 81):**
+   - Steps 1–2: findings checked against the code; governing documents reconciled (D10, D13–D16).
+   - Step 4: the server now checks driving and flight (`MovementGuard`), and wing energy is server-owned. Cheats tested in Studio: teleport, hover without wings, 3× vehicle speed; all corrected. Legal speeds were not flagged.
+   - Owner batch: 7 of 8 baked models placed (Hauler cockpit, Raven cockpit, Security VTOL pilot pod, dashboards in 4 ground vehicles, train console, R10 reactor, skyline backdrop).
+2. **In progress:** step 3 backups. The manifest and tool are done; the full 15.5 GB backup waits for the owner's choice of location.
+3. **Blocked (owner):**
+   - backup location
+   - provisional flight/vehicle bounds to confirm (`MovementRules`)
+   - where the sealed Bulkhead goes (suggested: the reserved Energy Spire)
+   - D16 still open
+4. **Files:**
+   - `src/shared/MovementRules.luau`, `src/server/Services/MovementGuard.luau` (new)
+   - Equipment, Vehicle, City, Stasis services; `Main.server.luau`; Vehicle and Flight clients
+   - `tests/Cases/MovementRules_Test.luau`
+   - `tools/asset_manifest.py`, `docs/ASSET_MANIFEST.csv`
+   - `docs/AUDIT_REMEDIATION.md`, `docs/ASSET_INVENTORY.md`, `Roblox/vehicles_in_studio.md`
+5. **Tests:** unit tests 72/72. Studio cheat and legal-speed tests are listed in the audit log. The first ground check (Humanoid.FloorMaterial) missed a hover and was replaced by a server sphere cast.
+6. **Next:** step 5, reserved mission instances, the fifth-player path, and M01 completion and late join.
 
 ### 2026-11-24 (night): basic driving (owner order item 2)
 1. **Completed and verified:** a drivable Tracked Hauler in the Founders' Quarter (Phase 2 "basic transportation"; details there).

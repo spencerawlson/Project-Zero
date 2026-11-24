@@ -12,11 +12,13 @@ local RunService = game:GetService("RunService")
 
 local player = Players.LocalPlayer
 
-local MAX_FORWARD = 34    -- studs/s
-local MAX_REVERSE = 12
-local ACCEL = 18          -- studs/s²
-local BRAKE = 40
-local TURN_RATE = 1.1     -- rad/s at speed
+-- the server checks driving against the same numbers (MovementGuard)
+local V = require(game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("MovementRules")).Vehicle
+local MAX_FORWARD = V.MAX_FORWARD -- studs/s
+local MAX_REVERSE = V.MAX_REVERSE
+local ACCEL = V.ACCEL             -- studs/s²
+local BRAKE = V.BRAKE
+local TURN_RATE = V.TURN_RATE     -- rad/s at speed
 local speed = 0
 
 RunService.Heartbeat:Connect(function(dt)

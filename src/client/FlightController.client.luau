@@ -6,6 +6,8 @@
 --   Space / Q or C              climb / descend (touch "Up" / "Down"). Not Ctrl: in the playtest a held Ctrl
 --                               kept the robot descending and turned F into Ctrl+F (Studio's Find), so F stopped landing.
 -- Wing energy (0-100) drains while flying and recharges on the ground; at 0 the robot drops (wings fold).
+-- The server owns wing energy and the wings (MovementGuard, audit step 4): this script shows PZ_WingEnergy, and lands
+-- when the server folds the wings (energy out, a failed check) or refuses the take-off.
 -- Wings: take-off asks the server to deploy them (PZ_Remotes.Flight "deploy"; WingVisuals unfolds them on every
 -- screen) and landing folds them away ("stow"): they are only visible in flight (owner feedback 2026-11-24).
 -- Physics: a LinearVelocity drives the root and an AlignOrientation faces the flight direction; the character is
@@ -19,14 +21,17 @@ local UserInputService = game:GetService("UserInputService")
 local player = Players.LocalPlayer
 local wingRemote = game:GetService("ReplicatedStorage"):WaitForChild("PZ_Remotes"):WaitForChild("Flight") :: RemoteEvent
 
-local SPEED = 34
-local CLIMB = 22
-local DRAIN = 6      -- energy per second in the air (~16 s of flight)
-local RECHARGE = 25  -- energy per second on the ground
-local MAX_ENERGY = 100
+local MovementRules = require(game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("MovementRules"))
+local F = MovementRules.Flight
+local SPEED = F.SPEED   -- the server checks flight against the same numbers
+local CLIMB = F.CLIMB
+local MAX_ENERGY = F.MAX_ENERGY
+local CONFIRM = 1.0     -- seconds to wait for the server to deploy the wings before landing again
 
 local energy = MAX_ENERGY
 local flying = false
+local confirmed = false -- the server has deployed the wings for this flight
+local takeOffAt = 0
 local up, down = false, false
 local lv: LinearVelocity? = nil
 local ao: AlignOrientation? = nil
@@ -77,8 +82,9 @@ end
 
 local function startFlying()
 	local _, hum, root = character()
-	if not hum or not root or hum.Health <= 0 or not canFly() or energy < 10 then return end
+	if not hum or not root or hum.Health <= 0 or not canFly() or not MovementRules.canTakeOff(energy) then return end
 	flying = true
+	confirmed, takeOffAt = false, os.clock()
 	att = Instance.new("Attachment"); att.Name = "PZ_FlightAttachment"; att.Parent = root
 	lv = Instance.new("LinearVelocity")
 	lv.Attachment0 = att; lv.RelativeTo = Enum.ActuatorRelativeTo.World; lv.MaxForce = math.huge
@@ -130,11 +136,14 @@ RunService.RenderStepped:Connect(function(dt)
 	bind(able)
 	bar.Visible = able
 	local _, hum, root = character()
+	energy = (player:GetAttribute("PZ_WingEnergy") or MAX_ENERGY) :: number
 	if not hum or not root then return end
 	if flying then
 		if hum.Health <= 0 or not able then stopFlying() return end
-		energy = math.max(0, energy - DRAIN * dt)
-		if energy <= 0 then stopFlying() end
+		local out = player.Character and player.Character:GetAttribute("PZ_WingsOut") == true
+		if out then confirmed = true end
+		-- the server folded the wings, or never deployed them: land
+		if (confirmed and not out) or (not confirmed and os.clock() - takeOffAt > CONFIRM) then stopFlying() return end
 		if lv and ao then
 			local move = hum.MoveDirection
 			local vertical = (if up then CLIMB else 0) - (if down then CLIMB else 0)
@@ -146,15 +155,13 @@ RunService.RenderStepped:Connect(function(dt)
 				ao.CFrame = CFrame.lookAt(Vector3.zero, look.Unit) * CFrame.Angles(pitch, 0, 0)
 			end
 		end
-	elseif hum.FloorMaterial ~= Enum.Material.Air then
-		energy = math.min(MAX_ENERGY, energy + RECHARGE * dt)
 	end
 	fill.Size = UDim2.new((energy / MAX_ENERGY), -8 * (energy / MAX_ENERGY), 1, -8)
 	fill.BackgroundColor3 = if energy < 25 then Color3.fromRGB(255, 120, 80) else Color3.fromHex("#22D3EE")
 end)
 
 player.CharacterAdded:Connect(function()
-	flying = false; lv = nil; ao = nil; att = nil; energy = MAX_ENERGY
+	flying = false; confirmed = false; lv = nil; ao = nil; att = nil
 	bound = false
 	ContextActionService:UnbindAction("PZ_Fly")
 	ContextActionService:UnbindAction("PZ_FlyUp")

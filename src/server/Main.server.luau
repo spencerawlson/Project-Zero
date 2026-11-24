@@ -13,6 +13,7 @@ local EnergyService = require(Services.EnergyService)
 local ContractService = require(Services.ContractService)
 local CitizenService = require(Services.CitizenService)
 local VehicleService = require(Services.VehicleService)
+local MovementGuard = require(Services.MovementGuard)
 
 PlayerDataService.Start()
 StasisService.Start() -- creates ReplicatedStorage.PZ_Remotes
@@ -26,3 +27,4 @@ EnergyService.Start()
 ContractService.Start(MissionService.Completed)
 CitizenService.Start()
 VehicleService.Start() -- vehicles marked PZ_Drivable (the Founders' Quarter hauler)
+MovementGuard.Start() -- server checks on driving and flight; server-owned wing energy (audit step 4)

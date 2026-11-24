@@ -51,6 +51,23 @@ Owner feedback: inside a vehicle there were "only a couple of blocks", and the h
 Everything is welded to the seats (unanchored, massless, non-colliding), so it moves with the vehicle once driving exists.
 For hero vehicles, an owner-made Meshy cabin interior can replace this later.
 
+## Owner cockpits and dashboards (2026-11-24, place version 81)
+Placed by hand in Studio from the owner's batch (see `docs/ASSET_INVENTORY.md`, batch of 2026-11-24). They sit in each
+vehicle's `Cabin` folder, are non-colliding, and are welded with the rest of the cabin when a vehicle becomes drivable
+(checked: the district hauler's cockpit moved 18.2 studs with the hull in a playtest).
+
+| Vehicle | Placed | Changes to seats |
+|---|---|---|
+| PZ_DistrictHauler (drivable) | `DriverCockpit` (PZ_CabCockpit), facing −Z | driver seat 1.5 forward (z −165.5), clear of crew seat 1 |
+| PZ_RavenJet2 | `PilotCockpit` (PZ_JetCockpit, scale 0.8), facing −X | pilot seat x −15, seat top 3.6 (crew standard 1.6 above the 2.0 floor) |
+| PZ_SecurityVTOL | `PilotPod` (PZ_PilotPod, scale 0.85), facing −X | pilot seat x −61, co-pilot x −57 |
+| Titan Rover, Armored Carrier, 8x8, yard Hauler | `DriverDashboard` (PZ_Dashboard on a pedestal, top at the old console's 2.46) | none |
+| PZ_FreightTrain | `DriverConsole` (PZ_TrainConsole on a pedestal), 3.8 ahead of the driver | none |
+
+The chairs and consoles they replaced are in `ServerStorage.Props._Replaced`.
+**Caution:** `VEH_cabins_build.lua` replaces each vehicle's `Cabin` folder, so re-running it removes these. Re-place
+them (numbers above) or restore place version 81.
+
 ## Meshy cabin interiors (owner decision 2026-11-24: to be made on Meshy later)
 The owner prefers Meshy-made interiors over hand-built liners. Until they exist, the chairs, consoles and double-sided hulls stay.
 Interiors should be **empty** (no seats): the owner's Command Chair is fitted on each fit-scanned seat, and the driver console stays.
