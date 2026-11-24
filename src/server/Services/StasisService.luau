@@ -81,7 +81,7 @@ local function discoverPods(): { string }
 			local glass = m:FindFirstChild("Glass") :: BasePart
 			local plinth = m:FindFirstChild("Plinth") :: BasePart
 			assert(glass and plinth, "StasisService: pod " .. m.Name .. " needs Glass and Plinth parts")
-			local centre = Vector3.new(glass.Position.X, 0, glass.Position.Z)
+			local centre = Vector3.new(plinth.Position.X, 0, plinth.Position.Z) -- the plinth sits on the pod axis
 			local toRoom = fcf.Position.X - centre.X
 			local prompt = Instance.new("ProximityPrompt")
 			prompt.Name = "ActivatePrompt"
@@ -156,7 +156,12 @@ local function placeCharacter(player: Player, character: Model)
 		setOpen(pod, true, false)
 		pod.prompt.Enabled = false
 		local spot = pod.centre + pod.facing * 7
-		local hit = workspace:Raycast(spot + Vector3.new(0, 20, 0), Vector3.new(0, -60, 0))
+		-- Cast from just above pod-floor height: pods sit inside chamber rooms, so a ray from high up would land
+		-- on the chamber roof. The character itself is excluded.
+		local params = RaycastParams.new()
+		params.FilterType = Enum.RaycastFilterType.Exclude
+		params.FilterDescendantsInstances = { character }
+		local hit = workspace:Raycast(Vector3.new(spot.X, pod.floorY + 4, spot.Z), Vector3.new(0, -20, 0), params)
 		local floorY = if hit then hit.Position.Y else pod.floorY
 		local pos = Vector3.new(spot.X, floorY + h, spot.Z)
 		root.CFrame = CFrame.lookAt(pos, pos + pod.facing) -- move the root, not the model pivot (Auto Setup rigs have an offset pivot)

@@ -38,7 +38,11 @@ Related documents: [Technical Architecture](TECHNICAL_ARCHITECTURE.md) · [Asset
 - [ ] **Create the robotic activation facility.**
   *In progress:* the BLD-01 Stasis Facility is the activation facility. It's approved (SF-01 to 05) and the greybox is built in Studio: 13 rooms, 18 doors at least 6×10 that pass a widest-robot probe, and 8 pods.
   *Done 2026-11-23:* `StasisService` assigns each party member their own player pod (P02, P03, P04, P06, using the `PodRoster` unit tests). A new player is held in the closed pod; holding **Activate** (E) opens the glass, frees the robot and saves `progress.activated = true`. A returning player spawns in front of their open pod. Verified in playtests with the real DataStore across sessions.
-  Not done: kit modules, the pod model with its hinge, lighting states, and the wake cinematic (the next item).
+  *Done 2026-11-23:* the pods are the owner's **Robot Containment Chamber** (INT-12): two chambers, four pods each, one along each side wall of R04 with the open side facing the aisle.
+  - **R04 widened** from 48 to 64 studs (facility 88 to 104 wide; decided by the owner) so both fit at a scale where a pod holds Sentinel (7.5).
+  - **Closed state:** each pod is closed by a cyan stasis field on its platform, which fades out on activation. The model's glass panels sit at the back of each bay and stay as decoration.
+  - **Verified in playtests:** spawn on the pod platform, the full cinematic, walking out to the aisle, and the returning player standing on the chamber floor.
+  Not done: lighting states, sound, the bible SF sheets for the widened R04 (layout data updated; renders pending), kit modules.
 - [x] **Implement the standard starter chassis.**
   Verified 2026-11-23 in Studio playtests:
   - **Rig:** the Cypher mesh was auto-rigged with Roblox Avatar Auto Setup (Development) into an R15 character, 6.3 studs tall. It is installed as `StarterPlayer.StarterCharacter`, with a master copy at `ServerStorage.Chassis.CypherFrame`. The canonical `PZ_Cypher` is untouched.
@@ -151,6 +155,34 @@ Related documents: [Technical Architecture](TECHNICAL_ARCHITECTURE.md) · [Asset
 | B1 | The Studio AI-assistant plugin changed version mid-session; Studio recommends a restart | Tool stability | Owner | **Done 2026-11-23** (Studio restarted) |
 
 ## Session log
+
+### 2026-11-23 (night): owner's pod chambers in the Stasis Facility
+1. **Completed and verified:** the owner's Robot Containment Chamber is now the pod room.
+   - **Prepared:** `pz_room_prep.py` aligned and scaled it ×26 (49.5 × 25.5 × 16.85) and found the 4 pods by a voting search on the glass. It split off the glass and cut 2.3 M triangles to 6 × 18 k (114 k total), baking textures from the original. Uploaded as asset 123299766335093 and inserted only after processing.
+   - **Placed:** two copies in R04 (widened to 64), pods P01–P08 built on them (`BLD-01_pod_chambers.lua`). The greybox and the layout were widened to match (`pz_layout.py`, `BLD-01_greybox_build.lua`).
+2. **In progress:** bible re-render of the Stasis Facility sheets for the widened R04.
+3. **Blocked:** none.
+4. **Files:**
+   - New: `Blender/scripts/pz_room_survey.py`, `Blender/scripts/pz_room_prep.py`, `Roblox/BLD-01_pod_chambers.lua`.
+   - Changed:
+     - `Blender/scripts/pz_layout.py`: widened; pods at the chamber positions; pod size from the model.
+     - `Roblox/BLD-01_greybox_build.lua`: widened; pods moved to the chamber script.
+     - `src/server/Services/StasisService.luau`:
+       - The pod centre is taken from the plinth.
+       - Returning-player floor ray from pod-floor height (it would have landed on the chamber roof).
+5. **Tests:**
+   - Unit tests 31/31.
+   - Playtest 1: spawned in P02 on the platform (feet 2.89 vs 2.91) inside the stasis field. Played the cinematic in the chamber, then Skip; the field faded and the robot walked out to the aisle. Activated and MF-001 saved.
+   - Playtest 2 (returning): stood on the chamber floor 7 studs in front of the open P02.
+   - The owner's profile was reset to activated=false.
+   - Problems found and fixed:
+     - The first pod detection (colour clusters, then a least-squares circle fit) mislocated the pods; replaced by the voting search.
+     - The glass/room split left 0 room faces; it now edits the mesh data directly.
+     - The report hit a JSON float32 error; rebuilt from the log and fixed.
+     - The model's glass turned out to be a back panel, so a stasis field was added.
+6. **Next:**
+   - Re-render the bible's Stasis Facility sheets for the widened R04, with the chambers.
+   - Then the first playable mission: find Cypher (P01), rescue Sentinel (P05), exit.
 
 ### 2026-11-23 (night): activation cinematic and MF-001
 1. **Completed and verified:**

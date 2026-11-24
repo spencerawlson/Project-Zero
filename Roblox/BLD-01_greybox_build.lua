@@ -41,13 +41,13 @@ local F = {floors=folder("Floors"), walls=folder("Walls"), roof=folder("Roof"), 
 
 -- rooms -------------------------------------------------------------------------
 local ROOMS = {
-  {"R01","RECEPTION & SECURITY",-24,24,0,24,"civic"}, {"R02","SECURITY OFFICE",-44,-24,0,24,"security"},
-  {"R03","STAFF / DECON LOCKERS",24,44,0,24,"support"}, {"R04","STASIS POD CHAMBER",-24,24,24,104,"chamber"},
-  {"R05","MAINTENANCE CORRIDOR",-32,-24,24,104,"service"}, {"R06","CRYOGENIC PLANT",-44,-32,24,72,"plant"},
-  {"R07","EMERGENCY EXIT (W)",-44,-32,72,88,"egress"}, {"R08","SPARES STORE",-44,-32,88,104,"support"},
-  {"R09","MEDICAL MONITORING",24,44,24,60,"medical"}, {"R10","ENERGY CONTROL ROOM",24,44,60,96,"energy"},
-  {"R11","EMERGENCY EXIT (E)",24,44,96,120,"egress"}, {"R12","SERVICE ACCESS BAY",-24,24,104,120,"service"},
-  {"R13","SERVICE STAIR / RISER",-44,-24,104,120,"service"},
+  {"R01","RECEPTION & SECURITY",-32,32,0,24,"civic"}, {"R02","SECURITY OFFICE",-52,-32,0,24,"security"},
+  {"R03","STAFF / DECON LOCKERS",32,52,0,24,"support"}, {"R04","STASIS POD CHAMBER",-32,32,24,104,"chamber"},
+  {"R05","MAINTENANCE CORRIDOR",-40,-32,24,104,"service"}, {"R06","CRYOGENIC PLANT",-52,-40,24,72,"plant"},
+  {"R07","EMERGENCY EXIT (W)",-52,-40,72,88,"egress"}, {"R08","SPARES STORE",-52,-40,88,104,"support"},
+  {"R09","MEDICAL MONITORING",32,52,24,60,"medical"}, {"R10","ENERGY CONTROL ROOM",32,52,60,96,"energy"},
+  {"R11","EMERGENCY EXIT (E)",32,52,96,120,"egress"}, {"R12","SERVICE ACCESS BAY",-32,32,104,120,"service"},
+  {"R13","SERVICE STAIR / RISER",-52,-32,104,120,"service"},
 }
 for _, r in ipairs(ROOMS) do
   local f = box(F.floors, r[1] .. "_Floor", r[3], r[4], r[5], r[6], 0, 0.2, hex(ROOMCOL[r[7]]), Enum.Material.Concrete)
@@ -64,13 +64,13 @@ end
 local DOORS = {
   {"D01","Main entrance (octagonal portal)","x",0,0,12,14,"main"}, {"D02","Security airlock","x",0,24,10,12,"blast"},
   {"D03","Containment door (octagonal)","x",0,104,12,14,"blast"}, {"D04","Service roll-up door","x",0,120,16,14,"rollup"},
-  {"D05","Emergency exit W","y",80,-44,6,10,"egress"}, {"D06","Emergency exit E","y",112,44,6,10,"egress"},
-  {"D07","Security office","y",12,-24,6,10,"std"}, {"D08","Lockers","y",12,24,6,10,"std"},
-  {"D09","Medical monitoring","y",30,24,6,10,"std"}, {"D10","Energy control","y",90,24,6,10,"std"},
-  {"D11","Maint. corridor N","x",-28,104,6,10,"std"}, {"D12","Cryo plant","y",48,-32,6,10,"std"},
-  {"D13","Exit W vestibule","y",80,-32,6,10,"std"}, {"D14","Spares store","y",96,-32,6,10,"std"},
-  {"D15","Exit E vestibule","x",34,96,6,10,"std"}, {"D16","Service stair","y",112,-24,6,10,"std"},
-  {"D17","Maint. corridor S hatch","x",-28,24,6,10,"std"}, {"D18","Medical -> energy","x",34,60,6,10,"std"},
+  {"D05","Emergency exit W","y",80,-52,6,10,"egress"}, {"D06","Emergency exit E","y",112,52,6,10,"egress"},
+  {"D07","Security office","y",12,-32,6,10,"std"}, {"D08","Lockers","y",12,32,6,10,"std"},
+  {"D09","Medical monitoring","y",30,32,6,10,"std"}, {"D10","Energy control","y",90,32,6,10,"std"},
+  {"D11","Maint. corridor N","x",-36,104,6,10,"std"}, {"D12","Cryo plant","y",48,-40,6,10,"std"},
+  {"D13","Exit W vestibule","y",80,-40,6,10,"std"}, {"D14","Spares store","y",96,-40,6,10,"std"},
+  {"D15","Exit E vestibule","x",42,96,6,10,"std"}, {"D16","Service stair","y",112,-32,6,10,"std"},
+  {"D17","Maint. corridor S hatch","x",-36,24,6,10,"std"}, {"D18","Medical -> energy","x",42,60,6,10,"std"},
 }
 local KINDCOL = {main=PAL.orange, blast=PAL.red, rollup=PAL.amber, egress=PAL.green, std=PAL.steel}
 local OPENINGS = {}
@@ -91,18 +91,18 @@ for _, d in ipairs(DOORS) do
   p:SetAttribute("Width", w); p:SetAttribute("Height", h); p:SetAttribute("NeverLocks", kind == "egress")
   CS:AddTag(p, kind == "egress" and "PZ_Door_Failsafe" or "PZ_Door_Auto")
 end
-addOpening("y", 24, 45, 22, 4, 10) -- observation window: chamber -> medical monitoring
-box(F.chamber, "ObservationWindow", 23.8, 24.2, 34, 56, 4, 10, PAL.glass, Enum.Material.Glass, {Transparency=0.55})
+addOpening("y", 32, 45, 22, 4, 10) -- observation window: chamber -> medical monitoring
+box(F.chamber, "ObservationWindow", 31.8, 32.2, 34, 56, 4, 10, PAL.glass, Enum.Material.Glass, {Transparency=0.55})
 
 -- walls (axis, fixed, a0, a1, height, thickness, exterior) ------------------------
 local RUNS = {
-  {"x",0,-44,44,20,2,true}, {"x",120,-44,44,22,2,true},
-  {"y",-44,0,24,20,2,true}, {"y",-44,24,104,18,2,true}, {"y",-44,104,120,22,2,true},
-  {"y",44,0,24,20,2,true}, {"y",44,24,104,18,2,true}, {"y",44,104,120,22,2,true},
-  {"x",24,-44,44,20,1}, {"x",104,-44,24,22,1}, {"x",72,-44,-32,18,1}, {"x",88,-44,-32,18,1},
-  {"x",60,24,44,18,1}, {"x",96,24,44,18,1},
-  {"y",-24,0,24,20,1}, {"y",-24,24,104,18,1}, {"y",-24,104,120,22,1},
-  {"y",24,0,24,20,1}, {"y",24,24,104,18,1}, {"y",24,104,120,22,1}, {"y",-32,24,104,18,1},
+  {"x",0,-52,52,20,2,true}, {"x",120,-52,52,22,2,true},
+  {"y",-52,0,24,20,2,true}, {"y",-52,24,104,18,2,true}, {"y",-52,104,120,22,2,true},
+  {"y",52,0,24,20,2,true}, {"y",52,24,104,18,2,true}, {"y",52,104,120,22,2,true},
+  {"x",24,-52,52,20,1}, {"x",104,-52,32,22,1}, {"x",72,-52,-40,18,1}, {"x",88,-52,-40,18,1},
+  {"x",60,32,52,18,1}, {"x",96,32,52,18,1},
+  {"y",-32,0,24,20,1}, {"y",-32,24,104,18,1}, {"y",-32,104,120,22,1},
+  {"y",32,0,24,20,1}, {"y",32,24,104,18,1}, {"y",32,104,120,22,1}, {"y",-40,24,104,18,1},
 }
 local nWall = 0
 for i, r in ipairs(RUNS) do
@@ -132,14 +132,14 @@ for i, r in ipairs(RUNS) do
 end
 
 -- roofs (separate folder so it can be hidden to look inside) -------------------
-box(F.roof, "Roof_FrontBlock", -44, 44, 0, 24, 20, 21, PAL.graphite, Enum.Material.Metal)
-box(F.roof, "Roof_WestWing", -44, -24, 24, 104, 18, 19, PAL.graphite, Enum.Material.Metal)
-box(F.roof, "Roof_EastWing", 24, 44, 24, 104, 18, 19, PAL.graphite, Enum.Material.Metal)
-box(F.roof, "Roof_RearBlock", -44, 44, 104, 120, 22, 23, PAL.graphite, Enum.Material.Metal)
+box(F.roof, "Roof_FrontBlock", -52, 52, 0, 24, 20, 21, PAL.graphite, Enum.Material.Metal)
+box(F.roof, "Roof_WestWing", -52, -32, 24, 104, 18, 19, PAL.graphite, Enum.Material.Metal)
+box(F.roof, "Roof_EastWing", 32, 52, 24, 104, 18, 19, PAL.graphite, Enum.Material.Metal)
+box(F.roof, "Roof_RearBlock", -52, 52, 104, 120, 22, 23, PAL.graphite, Enum.Material.Metal)
 
--- barrel vault over the chamber: half-span 24, spring 18, crown 32 --------------
+-- barrel vault over the chamber: half-span 32, spring 18, crown 32 --------------
 local N = 12
-local function arc(t) return 24 * math.cos(t), 18 + 14 * math.sin(t) end
+local function arc(t) return 32 * math.cos(t), 18 + 14 * math.sin(t) end
 for i = 0, N - 1 do
   local xa, ha = arc(math.pi * i / N); local xb, hb = arc(math.pi * (i + 1) / N)
   local len = math.sqrt((xb - xa)^2 + (hb - ha)^2)
@@ -152,9 +152,9 @@ for i = 0, N - 1 do
   end
 end
 for _, y in ipairs({24, 104}) do -- gable infill above the 18-stud spring line
-  for s = 0, 11 do
-    local x0 = -24 + s * 4; local xc = x0 + 2
-    local top = 18 + 14 * math.sqrt(math.max(0, 1 - (xc / 24)^2))
+  for s = 0, 15 do
+    local x0 = -32 + s * 4; local xc = x0 + 2
+    local top = 18 + 14 * math.sqrt(math.max(0, 1 - (xc / 32)^2))
     box(F.vault, string.format("Gable_y%d_%d", y, s), x0, x0 + 4, y - 0.5, y + 0.5, 18, top, PAL.concrete, Enum.Material.Concrete)
   end
 end
@@ -165,33 +165,11 @@ for _, s in ipairs({-1, 1}) do
   box(F.chamber, "CraneRail_" .. (s < 0 and "W" or "E"), s * 14 - 0.5, s * 14 + 0.5, 24, 104, 24.5, 25.5, PAL.amber, Enum.Material.Metal)
 end
 box(F.chamber, "CraneBridge", -14.5, 14.5, 59, 61, 23.5, 24.5, PAL.amber, Enum.Material.Metal)
-box(F.chamber, "Mezzanine_Deck", -24, 24, 24, 32, 11, 12, PAL.steel, Enum.Material.DiamondPlate)
-box(F.chamber, "Mezzanine_Rail", -24, 24, 31.8, 32.1, 12, 13.1, PAL.orange, Enum.Material.Metal)
+box(F.chamber, "Mezzanine_Deck", -32, 32, 24, 32, 11, 12, PAL.steel, Enum.Material.DiamondPlate)
+box(F.chamber, "Mezzanine_Rail", -32, 32, 31.8, 32.1, 12, 13.1, PAL.orange, Enum.Material.Metal)
 
--- stasis pods (SF-04 dimensions) -------------------------------------------------
-local ROLES = {P01="Cypher (NPC guide, opens first)", P02="Player pod 1", P03="Player pod 2", P04="Player pod 3",
-  P05="Sentinel (trapped, rescue)", P06="Player pod 4", P07="Dormant (amber visor)", P08="Dormant (amber visor)"}
-local YS = {40, 54, 68, 82}
-local function cyl(parent, name, x, y, h0, h1, d, color, mat, extra)
-  return part(parent, name, Vector3.new(h1 - h0, d, d),
-    CFrame.new(P(x, y, (h0 + h1) / 2)) * CFrame.Angles(0, 0, math.rad(90)), color, mat, extra)
-end
-for i = 1, 8 do
-  local id = string.format("P%02d", i)
-  local x = (i <= 4) and -17 or 17
-  local y = YS[(i - 1) % 4 + 1]
-  local face = (i <= 4) and 1 or -1 -- toward the aisle
-  local m = Instance.new("Model"); m.Name = id
-  m:SetAttribute("Role", ROLES[id]); m:SetAttribute("State", "Stasis")
-  local plinth = cyl(m, "Plinth", x, y, 0.2, 2.5, 9, PAL.graphite, Enum.Material.Metal)
-  CS:AddTag(plinth, "PZ_Prompt_Pod")
-  cyl(m, "Glass", x, y, 2.5, 11, 6.4, PAL.glass, Enum.Material.Glass, {Transparency=0.6})
-  cyl(m, "Cap", x, y, 11, 13.5, 8, PAL.graphite, Enum.Material.Metal)
-  box(m, "TopHousing", x - 3, x + 3, y - 3, y + 3, 13.5, 14.5, PAL.steel, Enum.Material.Metal)
-  local band = (id == "P07" or id == "P08") and PAL.amber or PAL.cyan
-  box(m, "StatusBand", x + face * 4.3 - 0.2, x + face * 4.3 + 0.2, y - 1.5, y + 1.5, 1.6, 2.2, band, Enum.Material.Neon)
-  m.Parent = F.pods
-end
+-- stasis pods: built by Roblox/BLD-01_pod_chambers.lua from the owner's Robot Containment Chamber model
+-- (two chambers, four pods each, facing the aisle). This script only provides the Pods folder.
 
 root.WorldPivot = CFrame.new(0, 0, 0)
 root.Parent = workspace
@@ -203,4 +181,4 @@ if rec then CHS:FinishRecording(rec, Enum.FinishRecordingOperation.Commit) end
 
 local count = 0
 for _, d in ipairs(root:GetDescendants()) do if d:IsA("BasePart") then count += 1 end end
-return string.format("Built PZ_StasisFacility: %d parts (%d wall pieces), %d doors, 8 pods, %d rooms", count, nWall, #DOORS, #ROOMS)
+return string.format("Built PZ_StasisFacility: %d parts (%d wall pieces), %d doors, %d rooms (pods: run BLD-01_pod_chambers.lua)", count, nWall, #DOORS, #ROOMS)

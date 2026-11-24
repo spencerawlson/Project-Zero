@@ -26,3 +26,16 @@ In the place, the user model is the visible exterior. A `CrewLayer` inside each 
 - **Fix the import rotation.** Roblox inserts imports at an arbitrary yaw; align before placing seats (`align()` in the builder).
 - **Re-upload as a revision.** Use `PATCH /assets/v1/assets/{id}` instead of creating a duplicate asset.
 - **Don't trust dark Blender Workbench thumbnails of Meshy files.** They can show the black emissive map rather than the real colours.
+
+## Supplied rooms in Roblox Studio
+
+| Bible ID | Room (user model) | Roblox asset | Size (studs) | Use |
+|---|---|---|---|---|
+| INT-12 | Robot Containment Chamber | 123299766335093 | 49.5 × 25.5 × 16.85 | Two copies form the R04 pod bays: pods P01–P08, built by `Roblox/BLD-01_pod_chambers.lua` |
+
+Prepared with `Blender/scripts/pz_room_prep.py`:
+- The scale is set so a pod holds Sentinel (7.5).
+- Pods were found by a voting (Hough) search on the pale-blue glass.
+- The glass was split into its own pieces, and the 2.3 M triangles were cut to 6 × 18 k with textures baked from the original.
+
+The model's glass panels sit at the back of each bay, so the pods are closed in game by a cyan ForceField "stasis field" on each platform.
