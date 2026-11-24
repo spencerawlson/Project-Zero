@@ -20,6 +20,7 @@ local PlayerDataService = require(script.Parent.PlayerDataService)
 local StasisService = require(script.Parent.StasisService)
 local FacilityService = require(script.Parent.FacilityService)
 local NpcService = require(script.Parent.NpcService)
+local ShopService = require(script.Parent.ShopService)
 
 local MissionService = {}
 
@@ -122,6 +123,7 @@ local function run(effects: { any }, player: Player?)
 		elseif name == "complete_player" and player then
 			completed[player] = true
 			PlayerDataService.Update(player, function(p) p.progress.missions[M.ID] = "complete" end)
+			ShopService.Award(player, "mission:" .. M.ID) -- 150 NEXUS Credits, once
 			remote:FireClient(player, "complete", { mission = M.ID })
 			remote:FireClient(player, "objective", nil)
 		else

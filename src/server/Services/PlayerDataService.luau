@@ -90,6 +90,7 @@ local function onPlayerAdded(player: Player)
 	player:SetAttribute("PZ_PersistentSave", persistent[player])
 	player:SetAttribute("PZ_Activated", profile.progress.activated)
 	player:SetAttribute("PZ_Sessions", profile.stats.sessions)
+	player:SetAttribute("PZ_Credits", profile.wallet and profile.wallet.credits or 0)
 	changed:Fire(player, profile)
 end
 
@@ -119,6 +120,7 @@ function PlayerDataService.Update(player: Player, fn: (any) -> ())
 	end
 	fn(profile)
 	player:SetAttribute("PZ_Activated", profile.progress.activated)
+	player:SetAttribute("PZ_Credits", profile.wallet and profile.wallet.credits or 0)
 	return true
 end
 
@@ -132,6 +134,7 @@ end
 --   Invoke("setMission", userId, id, v) -> true if the profile was updated (v = nil removes the entry)
 --   Invoke("setActivated", userId, b)   -> true if the profile was updated (test the first-wake path again)
 --   Invoke("resetProgress", userId)     -> true: not activated, no missions, no fragments, no designation
+--   Invoke("addCredits", userId, n)     -> true: adds n NEXUS Credits (testing purchases)
 local function createDevHook()
 	if not RunService:IsStudio() then
 		return
@@ -155,12 +158,20 @@ local function createDevHook()
 			return PlayerDataService.Update(player, function(p)
 				p.progress.activated = value == true
 			end)
+		elseif action == "addCredits" then
+			local n = ...
+			return PlayerDataService.Update(player, function(p)
+				p.wallet.credits += (tonumber(n) or 0)
+			end)
 		elseif action == "resetProgress" then
 			return PlayerDataService.Update(player, function(p)
 				p.progress.activated = false
 				p.progress.missions = {}
 				p.progress.memoryFragments = {}
 				p.identity.designation = nil
+				p.wallet = { credits = 0 }
+				p.items = {}
+				p.equipped = {}
 			end)
 		end
 		return nil

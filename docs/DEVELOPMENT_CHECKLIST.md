@@ -170,6 +170,45 @@ Related documents: [Technical Architecture](TECHNICAL_ARCHITECTURE.md) · [Asset
 
 ## Session log
 
+### 2026-11-24: wings, flight and NEXUS Credits (owner request)
+1. **Completed and verified:**
+   - **Owner decisions:** any basic robot can buy wings with NEXUS Credits and fly freely, and wings mount on the back of both Cypher and Sentinel bodies.
+   - **Wallet:** NEXUS Credits saved per profile. Completing M01 pays 150 once.
+   - **Wing vendor:** a terminal in Reception (R01). Flight Wings cost 100.
+   - **Purchases** go through `Shared.ItemCatalog`: server-validated, rate limited and saved, with auto-equip and equip/unequip.
+   - **Mounting:** wings sit on any R15 robot's back mount (`BodyBackAttachment`), scaled to the torso (Sentinel ×1.31).
+   - **Free flight:**
+     - Controls: F take-off/land, camera-relative movement, Space up, Q/C down, hover when idle.
+     - Wing energy drains in about 15 s, recharges on the ground, and drops the robot at 0.
+     - Touch buttons for mobile.
+2. **In progress:** the wings are a built-in placeholder until the owner's wing model arrives (it goes in `ServerStorage.Items.WingsBasic` as a Model with a "Mount" attachment).
+3. **Blocked:** waiting for the owner's wing model.
+4. **Files:**
+   - New:
+     - `src/shared/ItemCatalog.luau`
+     - `src/server/Services/{EquipmentService,ShopService}.luau`
+     - `src/client/{FlightController,ShopUI}.client.luau`
+     - `tests/Cases/ItemCatalog_Test.luau`
+   - Changed:
+     - `ProfileSchema`: wallet, items, equipped.
+     - `PlayerDataService`: PZ_Credits attribute; `addCredits` test action; `resetProgress` also clears the wallet.
+     - `MissionService`: M01 reward.
+     - `Main.server.luau`
+5. **Tests:**
+   - Unit tests 51/51 (fresh play session).
+   - Playtest:
+     - Bought wings at the vendor (150 → 50 credits); they were mounted and saved.
+     - Took off and climbed to y 29.5, hovered (drift −0.16 studs/s), flew forward, descended and landed.
+     - Energy ran out after about 15 s and the robot dropped safely.
+     - The same wings mounted on Sentinel, scaled.
+   - Bugs found and fixed:
+     - Roblox accessories rescale parts on R15 bodies and dropped two wing parts, so items are now welded straight to the torso.
+     - WeldConstraint offsets were captured too late, so classic Welds are used.
+     - Ctrl as the descend key stuck and turned F into Studio's Ctrl+F, so descend is now Q/C.
+   - The owner's profile was fully reset afterwards (no credits or wings).
+   - Known limit: the character is client-owned, so a cheater could fly without wings. The server owns credits, items and the PZ_CanFly flag; flight anti-cheat comes with the Phase 7 security pass.
+6. **Next:** swap in the owner's wing model when it arrives; then the earlier list (camera after the wake-up scene, lockdown red, co-op test, bible re-render).
+
 ### 2026-11-24: robot colours (owner request)
 1. **Completed and verified:**
    - **Owner request:** robots must not all look alike.
