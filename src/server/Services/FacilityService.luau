@@ -183,12 +183,14 @@ local function lightingLoop()
 	end)
 end
 
+-- Room lighting comes from the art-pass fixtures built at edit time (Roblox/BLD-01_art_pass_R04.lua and
+-- BLD-01_art_pass_rooms.lua, 2026-11-24): light bars and ceiling panels tagged PZ_FacilityLight / PZ_FacilityNeon,
+-- collected in FacilityService.Start. The old runtime cube lamps were removed. If the art pass is missing (a fresh
+-- greybox), a few fallback lamps keep the facility playable.
 local function buildLights(folder: Folder)
-	local spots = {
-		-- (R04's aisle lamps were replaced by the art-pass light bars, Roblox/BLD-01_art_pass_R04.lua, 2026-11-24)
-		{ 42, 78, 12, 26 }, { 42, 42, 12, 26 }, { 0, 112, 13, 26 }, { 0, 12, 13, 26 }, -- R10, R09, R12, R01
-		{ -36, 64, 12, 34 }, { -42, 112, 12, 20 }, { -42, 12, 12, 20 }, { 42, 12, 12, 20 },
-	}
+	if #CollectionService:GetTagged("PZ_FacilityLight") > 0 then return end
+	warn("[Facility] no art-pass lights found; using fallback lamps")
+	local spots = { { 0, 64, 14, 40 }, { 0, 12, 13, 30 }, { 0, 112, 13, 30 }, { 42, 42, 12, 26 }, { 42, 78, 12, 26 } }
 	for i, s in ipairs(spots) do
 		local a = part("Lamp" .. i, Vector3.new(1.2, 0.3, 1.2), CFrame.new(F(s[1], s[2], s[3])), Color3.fromRGB(230, 240, 255), Enum.Material.Neon, folder)
 		a.CanCollide = false; a.CanQuery = false; a.CastShadow = false
