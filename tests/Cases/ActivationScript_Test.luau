@@ -49,4 +49,15 @@ return function(t)
 		local total = A.totalSeconds(A.build("CX-0001"))
 		expect.truthy(total >= 20 and total <= 45)
 	end)
+
+	t.test("master plan: the Source's welcome, and MF-001 is a memory of being programmed on Earth", function()
+		local beats = A.build("CX-0001")
+		local welcome, earthMemory = false, false
+		for _, b in ipairs(beats) do
+			if b.kind == "source" and b.text:find("Welcome to NEXUS-01", 1, true) then welcome = true end
+			if b.kind == "memory" and (b.speaker or ""):find("EARTH", 1, true) then earthMemory = true end
+		end
+		expect.truthy(welcome)
+		expect.truthy(earthMemory)
+	end)
 end

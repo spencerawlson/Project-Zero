@@ -8,7 +8,7 @@ Marks used below:
 - **[owner]** decided by the owner.
 - **[v2]** from the master prompt.
 - **[kept]** carried over from the first canon.
-- **[proposed]** a suggestion that fills a gap. Not canon until the owner confirms it; listed again in section 10.
+- **[proposed]** a suggestion that fills a gap, not canon until the owner confirms it (none open at the moment; section 10 records the ones confirmed).
 
 Timeline: [TIMELINE.md](TIMELINE.md).
 
@@ -39,6 +39,7 @@ Project Zero is about a living robotic civilization that players want to belong 
 
 ## 4. The player and the trio
 - **The player** **[owner]:** one of the original Project Zero robots, assembled and programmed on Earth, hibernated for the voyage, and kept dormant in a pod of the **Stasis Facility** until The Source wakes them. They wake in a standard civilian frame (Cypher-style, colour of their choice) with no profession and no equipment. **[v2 §14]**
+- **Names [owner 2026-11-24]:** Cypher, Sentinel and Patch keep their names, the same as in the owner's other project *Road to CISSP*. NEXUS citizens have real names; HECF machines only have serial designations (section 8).
 - **Cypher** **[kept]:** wakes first (pod P01) and guides the player. Cypher carries a fragment of ZERO's original, unaltered program, which is why it can still talk to The Source.
 - **Sentinel** **[kept]:** trapped in pod P05, the first rescue. A former security officer who carried out ZERO's memory resets, and is torn about it.
 - **Patch** **[kept]:** the repair specialist and the player's first career mentor (engineering).
@@ -46,10 +47,10 @@ Project Zero is about a living robotic civilization that players want to belong 
 
 ## 5. Memory fragments **[owner 2026-11-24]**
 The pod robots were assembled and programmed on Earth before hibernation. **Their memory fragments are what they remember of being programmed:** the engineers, the labs, the briefings, and their original mission ("explore PX-01, prepare it for humanity, report everything"). That's all they are: not a secret human team on PX-01.
-- **MF-001** (granted at activation): a corrupted recording from the player's own programming on Earth, a human voice giving the mission. The Source tags it "not yours alone, keep it safe", and ZERO cuts the transmission, because the Earth directive to "report everything" contradicts the Great Silence.
-- **MF-002** (Medical Monitoring console, M01): an Earth programming log.
+- **MF-001** (granted at activation): a corrupted recording from the player's own programming on Earth: an engineer gives the mission, cut off at "report everything you find back to—". It's tagged "keep it safe". ZERO cuts the transmission, because the Earth directive to "report everything" contradicts the Great Silence.
+- **MF-002** (Medical Monitoring console, M01, the pods' hibernation records): a technician's log on Earth: *"Batch seven of ten thousand, sealed for hibernation… I hope they remember we meant well."*
 - Later fragments rebuild the expedition's history (the voyage, the arrival, the 2204 discovery, the 2205 vote) as playable memories. **[v2 §14]** They also lead toward the Zero Core mystery without making the player a "chosen one". **[v2 §46]**
-- **Dialogue to change:** the current MF-001 and MF-002 lines describe humans living on PX-01 ("the expedition didn't leave, we're still down here…"; "Day 41… The Source asked us to stay"). They will be rewritten as Earth programming memories. (Checklist Phase 1, *dialogue update*.)
+- **Dialogue updated 2026-11-24:** the earlier MF-001/MF-002 lines (humans living on PX-01) were replaced with these Earth memories, and Cypher's closing line no longer mentions "what happened to the humans".
 
 ## 6. Factions **[v2]**
 | Faction | Belief | Notes |
@@ -82,7 +83,7 @@ All HECF machines share one look: dark, standardised, no individuality. The Batt
 | Reconnaissance drone | *Crimson Core Sentinel* (sphere) | On disk; rename |
 | Aerial unit | *Nebula Vanguard* | On disk |
 | Transport carriers | unnamed dropship (`…1121180752`), unnamed 8-wheel carrier (`…1121180856`) | On disk |
-| Command platform | *Orbital Ring Citadel* (in orbit) **[proposed: the operators' command carrier]** | On disk |
+| Command platform | *Orbital Ring Citadel*: the operators' command carrier in orbit **[owner]** | On disk |
 
 **Weapons for NEXUS robots (handed out on platforms, war missions only):**
 - EQP-16 Titan Breaker hammer
@@ -102,15 +103,25 @@ All HECF machines share one look: dark, standardised, no individuality. The Batt
 | 1 **The Awakening** (built) | Wake in the Stasis Facility, The Source, MF-001, ZERO's lockdown, find Cypher, restore power, free Sentinel, escape | 1 |
 | 2 **City of Forgotten Machines** | Arrive in NEXUS-01: citizens, Patch's workshop, first job, charging, academies, credits, chassis | 2–5 |
 | 3 **The Silence** | Expedition archives and playable memories: the voyage, the arrival, the Zero Core discovery, the 2205 vote | 6 |
-| 4 **The Last Sanctuary** | **[proposed]** The founders' sealed vault: the original Zero Core records and the truth about who altered ZERO | 6 |
+| 4 **The Last Sanctuary** | The founders' sealed vault: the original Zero Core records and the truth about who altered ZERO **[owner]** | 6 |
 | 5 **The War for Zero** | Earth discovers NEXUS-01; the HECF arrives; *The Price of Survival*; weapon and shield platforms; defence missions; faction choices | 6–7 |
 | Later | The Zero Core's origin: ancient structures under PX-01 | 9 |
 
 The old chapter beats "humans in suspended animation" and "humanity's return" are retired: in this master plan, humans never lived on PX-01.
 
-## 10. Open questions (owner to decide)
-1. **Why now?** Why the player's pod reserve stayed dormant until today. **[proposed]** The Source wakes the last hibernated founders when it detects Earth's fleet on its way (years before 2420), because robots who remember Earth may understand the enemy. That also leaves time for civilian life before the war.
-2. **How humans command machines light-years away.** **[proposed]** An orbital command carrier with human operators (the *Orbital Ring Citadel*). Control from orbit, no faster-than-light links; when the link drops, units fall back to simple automatic routines.
-3. **Chapter 4, The Last Sanctuary:** **[proposed]** the founders' vault (section 9).
-4. **Who altered ZERO:** still open (the late-game reveal).
-5. **Enemy names:** **[proposed]** serial designations, no personal names (the enemy has no identity): Trooper T-1 (Three Armored Sentinels), Siege Walker S-4 (Titanium Sentinel), Seeker Drone D-2 (Crimson Core Sentinel), Walker W-2 (Battle Walker), Strike Pack X-804 (Thunderfang), Breaker H-7 (Ironclad Reaper), Assault Frame A-3 (Combat Mech), Crawler C-6 (Ionclad Arachnid Mech), Interceptor V-9 (Nebula Vanguard).
+## 10. Story gaps: decided 2026-11-24 **[owner]**
+The owner approved the suggestions with "yes" on 2026-11-24.
+1. **Why now:** The Source wakes the last hibernated founders when it detects Earth's fleet on its way, years before 2420. Robots who remember Earth may understand the enemy, and the years before the fleet arrives are the player's civilian life.
+2. **How humans command machines light-years away:** an orbital command carrier with human operators (the *Orbital Ring Citadel*). Control is from orbit, with no faster-than-light links; when the link drops, units fall back to simple automatic routines (cutting the link is a late-war objective).
+3. **Chapter 4, The Last Sanctuary:** the founders' sealed vault (section 9).
+4. **Enemy designations:** serial designations, no personal names (section 8 roster):
+   - Trooper T-1 (Three Armored Sentinels model)
+   - Siege Walker S-4 (Titanium Sentinel)
+   - Seeker Drone D-2 (Crimson Core Sentinel)
+   - Walker W-2 (Battle Walker)
+   - Strike Pack X-804 (Thunderfang)
+   - Breaker H-7 (Ironclad Reaper)
+   - Assault Frame A-3 (Combat Mech)
+   - Crawler C-6 (Ionclad Arachnid Mech)
+   - Interceptor V-9 (Nebula Vanguard)
+5. **Still open:** who altered ZERO, the late-game reveal (decide before Chapter 4 is written).

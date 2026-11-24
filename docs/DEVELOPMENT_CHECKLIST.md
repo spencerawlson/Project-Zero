@@ -61,8 +61,13 @@ Related documents: [Story Bible](STORY_BIBLE.md) · [Timeline](TIMELINE.md) · [
   - There is no voice or sound yet.
 - [x] **Implement the corrupted memory fragment.**
   Verified 2026-11-23: activation grants **MF-001**, saved as `progress.memoryFragments["MF-001"] = true`, and The Source's designation is saved as `identity.designation` (e.g. CX-6170).
-- [ ] **Update the memory dialogue to the master plan** (Story Bible §5).
-  MF-001 and MF-002 become memories of the robots' programming on Earth. The current lines describe humans living on PX-01. Also add v2's welcome line ("Activation successful. Welcome to NEXUS-01…") before ZERO cuts in.
+- [x] **Update the memory dialogue to the master plan** (Story Bible §5).
+  Verified 2026-11-24, 54/54 unit tests in a fresh play session (new test: The Source's welcome is present, and MF-001 comes from Earth):
+  - **MF-001:** an engineer on Earth in 2189 gives the mission, cut off at "report everything you find back to—".
+  - **MF-002:** a technician's hibernation log.
+  - v2's welcome line opens the cinematic.
+  - Cypher's closing line no longer mentions "the humans".
+  - The cinematic is now 35.5 s; its text scales to fit.
 - [x] **Create the introductory mission.**
   M01 "The Awakening" (owner-approved plan, 2026-11-24): find Cypher, then restore power (3 breakers in a random order), then free Sentinel, then escape through D03 / R12 / D04 during ZERO's lockdown. Optional: MF-002. Cypher and Sentinel follow the player. No combat.
   - **Code:** `Shared.MissionM01` (8 tests), `MissionService`, `FacilityService`, `NpcService`, the `MissionHUD` client.
@@ -189,10 +194,34 @@ Rules (Story Bible §7): weapons only from platforms and only in war missions, n
 | D9 | Combat rules | Phase 7 | Owner | **Decided 2026-11-24:** weapons only from the platforms (same as wings), only in war missions; no PvP; enemies are the HECF machines (Battle Walker, Thunderfang, …); robots never fight humans |
 | D10 | Write v2's 30 documents gradually, when each phase starts | Docs | Owner | *Proposed, awaiting the owner* |
 | D11 | Pushing and merging: keep the earlier permission to merge after QA, or ask before every push (v2 rule 11) | Commits, PRs | Owner | **Decided 2026-11-24: Claude may push and merge (after QA). Publishing the game to players still needs the owner's explicit approval** |
-| D12 | Story gaps: why the player's pod wakes now; how humans command machines from Earth; Chapter 4 content; enemy names | Phase 6–7 | Owner | *Open; proposals in Story Bible §10, recommended to the owner 2026-11-24 (HECF serial designations: Trooper T-1, Siege Walker S-4, Seeker Drone D-2, Walker W-2, Strike Pack X-804, Breaker H-7, Assault Frame A-3, Crawler C-6, Interceptor V-9); awaiting a yes* |
+| D12 | Story gaps: why the player's pod wakes now; how humans command machines from Earth; Chapter 4 content; enemy names | Phase 6–7 | Owner | **Decided 2026-11-24 ("yes" to the recommendations):** wake on detecting Earth's fleet; orbital command carrier (Orbital Ring Citadel); Ch. 4 = founders' vault; HECF serial designations. Cypher, Sentinel and Patch keep their names (as in *Road to CISSP*). See Story Bible §10 |
 | B1 | The Studio AI-assistant plugin changed version mid-session; Studio recommends a restart | Tool stability | Owner | **Done 2026-11-23** (Studio restarted) |
 
 ## Session log
+
+### 2026-11-24 (night): names and story gaps decided; memory dialogue updated
+1. **Completed and verified:**
+   - **Decisions:**
+     - D11: push and merge allowed; publishing still needs the owner.
+     - D12: the owner said "yes" to the story-gap recommendations: wake on detecting Earth's fleet; an orbital command carrier (Orbital Ring Citadel); Chapter 4 = the founders' vault; HECF serial designations.
+     - Cypher, Sentinel and Patch keep their names, the same as in the owner's *Road to CISSP* project.
+   - **Dialogue updated to the master plan:**
+     - MF-001: an engineer on Earth in 2189 gives the mission.
+     - MF-002: a technician's hibernation log.
+     - v2's welcome line ("Activation successful. Welcome to NEXUS-01…").
+     - Cypher's closing line.
+     - ZERO's lines are unchanged.
+2. **In progress:** none.
+3. **Blocked:** none.
+4. **Files:**
+   - `src/shared/ActivationScript.luau`
+   - `src/shared/MissionM01.luau`
+   - `tests/Cases/ActivationScript_Test.luau`
+   - `docs/STORY_BIBLE.md` (§4, §5, §8, §9, §10)
+   - `docs/TIMELINE.md`
+   - this checklist
+5. **Tests:** unit tests 54/54 in a fresh play session. The cinematic runs 35.5 s, within the test's 20–45 s.
+6. **Next:** Phase 2, the city vertical slice: one district reached after M01, citizens, Patch's workshop, a first engineering job, charging.
 
 ### 2026-11-24 (evening): master plan adopted (v2), story bible
 1. **Completed and verified:**

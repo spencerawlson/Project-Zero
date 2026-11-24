@@ -35,7 +35,7 @@ M.OBJECTIVES = {
 }
 
 M.OPTIONAL = {
-	mf002 = { title = "Optional: medical records", hint = "A console in Medical Monitoring still holds data.", target = "MedConsole",
+	mf002 = { title = "Optional: medical records", hint = "A console in Medical Monitoring still holds hibernation records.", target = "MedConsole",
 		fragment = "MF-002", fromStep = "restore_power" },
 }
 
@@ -143,11 +143,11 @@ M.DIALOGUE = {
 		{ kind = "source", speaker = SENTINEL, text = "That's ZERO. The main doors are sealed. The service bay at the back, D04. Move!", seconds = 4.0 },
 	},
 	mf002 = {
-		{ kind = "memory", speaker = "UNKNOWN (HUMAN)", text = "\"Day 41. The machines here dream, I swear it. Their caretaker calls itself The Source. It asked us to stay.\"", seconds = 5.0 },
-		{ kind = "system", text = "MEMORY FRAGMENT MF-002 ACQUIRED  ·  ORIGIN: HUMAN", seconds = 3.0 },
+		{ kind = "memory", speaker = "TECHNICIAN  ·  EARTH, 2189", text = "\"Batch seven of ten thousand, sealed for hibernation. They'll wake a lifetime from anyone who built them. I hope they remember we meant well.\"", seconds = 5.5 },
+		{ kind = "system", text = "MEMORY FRAGMENT MF-002 ACQUIRED  ·  ORIGIN: EARTH, 2189", seconds = 3.0 },
 	},
 	complete = {
-		{ kind = "source", speaker = CYPHER, text = "We're out. NEXUS-01 is ahead, and someone there knows what happened to the humans.", seconds = 4.5 },
+		{ kind = "source", speaker = CYPHER, text = "We're out. NEXUS-01 is ahead. Whatever ZERO is hiding, we'll find it there.", seconds = 4.5 },
 		{ kind = "system", text = "MISSION COMPLETE  ·  THE AWAKENING", seconds = 3.5 },
 	},
 }
