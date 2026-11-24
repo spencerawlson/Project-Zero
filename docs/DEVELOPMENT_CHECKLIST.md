@@ -139,6 +139,7 @@ Related documents: [Technical Architecture](TECHNICAL_ARCHITECTURE.md) · [Asset
 | D2 | Starter chassis: which robot or frame is the player's first body, and Roblox R15 auto-setup vs a custom rig | Phase 1 chassis, movement, animation; Phase 3 | Owner | **Decided 2026-11-23: Cypher-style frame** (rig approach still to be proven) |
 | D3 | Narrative canon: define The Source, the Great Silence, the three factions, NEXUS Credits and careers, and reconcile them with the existing "The Awakening" bible (ZERO, co-op trio) | Phase 1 cinematic, dialogue, memory fragment; Phase 6 | Owner | **Decided 2026-11-23: merge both. `docs/STORY_CANON.md` approved by the owner 2026-11-23 (suggested answers; the saboteur stays open until Chapter 4)** |
 | D4 | Turn on *Experience Settings → Security → Enable Studio Access to API Services* so saves can be tested in Studio | Phase 1 persistence | Owner (Studio setting) | **Done 2026-11-23** (verified by the round-trip test) |
+| D5 | Server topology: city hub servers (about 20–30 players) plus reserved-server mission instances for parties of 1–4; unlimited concurrent groups | Phase 1 pods, every mission, Phase 4 city | Owner | **Decided 2026-11-23** (see `docs/TECHNICAL_ARCHITECTURE.md` §3d) |
 | B1 | The Studio AI-assistant plugin changed version mid-session; Studio recommends a restart | Tool stability | Owner | **Done 2026-11-23** (Studio restarted) |
 
 ## Session log
