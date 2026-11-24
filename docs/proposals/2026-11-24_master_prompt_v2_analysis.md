@@ -133,12 +133,61 @@ About half the slice is already built. The rest is the Phase 2 district.
 4. Park the war (Phase 7) and monetization (Phase 8) until the city slice is fun, as v2 itself says. Design the enemy look early, though: your mech models are a good fit.
 5. Create v2's 30 documents gradually: start with STORY_BIBLE (from STORY_CANON), TIMELINE and IMPLEMENTATION_ROADMAP, and add the rest when their chapter is built.
 
+## 7b. Owner decisions received 2026-11-24 (after this analysis)
+
+Recorded as given; they become canon when the story bible is updated.
+
+1. **The enemy:** the armed robots already imported into Studio, **VEH-16 Battle Walker** (`PZ_Battlemech`) and **VEH-17 Thunderfang X-804 Walker Squad** (`PZ_ThunderfangX804`), are the machines humanity sends from Earth. They have no consciousness and no AI of their own; human operators drive them (v2 §9, HECF).
+2. **NEXUS robots are non-violent.** They never built weapons before the invasion. Weapons are created only after the enemy robots arrive, and robots use them only when they have to.
+3. **Weapons come from the platforms**, the same kind as the wing platform: stand in the ring and receive the weapon (this answers decision 4 below; it replaces v2 §24's platform-only combat for personal defence).
+4. **No player-versus-player combat.** Players unite against one common enemy.
+5. **The common enemy is humanity's attempt to destroy them**, but robots **never fight humans**: they fight only the robots sent to kill them.
+
+**Weapon assets found (owner models, not yet in Studio):**
+- EQP-16 Titan Breaker hammer
+- EQP-14 Thunder-9 ion cannon
+- EQP-26 police stun baton
+- EQP-27 police energy blaster
+- EQP-19 Bastion-X riot shield
+- EQP-03 ARC-7 pulse rifle
+- EQP-20 Dome-4 shield projector
+- the new Violet Singularity Cannon
+
+Two unnamed models (`Meshy_AI__1121180752`, a dark dropship; `Meshy_AI__1121180856`, a dark 8-wheel carrier) fit v2's "transport carriers" for the enemy.
+
+**Technical note:** the Battle Walker and Thunderfang are static meshes (3 split parts each, no skeleton). As enemies they can move and attack, but walking legs need a rig and animations (Blender), or they move as hovering or sliding units first. The Thunderfang file is a whole squad in one mesh (one large walker plus several small ones) and must be split into separate units. The rigged, animated *Three Armored Sentinels* model is ready to animate, if the owner wants it as an enemy foot soldier.
+
 ## 8. Decisions needed from the owner
 
-1. **Adopt v2** as the master direction (replacing the current checklist structure)?
-2. **ZERO:** keep it as the corrupted security core (recommended), or drop it?
-3. **MF-001 / MF-002:** a covert human team underground (recommended, keeps the lines), or a founder robot's memory (rewrite)?
-4. **Combat:** v2's platform-only combat, or the hammer and armoury platform **inside defence missions only**?
+1. ~~Adopt v2?~~ **Yes (D6).**
+2. ~~ZERO?~~ **Keep, unchanged (D7).**
+3. ~~MF-001 / MF-002?~~ **Memories of being programmed on Earth (D8), not a secret team.**
+4. ~~**Combat:** v2's platform-only combat, or the hammer and armoury platform inside defence missions only?~~ **Answered 2026-11-24:** weapons come from the platforms, used only when necessary; no PvP; enemies are the imported armed robots (section 7b). Still open: whether the weapon platforms work everywhere or only once the war has started (suggested: they power on when the invasion begins in a player's story).
 5. **HECF control:** an orbital command carrier with human operators (recommended), or another explanation?
 6. **Pushing and merging:** keep my current permission to merge after QA, or follow v2's "no push without authorization"?
 7. **Documentation:** all 30 files now, or gradually (recommended)?
+
+## 9. Outcome (owner, 2026-11-24 evening)
+
+**v2 adopted as the master plan** (D6), with ZERO kept unchanged (D7), memory fragments from the robots' programming on Earth (D8), and weapons only from the platforms inside war missions (D9). The canon is now `docs/STORY_BIBLE.md` + `docs/TIMELINE.md`; the checklist follows v2's Phases 0–9.
+
+### What we take from v2, because it makes the game better
+1. **The reversed Great Silence:** the robots chose silence. That gives the story a real moral core and explains the war.
+2. **"Sell identity, not power"**, plus the strict monetization rules (no pay-to-win, no paid random rewards, receipts checked on the server, wings and weapons never sold). Safe for Roblox's young audience, and it protects the game's reputation.
+3. **The first ten minutes** (§42): wake, The Source, the fragment, leave the facility, see the city, meet citizens, do a task, discover careers. It's the best guide to the next build.
+4. **The vertical-slice order:** the city before the war, and the war before monetization. Players need a life worth defending.
+5. **Every profession has a war role** (§26): engineers repair, medics restore, transport delivers, scientists research shields. Players who dislike combat still matter.
+6. **War missions are separate instances** (§50) that never wreck the shared city; war damage is temporary and repairable (§30).
+7. **A distinct enemy look** (§9, §27): your newest models already match it.
+8. **Shields and rescue as gameplay** (§28): rewards for protecting, not just defeating.
+9. **Analytics used to improve fun, not to pressure children** (§45).
+
+### What we adapt
+- **Combat:** v2 wanted platform and vehicle combat only. Your rule replaces it for personal defence: weapons are found on platforms during war missions and taken away after. Vehicle and turret combat from v2 can still come later.
+- **The opening:** v2's "newly manufactured robot" becomes "a founder robot waking from hibernation", which fits the pods we built, and gives the memory fragments a reason.
+- **ZERO** stays as the facility's and city's corrupted security system, a layer v2 didn't have.
+
+### What we defer or trim
+- **The 30 documents:** written when each phase starts, not all now (D10).
+- **The 16 professions:** start with 2–3 that each have real gameplay (engineering with Patch first).
+- **Strategic-scale defences, seasonal passes, player-to-player trade:** late, once the core game is stable, as v2 itself says.
