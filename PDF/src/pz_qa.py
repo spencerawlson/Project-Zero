@@ -95,7 +95,9 @@ def run():
     add("Robots fit vehicle cabs (crew standard)", bool(crew) and not bad,
         (f"{seats} seats + {walks} doors/aisles in {len({a for a, _ in crew})} assets clear for the largest robot"
          if crew else "no crew checks found") + (f"; blocked: {bad[:6]}" if bad else ""))
-    add("User 3D models needing remesh", "NOTE", "VEH-11 5.6 M tris, VEH-10/12 textured raw GLBs — remesh before Roblox")
+    add("User vehicle models prepared for Roblox", "PARTIAL",
+        "9 of 9 reduced to 3-4 x 18k tris with textures re-baked from the originals (Roblox/vehicles_in_studio.md); "
+        "8 verified in Studio, VEH-04 Titan pending a Studio restart")
     os.makedirs(os.path.join(ROOT, "QA"), exist_ok=True)
     with open(os.path.join(ROOT, "QA", "qa_report.md"), "w", encoding="utf-8") as fh:
         fh.write("# QA report — Rev D\n\n| Check | Result | Detail |\n|---|---|---|\n")

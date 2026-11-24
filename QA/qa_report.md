@@ -2,7 +2,7 @@
 
 | Check | Result | Detail |
 |---|---|---|
-| All bible pages exist | PASS | 195/195 present |
+| All bible pages exist | PASS | 198/198 present |
 | Page size 17×11 in @160 dpi (2720×1760) | PASS | all pages |
 | No blank / failed renders | PASS | 29 renders checked (luma std-dev > 4) |
 | Every render has camera/anchor metadata | PASS | json beside each render |
@@ -16,8 +16,8 @@
 | Dimension disclaimer on every sheet | PASS | title-block note on all pages (frame()) |
 | Canonical robots untouched | PASS | GLBs read-only; shown only on character / supplied-model sheets; blockout scenes use grey stand-in figures at design height |
 | Stray objects in robot GLBs | PASS | none in the files: each GLB holds one mesh; the Icosphere seen in Blender is an importer bone-shape helper (checked 2026-11-23 before the Roblox upload) |
-| Visual review of every page | PARTIAL | 110 of 196 pages reviewed by eye; no layout defects open |
+| Visual review of every page | PARTIAL | 110 of 199 pages reviewed by eye; no layout defects open |
 | Roblox Studio prototype | STARTED | Phase 9 — BLD-01 greybox built from Roblox/BLD-01_greybox_build.lua; Cypher, Sentinel, Patch imported at design scale; all 18 doors pass a widest-robot clearance probe |
-| Every inventory asset has a sheet | PASS | 118 assets checked; all present |
+| Every inventory asset has a sheet | PASS | 119 assets checked; all present |
 | Robots fit vehicle cabs (crew standard) | PASS | 60 seats + 47 doors/aisles in 10 assets clear for the largest robot |
-| User 3D models needing remesh | NOTE | VEH-11 5.6 M tris, VEH-10/12 textured raw GLBs — remesh before Roblox |
+| User vehicle models prepared for Roblox | PARTIAL | 9 of 9 reduced to 3-4 x 18k tris with textures re-baked from the originals (Roblox/vehicles_in_studio.md); 8 verified in Studio, VEH-04 Titan pending a Studio restart |

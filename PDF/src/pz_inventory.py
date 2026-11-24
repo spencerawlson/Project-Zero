@@ -63,6 +63,7 @@ ASSETS = [
     ("VEH-14", "Tracked Utility Hauler", "IND", "P2", "M", "28 long (user model)", "BLD-11"),
     ("VEH-15", "Armored 8x8 Patrol", "SEC", "P2", "M", "30 long (user model)", "BLD-07"),
     ("VEH-16", "Battle Walker", "SEC", "P3", "L", "14 tall (user model)", "BLD-27"),
+    ("VEH-17", "Thunderfang X-804 Walker Squad", "SEC", "P3", "L", "user model (see sheet)", "VEH-16"),
     ("EQP-01", "Repair Tool", "PLR", "P0", "M", "handheld 2–5 (ref)", "Tool instance"),
     ("EQP-02", "PHOTON EDGE Energy Sword", "PLR", "P1", "M", "4.6 long", "EQP-07 cell E-10"),
     ("EQP-03", "ARC-7 Plasma Pulse Rifle", "PLR", "P1", "M", "4.6 long", "EQP-07 cell E-40"),

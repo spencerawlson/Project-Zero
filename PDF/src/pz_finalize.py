@@ -4,7 +4,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 import pz_sheets_asset as SA, pz_sheets_chr as CH, pz_sheets_sf as SF, pz_sheets_pod as POD, pz_stasis_sheets as ST, pz_front as FR
 from pz_asset_specs import NEW_ROBOTS
 
-ids = ([f"BLD-{n:02d}" for n in range(2, 30)] + [f"VEH-{n:02d}" for n in range(1, 17)] +
+ids = ([f"BLD-{n:02d}" for n in range(2, 30)] + [f"VEH-{n:02d}" for n in range(1, 18)] +
        [f"EQP-{n:02d}" for n in range(1, 28)] + [f"INF-{n:02d}" for n in range(1, 21)] + [f"INT-{n:02d}" for n in range(2, 17)])
 fails = []
 for a in ids:

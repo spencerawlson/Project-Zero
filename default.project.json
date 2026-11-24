@@ -1,0 +1,21 @@
+{
+  "name": "ProjectZero",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "Shared": {
+        "$path": "src/shared"
+      }
+    },
+    "ServerScriptService": {
+      "Server": {
+        "$path": "src/server"
+      }
+    },
+    "ServerStorage": {
+      "UnitTest": {
+        "$path": "tests"
+      }
+    }
+  }
+}

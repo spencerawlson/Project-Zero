@@ -90,7 +90,7 @@ SPECS = {
             "Repair objective (crane), salvage crates",
             "Crane boom, beacon rotate",
             "yellow railway maintenance train, work cab, flatbed, hydraulic crane arm, hazard stripes"),
- "VEH-04": ("Ground utility transport (TITAN-R1 reference): personnel, cargo, field power.",
+ "VEH-04": ("Ground utility transport (TITAN-R1): personnel, cargo, field power. In game: the user's DROE Titan Rover model is the exterior (page 3); this blockout is the inner layer (cab, seats, collision).",
             "Six-wheeled armoured utility truck; white cab, graphite cargo body, orange stripe, roof rail, winch.",
             "Enter via 5 × 8 side doors · drive (2 cab seats) · 2 crew seats · winch · rear power core",
             "Wheels, suspension, doors, winch, roof modules",
@@ -115,7 +115,7 @@ SPECS = {
             "Call · ride",
             "Car travel, bi-parting doors",
             "sleek glass passenger elevator car, slim dark frame, cyan lights"),
- "VEH-09": ("NX-A17 RAVEN multi-role VTOL: transport, recon, cargo, extraction (user concept sheet).",
+ "VEH-09": ("NX-A17 RAVEN multi-role VTOL: transport, recon, cargo, extraction. In game: the user's Jet2 model is the exterior (page 3); this blockout is the inner layer (cockpit, seats, collision).",
             "Graphite fuselage with orange stripe, twin tilt-ducted rotors, cockpit canopy, twin tail fins, rear ramp.",
             "Board via 9 × 8 ramp · pilot seat + systems bay · 8 robot seats · mission module swap · extraction set piece",
             "Rotor spin + tilt, gear retract, ramp, canopy",
@@ -301,4 +301,5 @@ SPECS.update({
 SPECS.update({
  "BLD-29": ("Modular housing / outpost block (residential fringe).", "White/orange modular block with dome (user model).", "Enterable lobby (optional)", "Lights", "white modular outpost building blocks with dome"),
  "VEH-16": ("ZERO war machine / boss support (vehicle class: no family face required).", "White/orange bipedal walker (user model).", "Boss encounter · weak points", "Walk cycle, cannon", "white and orange bipedal battle walker mech"),
+ "VEH-17": ("ZERO strike walker squad: lead heavy walker with escort units; boss / squad encounter (user 3D model).", "Grey and blue heavy walker with smaller escort walkers (user model).", "Squad encounter · pilot seat in the lead walker", "Walk cycles, weapons", "heavy sci-fi walker mech squad, grey and blue armour"),
 })

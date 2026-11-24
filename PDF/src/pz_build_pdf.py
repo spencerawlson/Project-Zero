@@ -44,7 +44,7 @@ def build_order():
            "SF-05_Roblox_2_Implementation.png"]]
     sections.append(("Stasis Facility package (BLD-01)", sf))
     sections.append(("Buildings BLD-02 … BLD-29", asset_pages("BLD", [f"BLD-{n:02d}" for n in range(2, 30)])))
-    sections.append(("Vehicles VEH-01 … VEH-16", asset_pages("VEH", [f"VEH-{n:02d}" for n in range(1, 17)])))
+    sections.append(("Vehicles VEH-01 … VEH-17", asset_pages("VEH", [f"VEH-{n:02d}" for n in range(1, 18)])))
     sections.append(("Equipment & weapons EQP-01 … EQP-27", asset_pages("EQP", [f"EQP-{n:02d}" for n in range(1, 28)])))
     sections.append(("Infrastructure INF-01 … INF-20", asset_pages("INF", [f"INF-{n:02d}" for n in range(1, 21)])))
     sections.append(("Interiors & props INT-02 … INT-16", asset_pages("INT", [f"INT-{n:02d}" for n in range(2, 17)])))
