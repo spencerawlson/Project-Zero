@@ -9,7 +9,7 @@
 -- Inputs: reach pod P01 (find_cypher); breaker prompts B1-B3; release prompt on P05; medical console (optional
 -- MF-002, per player); standing in the exit zone (each player completes on their own).
 -- Client messages on ReplicatedStorage.PZ_Remotes.Mission (RemoteEvent, server -> client only):
---   ("objective", { step, title, hint, target: Instance?, optional: { title, hint, target }? })
+--   ("objective", { step, title, hint, target: Instance?, optional: { title, hint, target }?, npc: string? })
 --   ("dialogue", beats)        ("complete", { mission = "M01" })
 
 local Players = game:GetService("Players")
@@ -53,7 +53,7 @@ local function objectiveFor(player: Player)
 	if M.optionalAvailable(state.step) and profile and not profile.progress.memoryFragments[M.OPTIONAL.mf002.fragment] then
 		opt = { title = M.OPTIONAL.mf002.title, hint = M.OPTIONAL.mf002.hint, target = targetOf(M.OPTIONAL.mf002.target) }
 	end
-	return { step = state.step, title = o.title, hint = o.hint, target = targetOf(o.target), optional = opt }
+	return { step = state.step, title = o.title, hint = o.hint, target = targetOf(o.target), optional = opt, npc = o.npc }
 end
 
 local function sendObjective(player: Player)

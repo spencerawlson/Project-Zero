@@ -19,8 +19,8 @@ local ItemCatalog = {}
 
 ItemCatalog.ITEMS = {
 	wings_basic = {
-		id = "wings_basic", name = "Flight Wings", price = 100, slot = "back",
-		description = "Back-mounted wings for any standard frame. Free flight on wing energy.",
+		id = "wings_basic", name = "Nightwing", price = 100, slot = "back",
+		description = "Segmented flight wings with cyan power lines. Mounts on any standard frame; free flight on wing energy.",
 	},
 }
 

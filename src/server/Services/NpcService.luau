@@ -45,15 +45,17 @@ local function animationFrom(template: Model, group: string, name: string?): Ani
 	return nil
 end
 
+-- Name tag: small (owner feedback 2026-11-24: the tags were too big) and hidden by default. Each player's
+-- MissionHUD shows it only while their current objective is about this character or while it is speaking.
 local function nameplate(model: Model, text: string)
 	local head = model:FindFirstChild("Head") :: BasePart?
 	if not head then return end
 	local g = Instance.new("BillboardGui")
-	g.Name = "Nameplate"; g.Size = UDim2.fromOffset(160, 30); g.StudsOffset = Vector3.new(0, 2.4, 0)
-	g.MaxDistance = 60; g.LightInfluence = 0; g.AlwaysOnTop = false
+	g.Name = "Nameplate"; g.Size = UDim2.fromOffset(96, 18); g.StudsOffset = Vector3.new(0, 1.9, 0)
+	g.MaxDistance = 80; g.LightInfluence = 0; g.AlwaysOnTop = false; g.Enabled = false
 	local t = Instance.new("TextLabel")
 	t.Size = UDim2.fromScale(1, 1); t.BackgroundTransparency = 1; t.Font = Enum.Font.GothamBold
-	t.TextColor3 = Color3.fromHex("#22D3EE"); t.TextStrokeTransparency = 0.4; t.TextScaled = true; t.Text = text
+	t.TextColor3 = Color3.fromHex("#22D3EE"); t.TextStrokeTransparency = 0.3; t.TextSize = 13; t.Text = text
 	t.Parent = g
 	g.Parent = head
 end

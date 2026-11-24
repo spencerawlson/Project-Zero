@@ -5,7 +5,8 @@
 -- escape during ZERO's lockdown through D03 / service bay / D04. Optional: medical records (MF-002). No combat.
 --
 -- Contract:
---   M.ID = "M01";  M.STEPS = ordered step ids;  M.OBJECTIVES[step] = { title, hint, target }
+--   M.ID = "M01";  M.STEPS = ordered step ids;  M.OBJECTIVES[step] = { title, hint, target, npc? }
+--       npc = the character the step is about (its name tag shows only during that step, owner feedback 2026-11-24)
 --   M.OPTIONAL.mf002 = { title, hint, target, fragment, fromStep }
 --   M.new(step?, sequence?)            -> state { step, sequence = {"B2","B3","B1"}, pressed = {} }
 --   M.shuffledSequence(randomInt)      -> a permutation of M.BREAKERS; randomInt(n) returns 1..n
@@ -26,9 +27,9 @@ M.STEPS = { "find_cypher", "restore_power", "free_sentinel", "escape", "complete
 M.BREAKERS = { "B1", "B2", "B3" }
 
 M.OBJECTIVES = {
-	find_cypher = { title = "Find Cypher", hint = "Cypher's pod is P01, at the front of the west chamber.", target = "P01" },
+	find_cypher = { title = "Find Cypher", hint = "Cypher's pod is P01, at the front of the west chamber.", target = "P01", npc = "Cypher" },
 	restore_power = { title = "Restore power", hint = "Energy Control Room (east side): throw the three breakers in the order on the console.", target = "BreakerConsole" },
-	free_sentinel = { title = "Free Sentinel", hint = "Pod P05 has power again. Release Sentinel.", target = "P05" },
+	free_sentinel = { title = "Free Sentinel", hint = "Pod P05 has power again. Release Sentinel.", target = "P05", npc = "Sentinel" },
 	escape = { title = "Get out", hint = "ZERO sealed the main entrance. Go through the containment door to the service bay and out through D04.", target = "ExitZone" },
 	complete = { title = "Mission complete", hint = "", target = nil },
 }

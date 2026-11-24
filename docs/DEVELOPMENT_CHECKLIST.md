@@ -170,6 +170,29 @@ Related documents: [Technical Architecture](TECHNICAL_ARCHITECTURE.md) · [Asset
 
 ## Session log
 
+### 2026-11-24 (later): Nightwing wings in cyan, smaller context tags (owner feedback)
+1. **Completed and verified:**
+   - **Owner's wing model in:** "Nightwing" (made by the owner on Meshy from their 2D concept). Uploaded as asset 87385487959918 and stored in `ServerStorage.Items.WingsBasic` with a "Mount" attachment; it replaces the placeholder.
+   - **Recolour (owner request):** the power lines changed from red to cyan to match the facility UI. Done on the textures only (`pz_glb_recolour.py`); the crimson original is kept as `PZ_WingsNightwing_crimson.glb`.
+   - **Shop:** the item is renamed "Nightwing", still 100 credits. Buying now needs the player standing at the vendor (14 studs, server check); equipping still works anywhere.
+   - **Name tags (owner feedback: too big, always on):**
+     - About a third of the old size (96×18 px, text 13).
+     - Hidden by default. A tag shows only while the player's current objective is about that robot (`npc` on the objective: Cypher for "Find Cypher", Sentinel for "Free Sentinel") or while that robot is speaking (+1.5 s).
+     - Per player: in co-op each player sees the tags for their own objective.
+2. **In progress:** none.
+3. **Blocked:** none.
+4. **Files:**
+   - New: `Blender/scripts/pz_glb_recolour.py`.
+   - Changed: `ItemCatalog` (Nightwing), `ShopService` (vendor range), `ShopUI` (too-far message), `NpcService` (small hidden tag), `MissionHUD` (tag logic), `MissionM01` (`npc` per objective), `MissionService` (passes `npc`).
+   - Place (saved, version 47): `ServerStorage.Items.WingsBasic`.
+5. **Tests:**
+   - Unit tests 51/51 (fresh play session).
+   - Playtest:
+     - Nightwing mounted on the player and on Sentinel (scaled ×1.31); the wing pieces sit behind the torso, with cyan lines visible. F take-off and climb work with the real model.
+     - Tags: objective "Find Cypher" showed Cypher's tag only; a Sentinel line showed Sentinel's only and hid it about 2 s after the line; with no objective both stay hidden.
+   - The test wings were runtime only. The owner's profile is unchanged (150 credits from M01, no items).
+6. **Next:** camera after the wake-up scene, lockdown red, co-op test, bible re-render; the owner's new models (Titanium Sentinel, Combat Mech, Orbital Ring Citadel) are not yet placed.
+
 ### 2026-11-24: wings, flight and NEXUS Credits (owner request)
 1. **Completed and verified:**
    - **Owner decisions:** any basic robot can buy wings with NEXUS Credits and fly freely, and wings mount on the back of both Cypher and Sentinel bodies.
@@ -181,8 +204,8 @@ Related documents: [Technical Architecture](TECHNICAL_ARCHITECTURE.md) · [Asset
      - Controls: F take-off/land, camera-relative movement, Space up, Q/C down, hover when idle.
      - Wing energy drains in about 15 s, recharges on the ground, and drops the robot at 0.
      - Touch buttons for mobile.
-2. **In progress:** the wings are a built-in placeholder until the owner's wing model arrives (it goes in `ServerStorage.Items.WingsBasic` as a Model with a "Mount" attachment).
-3. **Blocked:** waiting for the owner's wing model.
+2. **In progress:** the wings were a built-in placeholder until the owner's wing model arrived (done later the same day) (it goes in `ServerStorage.Items.WingsBasic` as a Model with a "Mount" attachment).
+3. **Blocked:** waiting for the owner's wing model (cleared later the same day).
 4. **Files:**
    - New:
      - `src/shared/ItemCatalog.luau`

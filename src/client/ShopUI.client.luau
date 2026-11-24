@@ -59,7 +59,8 @@ UserInputService.InputBegan:Connect(function(input, processed)
 	if not processed and input.KeyCode == Enum.KeyCode.Escape then win.Visible = false end
 end)
 
-local REASONS = { credits = "Not enough NEXUS Credits.", owned = "You already own this.", not_owned = "Buy it first.", unknown = "Unknown item." }
+local REASONS = { credits = "Not enough NEXUS Credits.", owned = "You already own this.", not_owned = "Buy it first.",
+	unknown = "Unknown item.", too_far = "Step up to the vendor to buy." }
 
 local function render(state: any)
 	for _, c in ipairs(list:GetChildren()) do

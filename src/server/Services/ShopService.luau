@@ -20,7 +20,9 @@ local EquipmentService = require(script.Parent.EquipmentService)
 local ShopService = {}
 
 local COOLDOWN = 0.4
+local VENDOR_RANGE = 14 -- purchases only while standing at the vendor terminal
 local remote: RemoteEvent
+local vendor: BasePart? = nil
 local last: { [Player]: number } = {}
 
 local function stateOf(player: Player)
@@ -44,7 +46,12 @@ end
 local function handle(player: Player, action: string, arg: any)
 	local ok, reason = false, "bad_request"
 	if action == "buy" and type(arg) == "string" then
-		PlayerDataService.Update(player, function(p) ok, reason = ItemCatalog.buy(p, arg) end)
+		local root = player.Character and player.Character:FindFirstChild("HumanoidRootPart") :: BasePart?
+		if not vendor or not root or (root.Position - vendor.Position).Magnitude > VENDOR_RANGE then
+			ok, reason = false, "too_far"
+		else
+			PlayerDataService.Update(player, function(p) ok, reason = ItemCatalog.buy(p, arg) end)
+		end
 	elseif action == "equip" and type(arg) == "string" then
 		PlayerDataService.Update(player, function(p) ok, reason = ItemCatalog.equip(p, arg) end)
 	elseif action == "unequip" and type(arg) == "string" then
@@ -78,6 +85,7 @@ local function buildVendor()
 		remote:FireClient(player, "open", stateOf(player))
 	end)
 	p.Parent = facility
+	vendor = p
 end
 
 function ShopService.Start()

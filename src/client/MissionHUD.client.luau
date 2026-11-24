@@ -3,6 +3,8 @@
 --   ("objective", info | nil)  objective panel (top left) + waypoint markers (cyan: objective, amber: optional)
 --   ("dialogue", beats)        non-blocking subtitles at the bottom, queued (same beat kinds as ActivationScript)
 --   ("complete", info)         "mission complete" banner
+-- NPC name tags (server creates them hidden): shown only while the objective is about that character (info.npc)
+-- or while it is speaking, for this player only (owner feedback 2026-11-24: always-on tags were too big and noisy).
 -- Sits under the activation cinematic (lower DisplayOrder), so it never covers that scene.
 
 local Players = game:GetService("Players")
@@ -69,7 +71,30 @@ RunService.RenderStepped:Connect(function()
 	end
 end)
 
+-- name tags -------------------------------------------------------------------------------------------------
+local objectiveNpc: string? = nil
+local speakingUntil: { [string]: number } = {} -- NPC name (upper case) -> os.clock() deadline
+local tagClock = 0
+RunService.Heartbeat:Connect(function(dt)
+	tagClock += dt
+	if tagClock < 0.2 then return end
+	tagClock = 0
+	local now = os.clock()
+	for _, m in ipairs(workspace:GetChildren()) do
+		local name = m:GetAttribute("NpcName")
+		if type(name) == "string" then
+			local head = m:FindFirstChild("Head")
+			local plate = head and head:FindFirstChild("Nameplate") :: BillboardGui?
+			if plate then
+				local speaking = (speakingUntil[string.upper(name)] or 0) > now
+				plate.Enabled = speaking or (objectiveNpc ~= nil and objectiveNpc == name)
+			end
+		end
+	end
+end)
+
 local function setObjective(info: any)
+	objectiveNpc = if info then info.npc else nil
 	if not info then
 		panel.Visible = false; main.gui.Enabled = false; opt.gui.Enabled = false
 		return
@@ -109,6 +134,7 @@ local function playQueue()
 		box.Visible = true
 		local colour = if b.kind == "censored" then RED elseif b.kind == "memory" then AMBER elseif b.kind == "system" then CYAN else WHITE
 		speaker.Text = b.speaker or ""
+		if b.speaker then speakingUntil[string.upper(b.speaker)] = os.clock() + b.seconds + 1.5 end
 		speaker.TextColor3 = if b.kind == "censored" then RED elseif b.kind == "memory" then AMBER else CYAN
 		line.TextColor3 = colour
 		line.Font = if b.kind == "system" or b.kind == "censored" then Enum.Font.Code else Enum.Font.Gotham
