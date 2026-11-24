@@ -237,7 +237,7 @@ Rules (Story Bible §7): weapons only from platforms and only in war missions, n
    - `Roblox/vehicles_in_studio.md`
    - this checklist
 5. **Tests:** the playtest above.
-6. **Next:** the owner chooses between Meshy cabin interiors and hand-built liners; then the remaining Phase 2 items (transport, performance on a device).
+6. **Next:** the owner chose Meshy cabin interiors, to be made later (prompts and target sizes in `Roblox/vehicles_in_studio.md`). Until then the chairs and consoles stay. Then the remaining Phase 2 items (transport, performance on a device).
 
 ### 2026-11-24 (night): art pass for the rest of the facility
 1. **Completed and verified (Studio, place version 68):**
