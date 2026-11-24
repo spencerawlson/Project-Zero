@@ -67,8 +67,20 @@ Existing Studio content (the facility greybox, vehicles and robots) stays in the
 - **Testability:** game logic lives in pure ModuleScripts that can be unit tested. Services are thin adapters around them.
 - **Assets:** continue the prep pipeline. Every imported hull goes through yaw alignment and the crew-fit and enclosure checks.
 
-### 3c. Decisions needed before Phase 1 code
-1. **Code workflow:** adopt Rojo and keep game code in this repository (recommended).
-2. **Starter chassis:** which robot is the player's starting body (Cypher-like standard frame, or a new neutral frame), and whether to use Roblox's R15 avatar auto-setup or a custom rig.
-3. **Canon:** whether "The Source" replaces or sits alongside ZERO, and how the checklist's career and life-sim scope relates to the existing co-op action design.
-4. **Studio API access:** turn on *Game Settings → Security → Enable Studio Access to API Services*, and the MCP DataStore scopes, so persistence can be tested in Studio.
+### 3c. Decisions (all decided 2026-11-23)
+1. **Code workflow:** Rojo with game code in this repository. Live sync is verified.
+2. **Starter chassis:** a Cypher-style standard frame. The rig approach (R15 auto-setup or a custom rig) gets settled while building it.
+3. **Canon:** merged. See `docs/STORY_CANON.md`, approved.
+4. **Studio API access:** on. The DataStore round trip is verified.
+5. **Server topology (D5):** see 3d.
+
+### 3d. Server topology (decision D5, 2026-11-23)
+Roblox starts as many servers as needed automatically. The player count per server is a setting (up to 100), and there is no total cap, so 20 or 100 groups of four play at once without limits.
+- **City hub (NEXUS-01):** shared public servers of about 20–30 players. Players meet, take jobs, run businesses and form groups here.
+- **Mission instances:** each story mission runs in a reserved server (`TeleportService:ReserveServer` + `TeleportAsync`) holding one party of 1–4. The party teleports in together with its mission context in the teleport data, and returns to the hub afterwards. A solo player is a party of 1.
+- **Consequences for every system:**
+  - Mission state lives on the instance server.
+  - Progress is written to each player's own profile through `PlayerDataService`.
+  - Nothing assumes a single player per server: pods, seats and objectives are assigned per player on the server.
+  - The session lock already protects a profile while a player moves between hub and instance.
+- **The Stasis Facility opening** is the first mission instance. Each party member gets their own player pod (P02–P06).
