@@ -135,13 +135,23 @@ Related documents: [Technical Architecture](TECHNICAL_ARCHITECTURE.md) · [Asset
 
 | ID | Decision or blocker | Blocks | Owner | Status |
 |---|---|---|---|---|
-| D1 | Adopt Rojo, keeping game code in `src/` in this repo and synced to Studio | All code tasks, commit references | Owner | **Decided 2026-11-23: Rojo + git** |
+| D1 | Adopt Rojo, keeping game code in `src/` in this repo and synced to Studio | All code tasks, commit references | Owner | **Decided 2026-11-23: Rojo + git. Live sync verified 2026-11-23** |
 | D2 | Starter chassis: which robot or frame is the player's first body, and Roblox R15 auto-setup vs a custom rig | Phase 1 chassis, movement, animation; Phase 3 | Owner | **Decided 2026-11-23: Cypher-style frame** (rig approach still to be proven) |
 | D3 | Narrative canon: define The Source, the Great Silence, the three factions, NEXUS Credits and careers, and reconcile them with the existing "The Awakening" bible (ZERO, co-op trio) | Phase 1 cinematic, dialogue, memory fragment; Phase 6 | Owner | **Decided 2026-11-23: merge both; Claude drafts `docs/STORY_CANON.md` for owner approval** |
 | D4 | Turn on *Experience Settings → Security → Enable Studio Access to API Services* so saves can be tested in Studio | Phase 1 persistence | Owner (Studio setting) | **Done 2026-11-23** (verified by the round-trip test) |
 | B1 | The Studio AI-assistant plugin changed version mid-session; Studio recommends a restart | Tool stability | Owner | **Done 2026-11-23** (Studio restarted) |
 
 ## Session log
+
+### 2026-11-23 (night): Rojo live sync connected
+1. **Completed and verified:** the owner connected the Rojo plugin to `rojo serve` (port 34872).
+   - A new file in `src/shared` appeared in `ReplicatedStorage.Shared` within seconds; deleting it removed it.
+   - All 6 synced scripts match the repo byte for byte.
+2. **In progress:** none.
+3. **Blocked:** none. `rojo serve` must be running on the machine for live sync, so start it at the beginning of each coding session.
+4. **Files:** this log only (the test file was temporary and is not committed).
+5. **Tests:** add/remove sync round trip; byte-count comparison 6/6.
+6. **Next:** starter chassis (Phase 1).
 
 ### 2026-11-23 (night): Titan verified
 1. **Completed and verified:** after a Studio restart, VEH-04 Titan (rev 8) renders with its textures: white panels, dark tyres, orange rims. The owner saw the same. All 9 supplied vehicles are now verified in Studio. Cause confirmed: Studio had cached the "content representation is being generated" failure from inserting right after upload.
