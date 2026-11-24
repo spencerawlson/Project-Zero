@@ -218,6 +218,27 @@ Rules (Story Bible §7): weapons only from platforms and only in war missions, n
 
 ## Session log
 
+### 2026-11-24 (night): art pass for the rest of the facility
+1. **Completed and verified (Studio, place version 68):**
+   - **All 12 other rooms** (`Roblox/BLD-01_art_pass_rooms.lua`, re-runnable):
+     - panelled floors (`PZ_FloorPanel`) and walls (`PZ_WallPanel`, all 45 remaining walls), with the roof underside panelled in a darker tone
+     - 54 ceiling light panels on a grid of about 12 studs, tagged for the mission lighting
+     - a dark skirting board and a cyan light line along every wall, with gaps at the doorways
+     - framed doorways with a status light on both faces of every door; exterior doors get their frames outside the 2-stud walls
+   - **Old cube lamps removed:** FacilityService uses only the art-pass fixtures and builds fallback lamps only if none exist.
+   - **Shadows** are off on the 54 room panels (low-end GPUs) and kept on R04's six light bars.
+   - **Checked visually:** R10 Energy Control and R12 Service Bay (R01 capture timed out). Checked in play: the Online state is applied to the room panels and no old lamps remain.
+2. **In progress:** vehicle cabins (owner question): next.
+3. **Blocked:** none.
+4. **Files:**
+   - `Roblox/BLD-01_art_pass_rooms.lua` (new)
+   - `src/server/Services/FacilityService.luau`
+   - this checklist
+5. **Tests:** frame rate in a Studio playtest: 15 FPS both in R04 and looking at empty sky, with or without shadows. That's Studio's background-window throttling on this machine, so the art pass shows no measurable cost here. A real device check is still open (Phase 2, performance).
+6. **Next:**
+   - Vehicle cabins: an inner shell so hulls aren't see-through from inside, the owner's Command Center Chair as seats, consoles as dashboards.
+   - Then the open Phase 2 items.
+
 ### 2026-11-24 (evening): art pass for the pod room (R04), facility doors and lighting (owner feedback)
 1. **Completed and verified (Studio, place version 66):**
    - **Owner feedback:** the pod room "looks dull, a little broken", lower quality than the other assets (it was still greybox).
