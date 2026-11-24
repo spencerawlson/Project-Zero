@@ -39,3 +39,14 @@ Prepared with `Blender/scripts/pz_room_prep.py`:
 - The glass was split into its own pieces, and the 2.3 M triangles were cut to 6 × 18 k with textures baked from the original.
 
 The model's glass panels sit at the back of each bay, so the pods are closed in game by a cyan ForceField "stasis field" on each platform.
+
+## Cabins (2026-11-24)
+Owner feedback: inside a vehicle there were "only a couple of blocks", and the hull was see-through from inside.
+`Roblox/VEH_cabins_build.lua` (edit time, re-runnable) fixes every crewed vehicle:
+- **Hulls:** MeshParts are `DoubleSided`, so the outer skin also renders from inside.
+- **Seats:** each crew Seat stays functional (boarding unchanged) but is invisible. The owner's Command Chair (INT-15, `ServerStorage.Props.PZ_CabinChair`, 4k triangles) sits in its place on a diamond-plate mounting plate. The seats are at different heights because the fit scan places each one where a robot fits inside that hull.
+- **Driver console:** the owner's Command Console (INT-14, `ServerStorage.Props.PZ_CabinConsole`) goes in front of seat Order 1. It's pulled back if the hull is close, and skipped if there's no room.
+- **Light:** one soft cabin light.
+
+Everything is welded to the seats (unanchored, massless, non-colliding), so it moves with the vehicle once driving exists.
+For hero vehicles, an owner-made Meshy cabin interior can replace this later.

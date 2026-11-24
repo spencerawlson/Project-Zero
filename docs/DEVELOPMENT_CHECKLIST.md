@@ -218,6 +218,27 @@ Rules (Story Bible §7): weapons only from platforms and only in war missions, n
 
 ## Session log
 
+### 2026-11-24 (night): vehicle cabins (owner feedback)
+1. **Completed and verified (Studio, place version 71):**
+   - **Owner feedback:** inside a vehicle there were "only a couple of blocks", and the hulls were see-through from inside.
+   - **All 7 crewed vehicles** (`Roblox/VEH_cabins_build.lua`, re-runnable):
+     - hull MeshParts are DoubleSided
+     - 41 seats now use the owner's Command Chair (INT-15, asset 86118515954089, 4k triangles) on a mounting plate; the Seat parts stay functional and are invisible
+     - the owner's Command Console (INT-14, asset 102358753639499) is the driver's dashboard in 6 vehicles (the freight train has no room ahead of its driver's seat)
+     - a soft cabin light
+     - everything is welded to the seats
+   - Model facings were checked in Studio (the chair faces +X, the console faces −Z).
+   - **Playtest:** boarded the Armored Security Carrier and sat in Seat_Crew1. The robot's hips are at 7.14 against the seat top at 6.93: it sits in the chair. Companions boarded the seats behind.
+   - Uploads were paced: 2 assets, 1 minute apart, one status check each.
+2. **In progress:** none.
+3. **Open (quality):** the inside surface of the Meshy hulls is rough (stretched textures) now that it is visible. Clean cabins need either owner-made Meshy cabin interiors for the hero vehicles, or hand-built panel liners per vehicle (seat heights vary per hull).
+4. **Files:**
+   - `Roblox/VEH_cabins_build.lua` (new)
+   - `Roblox/vehicles_in_studio.md`
+   - this checklist
+5. **Tests:** the playtest above.
+6. **Next:** the owner chooses between Meshy cabin interiors and hand-built liners; then the remaining Phase 2 items (transport, performance on a device).
+
 ### 2026-11-24 (night): art pass for the rest of the facility
 1. **Completed and verified (Studio, place version 68):**
    - **All 12 other rooms** (`Roblox/BLD-01_art_pass_rooms.lua`, re-runnable):
