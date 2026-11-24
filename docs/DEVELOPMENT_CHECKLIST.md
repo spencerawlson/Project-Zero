@@ -218,6 +218,33 @@ Rules (Story Bible §7): weapons only from platforms and only in war missions, n
 
 ## Session log
 
+### 2026-11-24 (evening): art pass for the pod room (R04), facility doors and lighting (owner feedback)
+1. **Completed and verified (Studio, place version 66):**
+   - **Owner feedback:** the pod room "looks dull, a little broken", lower quality than the other assets (it was still greybox).
+   - **Materials:** two generated in Studio, `PZ_FloorPanel` (dark metal plates with cyan seams) and `PZ_WallPanel` (sci-fi wall panels). Applied to R04's floor and walls and to all 18 doors.
+   - **Doors:** gunmetal panels with a light tint that keeps the wayfinding colours: green emergency exits, orange main entrance, red containment, yellow service door.
+   - **R04 detail** (`Roblox/BLD-01_art_pass_R04.lua`, re-runnable):
+     - 6 suspended light bars over the aisle, on cables
+     - two cable trays under the vault
+     - door frames with orange trim, a cyan status light and a wall plaque at D02 and D03
+     - lit vertical ribs on the end walls
+   - **Debug room labels:** the 13 floating billboards are switched off.
+   - **Lighting:**
+     - The light bars and status strips (tags `PZ_FacilityLight` / `PZ_FacilityNeon`) now follow the mission lighting states through FacilityService. Verified in play: Online colour and brightness applied.
+     - R04's old cube lamps were removed.
+     - The lockdown red is softened (backlog item): ambient 55,16,18 → 38,22,26; peak brightness 1.4 → 1.1.
+2. **In progress:** the same art pass for the other 12 rooms. Vehicle interiors (owner question): plan agreed; not started.
+3. **Blocked:** none.
+4. **Files:**
+   - `Roblox/BLD-01_art_pass_R04.lua` (new)
+   - `src/server/Services/FacilityService.luau`
+   - this checklist
+5. **Tests:** visual checks in Edit and play; FacilityService applied the Online state to the 6 tagged lights.
+6. **Next:**
+   - Art pass for the other rooms (R01 Reception, R09–R12 first: on M01's path).
+   - Vehicle cabins: an inner shell, the owner's Command Center Chair as seats, consoles as dashboards.
+   - Material generations are paced (account safety).
+
 ### 2026-11-24 (afternoon): Phase 2 city slice: the Founders' Quarter
 1. **Completed and verified** (solo Studio tests, place version 63):
    - **District:** 12 owner models prepared in Blender (bake, 1024 px textures), uploaded, approved and placed. The district is built from `Shared.CityLayout`.

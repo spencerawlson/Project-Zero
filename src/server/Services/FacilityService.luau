@@ -12,6 +12,7 @@
 -- Prompts on props fire FacilityService.PromptTriggered(name, player); MissionService enables them per step.
 
 local Lighting = game:GetService("Lighting")
+local CollectionService = game:GetService("CollectionService")
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local TweenService = game:GetService("TweenService")
@@ -28,7 +29,8 @@ local doorMode: { [string]: string } = {}
 local doorColour: { [string]: Color3 } = {}
 local props: { [string]: Instance } = {}
 local prompts: { [string]: ProximityPrompt } = {}
-local lights: { PointLight } = {}
+local lights: { Light } = {}
+local neon: { BasePart } = {} -- art-pass light tubes and status strips (tag "PZ_FacilityNeon"): recoloured per lighting state
 local lightState = "Degraded"
 local extraCharacters: () -> { Model } = function() return {} end
 
@@ -141,7 +143,8 @@ end
 local LIGHT = {
 	Degraded = { colour = Color3.fromRGB(120, 200, 220), brightness = 0.7, ambient = Color3.fromRGB(18, 22, 28) },
 	Online = { colour = Color3.fromRGB(205, 235, 255), brightness = 1.8, ambient = Color3.fromRGB(55, 62, 72) },
-	Lockdown = { colour = Color3.fromRGB(255, 55, 65), brightness = 1.4, ambient = Color3.fromRGB(55, 16, 18) },
+	-- softened 2026-11-24 (owner: the lockdown red was too strong): less red ambient, lower peak brightness
+	Lockdown = { colour = Color3.fromRGB(255, 70, 75), brightness = 1.1, ambient = Color3.fromRGB(38, 22, 26) },
 }
 
 function FacilityService.SetLighting(state: string)
@@ -153,6 +156,10 @@ function FacilityService.SetLighting(state: string)
 	for _, l in ipairs(lights) do
 		l.Color = spec.colour
 		l.Brightness = spec.brightness
+	end
+	for _, n in ipairs(neon) do
+		n.Color = spec.colour
+		n.Transparency = if state == "Degraded" then 0.35 else 0
 	end
 end
 
@@ -178,7 +185,7 @@ end
 
 local function buildLights(folder: Folder)
 	local spots = {
-		{ 0, 32, 14, 30 }, { 0, 48, 14, 30 }, { 0, 64, 14, 30 }, { 0, 80, 14, 30 }, { 0, 96, 14, 30 }, -- R04 aisle
+		-- (R04's aisle lamps were replaced by the art-pass light bars, Roblox/BLD-01_art_pass_R04.lua, 2026-11-24)
 		{ 42, 78, 12, 26 }, { 42, 42, 12, 26 }, { 0, 112, 13, 26 }, { 0, 12, 13, 26 }, -- R10, R09, R12, R01
 		{ -36, 64, 12, 34 }, { -42, 112, 12, 20 }, { -42, 12, 12, 20 }, { 42, 12, 12, 20 },
 	}
@@ -301,6 +308,13 @@ function FacilityService.Start()
 	local folder = Instance.new("Folder"); folder.Name = "M01_Props"; folder.Parent = facility
 	buildProps(folder)
 	buildLights(folder)
+	-- art-pass fixtures (built at edit time) follow the same lighting states
+	for _, l in ipairs(CollectionService:GetTagged("PZ_FacilityLight")) do
+		if l:IsA("Light") and l:IsDescendantOf(facility) then table.insert(lights, l) end
+	end
+	for _, p in ipairs(CollectionService:GetTagged("PZ_FacilityNeon")) do
+		if p:IsA("BasePart") and p:IsDescendantOf(facility) then table.insert(neon, p) end
+	end
 	FacilityService.ResetForMission()
 	doorLoop()
 	lightingLoop()
