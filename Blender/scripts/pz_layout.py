@@ -70,9 +70,9 @@ DOORS = [
 # R04 with the open side facing the aisle (decided 2026-11-23; Roblox/BLD-01_pod_chambers.lua places them).
 # Chamber at 49.5 x 25.5 x 16.85 studs (scale set so a pod holds Sentinel, 7.5 tall); pod axes measured from
 # the model by pz_room_prep.py (PZ_PodChamber_report.json).
-CHAMBER_MODEL = dict(length=49.5, depth=25.53, height=16.85, centre_y=64, wall_inner=31.5)
+CHAMBER_MODEL = dict(length=49.5, depth=25.53, height=16.85, centre_y=62, wall_inner=31.5)  # y 37.25..86.75: clear of D09 and D10
 POD_X = 20.2                # pod axis: chamber centre (31.5 - 12.765) + 1.45 stud pod offset
-POD_YS = [49.7, 59.0, 69.0, 78.3]
+POD_YS = [47.7, 57.0, 67.0, 76.3]
 PODS = [(f"P{i+1:02d}", -POD_X if i < 4 else POD_X, POD_YS[i % 4], "E" if i < 4 else "W")
         for i in range(8)]
 MEZZANINE = dict(y0=24, y1=32, z=12)

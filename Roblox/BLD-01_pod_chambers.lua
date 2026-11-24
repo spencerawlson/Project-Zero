@@ -24,7 +24,7 @@ local REPORT = {
 }
 local FLOOR = 0.2              -- top of the R04 floor slab
 local WALL_INNER = 31.5        -- inner face of the R04 side walls (walls are 1 stud thick at x = +-32)
-local CENTRE_Y = 64            -- R04 runs y 24..104
+local CENTRE_Y = 62            -- R04 runs y 24..104; 62 (not 64) keeps the chamber ends clear of doors D09 (y 30) and D10 (y 90)
 local GLASS_TRANSPARENCY = 0.45 -- the model's glass panels (decoration)
 local FIELD_H = 7.8             -- stasis field height above the platform (measured glass height)
 local ROLES = { P01 = "Cypher (NPC guide, opens first)", P02 = "Player pod 1", P03 = "Player pod 2", P04 = "Player pod 3",
@@ -82,7 +82,7 @@ for _, side in ipairs(SIDES) do
 			d.CollisionFidelity = Enum.CollisionFidelity.PreciseConvexDecomposition
 		end
 	end
-	-- pods: chamber frame (px, py) -> facility: west (x, y) = (cx + py, 64 - px); east = (cx - py, 64 + px)
+	-- pods: chamber frame (px, py) -> facility: west (x, y) = (cx + py, CENTRE_Y - px); east = (cx - py, CENTRE_Y + px)
 	for k, p in ipairs(REPORT.pods) do
 		local id = side.ids[k]
 		local fx = side.cx + side.facing * p.cy
@@ -95,7 +95,9 @@ for _, side in ipairs(SIDES) do
 		local panel = m:FindFirstChild(("PZ_PodChamber_GlassP%d"):format(k), true)
 		assert(panel, "missing glass piece " .. k .. " in " .. side.name)
 		panel.Name = "GlassPanel"; panel.Transparency = GLASS_TRANSPARENCY; panel.CastShadow = false
-		panel.CanCollide = true; panel.CollisionFidelity = Enum.CollisionFidelity.Hull
+		-- No collision: a hull around the curved panel fills the space where the robot stands and shoves it off
+		-- the platform when released (found in the M01 playtest). The chamber mesh behind blocks walking through.
+		panel.CanCollide = false; panel.CanQuery = false
 		panel.Parent = pod
 		local top = FLOOR + p.platform
 		local field = Instance.new("Part"); field.Name = "Glass"; field.Shape = Enum.PartType.Cylinder
