@@ -12,6 +12,7 @@ local CityService = require(Services.CityService)
 local EnergyService = require(Services.EnergyService)
 local ContractService = require(Services.ContractService)
 local CitizenService = require(Services.CitizenService)
+local VehicleService = require(Services.VehicleService)
 
 PlayerDataService.Start()
 StasisService.Start() -- creates ReplicatedStorage.PZ_Remotes
@@ -24,3 +25,4 @@ CityService.Start() -- Founders' Quarter (district built at edit time; this atta
 EnergyService.Start()
 ContractService.Start(MissionService.Completed)
 CitizenService.Start()
+VehicleService.Start() -- vehicles marked PZ_Drivable (the Founders' Quarter hauler)
