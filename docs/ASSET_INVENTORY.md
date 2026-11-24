@@ -189,17 +189,20 @@ None of these are uploaded as Roblox Animation assets yet; the place contains 0 
 
 ## Owner models, batch of 2026-11-24 (19 files): assignments
 The owner let me decide where each one goes. Thumbnails: `Source_Documents/triage/new_*.png`.
+Placed 2026-11-24, place version 81. Each was checked from outside its vehicle (nothing pokes through) and its facing
+checked from screenshots. The pieces they replaced (old driver/pilot chairs and consoles) are kept in
+`ServerStorage.Props._Replaced`, so each change can be undone.
 
 | # | Model (file stem) | What it is | Assigned to | When |
 |---|---|---|---|---|
-| 19 | velocity_one_interior_obsidian | car cockpit (seat, wheel) | drivable Hauler's driver cab (`PZ_CabCockpit`) | now |
-| 18 | scifi_fighter_cockpit | single-seat jet cockpit | Raven VTOL pilot seat (`PZ_JetCockpit`) | now |
-| 10 | Neon_Nightflight_Command_Pod | seat and consoles on a base | Security VTOL pilot station (`PZ_PilotPod`) | now |
-| 9 | Neon_Navigator | vehicle dashboard | ground vehicles' dashboard (`PZ_Dashboard`) | now |
-| 8 | Neon_Command_Console | dashboard variant | freight train driver station (`PZ_TrainConsole`) | now |
-| 11 | Obsidian_Core | dark reactor core | reactor in R10 Energy Control (`PZ_ReactorCore`) | now |
-| 2 | Bulkhead_Type_1 | wall with an arched doorway | R04 containment door D03 (`PZ_Bulkhead`) | now |
-| 3 | Citadel_Nexus | block of city towers | NEXUS-01 skyline beyond the street (`PZ_Skyline`) | now |
+| 19 | velocity_one_interior_obsidian | car cockpit (seat, wheel) | drivable Hauler's driver cab (`PZ_CabCockpit`) | **in place** (asset 98823814490103; `PZ_DistrictHauler.Cabin.DriverCockpit`, driver seat moved 1.5 forward) |
+| 18 | scifi_fighter_cockpit | single-seat jet cockpit | Raven VTOL pilot seat (`PZ_JetCockpit`) | **in place** (asset 72417251087242; scale 0.8 to clear the nose roof; pilot seat x −15, top 3.6) |
+| 10 | Neon_Nightflight_Command_Pod | seat and consoles on a base | Security VTOL pilot station (`PZ_PilotPod`) | **in place** (asset 88312552871081; scale 0.85 for the narrow nose; pilot seat x −61, co-pilot −57) |
+| 9 | Neon_Navigator | vehicle dashboard | ground vehicles' dashboard (`PZ_Dashboard`) | **in place** (asset 138809593025660; Titan Rover, Armored Carrier, 8x8, yard Hauler; on a pedestal; the yard Hauler's cowl hides its lower half) |
+| 8 | Neon_Command_Console | dashboard variant | freight train driver station (`PZ_TrainConsole`) | **in place** (asset 81600361100080; 3.8 ahead of the driver seat) |
+| 11 | Obsidian_Core | dark reactor core | reactor in R10 Energy Control (`PZ_ReactorCore`) | **in place** (asset 103689760579811; `ArtPass.R10_ReactorCore` at (38.5, 0.2, −70), clear of the breaker path) |
+| 2 | Bulkhead_Type_1 | sealed wall with its own closed round door | ~~R04 door D03~~: it would hide the working door. Kept in `ServerStorage.Props` (asset 80780981781449). Suggested: the sealed entrance of the reserved Energy Spire (owner decision 5) | owner to choose |
+| 3 | Citadel_Nexus | block of city towers | NEXUS-01 skyline beyond the street (`PZ_Skyline`) | **in place** (asset 132723016492529; `PZ_FoundersQuarter.Backdrop_Skyline`, z −420..−592, non-colliding, invisible barrier at z −417) |
 | 1 | Abyssal_Command | glass-domed simulator pod | academy exam simulator | Phase 3 |
 | 6 | Levitation_Nexus | levitation pad | academy exam pad / fast-travel pads | Phase 3 / 9 |
 | 5 | Industrial_Colossus | heavy black mech | HECF heavy unit | Phase 7 |

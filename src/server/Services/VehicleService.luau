@@ -9,9 +9,11 @@
 --     own BoardServer script is disabled for drivable vehicles).
 --   * Motion: a LinearVelocity (horizontal only, gravity untouched) and an AngularVelocity (yaw) on DriveBody. The
 --     driver's client owns the physics and sets them from W/A/S/D (VehicleClient); with no driver the server brakes.
--- Forward is the driver seat's facing. Speeds: VehicleClient.
+-- Forward is the driver seat's facing. Speeds: Shared.MovementRules.Vehicle; the server checks them (MovementGuard).
 
 local Players = game:GetService("Players")
+
+local MovementGuard = require(script.Parent.MovementGuard)
 
 local VehicleService = {}
 
@@ -99,6 +101,7 @@ local function setup(v: Model)
 	av.Name = "DriveTurn"; av.Attachment0 = att; av.RelativeTo = Enum.ActuatorRelativeTo.World
 	av.MaxTorque = 1e7; av.AngularVelocity = Vector3.zero; av.Parent = body
 	v:SetAttribute("PZ_DriveReady", true)
+	MovementGuard.RegisterVehicle(body, driver) -- server checks on the driver's motion (audit step 4)
 
 	local function brake()
 		lv.VectorVelocity = Vector3.zero; av.AngularVelocity = Vector3.zero

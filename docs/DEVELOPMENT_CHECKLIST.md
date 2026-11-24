@@ -228,6 +228,27 @@ Rules (Story Bible §7): weapons only from platforms and only in war missions, n
 
 ## Session log
 
+### 2026-11-24 (late night): audit remediation steps 1–4; owner batch placed
+Following the pulled audit response (§6 order); full detail in `docs/AUDIT_REMEDIATION.md`.
+1. **Completed and verified (Studio, place version 81):**
+   - Steps 1–2: findings checked against the code; governing documents reconciled (D10, D13–D16).
+   - Step 4: the server now checks driving and flight (`MovementGuard`), and wing energy is server-owned. Cheats tested in Studio: teleport, hover without wings, 3× vehicle speed; all corrected. Legal speeds were not flagged.
+   - Owner batch: 7 of 8 baked models placed (Hauler cockpit, Raven cockpit, Security VTOL pilot pod, dashboards in 4 ground vehicles, train console, R10 reactor, skyline backdrop).
+2. **In progress:** step 3 backups. The manifest and tool are done; the full 15.5 GB backup waits for the owner's choice of location.
+3. **Blocked (owner):**
+   - backup location
+   - provisional flight/vehicle bounds to confirm (`MovementRules`)
+   - where the sealed Bulkhead goes (suggested: the reserved Energy Spire)
+   - D16 still open
+4. **Files:**
+   - `src/shared/MovementRules.luau`, `src/server/Services/MovementGuard.luau` (new)
+   - Equipment, Vehicle, City, Stasis services; `Main.server.luau`; Vehicle and Flight clients
+   - `tests/Cases/MovementRules_Test.luau`
+   - `tools/asset_manifest.py`, `docs/ASSET_MANIFEST.csv`
+   - `docs/AUDIT_REMEDIATION.md`, `docs/ASSET_INVENTORY.md`, `Roblox/vehicles_in_studio.md`
+5. **Tests:** unit tests 72/72. Studio cheat and legal-speed tests are listed in the audit log. The first ground check (Humanoid.FloorMaterial) missed a hover and was replaced by a server sphere cast.
+6. **Next:** step 5, reserved mission instances, the fifth-player path, and M01 completion and late join.
+
 ### 2026-11-24 (night): basic driving (owner order item 2)
 1. **Completed and verified:** a drivable Tracked Hauler in the Founders' Quarter (Phase 2 "basic transportation"; details there).
 2. **In progress:** item 3, Phase 3 careers (design next).

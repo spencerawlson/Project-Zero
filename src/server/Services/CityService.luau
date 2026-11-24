@@ -12,6 +12,7 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local CityLayout = require(ReplicatedStorage.Shared.CityLayout)
 local ShopService = require(script.Parent.ShopService)
+local MovementGuard = require(script.Parent.MovementGuard)
 
 local CityService = {}
 
@@ -55,6 +56,7 @@ local function teleport(player: Player, spot: Vector3, look: Vector3)
 	params.FilterDescendantsInstances = { c }
 	local hit = workspace:Raycast(spot + Vector3.new(0, 8, 0), Vector3.new(0, -20, 0), params) -- land on the real floor
 	local y = (if hit then hit.Position.Y else spot.Y) + hum.HipHeight + root.Size.Y / 2 + 0.2
+	MovementGuard.Grace(c, 2) -- a server move, not an exploit
 	c:PivotTo(CFrame.lookAt(Vector3.new(spot.X, y, spot.Z), Vector3.new(look.X, y, look.Z)))
 end
 

@@ -21,6 +21,7 @@ local TweenService = game:GetService("TweenService")
 local PlayerDataService = require(script.Parent.PlayerDataService)
 local PodRoster = require(game:GetService("ReplicatedStorage").Shared.PodRoster)
 local ActivationScript = require(game:GetService("ReplicatedStorage").Shared.ActivationScript)
+local MovementGuard = require(script.Parent.MovementGuard)
 
 local PROFILE_WAIT = 15 -- seconds to wait for the profile before placing a character
 local OPEN_COLOUR = Color3.fromRGB(0, 230, 200)
@@ -166,6 +167,7 @@ local function placeCharacter(player: Player, character: Model)
 		local hit = workspace:Raycast(Vector3.new(spot.X, pod.floorY + 4, spot.Z), Vector3.new(0, -20, 0), params)
 		local floorY = if hit then hit.Position.Y else pod.floorY
 		local pos = Vector3.new(spot.X, floorY + h, spot.Z)
+		MovementGuard.Grace(character, 2) -- a server move, not an exploit
 		root.CFrame = CFrame.lookAt(pos, pos + pod.facing) -- move the root, not the model pivot (Auto Setup rigs have an offset pivot)
 	else
 		setOpen(pod, false, false)
