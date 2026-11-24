@@ -16,6 +16,13 @@
       "UnitTest": {
         "$path": "tests"
       }
+    },
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "Client": {
+          "$path": "src/client"
+        }
+      }
     }
   }
 }

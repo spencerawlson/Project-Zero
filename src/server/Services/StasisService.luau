@@ -20,9 +20,17 @@ local TweenService = game:GetService("TweenService")
 
 local PlayerDataService = require(script.Parent.PlayerDataService)
 local PodRoster = require(game:GetService("ReplicatedStorage").Shared.PodRoster)
+local ActivationScript = require(game:GetService("ReplicatedStorage").Shared.ActivationScript)
 
 local PROFILE_WAIT = 15 -- seconds to wait for the profile before placing a character
 local OPEN_COLOUR = Color3.fromRGB(0, 230, 200)
+local CINEMATIC_GRACE = 10 -- seconds beyond the script length before the server finishes on its own
+
+-- ReplicatedStorage.PZ_Remotes.Activation (RemoteEvent)
+--   server -> client: ("play", { podId, designation })   play the activation cinematic
+--   client -> server: ("done")                            cinematic finished or skipped
+local remote: RemoteEvent
+local activating: { [Player]: BindableEvent } = {}
 
 local StasisService = {}
 
@@ -161,19 +169,21 @@ local function placeCharacter(player: Player, character: Model)
 	end
 end
 
-local function activate(player: Player, pod: Pod)
-	if roster:holderOf(pod.id) ~= player.UserId then
-		return -- only the pod's own robot can wake it
-	end
-	local profile = PlayerDataService.GetProfile(player)
-	if not profile or profile.progress.activated then
+-- Open the pod and record the activation: activated, memory fragment MF-001, and The Source's designation.
+local function finishActivation(player: Player, pod: Pod, designation: string)
+	activating[player] = nil
+	if player.Parent == nil or roster:holderOf(pod.id) ~= player.UserId then
 		return
 	end
-	pod.prompt.Enabled = false
 	setOpen(pod, true, true)
 	PlayerDataService.Update(player, function(p)
 		p.progress.activated = true
+		p.progress.memoryFragments[ActivationScript.FRAGMENT_ID] = true
+		if p.identity.designation == nil then
+			p.identity.designation = designation
+		end
 	end)
+	player:SetAttribute("PZ_Designation", designation)
 	local character = player.Character
 	local root = character and character:FindFirstChild("HumanoidRootPart") :: BasePart?
 	if root then
@@ -185,7 +195,43 @@ local function activate(player: Player, pod: Pod)
 	end
 end
 
+-- Activation: the pod's holder asks to wake. The server tells only that client to play the cinematic, keeps the
+-- pod closed, and finishes when the client reports the cinematic done or the timeout passes (a client that
+-- never answers still wakes).
+local function activate(player: Player, pod: Pod)
+	if roster:holderOf(pod.id) ~= player.UserId or activating[player] then
+		return -- only the pod's own robot can wake it, once
+	end
+	local profile = PlayerDataService.GetProfile(player)
+	if not profile or profile.progress.activated then
+		return
+	end
+	pod.prompt.Enabled = false
+	pod.model:SetAttribute("State", "Activating")
+	local designation = profile.identity.designation or ActivationScript.designationFor(player.UserId)
+	local done = Instance.new("BindableEvent")
+	activating[player] = done
+	remote:FireClient(player, "play", { podId = pod.id, designation = designation })
+	local timeout = ActivationScript.totalSeconds(ActivationScript.build(designation)) + CINEMATIC_GRACE
+	task.delay(timeout, function()
+		if activating[player] == done then
+			done:Fire()
+		end
+	end)
+	local reason = done.Event:Wait()
+	done:Destroy()
+	if reason == "cancel" then
+		return -- the player left mid-cinematic; they wake again next time
+	end
+	finishActivation(player, pod, designation)
+end
+
 local function release(player: Player)
+	local done = activating[player]
+	if done then
+		activating[player] = nil
+		done:Fire("cancel")
+	end
 	local podId = roster:release(player.UserId)
 	if podId then
 		local pod = pods[podId]
@@ -196,6 +242,19 @@ local function release(player: Player)
 end
 
 function StasisService.Start()
+	local RS = game:GetService("ReplicatedStorage")
+	local folder = RS:FindFirstChild("PZ_Remotes") or Instance.new("Folder")
+	folder.Name = "PZ_Remotes"
+	folder.Parent = RS
+	remote = Instance.new("RemoteEvent")
+	remote.Name = "Activation"
+	remote.Parent = folder
+	remote.OnServerEvent:Connect(function(player, message)
+		local done = activating[player]
+		if message == "done" and done then
+			done:Fire()
+		end
+	end)
 	roster = PodRoster.new(discoverPods())
 	for _, pod in pairs(pods) do
 		local p = pod

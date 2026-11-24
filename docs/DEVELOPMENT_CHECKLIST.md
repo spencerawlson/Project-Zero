@@ -46,17 +46,21 @@ Related documents: [Technical Architecture](TECHNICAL_ARCHITECTURE.md) · [Asset
   - **Fit:** walked from the pod chamber out through the facility's doors to the outside spawn.
 - [ ] **Implement movement, camera and interaction.**
   *Partial:* ProximityPrompt boarding with server validation works on 7 vehicles. Movement and camera are still Roblox defaults.
-- [ ] **Create the activation cinematic and dialogue with The Source.**
-  Blocked by D3 (canon).
-- [ ] **Introduce the mysterious corrupted memory fragment.**
-  Blocked by D3. The design bible already has memory fragments and Cypher's ZERO fragment.
+- [x] **Create the activation cinematic and dialogue with The Source.**
+  Verified 2026-11-23 in playtests:
+  - **Script:** `src/shared/ActivationScript.luau`, 10 beats from the approved canon, 32.5 s. Covers The Source, ZERO's censorship, the human memory flash, "MF-001 acquired" and "signal lost".
+  - **Client scene:** `src/client/ActivationCinematic.client.luau`. Letterbox, the camera pushes in through the glass, typewriter subtitles, a red glitch, flicker and shake for ZERO, a warm desaturated grade for the memory, and a Skip button.
+  - **Server:** holds the pod closed until the client reports done, with a timeout.
+  - Placeholder until a dialogue pass: there is no voice or sound yet.
+- [x] **Introduce the mysterious corrupted memory fragment.**
+  Verified 2026-11-23: activation grants **MF-001** (a human expedition member's memory, tagged "not yours, keep it safe"). It's saved as `progress.memoryFragments["MF-001"] = true`. The Source's designation is saved as `identity.designation` (e.g. CX-6170; stable per player). A fragment viewer comes with the memory-fragment system later.
 - [ ] **Implement the first playable mission.**
 - [x] **Implement persistent player identity and save data.**
   Verified 2026-11-23:
   - **Profile:** keyed by Roblox UserId; schema v1; starter chassis `CypherFrame`; `createdAt` set.
   - **Session-locked store, unit tests:** 18/18 pass.
   - **Real DataStore round trip in Studio** (API access on): session 1 wrote marker `RT-1795474515` and stopped. Session 2, a new server, loaded the marker and the session count 3, and loaded instantly, which proves the shutdown save released the lock. `PZ_PersistentSave = true`. The test marker was then removed.
-  - *Follow-up (part of activation, not this item):* the player-chosen `identity.designation` is set during the activation sequence.
+  - *Follow-up:* The Source assigns `identity.designation` at activation (done 2026-11-23). Letting the player rename it later needs Roblox text filtering.
 
 **Completion:** a new player can activate, complete the introductory mission, and return with progress preserved.
 
@@ -147,6 +151,28 @@ Related documents: [Technical Architecture](TECHNICAL_ARCHITECTURE.md) · [Asset
 | B1 | The Studio AI-assistant plugin changed version mid-session; Studio recommends a restart | Tool stability | Owner | **Done 2026-11-23** (Studio restarted) |
 
 ## Session log
+
+### 2026-11-23 (night): activation cinematic and MF-001
+1. **Completed and verified:**
+   - Activation cinematic with The Source, ZERO's censorship and memory fragment MF-001 (two Phase 1 items checked).
+   - Designation assigned and saved.
+   - Rojo now also syncs `src/client` to `StarterPlayer.StarterPlayerScripts.Client` (needed one `rojo serve` restart).
+2. **In progress:** activation facility polish (kit modules, pod hinge, lighting, sound).
+3. **Blocked:** none.
+4. **Files:**
+   - `default.project.json`
+   - `src/shared/ActivationScript.luau`
+   - `src/client/ActivationCinematic.client.luau`
+   - `src/server/Services/StasisService.luau`: activation via `PZ_Remotes.Activation`, timeout, cancel on leave.
+   - `tests/Cases/ActivationScript_Test.luau`
+5. **Tests:**
+   - Unit tests 31/31 (6 new).
+   - Full playtest with screenshots of the Source line, the memory flash and "MF-001 acquired / signal lost". After it: pod open, robot free, and activated, MF-001 and designation CX-6170 saved.
+   - Skip button clicked partway: pod opened at once, state saved, UI cleaned up.
+   - Client script disabled: the server timeout opened the pod about 45 s after activation and saved.
+   - Bugs found and fixed: the glitch text showed "?" boxes (string.sub on multi-byte letters), and the Skip arrow glyph was missing from the font. Both now use ASCII.
+   - The owner's profile was reset to activated=false afterwards.
+6. **Next:** the first playable mission: find Cypher (P01) and rescue Sentinel (P05), then exit the facility.
 
 ### 2026-11-23 (night): starter chassis and stasis pods
 1. **Completed and verified:**
