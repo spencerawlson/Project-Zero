@@ -12,6 +12,7 @@
 --   ProfileSchema.STARTER_CHASSIS         id of the standard starter body (owner decision D2: Cypher-style frame)
 
 local ProfileSchema = {}
+local ChassisColors = require(script.Parent.ChassisColors)
 
 ProfileSchema.VERSION = 1
 ProfileSchema.STARTER_CHASSIS = "CypherFrame"
@@ -22,7 +23,7 @@ export type Profile = {
 	createdAt: number,
 	lastSeenAt: number,
 	identity: { designation: string? },
-	chassis: { current: string, owned: { string } },
+	chassis: { current: string, owned: { string }, colour: string }, -- colour: ChassisColors id
 	progress: {
 		activated: boolean,
 		missions: { [string]: string },        -- missionId -> "active" | "complete"
@@ -51,7 +52,8 @@ function ProfileSchema.default(userId: number, now: number): Profile
 		createdAt = now,
 		lastSeenAt = now,
 		identity = { designation = nil },
-		chassis = { current = ProfileSchema.STARTER_CHASSIS, owned = { ProfileSchema.STARTER_CHASSIS } },
+		chassis = { current = ProfileSchema.STARTER_CHASSIS, owned = { ProfileSchema.STARTER_CHASSIS },
+			colour = ChassisColors.defaultFor(userId).id }, -- players start in different colours (owner, 2026-11-24)
 		progress = { activated = false, missions = {}, memoryFragments = {} },
 		stats = { sessions = 0 },
 	}
