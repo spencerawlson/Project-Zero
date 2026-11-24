@@ -50,3 +50,22 @@ Owner feedback: inside a vehicle there were "only a couple of blocks", and the h
 
 Everything is welded to the seats (unanchored, massless, non-colliding), so it moves with the vehicle once driving exists.
 For hero vehicles, an owner-made Meshy cabin interior can replace this later.
+
+## Meshy cabin interiors (owner decision 2026-11-24: to be made on Meshy later)
+The owner prefers Meshy-made interiors over hand-built liners. Until they exist, the chairs, consoles and double-sided hulls stay.
+Interiors should be **empty** (no seats): the owner's Command Chair is fitted on each fit-scanned seat, and the driver console stays.
+When an interior arrives, I prep and bake it, scale it to the size below, fit it inside the hull, and keep the chairs.
+
+Shared style for every prompt (matches the facility and city): *white and dark grey panels, orange accents, thin cyan light strips, clean futuristic robot vehicle, no seats, no people*.
+
+| Vehicle | Inside size to aim for (L × W × H, studs) | Prompt |
+|---|---|---|
+| Armored Security Carrier | 26 × 10 × 9 | "armored troop carrier cabin interior, long narrow cabin, padded wall panels, grab rails on the ceiling, small side windows, rear ramp door" |
+| Titan Rover | 21 × 9 × 9 | "heavy cargo rover crew cabin interior, compact cab, overhead equipment racks, small windshield at the front" |
+| Tracked Hauler | 17 × 9 × 8 | "tracked utility hauler cab interior, compact industrial cab, toolboxes and pipes on the walls" |
+| Desert Sentinel 8x8 | 22 × 9 × 9 | "armored 8x8 patrol vehicle interior, crew compartment, wall screens, storage lockers" |
+| Raven VTOL (Jet 2) | 31 × 18 × 8 | "VTOL aircraft cockpit and passenger cabin interior, wide cabin, cockpit windows at the front, overhead panels" |
+| Security VTOL | 41 × 15 × 10 | "large security VTOL troop bay interior, two-level seating platforms, side doors, cargo netting" |
+| Freight Train | 31 × 13 × 8 | "freight train crew car interior, long narrow carriage, side windows, overhead cable trays" |
+
+Sizes are the seats' footprint plus room to move; the height fits Sentinel (7.5 studs).
