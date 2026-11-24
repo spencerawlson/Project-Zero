@@ -170,6 +170,37 @@ Related documents: [Technical Architecture](TECHNICAL_ARCHITECTURE.md) · [Asset
 
 ## Session log
 
+### 2026-11-24: robot colours (owner request)
+1. **Completed and verified:**
+   - **Owner request:** robots must not all look alike.
+   - **Palette:** 10 paint colours (`Shared.ChassisColors`): obsidian, bronze, violet, rose, ember, jade, ocean, crimson, gold, slate. White is reserved for the story NPC Cypher, so it is the only white robot.
+   - **Default colours:** every player starts in a different colour (stable per player, saved as `profile.chassis.colour`; older profiles gain it on load).
+   - **Paint button:** the button on the right edge opens the palette. The server validates the choice (palette only, 0.5 s cooldown), saves it and repaints at once.
+   - **Dormant robots:** sleeping crimson and gold frames fill pods P07/P08.
+   - **How the tint works:** a colour tints the body's SurfaceAppearance, so dark parts and the face screen keep their look.
+2. **In progress:** none. The owner's other robot models are earmarked for Phase 3 (extra chassis) and Phase 4 (city robots).
+3. **Blocked:** none.
+4. **Files:**
+   - New:
+     - `src/shared/ChassisColors.luau`
+     - `src/server/Services/AppearanceService.luau`
+     - `src/client/ColourPicker.client.luau`
+     - `tests/Cases/ChassisColors_Test.luau`
+   - Changed:
+     - `ProfileSchema` (colour)
+     - `NpcService` (colour / dormant options)
+     - `MissionService` (Cypher white; dormant P07/P08)
+     - `Main.server.luau`
+5. **Tests:**
+   - Unit tests 45/45 in a fresh play session (Edit-mode `require` caches modules, so run the tests in play mode after changing a shared module).
+   - Playtest:
+     - The default colour (obsidian) was applied to the owner's existing profile.
+     - Paint → Royal Purple repainted the robot and was saved; a new session reloaded purple.
+     - Cypher white; dormant crimson and gold.
+   - Bug found and fixed: the Paint button sat under Roblox's player list (top right), which swallowed clicks; moved to the right edge, 40 % down.
+   - The owner's profile was restored to its default colour.
+6. **Next:** as before (camera after the wake-up scene, lockdown red, co-op test, bible re-render).
+
 ### 2026-11-24: mission M01 "The Awakening"
 1. **Completed and verified:**
    - The first playable mission, end to end (see Phase 1).

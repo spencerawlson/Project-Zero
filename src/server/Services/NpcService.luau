@@ -14,6 +14,8 @@ local PathfindingService = game:GetService("PathfindingService")
 local ServerStorage = game:GetService("ServerStorage")
 local TweenService = game:GetService("TweenService")
 
+local ChassisColors = require(game:GetService("ReplicatedStorage").Shared.ChassisColors)
+
 local NpcService = {}
 
 local FOLLOW_DISTANCE = 9
@@ -65,7 +67,10 @@ local function podSpot(pod: Model, hum: Humanoid, root: BasePart): CFrame
 end
 
 -- Spawn `name` from ServerStorage.Chassis[templateName] inside `pod`, held (anchored), with its field closed.
-function NpcService.Spawn(name: string, templateName: string, pod: Model, label: string, slot: number)
+-- opts.colour: ChassisColors id to tint the body (nil = the model's own colours).
+-- opts.dormant: a sleeping robot that never wakes (no animation, no nameplate when label is nil).
+function NpcService.Spawn(name: string, templateName: string, pod: Model, label: string?, slot: number,
+	opts: { colour: string?, dormant: boolean? }?)
 	local existing = npcs[name]
 	if existing then existing.model:Destroy() end
 	local template = ServerStorage:WaitForChild("Chassis"):WaitForChild(templateName) :: Model
@@ -83,14 +88,23 @@ function NpcService.Spawn(name: string, templateName: string, pod: Model, label:
 	root.CFrame = podSpot(pod, hum, root)
 	root.Anchored = true
 	model:SetAttribute("NpcName", name)
+	if opts and opts.colour then
+		local colour = ChassisColors.color3(opts.colour)
+		for _, d in ipairs(model:GetDescendants()) do
+			if d:IsA("SurfaceAppearance") then d.Color = colour end
+		end
+		model:SetAttribute("ChassisColour", opts.colour)
+	end
 	model.Parent = workspace
-	nameplate(model, label)
-	local animator = hum:FindFirstChildOfClass("Animator") or Instance.new("Animator", hum)
-	local idleA, walkA = animationFrom(template, "idle", "Animation1"), animationFrom(template, "walk", nil)
+	if label then nameplate(model, label) end
 	local npc: Npc = { name = name, model = model, humanoid = hum, root = root, pod = pod, awake = false, slot = slot }
-	if idleA then npc.idle = (animator :: Animator):LoadAnimation(idleA) end
-	if walkA then npc.walk = (animator :: Animator):LoadAnimation(walkA) end
-	if npc.idle then (npc.idle :: AnimationTrack):Play() end
+	if not (opts and opts.dormant) then
+		local animator = hum:FindFirstChildOfClass("Animator") or Instance.new("Animator", hum)
+		local idleA, walkA = animationFrom(template, "idle", "Animation1"), animationFrom(template, "walk", nil)
+		if idleA then npc.idle = (animator :: Animator):LoadAnimation(idleA) end
+		if walkA then npc.walk = (animator :: Animator):LoadAnimation(walkA) end
+		if npc.idle then (npc.idle :: AnimationTrack):Play() end
+	end
 	hum.Running:Connect(function(speed)
 		if speed > 0.5 then
 			if npc.walk and not npc.walk.IsPlaying then npc.walk:Play(0.2) end

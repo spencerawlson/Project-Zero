@@ -207,8 +207,11 @@ function MissionService.Start()
 	FacilityService.Start()
 	FacilityService.SetExtraCharacters(NpcService.Models)
 	local podFolder = pods()
-	NpcService.Spawn("Cypher", "CypherFrame", podFolder:WaitForChild("P01") :: Model, "CYPHER", 1)
+	-- Cypher keeps the reserved white (the only white robot); the dormant pods hold other-coloured frames
+	NpcService.Spawn("Cypher", "CypherFrame", podFolder:WaitForChild("P01") :: Model, "CYPHER", 1, { colour = "arctic" })
 	NpcService.Spawn("Sentinel", "SentinelNPC", podFolder:WaitForChild("P05") :: Model, "SENTINEL", 2)
+	NpcService.Spawn("Dormant07", "CypherFrame", podFolder:WaitForChild("P07") :: Model, nil, 3, { colour = "crimson", dormant = true })
+	NpcService.Spawn("Dormant08", "CypherFrame", podFolder:WaitForChild("P08") :: Model, nil, 4, { colour = "gold", dormant = true })
 	local p05glass = (podFolder:WaitForChild("P05") :: Model):WaitForChild("Glass") :: BasePart
 	local release = Instance.new("ProximityPrompt")
 	release.Name = "ReleasePrompt"; release.ActionText = "Release"; release.ObjectText = "Sentinel (pod P05)"
