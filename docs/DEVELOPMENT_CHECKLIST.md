@@ -58,7 +58,20 @@ Related documents: [Technical Architecture](TECHNICAL_ARCHITECTURE.md) · [Asset
   - Placeholder until a dialogue pass: there is no voice or sound yet.
 - [x] **Introduce the mysterious corrupted memory fragment.**
   Verified 2026-11-23: activation grants **MF-001** (a human expedition member's memory, tagged "not yours, keep it safe"). It's saved as `progress.memoryFragments["MF-001"] = true`. The Source's designation is saved as `identity.designation` (e.g. CX-6170; stable per player). A fragment viewer comes with the memory-fragment system later.
-- [ ] **Implement the first playable mission.**
+- [x] **Implement the first playable mission.**
+  M01 "The Awakening" (owner-approved plan, 2026-11-24): find Cypher, then restore power (3 breakers in a random order shown on a console), then free Sentinel, then escape through D03 / R12 / D04 during ZERO's lockdown. Optional: MF-002 medical console. Cypher and Sentinel follow the player. No combat.
+  - **Code:**
+    - `Shared.MissionM01` (pure rules and dialogue, 8 tests)
+    - `MissionService`
+    - `FacilityService` (doors, lighting states, props)
+    - `NpcService` (R15 companions, pathfinding follow)
+    - `MissionHUD` client (objective panel, waypoints, subtitles)
+  - **Verified 2026-11-24, one solo playthrough in Studio with the real DataStore:**
+    - Every step played, with the right dialogue and lighting at each.
+    - A wrong breaker order resets.
+    - MF-002 granted.
+    - Resuming from the restore-power checkpoint works, as does free roam after completion.
+  - *Not yet tested:* co-op with 2+ players.
 - [x] **Implement persistent player identity and save data.**
   Verified 2026-11-23:
   - **Profile:** keyed by Roblox UserId; schema v1; starter chassis `CypherFrame`; `createdAt` set.
@@ -67,6 +80,7 @@ Related documents: [Technical Architecture](TECHNICAL_ARCHITECTURE.md) · [Asset
   - *Follow-up:* The Source assigns `identity.designation` at activation (done 2026-11-23). Letting the player rename it later needs Roblox text filtering.
 
 **Completion:** a new player can activate, complete the introductory mission, and return with progress preserved.
+*Met in a solo Studio playthrough 2026-11-24.* Open in this phase: the movement / camera item, facility polish (sound, kit modules), and a co-op test.
 
 ## Phase 2: Skills and Careers
 - [ ] Implement skill trees and experience progression.
@@ -155,6 +169,46 @@ Related documents: [Technical Architecture](TECHNICAL_ARCHITECTURE.md) · [Asset
 | B1 | The Studio AI-assistant plugin changed version mid-session; Studio recommends a restart | Tool stability | Owner | **Done 2026-11-23** (Studio restarted) |
 
 ## Session log
+
+### 2026-11-24: mission M01 "The Awakening"
+1. **Completed and verified:**
+   - The first playable mission, end to end (see Phase 1).
+   - Sentinel rigged to R15 for the companion (Auto Setup; canonical model untouched).
+   - Facility lighting states Degraded → Online → Lockdown, and auto/locked doors.
+   - Pod chambers moved 2 studs toward the front so they clear doors D09/D10.
+2. **In progress:** none.
+3. **Blocked:** Rojo needs **Connect** clicked again after `rojo serve` restarts (it stops at the 2-hour background limit). Changes were mirrored into Studio by hand and byte-checked meanwhile.
+4. **Files:**
+   - New:
+     - `src/shared/MissionM01.luau`
+     - `src/server/Services/{MissionService,FacilityService,NpcService}.luau`
+     - `src/client/MissionHUD.client.luau`
+     - `tests/Cases/MissionM01_Test.luau`
+   - Changed:
+     - `StasisService`: Activated event.
+     - `PlayerDataService`: `resetProgress` test action.
+     - `Main.server.luau`
+     - `BLD-01_pod_chambers.lua`: glass panels don't collide; centre y 62.
+     - `pz_layout.py`: pod and chamber positions.
+   - Place content: `ServerStorage.Chassis.SentinelNPC`.
+5. **Tests:**
+   - Unit tests 39/39.
+   - Playtest found and fixed five bugs:
+     - The glass-panel hull shoved the released robot off its platform.
+     - The "reach Cypher" radius triggered from the neighbouring pod.
+     - Locked doors looked open (see-through material).
+     - E at breaker B1 fired B2: same-key prompts are chosen by screen position, so breakers are now 8 apart with a 5-stud reach.
+     - The east chamber half-blocked D10.
+   - The owner's profile was fully reset afterwards (`resetProgress`).
+   - Known, not fixed:
+     - Right after the wake-up scene the camera is pressed against the back of the pod until the player moves.
+     - The lockdown red is very strong.
+     - Companions sometimes teleport to catch up instead of walking out of the pod bays.
+     - Emergency exits D05/D06 are sealed during M01 (a deviation from bible rule I9).
+6. **Next:**
+   - Fix the camera after the wake-up scene and tone down the lockdown red.
+   - Run a co-op test (2 players).
+   - Bible re-render of the Stasis Facility for the widened R04.
 
 ### 2026-11-23 (night): owner's pod chambers in the Stasis Facility
 1. **Completed and verified:** the owner's Robot Containment Chamber is now the pod room.

@@ -33,6 +33,8 @@ local remote: RemoteEvent
 local activating: { [Player]: BindableEvent } = {}
 
 local StasisService = {}
+local activatedEvent = Instance.new("BindableEvent")
+StasisService.Activated = activatedEvent.Event -- (player) after a first activation is saved
 
 type Pod = {
 	id: string,
@@ -189,6 +191,7 @@ local function finishActivation(player: Player, pod: Pod, designation: string)
 		end
 	end)
 	player:SetAttribute("PZ_Designation", designation)
+	activatedEvent:Fire(player)
 	local character = player.Character
 	local root = character and character:FindFirstChild("HumanoidRootPart") :: BasePart?
 	if root then

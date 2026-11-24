@@ -131,6 +131,7 @@ end
 --   Invoke("get", userId)               -> profile table copy (or nil)
 --   Invoke("setMission", userId, id, v) -> true if the profile was updated (v = nil removes the entry)
 --   Invoke("setActivated", userId, b)   -> true if the profile was updated (test the first-wake path again)
+--   Invoke("resetProgress", userId)     -> true: not activated, no missions, no fragments, no designation
 local function createDevHook()
 	if not RunService:IsStudio() then
 		return
@@ -153,6 +154,13 @@ local function createDevHook()
 			local value = ...
 			return PlayerDataService.Update(player, function(p)
 				p.progress.activated = value == true
+			end)
+		elseif action == "resetProgress" then
+			return PlayerDataService.Update(player, function(p)
+				p.progress.activated = false
+				p.progress.missions = {}
+				p.progress.memoryFragments = {}
+				p.identity.designation = nil
 			end)
 		end
 		return nil
