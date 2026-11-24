@@ -30,6 +30,9 @@ export type Profile = {
 		memoryFragments: { [string]: boolean }, -- fragmentId -> recovered
 	},
 	stats: { sessions: number },
+	wallet: { credits: number, rewards: { [string]: boolean }? }, -- NEXUS Credits (server-authoritative)
+	items: { [string]: boolean },     -- owned ItemCatalog ids
+	equipped: { [string]: string },   -- slot -> ItemCatalog id (e.g. back = "wings_basic")
 }
 
 local function deepCopy<T>(value: T): T
@@ -56,6 +59,9 @@ function ProfileSchema.default(userId: number, now: number): Profile
 			colour = ChassisColors.defaultFor(userId).id }, -- players start in different colours (owner, 2026-11-24)
 		progress = { activated = false, missions = {}, memoryFragments = {} },
 		stats = { sessions = 0 },
+		wallet = { credits = 0 },
+		items = {},
+		equipped = {},
 	}
 end
 
