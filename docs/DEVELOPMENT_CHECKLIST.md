@@ -93,10 +93,9 @@ The next build: v2's first playable slice. Design: [NEXUS_01_CITY.md](NEXUS_01_C
   - **Checks:** every footprint checked clear of the street and of the other buildings; every front checked from the street in Studio (the Charge Bay and the hospital had to be turned 180°).
 - [x] **Implement robotic NPC citizens with routines.**
   Verified 2026-11-24: Vela, Brass, Orin and Tamsin (the owner's three rigged robots, via Avatar Auto Setup) walk a loop along both sidewalks and through the plaza, at their own speeds and with pauses; their positions change between checks.
-  *Not yet seen on screen:* their greeting bubbles (`CitizenClient`).
-- [ ] **Create accessible building interiors, including one professional facility.**
-  *Partial (2026-11-24):* Patch's workshop interior (INT-03 model inside a shell, away from the street). The street door takes the robot inside (tested with E); Patch stands at the workbench on the real floor.
-  *Not yet tested:* the interior's Exit prompt (tests teleported out).
+  Greetings verified 2026-11-24: standing in a citizen's path, Brass's bubble appeared within 0.3 s ("Coming through, cargo for the market."). Checked through the game's data; the play-mode screenshot rendered black.
+- [x] **Create accessible building interiors, including one professional facility.**
+  Verified 2026-11-24: Patch's workshop interior (INT-03 model inside a shell, away from the street). E at the street door goes in; E at the interior's Exit returns the robot to the sidewalk, standing 6 studs in front of the door (both tested by key press). Patch stands at the workbench on the real floor.
 - [x] **Implement charging and maintenance.**
   Verified 2026-11-24:
   - Energy is saved in the profile and drains at 0.0666 per second (about 25 minutes from full).
@@ -113,7 +112,10 @@ The next build: v2's first playable slice. Design: [NEXUS_01_CITY.md](NEXUS_01_C
 - [ ] Implement basic transportation.
   *Assets ready:* 9 vehicle models imported; 7 crewed ones board robots, with seats verified. No driving yet.
 - [ ] Verify mobile and desktop performance.
-  *Not measured.* Each large building is about 60k triangles with 4 texture sets; StreamingEnabled is on, and the street lights and gameplay anchors are kept loaded (Persistent).
+  *Estimated, not yet measured live (2026-11-24):*
+  - From the street a player can see at most about 360k triangles (7 buildings at 24–60k each, plus 4 citizens at about 10k) and roughly 150–250 draw calls. Roblox's reference for 60 FPS on most devices is about 800k triangles and 600 draw calls.
+  - StreamingEnabled is on; the street lights and gameplay anchors are Persistent.
+  - A live SceneAnalysisService reading was not possible: Studio doesn't render the play window while it's in the background, so all three viewpoints returned the same frame. Next: a check on a real phone (owner), or Studio's Device Emulator with the window in focus.
 
 **Completion:** wake, finish M01, walk into the district, meet citizens, take a first job, charge, and earn and spend NEXUS Credits. *Met in solo Studio tests 2026-11-24, except transport and the performance check.*
 
@@ -217,6 +219,17 @@ Rules (Story Bible §7): weapons only from platforms and only in war missions, n
 | B1 | The Studio AI-assistant plugin changed version mid-session; Studio recommends a restart | Tool stability | Owner | **Done 2026-11-23** (Studio restarted) |
 
 ## Session log
+
+### 2026-11-24 (night): Phase 2 finishing pass (owner order: 1 district, 2 transport, 3 careers)
+1. **Completed and verified (one play session):**
+   - **Workshop interior Exit prompt:** works.
+   - **Citizen greetings:** work.
+   - **Interiors item:** checked.
+2. **In progress:** item 2, basic transportation (next).
+3. **Blocked:** a live performance measurement needs the Studio play window in focus or a real device (estimate recorded under Phase 2).
+4. **Files:** this checklist.
+5. **Tests:** the play session above. The owner's energy was left at 74% after testing: Studio refused my reset of the real save, and draining energy is ordinary play, so nothing needed undoing.
+6. **Next:** item 2, basic transportation.
 
 ### 2026-11-24 (night): vehicle cabins (owner feedback)
 1. **Completed and verified (Studio, place version 71):**
