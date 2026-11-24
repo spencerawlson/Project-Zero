@@ -20,4 +20,4 @@
 | Roblox Studio prototype | STARTED | Phase 9 — BLD-01 greybox built from Roblox/BLD-01_greybox_build.lua; Cypher, Sentinel, Patch imported at design scale; all 18 doors pass a widest-robot clearance probe |
 | Every inventory asset has a sheet | PASS | 119 assets checked; all present |
 | Robots fit vehicle cabs (crew standard) | PASS | 60 seats + 47 doors/aisles in 10 assets clear for the largest robot |
-| User vehicle models prepared for Roblox | PARTIAL | 9 of 9 reduced to 3-4 x 18k tris with textures re-baked from the originals (Roblox/vehicles_in_studio.md); 8 verified in Studio, VEH-04 Titan pending a Studio restart |
+| User vehicle models prepared for Roblox | PASS | 9 of 9 reduced to 3-4 x 18k tris with textures re-baked from the originals (Roblox/vehicles_in_studio.md); all 9 verified textured in Studio (VEH-04 after a Studio restart, 2026-11-23) |

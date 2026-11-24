@@ -139,9 +139,17 @@ Related documents: [Technical Architecture](TECHNICAL_ARCHITECTURE.md) · [Asset
 | D2 | Starter chassis: which robot or frame is the player's first body, and Roblox R15 auto-setup vs a custom rig | Phase 1 chassis, movement, animation; Phase 3 | Owner | **Decided 2026-11-23: Cypher-style frame** (rig approach still to be proven) |
 | D3 | Narrative canon: define The Source, the Great Silence, the three factions, NEXUS Credits and careers, and reconcile them with the existing "The Awakening" bible (ZERO, co-op trio) | Phase 1 cinematic, dialogue, memory fragment; Phase 6 | Owner | **Decided 2026-11-23: merge both; Claude drafts `docs/STORY_CANON.md` for owner approval** |
 | D4 | Turn on *Experience Settings → Security → Enable Studio Access to API Services* so saves can be tested in Studio | Phase 1 persistence | Owner (Studio setting) | **Done 2026-11-23** (verified by the round-trip test) |
-| B1 | The Studio AI-assistant plugin changed version mid-session; Studio recommends a restart | Tool stability | Owner | Restart after saving |
+| B1 | The Studio AI-assistant plugin changed version mid-session; Studio recommends a restart | Tool stability | Owner | **Done 2026-11-23** (Studio restarted) |
 
 ## Session log
+
+### 2026-11-23 (night): Titan verified
+1. **Completed and verified:** after a Studio restart, VEH-04 Titan (rev 8) renders with its textures: white panels, dark tyres, orange rims. The owner saw the same. All 9 supplied vehicles are now verified in Studio. Cause confirmed: Studio had cached the "content representation is being generated" failure from inserting right after upload.
+2. **In progress:** none on vehicles.
+3. **Blocked:** none (B1 cleared by the restart).
+4. **Files:** `PDF/src/pz_qa.py` (vehicle row now PASS); this log.
+5. **Tests:** visual check in Studio after the restart; QA re-run.
+6. **Next:** starter chassis (Phase 1). Later, a texture-memory pass: about 150 MB of vehicle textures in the yard is heavy for low-end GPUs. Use StreamingEnabled, plus 512 px maps for distant or enemy machines.
 
 ### 2026-11-23 (evening): damaged vehicle assets re-baked
 1. **Completed and verified:**
