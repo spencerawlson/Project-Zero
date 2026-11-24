@@ -1,16 +1,20 @@
 --!strict
--- ItemCatalog: things robots can buy with NEXUS Credits, and the rules for buying and equipping them.
--- Pure data and functions on a profile table (no Roblox services), unit tested; ShopService applies them.
--- Owner decisions 2026-11-24: any basic robot can buy wings with NEXUS Credits and fly freely; wings mount on
--- the robot's back (Cypher-style and Sentinel bodies alike).
+-- ItemCatalog: items robots can own, how they get them (bought with NEXUS Credits, or found in the world), and
+-- the rules for equipping them. Pure data and functions on a profile table (no Roblox services), unit tested;
+-- ShopService and WingPlatformService apply them.
+-- Owner decisions 2026-11-24: any basic robot can get wings and fly freely; wings mount on the robot's back
+-- (Cypher-style and Sentinel bodies alike). Later the same day: no robot starts with wings, and wings are not
+-- sold: players find the wing platform (R03) and stand on it until its ring completes (source "wing_platform").
 --
 -- Profile fields used (ProfileSchema): wallet.credits (number), items { [itemId] = true }, equipped { [slot] = itemId }
 --
 -- Contract:
---   ItemCatalog.ITEMS[id] = { id, name, price, slot, description }
+--   ItemCatalog.ITEMS[id] = { id, name, price?, source?, slot, description }
+--       price = NEXUS Credits (sold by a vendor); source = where it is found instead (not for sale)
 --   ItemCatalog.REWARDS[key] = credits for one-time rewards (e.g. "mission:M01")
---   ItemCatalog.canBuy(profile, id)   -> ok: boolean, reason: string?  ("unknown", "owned", "credits")
+--   ItemCatalog.canBuy(profile, id)   -> ok: boolean, reason: string?  ("unknown", "not_for_sale", "owned", "credits")
 --   ItemCatalog.buy(profile, id)      -> ok, reason   (spends credits, adds the item, equips it in its slot)
+--   ItemCatalog.grant(profile, id)    -> ok, reason   ("unknown", "owned"): adds a found item and equips it
 --   ItemCatalog.equip(profile, id)    -> ok, reason   ("unknown", "not_owned")
 --   ItemCatalog.unequip(profile, slot)
 --   ItemCatalog.award(profile, key)   -> credits added (0 if this reward was already given or is unknown)
@@ -19,8 +23,8 @@ local ItemCatalog = {}
 
 ItemCatalog.ITEMS = {
 	wings_basic = {
-		id = "wings_basic", name = "Nightwing", price = 100, slot = "back",
-		description = "Segmented flight wings with cyan power lines. Mounts on any standard frame; free flight on wing energy.",
+		id = "wings_basic", name = "Nightwing", source = "wing_platform", slot = "back",
+		description = "Segmented flight wings with cyan power lines. Fold out of a back module on any standard frame; free flight on wing energy.",
 	},
 }
 
@@ -35,6 +39,7 @@ end
 function ItemCatalog.canBuy(profile: any, id: string): (boolean, string?)
 	local item = ItemCatalog.ITEMS[id]
 	if not item then return false, "unknown" end
+	if not item.price then return false, "not_for_sale" end
 	if profile.items[id] then return false, "owned" end
 	if credits(profile) < item.price then return false, "credits" end
 	return true, nil
@@ -45,6 +50,15 @@ function ItemCatalog.buy(profile: any, id: string): (boolean, string?)
 	if not ok then return false, reason end
 	local item = ItemCatalog.ITEMS[id]
 	profile.wallet.credits -= item.price
+	profile.items[id] = true
+	profile.equipped[item.slot] = id
+	return true, nil
+end
+
+function ItemCatalog.grant(profile: any, id: string): (boolean, string?)
+	local item = ItemCatalog.ITEMS[id]
+	if not item then return false, "unknown" end
+	if profile.items[id] then return false, "owned" end
 	profile.items[id] = true
 	profile.equipped[item.slot] = id
 	return true, nil

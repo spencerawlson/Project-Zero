@@ -46,7 +46,7 @@ make("UIStroke", { Color = CYAN, Transparency = 0.5 }, win)
 make("UIPadding", { PaddingTop = UDim.new(0, 14), PaddingBottom = UDim.new(0, 14), PaddingLeft = UDim.new(0, 16), PaddingRight = UDim.new(0, 16) }, win)
 make("UIListLayout", { Padding = UDim.new(0, 10), SortOrder = Enum.SortOrder.LayoutOrder }, win)
 make("TextLabel", { LayoutOrder = 1, Size = UDim2.new(1, 0, 0, 24), BackgroundTransparency = 1, Font = Enum.Font.GothamBold,
-	TextSize = 20, TextColor3 = WHITE, TextXAlignment = Enum.TextXAlignment.Left, Text = "WING VENDOR" }, win)
+	TextSize = 20, TextColor3 = WHITE, TextXAlignment = Enum.TextXAlignment.Left, Text = "NEXUS VENDOR" }, win)
 local list = make("Frame", { LayoutOrder = 2, Size = UDim2.new(1, 0, 0, 0), AutomaticSize = Enum.AutomaticSize.Y, BackgroundTransparency = 1 }, win)
 make("UIListLayout", { Padding = UDim.new(0, 8), SortOrder = Enum.SortOrder.LayoutOrder }, list)
 local message = make("TextLabel", { LayoutOrder = 3, Size = UDim2.new(1, 0, 0, 20), BackgroundTransparency = 1, Font = Enum.Font.Gotham,
@@ -60,7 +60,8 @@ UserInputService.InputBegan:Connect(function(input, processed)
 end)
 
 local REASONS = { credits = "Not enough NEXUS Credits.", owned = "You already own this.", not_owned = "Buy it first.",
-	unknown = "Unknown item.", too_far = "Step up to the vendor to buy." }
+	unknown = "Unknown item.", too_far = "Step up to the vendor to buy.",
+	not_for_sale = "Not sold here." }
 
 local function render(state: any)
 	for _, c in ipairs(list:GetChildren()) do
@@ -110,8 +111,8 @@ remote.OnClientEvent:Connect(function(kind, data)
 		if win.Visible then render(data) end
 	elseif kind == "result" and type(data) == "table" then
 		if data.ok then
-			message.Text = if data.action == "buy" then "Purchased and mounted. Press F to fly."
-				elseif data.action == "equip" then "Wings mounted. Press F to fly." else "Wings stowed."
+			message.Text = if data.action == "buy" then "Purchased and equipped."
+				elseif data.action == "equip" then "Equipped." else "Unequipped."
 		else
 			message.Text = REASONS[data.reason] or "Request refused."
 		end

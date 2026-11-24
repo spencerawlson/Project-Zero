@@ -3,8 +3,9 @@
 --
 -- Credits are only changed here (Award, purchases) through PlayerDataService.Update, which mirrors the balance to
 -- the player attribute PZ_Credits for the HUD.
--- Vendor: a "Wing vendor" terminal in Reception (R01, facility frame x 22, y 12). Its prompt opens the shop on
--- that player's screen.
+-- No vendor is placed yet: nothing is for sale. (The Reception wing vendor was removed 2026-11-24: the owner
+-- wants wings found, not bought; see WingPlatformService.) A future vendor calls ShopService.Open(player) and
+-- registers itself with ShopService.SetVendor(part) so purchases need the player at the terminal.
 -- ReplicatedStorage.PZ_Remotes.Shop (RemoteEvent):
 --   client -> server: ("buy", itemId) | ("equip", itemId) | ("unequip", slot)     (rate limited)
 --   server -> client: ("open", state) | ("state", state) | ("result", { ok, reason, itemId, action })
@@ -20,7 +21,7 @@ local EquipmentService = require(script.Parent.EquipmentService)
 local ShopService = {}
 
 local COOLDOWN = 0.4
-local VENDOR_RANGE = 14 -- purchases only while standing at the vendor terminal
+local VENDOR_RANGE = 14 -- purchases only while standing at a vendor terminal
 local remote: RemoteEvent
 local vendor: BasePart? = nil
 local last: { [Player]: number } = {}
@@ -65,27 +66,12 @@ local function handle(player: Player, action: string, arg: any)
 	remote:FireClient(player, "state", stateOf(player))
 end
 
-local function buildVendor()
-	local facility = workspace:WaitForChild("PZ_StasisFacility", 30)
-	local old = facility and facility:FindFirstChild("WingVendor")
-	if old then old:Destroy() end
-	local p = Instance.new("Part")
-	p.Name = "WingVendor"; p.Anchored = true; p.Size = Vector3.new(1, 5, 3.5)
-	p.CFrame = CFrame.new(22, 2.7, -12); p.Color = Color3.fromHex("#2B2F36"); p.Material = Enum.Material.Metal
-	local g = Instance.new("SurfaceGui"); g.Face = Enum.NormalId.Left; g.LightInfluence = 0
-	g.SizingMode = Enum.SurfaceGuiSizingMode.PixelsPerStud; g.PixelsPerStud = 40
-	local t = Instance.new("TextLabel"); t.Size = UDim2.fromScale(1, 1); t.BackgroundColor3 = Color3.fromRGB(10, 14, 18)
-	t.TextColor3 = Color3.fromHex("#22D3EE"); t.Font = Enum.Font.GothamBold; t.TextScaled = true
-	t.Text = "WING\nVENDOR\n\nNEXUS\nCREDITS"; t.Parent = g
-	g.Parent = p
-	local pr = Instance.new("ProximityPrompt")
-	pr.ActionText = "Browse"; pr.ObjectText = "Wing vendor"; pr.HoldDuration = 0.2
-	pr.MaxActivationDistance = 8; pr.RequiresLineOfSight = false; pr.Parent = p
-	pr.Triggered:Connect(function(player)
-		remote:FireClient(player, "open", stateOf(player))
-	end)
-	p.Parent = facility
-	vendor = p
+function ShopService.SetVendor(part: BasePart?)
+	vendor = part
+end
+
+function ShopService.Open(player: Player)
+	remote:FireClient(player, "open", stateOf(player))
 end
 
 function ShopService.Start()
@@ -100,7 +86,6 @@ function ShopService.Start()
 		handle(player, action, arg)
 	end)
 	Players.PlayerRemoving:Connect(function(p) last[p] = nil end)
-	buildVendor()
 end
 
 return ShopService

@@ -170,6 +170,48 @@ Related documents: [Technical Architecture](TECHNICAL_ARCHITECTURE.md) · [Asset
 
 ## Session log
 
+### 2026-11-24 (later): wing platform, wings only in flight (owner feedback)
+1. **Completed and verified:**
+   - **Owner feedback:** the always-on wings "looked like a glitch, not part of the robot". Wings should be an option, not something that stays on, and players should find them. No robot starts with wings.
+   - **Wing platform:** the owner's "Pod Standing Platform" model is placed in R03 (Staff / Decon Lockers, the side room off Reception through D08). It is off the mission route, so players find it by exploring.
+     - Prep: 2.26 M → 45k triangles in 3 pieces, textures baked (`pz_vehicle_prep.py ... 15 15000 3 ... 0 bake`), 15 studs across. Asset 114049270264733, stored in `ServerStorage.Props.WingPlatform` with precise collision.
+     - A cyan hologram of the Nightwing turns above it, at wing height on a standing robot.
+     - Standing in the centre ring for 5 s fills a ring of 36 lights. When the ring completes, the robot gets the Nightwing (saved), with a "NIGHTWING ACQUIRED · PRESS F TO FLY" banner.
+     - The platform runs on facility power: dark at the start of M01, on once main power is restored, and on in free roam.
+     - The room's name sign moved to the back wall so it does not cover the platform.
+   - **Wings are no longer sold:** the Reception wing vendor was removed. Credits stay for future items.
+   - **Wings only in flight:**
+     - While walking, nothing shows on the back.
+     - On take-off (F), a back module (dark housing, cyan core, hinge pins) appears and the wings grow out of it and swing open (0.55 s). Landing folds them back and hides them.
+     - New placement: raised to the shoulder blades, 0.45 studs behind the back (clear of the arms), 0.8 scale, tips tilted up 12°. Checked by eye on the Cypher and Sentinel bodies.
+     - All clients animate it from the character attribute `PZ_WingsOut`, which the server sets on the client's deploy or stow request.
+2. **In progress:** none.
+3. **Blocked:** none.
+4. **Files:**
+   - New:
+     - `src/server/Services/WingPlatformService.luau`
+     - `src/client/WingPlatform.client.luau`
+     - `src/client/WingVisuals.client.luau`
+   - Changed:
+     - `EquipmentService`: back module, stowed mount, Flight remote.
+     - `FlightController`: deploy and stow requests.
+     - `ItemCatalog`: `source`, `grant`, `not_for_sale`.
+     - `ShopService`: vendor removed.
+     - `ShopUI`
+     - `PlayerDataService`: `removeItem` dev action.
+     - `Main.server.luau`
+     - `tests/Cases/ItemCatalog_Test.luau`
+   - Place (saved, version 53): `ServerStorage.Props.WingPlatform`.
+5. **Tests:**
+   - Unit tests 53/53 (fresh play session).
+   - Playtest:
+     - Walked into R03 and jumped onto the platform (rim 4.3 studs, jump 7.2). Standing in the centre showed "INSTALLING NIGHTWING" up to 100 %. The wings were granted and equipped, and nothing showed on the back while walking.
+     - F: the wings unfolded to full size. F again: they folded to 0.16 scale and hid within 0.55 s.
+     - The wings were still owned after a restart.
+     - Power: Degraded → off, Online → on.
+   - The owner's profile was put back without wings (150 credits, M01 complete), so they can find the platform themselves.
+6. **Next:** camera after the wake-up scene, lockdown red, co-op test (two players on the platform at once, and seeing each other's wings unfold), bible re-render; the owner's other new models.
+
 ### 2026-11-24 (later): Nightwing wings in cyan, smaller context tags (owner feedback)
 1. **Completed and verified:**
    - **Owner's wing model in:** "Nightwing" (made by the owner on Meshy from their 2D concept). Uploaded as asset 87385487959918 and stored in `ServerStorage.Items.WingsBasic` with a "Mount" attachment; it replaces the placeholder.
