@@ -130,6 +130,7 @@ end
 -- Lets playtest assertions read and change the LIVE service state (a test `require` gets a separate module copy).
 --   Invoke("get", userId)               -> profile table copy (or nil)
 --   Invoke("setMission", userId, id, v) -> true if the profile was updated (v = nil removes the entry)
+--   Invoke("setActivated", userId, b)   -> true if the profile was updated (test the first-wake path again)
 local function createDevHook()
 	if not RunService:IsStudio() then
 		return
@@ -147,6 +148,11 @@ local function createDevHook()
 			local id, value = ...
 			return PlayerDataService.Update(player, function(p)
 				p.progress.missions[id] = value
+			end)
+		elseif action == "setActivated" then
+			local value = ...
+			return PlayerDataService.Update(player, function(p)
+				p.progress.activated = value == true
 			end)
 		end
 		return nil

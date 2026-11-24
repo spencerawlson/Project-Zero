@@ -2,5 +2,7 @@
 local Services = script.Parent.Services
 
 local PlayerDataService = require(Services.PlayerDataService)
+local StasisService = require(Services.StasisService)
 
 PlayerDataService.Start()
+StasisService.Start()

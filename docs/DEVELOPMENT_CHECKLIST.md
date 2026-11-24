@@ -37,9 +37,13 @@ Related documents: [Technical Architecture](TECHNICAL_ARCHITECTURE.md) · [Asset
 
 - [ ] **Create the robotic activation facility.**
   *In progress:* the BLD-01 Stasis Facility is the activation facility. It's approved (SF-01 to 05) and the greybox is built in Studio: 13 rooms, 18 doors at least 6×10 that pass a widest-robot probe, and 8 pods.
-  Not done: kit modules, the pod model with its hinge, the wake sequence, lighting states and `StasisFacilityService`.
-- [ ] **Implement the standard starter chassis.**
-  Blocked by D2: no Humanoid-compatible robot rig yet.
+  *Done 2026-11-23:* `StasisService` assigns each party member their own player pod (P02, P03, P04, P06, using the `PodRoster` unit tests). A new player is held in the closed pod; holding **Activate** (E) opens the glass, frees the robot and saves `progress.activated = true`. A returning player spawns in front of their open pod. Verified in playtests with the real DataStore across sessions.
+  Not done: kit modules, the pod model with its hinge, lighting states, and the wake cinematic (the next item).
+- [x] **Implement the standard starter chassis.**
+  Verified 2026-11-23 in Studio playtests:
+  - **Rig:** the Cypher mesh was auto-rigged with Roblox Avatar Auto Setup (Development) into an R15 character, 6.3 studs tall. It is installed as `StarterPlayer.StarterCharacter`, with a master copy at `ServerStorage.Chassis.CypherFrame`. The canonical `PZ_Cypher` is untouched.
+  - **Movement:** walks with the rig's own animations (Running state).
+  - **Fit:** walked from the pod chamber out through the facility's doors to the outside spawn.
 - [ ] **Implement movement, camera and interaction.**
   *Partial:* ProximityPrompt boarding with server validation works on 7 vehicles. Movement and camera are still Roblox defaults.
 - [ ] **Create the activation cinematic and dialogue with The Source.**
@@ -136,13 +140,31 @@ Related documents: [Technical Architecture](TECHNICAL_ARCHITECTURE.md) · [Asset
 | ID | Decision or blocker | Blocks | Owner | Status |
 |---|---|---|---|---|
 | D1 | Adopt Rojo, keeping game code in `src/` in this repo and synced to Studio | All code tasks, commit references | Owner | **Decided 2026-11-23: Rojo + git. Live sync verified 2026-11-23** |
-| D2 | Starter chassis: which robot or frame is the player's first body, and Roblox R15 auto-setup vs a custom rig | Phase 1 chassis, movement, animation; Phase 3 | Owner | **Decided 2026-11-23: Cypher-style frame** (rig approach still to be proven) |
+| D2 | Starter chassis: which robot or frame is the player's first body, and Roblox R15 auto-setup vs a custom rig | Phase 1 chassis, movement, animation; Phase 3 | Owner | **Decided 2026-11-23: Cypher-style frame; rig = R15 via Avatar Auto Setup (proven 2026-11-23)** |
 | D3 | Narrative canon: define The Source, the Great Silence, the three factions, NEXUS Credits and careers, and reconcile them with the existing "The Awakening" bible (ZERO, co-op trio) | Phase 1 cinematic, dialogue, memory fragment; Phase 6 | Owner | **Decided 2026-11-23: merge both. `docs/STORY_CANON.md` approved by the owner 2026-11-23 (suggested answers; the saboteur stays open until Chapter 4)** |
 | D4 | Turn on *Experience Settings → Security → Enable Studio Access to API Services* so saves can be tested in Studio | Phase 1 persistence | Owner (Studio setting) | **Done 2026-11-23** (verified by the round-trip test) |
 | D5 | Server topology: city hub servers (about 20–30 players) plus reserved-server mission instances for parties of 1–4; unlimited concurrent groups | Phase 1 pods, every mission, Phase 4 city | Owner | **Decided 2026-11-23** (see `docs/TECHNICAL_ARCHITECTURE.md` §3d) |
 | B1 | The Studio AI-assistant plugin changed version mid-session; Studio recommends a restart | Tool stability | Owner | **Done 2026-11-23** (Studio restarted) |
 
 ## Session log
+
+### 2026-11-23 (night): starter chassis and stasis pods
+1. **Completed and verified:**
+   - **Starter chassis.** The Cypher frame is auto-rigged to R15 and is the starter character (Phase 1 item checked).
+   - **Stasis pods.** Each player gets their own pod, held until activated; activation is saved.
+2. **In progress:** activation facility (kit modules, pod hinge, lighting, cinematic).
+3. **Blocked:** none.
+4. **Files:**
+   - New: `src/shared/PodRoster.luau`, `src/server/Services/StasisService.luau`, `tests/Cases/PodRoster_Test.luau`.
+   - Changed: `src/server/Main.server.luau` starts `StasisService`; `PlayerDataService` gains the Studio-only `setActivated` test action.
+   - Place content: `StarterPlayer.StarterCharacter`, `ServerStorage.Chassis.CypherFrame`.
+5. **Tests:**
+   - Unit tests 25/25 (7 new).
+   - Playtest 1 (new player): spawned in P02, feet on the pod floor (2.48 vs 2.50), facing the room, held. Pressing E opened the glass, freed the robot and saved activated. Walked out with animations.
+   - Playtest 2 (returning player): activated loaded from the DataStore; spawned in front of the open P02 and free; walked out of the facility.
+   - The owner's profile was reset to `activated = false` afterwards (verified in a third session) so the owner sees the first wake.
+   - Bug found and fixed in testing: `Model:PivotTo` put the body 3.6 studs too high because Auto Setup rigs have an offset pivot. Positioning now uses the root part.
+6. **Next:** the activation cinematic and dialogue with The Source, plus memory fragment MF-001 (canon approved).
 
 ### 2026-11-23 (night): story canon approved
 1. **Completed and verified:** the owner approved `docs/STORY_CANON.md` with the suggested answers.
