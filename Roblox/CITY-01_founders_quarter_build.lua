@@ -16,7 +16,10 @@ local root = Instance.new("Folder"); root.Name = "PZ_FoundersQuarter"
 local function folder(name, parent)
 	local f = Instance.new("Folder"); f.Name = name; f.Parent = parent or root; return f
 end
-local ground, lightsF, anchors, buildings = folder("Ground"), folder("Lights"), folder("Anchors"), folder("Buildings")
+local ground, lightsF, buildings = folder("Ground"), folder("Lights"), folder("Buildings")
+-- Gameplay anchors and street lights stay loaded for every player (StreamingEnabled is on): contract prompts and
+-- objective markers are made for them on the client, so they must exist even when far away.
+local anchors = Instance.new("Model"); anchors.Name = "Anchors"; anchors.ModelStreamingMode = Enum.ModelStreamingMode.Persistent; anchors.Parent = root
 
 local function part(name, size, cf, colour, material, parent, props)
 	local p = Instance.new("Part")
@@ -64,6 +67,7 @@ for _, l in ipairs(L.LIGHTS) do
 	local socket = part("Socket", Vector3.new(1, 1.4, 1), CFrame.new(base + Vector3.new(0, 1.2, 0)), Color3.fromHex("#2B2F36"), Enum.Material.Metal, m)
 	part("SocketLight", Vector3.new(0.2, 0.6, 0.6), socket.CFrame * CFrame.new(toRoad * 0.55, 0.2, 0), LINE, Enum.Material.Neon, m)
 	m.PrimaryPart = socket
+	m.ModelStreamingMode = Enum.ModelStreamingMode.Persistent
 	m.Parent = lightsF
 end
 

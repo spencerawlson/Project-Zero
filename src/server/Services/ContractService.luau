@@ -216,7 +216,7 @@ function ContractService.Start(missionCompleted: RBXScriptSignal?)
 		local model = NpcService.SpawnAt("Patch", "PatchNPC", look - Vector3.new(0, 0.5, 0), "PATCH", { anchored = true })
 		local anchor = (model and model:FindFirstChild("HumanoidRootPart")) or spot
 		local p = Instance.new("ProximityPrompt")
-		p.ActionText = "Talk"; p.ObjectText = "Patch"; p.MaxActivationDistance = 9; p.RequiresLineOfSight = false
+		p.ActionText = "Talk"; p.ObjectText = "Patch"; p.MaxActivationDistance = 12; p.RequiresLineOfSight = false
 		p.Parent = anchor
 		p.Triggered:Connect(talk)
 	end

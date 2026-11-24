@@ -147,7 +147,15 @@ function NpcService.SpawnAt(name: string, templateName: string, cframe: CFrame, 
 	local root = model:FindFirstChild("HumanoidRootPart") :: BasePart
 	hum.DisplayDistanceType = Enum.HumanoidDisplayDistanceType.None
 	model.PrimaryPart = root
-	local pos = cframe.Position + Vector3.new(0, hum.HipHeight + root.Size.Y / 2, 0)
+	-- stand on the real floor below the spot (interiors have raised floors: Patch was half inside the workshop's)
+	local params = RaycastParams.new()
+	params.FilterType = Enum.RaycastFilterType.Exclude
+	local exclude: { Instance } = {}
+	for _, pl in ipairs(Players:GetPlayers()) do if pl.Character then table.insert(exclude, pl.Character) end end
+	params.FilterDescendantsInstances = exclude
+	local hit = workspace:Raycast(cframe.Position + Vector3.new(0, 8, 0), Vector3.new(0, -20, 0), params)
+	local groundY = if hit then hit.Position.Y else cframe.Position.Y
+	local pos = Vector3.new(cframe.Position.X, groundY + hum.HipHeight + root.Size.Y / 2, cframe.Position.Z)
 	root.CFrame = CFrame.lookAt(pos, pos + cframe.LookVector * Vector3.new(1, 0, 1))
 	root.Anchored = opts ~= nil and opts.anchored == true
 	model:SetAttribute("NpcName", name)

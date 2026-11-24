@@ -85,18 +85,37 @@ Related documents: [Story Bible](STORY_BIBLE.md) · [Timeline](TIMELINE.md) · [
 - **NEXUS Credits wallet:** M01 pays 150 once.
 
 ## Phase 2: Civilian City Vertical Slice
-The next build. This is v2's first playable slice; about half of it is already done in Phase 1.
-- [ ] Build one functioning NEXUS-01 district (reached straight after M01).
-  *Assets:* 29 building models (BLD-01 to 29) and 20 infrastructure models. The prep-and-bake pipeline is proven (platform: 2.3 M → 45k triangles).
-- [ ] Implement robotic NPC citizens with routines.
-- [ ] Create accessible building interiors, including **one professional facility** (proposed: Patch's workshop, INT-03 / BLD-02).
-- [ ] Implement charging and maintenance.
-- [ ] Create introductory civilian jobs: **one introductory career mission** (engineering with Patch).
+The next build: v2's first playable slice. Design: [NEXUS_01_CITY.md](NEXUS_01_CITY.md). Built 2026-11-24 (place version 63).
+- [x] **Build one functioning NEXUS-01 district (reached straight after M01).**
+  Verified 2026-11-24, the **Founders' Quarter**:
+  - **Layout:** a 250-stud street (road, sidewalks, cyan kerbs, plaza, 8 street lights, arrival sign) starting at M01's exit behind the facility; built by `Roblox/CITY-01_founders_quarter_build.lua` from `Shared.CityLayout`.
+  - **7 buildings** (owner models, baked 45–60k triangles each): Patch's Workshop, Charge Bay, Circuit Market, Maintenance Hospital, Residential Tower, Emergency Station, Police Station.
+  - **Checks:** every footprint checked clear of the street and of the other buildings; every front checked from the street in Studio (the Charge Bay and the hospital had to be turned 180°).
+- [x] **Implement robotic NPC citizens with routines.**
+  Verified 2026-11-24: Vela, Brass, Orin and Tamsin (the owner's three rigged robots, via Avatar Auto Setup) walk a loop along both sidewalks and through the plaza, at their own speeds and with pauses; their positions change between checks.
+  *Not yet seen on screen:* their greeting bubbles (`CitizenClient`).
+- [ ] **Create accessible building interiors, including one professional facility.**
+  *Partial (2026-11-24):* Patch's workshop interior (INT-03 model inside a shell, away from the street). The street door takes the robot inside (tested with E); Patch stands at the workbench on the real floor.
+  *Not yet tested:* the interior's Exit prompt (tests teleported out).
+- [x] **Implement charging and maintenance.**
+  Verified 2026-11-24:
+  - Energy is saved in the profile and drains at 0.0666 per second (about 25 minutes from full).
+  - The Charge Bay pad shows CHARGING.
+  - An energy cell (R) took 80 to 100.
+  - Maintenance gameplay: contract C02, calibrating the bay's three arms.
+- [x] **Create introductory civilian jobs: one introductory career mission (engineering with Patch).**
+  Verified 2026-11-24, playing with keyboard input:
+  - After M01, the "Find Patch" objective appears.
+  - **C01 "Lights Out":** Patch → crate → a power cell in the robot's hand → 3 dark lights (shown only to this player) fixed → report. Paid 120 credits and 50 experience.
+  - **Market:** bought an energy cell (30) and the engineering toolkit (200); the wings are not listed.
+  - **C02 "Bay Calibration":** unlocked by the toolkit. Walked into the bay and calibrated 3 arms → report. Paid 150 credits and 60 experience.
+  - Contract records persisted to the next play session.
 - [ ] Implement basic transportation.
   *Assets ready:* 9 vehicle models imported; 7 crewed ones board robots, with seats verified. No driving yet.
 - [ ] Verify mobile and desktop performance.
+  *Not measured.* Each large building is about 60k triangles with 4 texture sets; StreamingEnabled is on, and the street lights and gameplay anchors are kept loaded (Persistent).
 
-**Completion:** wake, finish M01, walk into the district, meet citizens, take a first job, charge, and earn and spend NEXUS Credits.
+**Completion:** wake, finish M01, walk into the district, meet citizens, take a first job, charge, and earn and spend NEXUS Credits. *Met in solo Studio tests 2026-11-24, except transport and the performance check.*
 
 ## Phase 3: Skills and Careers
 - [ ] Implement skill progression.
@@ -119,7 +138,7 @@ The next build. This is v2's first playable slice; about half of it is already d
 
 ## Phase 5: Economy and Businesses
 - [ ] Implement NEXUS Credits.
-  *Partial (2026-11-24):* server-authoritative wallet in the profile; one-time rewards (M01: 150); balance on screen. Nothing to spend credits on yet.
+  *Partial (2026-11-24):* server-authoritative wallet in the profile. Earned from M01 (150 once) and contracts C01 and C02. Spent at the Circuit Market (energy cells, the engineering toolkit). Balance on screen. Not yet: transaction records.
 - [ ] Implement secure transactions and records.
 - [ ] Implement property ownership.
 - [ ] Implement business ownership.
@@ -198,6 +217,37 @@ Rules (Story Bible §7): weapons only from platforms and only in war missions, n
 | B1 | The Studio AI-assistant plugin changed version mid-session; Studio recommends a restart | Tool stability | Owner | **Done 2026-11-23** (Studio restarted) |
 
 ## Session log
+
+### 2026-11-24 (afternoon): Phase 2 city slice: the Founders' Quarter
+1. **Completed and verified** (solo Studio tests, place version 63):
+   - **District:** 12 owner models prepared in Blender (bake, 1024 px textures), uploaded, approved and placed. The district is built from `Shared.CityLayout`.
+   - **Characters:** Patch and three citizen bodies rigged with Avatar Auto Setup.
+   - **Gameplay loop, played end to end:** Find Patch → C01 (+120) → market (cell, toolkit) → energy and charging → C02 (+150). Checklist Phase 2 has the details.
+   - **Bugs found and fixed:**
+     - **Rigged models baked mid-stride:** the prep script now uses the rest pose.
+     - **Patch sank into the raised interior floor:** NPC spawns and door teleports now find the floor with a ray.
+     - **Talk range too tight:** widened to 12.
+     - **The Charge Bay and the hospital faced away from the street:** turned 180°.
+     - **Bay arm markers unreachable:** moved, using a ray map of the walkable floor.
+     - **StreamingEnabled risk:** the street lights and gameplay anchors are now Persistent, so a contract's targets always exist on the client.
+   - Profile schema v2 migration verified on the owner's real profile, which was then reset to its pre-test state (150 credits, no contracts or toolkit) with the new `resetCity` dev action.
+2. **In progress:** none.
+3. **Blocked:** none.
+4. **Files:**
+   - Code:
+     - `src/shared/{CityLayout,EnergyRules,ContractRules}.luau`
+     - `src/server/Services/{CityService,EnergyService,ContractService,CitizenService}.luau`
+     - `src/client/{EnergyHUD,ContractClient,CitizenClient}.client.luau`
+     - Changed: ProfileSchema (v2), ItemCatalog (market), NpcService (SpawnAt), MissionService (Completed), MissionHUD, ShopUI, ShopService, PlayerDataService (resetCity).
+   - Tests: `tests/Cases/{EnergyRules,ContractRules}_Test.luau` and new cases in ItemCatalog_Test and ProfileSchema_Test.
+   - Builder and pipeline: `Roblox/CITY-01_founders_quarter_build.lua`; `Blender/scripts/pz_vehicle_prep.py` (`height` option, rest pose).
+   - Docs: `docs/NEXUS_01_CITY.md`.
+5. **Tests:** unit tests 67/67 in a fresh play session, plus the playtests above.
+6. **Next:**
+   - Test the interior Exit prompt and see the citizens' greetings on screen.
+   - Basic transportation: drive the imported vehicles.
+   - Measure performance on mobile.
+   - Then Phase 3 (careers and academies), building on the engineering experience now saved.
 
 ### 2026-11-24 (night): names and story gaps decided; memory dialogue updated
 1. **Completed and verified:**

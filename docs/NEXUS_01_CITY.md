@@ -100,3 +100,20 @@ A new player can:
 8. do C02
 
 The district runs at a playable frame rate on a mid-range PC and a phone (StreamingEnabled; models baked to 1024 px textures, about 60k triangles per large building).
+
+## 4. Assets in the place (2026-11-24)
+| Model | Roblox asset | Where |
+|---|---|---|
+| Patch's Workshop (BLD-02 model) | 97302530858946 | `ServerStorage.City.PZ_PatchWorkshop` |
+| Workshop interior (INT-03) | 132359776753670 | `ServerStorage.City.PZ_WorkshopInterior` |
+| Charge Bay (Tech Repair Station) | 81129535043599 | `ServerStorage.City.PZ_ChargeBay` |
+| Power cell (carried in C01) | 71306623252879 | `ServerStorage.City.PZ_PowerCell` |
+| Police Station (BLD-16) | 80198618347945 | `ServerStorage.City.PZ_PoliceStation` |
+| Maintenance Hospital (BLD-09) | 118681095189922 | `ServerStorage.City.PZ_MaintenanceHospital` |
+| Circuit Market (BLD-04) | 121741539857006 | `ServerStorage.City.PZ_CircuitMarket` |
+| Residential Tower (BLD-03) | 84184484894086 | `ServerStorage.City.PZ_ResidentialTower` |
+| Emergency Station (BLD-17) | 114830054796725 | `ServerStorage.City.PZ_EmergencyStation` |
+| Citizen bodies (utility, cargo, research) | 86327307717687, 128153791599552, 110664630060363 | rigged: `ServerStorage.Citizens.{UtilityRobot,CargoRobot,ResearchRobot}` |
+| Patch (CHR-03, rigged) | from 79909362444560 | `ServerStorage.Chassis.PatchNPC` |
+
+Building fronts were checked from the street in Studio. The Charge Bay's arm markers sit on floor mapped with a ray grid (they must be reachable walking in from the street).

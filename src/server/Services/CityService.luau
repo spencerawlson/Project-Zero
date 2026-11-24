@@ -50,7 +50,11 @@ local function teleport(player: Player, spot: Vector3, look: Vector3)
 	local root = c and c:FindFirstChild("HumanoidRootPart") :: BasePart?
 	local hum = c and c:FindFirstChildOfClass("Humanoid")
 	if not root or not hum or hum.Health <= 0 then return end
-	local y = spot.Y + hum.HipHeight + root.Size.Y / 2 + 0.2
+	local params = RaycastParams.new()
+	params.FilterType = Enum.RaycastFilterType.Exclude
+	params.FilterDescendantsInstances = { c }
+	local hit = workspace:Raycast(spot + Vector3.new(0, 8, 0), Vector3.new(0, -20, 0), params) -- land on the real floor
+	local y = (if hit then hit.Position.Y else spot.Y) + hum.HipHeight + root.Size.Y / 2 + 0.2
 	c:PivotTo(CFrame.lookAt(Vector3.new(spot.X, y, spot.Z), Vector3.new(look.X, y, look.Z)))
 end
 
