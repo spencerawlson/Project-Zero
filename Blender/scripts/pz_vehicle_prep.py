@@ -43,8 +43,12 @@ for o in list(bpy.context.scene.objects):        # importer bone-shape helpers a
         bpy.data.objects.remove(o)
 meshes = [o for o in bpy.context.scene.objects if o.type == "MESH"]
 for o in bpy.context.scene.objects:
-    if o.type == "ARMATURE" and o.animation_data:
-        o.animation_data.action = None
+    if o.type == "ARMATURE":
+        if o.animation_data:
+            o.animation_data.action = None
+        # Rest pose, not the last animated frame: rigged robots (Mixamo clips) otherwise bake mid-stride
+        # (seen on the city citizens, 2026-11-24). pz_model_audit.py does the same.
+        o.data.pose_position = "REST"
 bpy.ops.object.select_all(action="DESELECT")
 for o in meshes:
     o.select_set(True)
