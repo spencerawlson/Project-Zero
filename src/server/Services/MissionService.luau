@@ -24,6 +24,9 @@ local ShopService = require(script.Parent.ShopService)
 
 local MissionService = {}
 
+local completedEvent = Instance.new("BindableEvent")
+MissionService.Completed = completedEvent.Event -- fires (player) when a player completes M01 (ContractService guides them on)
+
 local REACH_RANGE = 5
 local remote: RemoteEvent
 local state: M.State? = nil
@@ -126,6 +129,7 @@ local function run(effects: { any }, player: Player?)
 			ShopService.Award(player, "mission:" .. M.ID) -- 150 NEXUS Credits, once
 			remote:FireClient(player, "complete", { mission = M.ID })
 			remote:FireClient(player, "objective", nil)
+			completedEvent:Fire(player)
 		else
 			applyWorld(name, false)
 		end

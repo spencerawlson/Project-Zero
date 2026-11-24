@@ -46,7 +46,7 @@ make("UIStroke", { Color = CYAN, Transparency = 0.5 }, win)
 make("UIPadding", { PaddingTop = UDim.new(0, 14), PaddingBottom = UDim.new(0, 14), PaddingLeft = UDim.new(0, 16), PaddingRight = UDim.new(0, 16) }, win)
 make("UIListLayout", { Padding = UDim.new(0, 10), SortOrder = Enum.SortOrder.LayoutOrder }, win)
 make("TextLabel", { LayoutOrder = 1, Size = UDim2.new(1, 0, 0, 24), BackgroundTransparency = 1, Font = Enum.Font.GothamBold,
-	TextSize = 20, TextColor3 = WHITE, TextXAlignment = Enum.TextXAlignment.Left, Text = "NEXUS VENDOR" }, win)
+	TextSize = 20, TextColor3 = WHITE, TextXAlignment = Enum.TextXAlignment.Left, Text = "CIRCUIT MARKET" }, win)
 local list = make("Frame", { LayoutOrder = 2, Size = UDim2.new(1, 0, 0, 0), AutomaticSize = Enum.AutomaticSize.Y, BackgroundTransparency = 1 }, win)
 make("UIListLayout", { Padding = UDim.new(0, 8), SortOrder = Enum.SortOrder.LayoutOrder }, list)
 local message = make("TextLabel", { LayoutOrder = 3, Size = UDim2.new(1, 0, 0, 20), BackgroundTransparency = 1, Font = Enum.Font.Gotham,
@@ -60,16 +60,19 @@ UserInputService.InputBegan:Connect(function(input, processed)
 end)
 
 local REASONS = { credits = "Not enough NEXUS Credits.", owned = "You already own this.", not_owned = "Buy it first.",
-	unknown = "Unknown item.", too_far = "Step up to the vendor to buy.",
+	unknown = "Unknown item.", too_far = "Step up to the vendor to buy.", full = "You can carry 5 at most.",
 	not_for_sale = "Not sold here." }
 
+local lastCatalog: { [string]: any }? = nil
 local function render(state: any)
+	lastCatalog = state and state.catalog
 	for _, c in ipairs(list:GetChildren()) do
 		if c:IsA("Frame") then c:Destroy() end
 	end
 	if not state then return end
 	local order = 0
 	for id, item in pairs(state.catalog) do
+		if not item.price then continue end -- found in the world (wings), never sold here
 		order += 1
 		local row = make("Frame", { Name = id, LayoutOrder = order, Size = UDim2.new(1, 0, 0, 86), BackgroundColor3 = Color3.fromRGB(22, 28, 36) }, list)
 		make("UICorner", { CornerRadius = UDim.new(0, 6) }, row)
@@ -79,9 +82,19 @@ local function render(state: any)
 			Font = Enum.Font.Gotham, TextSize = 13, TextColor3 = MUTED, TextWrapped = true, TextXAlignment = Enum.TextXAlignment.Left,
 			TextYAlignment = Enum.TextYAlignment.Top, Text = item.description }, row)
 		local owned = state.items[id] == true
-		local equipped = state.equipped[item.slot] == id
+		local equipped = item.slot ~= nil and state.equipped[item.slot] == id
 		local text, action, enabled
-		if not owned then
+		if item.kind == "consumable" then
+			local have = (state.inventory and state.inventory[id]) or 0
+			local short = item.price - state.credits
+			local full = have >= (item.max or math.huge)
+			text = if full then ("FULL  (%d/%d)"):format(have, item.max)
+				elseif short > 0 then ("%d CR  (need %d)"):format(item.price, short)
+				else ("BUY %d CR  (%d/%d)"):format(item.price, have, item.max)
+			action, enabled = "buy", short <= 0 and not full
+		elseif owned and not item.slot then
+			text, action, enabled = "OWNED", "none", false
+		elseif not owned then
 			local short = item.price - state.credits
 			text = if short > 0 then ("%d CR  (need %d)"):format(item.price, short) else ("BUY  %d CR"):format(item.price)
 			action, enabled = "buy", short <= 0
@@ -111,7 +124,10 @@ remote.OnClientEvent:Connect(function(kind, data)
 		if win.Visible then render(data) end
 	elseif kind == "result" and type(data) == "table" then
 		if data.ok then
-			message.Text = if data.action == "buy" then "Purchased and equipped."
+			local item = data.itemId and lastCatalog and lastCatalog[data.itemId]
+			message.Text = if data.action == "buy" and item and item.kind == "consumable" then "Bought. Press R to use an energy cell."
+				elseif data.action == "buy" and item and not item.slot then "Bought. Patch will have work for you."
+				elseif data.action == "buy" then "Purchased and equipped."
 				elseif data.action == "equip" then "Equipped." else "Unequipped."
 		else
 			message.Text = REASONS[data.reason] or "Request refused."

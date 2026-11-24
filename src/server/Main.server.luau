@@ -8,6 +8,10 @@ local EquipmentService = require(Services.EquipmentService)
 local ShopService = require(Services.ShopService)
 local MissionService = require(Services.MissionService)
 local WingPlatformService = require(Services.WingPlatformService)
+local CityService = require(Services.CityService)
+local EnergyService = require(Services.EnergyService)
+local ContractService = require(Services.ContractService)
+local CitizenService = require(Services.CitizenService)
 
 PlayerDataService.Start()
 StasisService.Start() -- creates ReplicatedStorage.PZ_Remotes
@@ -16,3 +20,7 @@ EquipmentService.Start()
 ShopService.Start()
 MissionService.Start() -- also starts FacilityService and spawns the mission NPCs
 WingPlatformService.Start() -- after FacilityService: the platform runs on facility power
+CityService.Start() -- Founders' Quarter (district built at edit time; this attaches doors and the market)
+EnergyService.Start()
+ContractService.Start(MissionService.Completed)
+CitizenService.Start()

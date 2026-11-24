@@ -1,6 +1,8 @@
 --!strict
 -- MissionHUD (client): shows what MissionService sends on ReplicatedStorage.PZ_Remotes.Mission. Display only.
 --   ("objective", info | nil)  objective panel (top left) + waypoint markers (cyan: objective, amber: optional)
+--       info.heading (optional) replaces the panel heading (contracts: "CONTRACT · LIGHTS OUT");
+--       info.targets (optional list of parts): the cyan marker follows the nearest one
 --   ("dialogue", beats)        non-blocking subtitles at the bottom, queued (same beat kinds as ActivationScript)
 --   ("complete", info)         "mission complete" banner
 -- NPC name tags (server creates them hidden): shown only while the objective is about that character (info.npc)
@@ -61,8 +63,19 @@ local function marker(colour: Color3)
 	return { gui = bb, dist = dist }
 end
 local main, opt = marker(CYAN), marker(AMBER)
+local nearestOf: { BasePart }? = nil -- info.targets: the marker follows the nearest
 RunService.RenderStepped:Connect(function()
 	local root = player.Character and player.Character:FindFirstChild("HumanoidRootPart") :: BasePart?
+	if nearestOf and root then
+		local best, bestD = nil, math.huge
+		for _, t in ipairs(nearestOf) do
+			if t.Parent then
+				local d = (t.Position - root.Position).Magnitude
+				if d < bestD then best, bestD = t, d end
+			end
+		end
+		main.gui.Adornee = best; main.gui.Enabled = best ~= nil
+	end
 	for _, m in ipairs({ main, opt }) do
 		local a = m.gui.Adornee :: BasePart?
 		if m.gui.Enabled and root and a then
@@ -95,13 +108,18 @@ end)
 
 local function setObjective(info: any)
 	objectiveNpc = if info then info.npc else nil
+	nearestOf = nil
 	if not info then
 		panel.Visible = false; main.gui.Enabled = false; opt.gui.Enabled = false
 		return
 	end
 	panel.Visible = true
+	heading.Text = info.heading or "MISSION  ·  THE AWAKENING"
 	title.Text = info.title; hint.Text = info.hint
 	main.gui.Adornee = info.target; main.gui.Enabled = info.target ~= nil
+	if not info.target and type(info.targets) == "table" and #info.targets > 0 then
+		nearestOf = info.targets
+	end
 	if info.optional then
 		optTitle.Visible, optHint.Visible = true, true
 		optTitle.Text = info.optional.title; optHint.Text = info.optional.hint

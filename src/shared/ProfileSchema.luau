@@ -14,7 +14,7 @@
 local ProfileSchema = {}
 local ChassisColors = require(script.Parent.ChassisColors)
 
-ProfileSchema.VERSION = 1
+ProfileSchema.VERSION = 2
 ProfileSchema.STARTER_CHASSIS = "CypherFrame"
 
 export type Profile = {
@@ -33,6 +33,11 @@ export type Profile = {
 	wallet: { credits: number, rewards: { [string]: boolean }? }, -- NEXUS Credits (server-authoritative)
 	items: { [string]: boolean },     -- owned ItemCatalog ids
 	equipped: { [string]: string },   -- slot -> ItemCatalog id (e.g. back = "wings_basic")
+	-- v2 (2026-11-24, Phase 2 city slice; docs/NEXUS_01_CITY.md §2):
+	status: { energy: number },                        -- 0..100, drains while playing, charged at Charge Bays
+	careers: { engineering: { xp: number } },          -- experience per career (Phase 3 adds more careers)
+	contracts: { [string]: { completions: number, lastCompletedAt: number } }, -- ContractRules ids
+	inventory: { [string]: number },                   -- consumable ItemCatalog ids -> count (e.g. energy_cell)
 }
 
 local function deepCopy<T>(value: T): T
@@ -62,6 +67,10 @@ function ProfileSchema.default(userId: number, now: number): Profile
 		wallet = { credits = 0 },
 		items = {},
 		equipped = {},
+		status = { energy = 100 },
+		careers = { engineering = { xp = 0 } },
+		contracts = {},
+		inventory = {},
 	}
 end
 
@@ -88,6 +97,7 @@ function ProfileSchema.migrate(data: any, userId: number, now: number): Profile
 	end
 	local profile = deepCopy(data)
 	-- Version 0 (or missing version) -> 1: no renamed fields yet; defaults fill the gaps below.
+	-- 1 -> 2: new sections only (status, careers, contracts, inventory); defaults fill them below.
 	fillMissing(profile, ProfileSchema.default(userId, now) :: any)
 	profile.schemaVersion = ProfileSchema.VERSION
 	profile.userId = userId
