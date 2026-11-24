@@ -8,6 +8,7 @@
 -- passable through their PathfindingModifier), re-planned while walking; if no path or stuck for STUCK_SECONDS,
 -- or the player is more than CATCH_UP studs away, the NPC is placed behind the player.
 -- Animations: the rig's own idle / walk tracks, played on the server (they replicate).
+-- NpcService.SpawnAt places city NPCs (Patch, citizens) at a spot instead of a pod.
 
 local Players = game:GetService("Players")
 local PathfindingService = game:GetService("PathfindingService")
@@ -120,6 +121,70 @@ function NpcService.Spawn(name: string, templateName: string, pod: Model, label:
 	if glass then glass.Transparency = 0; glass.CanCollide = true end
 	pod:SetAttribute("State", "Stasis")
 	npcs[name] = npc
+end
+
+-- City NPCs (Patch, citizens; docs/NEXUS_01_CITY.md): spawn `name` from ServerStorage.Chassis[templateName] (or
+-- ServerStorage.Citizens[templateName]) standing at `cframe` on the ground, as a direct child of workspace (the
+-- client's tag logic looks there). opts.anchored keeps it in place (Patch at the workbench); otherwise it is free
+-- to walk (citizens) and owned by the server. Plays the rig's idle / walk animations. Returns the model and humanoid.
+function NpcService.SpawnAt(name: string, templateName: string, cframe: CFrame, label: string?,
+	opts: { anchored: boolean?, colour: string? }?): (Model?, Humanoid?)
+	local template = (ServerStorage:FindFirstChild("Chassis") and ServerStorage.Chassis:FindFirstChild(templateName))
+		or (ServerStorage:FindFirstChild("Citizens") and ServerStorage.Citizens:FindFirstChild(templateName))
+	if not template or not template:IsA("Model") then
+		warn("[NPC] template missing: " .. templateName)
+		return nil, nil
+	end
+	local old = workspace:FindFirstChild("NPC_" .. name)
+	if old then old:Destroy() end
+	local model = template:Clone()
+	model.Name = "NPC_" .. name
+	for _, d in ipairs(model:GetDescendants()) do
+		if d:IsA("LocalScript") or d:IsA("Script") then d:Destroy() end
+		if d:IsA("BasePart") then d.Anchored = false end
+	end
+	local hum = model:FindFirstChildOfClass("Humanoid") :: Humanoid
+	local root = model:FindFirstChild("HumanoidRootPart") :: BasePart
+	hum.DisplayDistanceType = Enum.HumanoidDisplayDistanceType.None
+	model.PrimaryPart = root
+	-- stand on the real floor below the spot (interiors have raised floors: Patch was half inside the workshop's)
+	local params = RaycastParams.new()
+	params.FilterType = Enum.RaycastFilterType.Exclude
+	local exclude: { Instance } = {}
+	for _, pl in ipairs(Players:GetPlayers()) do if pl.Character then table.insert(exclude, pl.Character) end end
+	params.FilterDescendantsInstances = exclude
+	local hit = workspace:Raycast(cframe.Position + Vector3.new(0, 8, 0), Vector3.new(0, -20, 0), params)
+	local groundY = if hit then hit.Position.Y else cframe.Position.Y
+	local pos = Vector3.new(cframe.Position.X, groundY + hum.HipHeight + root.Size.Y / 2, cframe.Position.Z)
+	root.CFrame = CFrame.lookAt(pos, pos + cframe.LookVector * Vector3.new(1, 0, 1))
+	root.Anchored = opts ~= nil and opts.anchored == true
+	model:SetAttribute("NpcName", name)
+	if opts and opts.colour then
+		local colour = ChassisColors.color3(opts.colour)
+		for _, d in ipairs(model:GetDescendants()) do
+			if d:IsA("SurfaceAppearance") then d.Color = colour end
+		end
+	end
+	model.Parent = workspace
+	if label then nameplate(model, label) end
+	if not root.Anchored then
+		pcall(function() root:SetNetworkOwner(nil) end)
+	end
+	local animator = hum:FindFirstChildOfClass("Animator") or Instance.new("Animator", hum)
+	local idleA, walkA = animationFrom(template, "idle", "Animation1"), animationFrom(template, "walk", nil)
+	local idle = idleA and (animator :: Animator):LoadAnimation(idleA)
+	local walk = walkA and (animator :: Animator):LoadAnimation(walkA)
+	if idle then idle:Play() end
+	hum.Running:Connect(function(speed)
+		if speed > 0.5 then
+			if walk and not walk.IsPlaying then walk:Play(0.2) end
+			if idle and idle.IsPlaying then idle:Stop(0.2) end
+		else
+			if walk and walk.IsPlaying then walk:Stop(0.2) end
+			if idle and not idle.IsPlaying then idle:Play(0.2) end
+		end
+	end)
+	return model, hum
 end
 
 local function nearestPlayerRoot(from: Vector3): BasePart?

@@ -135,6 +135,8 @@ end
 --   Invoke("setActivated", userId, b)   -> true if the profile was updated (test the first-wake path again)
 --   Invoke("resetProgress", userId)     -> true: not activated, no missions, no fragments, no designation
 --   Invoke("addCredits", userId, n)     -> true: adds n NEXUS Credits (testing purchases)
+--   Invoke("resetCity", userId, credits) -> true: city-slice state back to new (energy 100, no contracts, careers,
+--                                          inventory or toolkit) and the wallet set to `credits` (re-test Phase 2)
 --   Invoke("removeItem", userId, id)    -> true: removes an owned item and unequips it (re-test the wing platform);
 --                                          the character's back is refreshed by the caller (respawn or re-equip)
 local function createDevHook()
@@ -164,6 +166,16 @@ local function createDevHook()
 			local n = ...
 			return PlayerDataService.Update(player, function(p)
 				p.wallet.credits += (tonumber(n) or 0)
+			end)
+		elseif action == "resetCity" then
+			local credits = ...
+			return PlayerDataService.Update(player, function(p)
+				p.status = { energy = 100 }
+				p.contracts = {}
+				p.careers = { engineering = { xp = 0 } }
+				p.inventory = {}
+				p.items.toolkit_engineering = nil
+				if type(credits) == "number" then p.wallet.credits = credits end
 			end)
 		elseif action == "removeItem" then
 			local id = ...

@@ -78,4 +78,16 @@ return function(t)
 		expect.equal(saved.chassis, nil)
 		expect.equal(saved.schemaVersion, nil)
 	end)
+
+	t.test("v1 profiles gain the v2 city fields (energy, careers, contracts, inventory) and keep their data", function()
+		local v1 = { schemaVersion = 1, wallet = { credits = 150 }, items = { wings_basic = true }, progress = { activated = true } }
+		local p = ProfileSchema.migrate(v1, 7, 50)
+		expect.equal(p.schemaVersion, 2)
+		expect.equal(p.status.energy, 100)
+		expect.equal(p.careers.engineering.xp, 0)
+		expect.deepEqual(p.contracts, {})
+		expect.deepEqual(p.inventory, {})
+		expect.equal(p.wallet.credits, 150)
+		expect.truthy(p.items.wings_basic)
+	end)
 end

@@ -1,6 +1,6 @@
 """Prepare a supplied (Meshy) vehicle model for Roblox and size it so robots fit inside.
 
-blender -b --factory-startup -P pz_vehicle_prep.py -- <in.glb> <out.glb> <lengths> <tris_per_piece> <pieces> <report.json> [min_seats]
+blender -b --factory-startup -P pz_vehicle_prep.py -- <in.glb> <out.glb> <lengths> <tris_per_piece> <pieces> <report.json> [min_seats] [bake] [nonormal] [height]
 
   lengths    comma list of candidate lengths in studs, e.g. 28,32,36,40 (longest horizontal side)
   min_seats  seats the vehicle must hold (default 1); the smallest candidate length that fits them is exported
@@ -29,6 +29,9 @@ NO_NORMAL = "nonormal" in a[7:]
 # mode the full-detail original is kept as a reference, the reduced copy gets fresh per-piece UVs, and base colour,
 # tangent-space normal and roughness are baked from the original onto one 1024 px texture set PER PIECE.
 BAKE = "bake" in a[7:]
+# "height": the <lengths> values are heights (Z) instead of the longest horizontal side. For standing robots and
+# other tall props (2026-11-24, city citizens): their arm span or footprint says little about their size.
+BY_HEIGHT = "height" in a[7:]
 BAKE_RES = 1024                                   # Roblox SurfaceAppearance maps are capped at 1024 x 1024
 CREW = dict(max_h=7.5, max_w=4.4, seat_w=4.8, seat_top=1.6, walk_h=8.0)   # mirrors pz_asset_lib.CREW
 PITCH = 4.2                                                               # seat-to-seat spacing along the length
@@ -40,8 +43,12 @@ for o in list(bpy.context.scene.objects):        # importer bone-shape helpers a
         bpy.data.objects.remove(o)
 meshes = [o for o in bpy.context.scene.objects if o.type == "MESH"]
 for o in bpy.context.scene.objects:
-    if o.type == "ARMATURE" and o.animation_data:
-        o.animation_data.action = None
+    if o.type == "ARMATURE":
+        if o.animation_data:
+            o.animation_data.action = None
+        # Rest pose, not the last animated frame: rigged robots (Mixamo clips) otherwise bake mid-stride
+        # (seen on the city citizens, 2026-11-24). pz_model_audit.py does the same.
+        o.data.pose_position = "REST"
 bpy.ops.object.select_all(action="DESELECT")
 for o in meshes:
     o.select_set(True)
@@ -68,7 +75,7 @@ if (mx - mn).y > (mx - mn).x:                     # length along X for a consist
 mn, mx = bounds(ob)
 ob.location = (-(mn.x + mx.x) / 2, -(mn.y + mx.y) / 2, -mn.z); bpy.ops.object.transform_apply(location=True)
 mn, mx = bounds(ob)
-L0 = mx.x - mn.x
+L0 = (mx.z - mn.z) if BY_HEIGHT else (mx.x - mn.x)
 
 high = None
 if BAKE:                                          # untouched full-detail reference for baking

@@ -3,13 +3,12 @@
 --
 -- Credits are only changed here (Award, purchases) through PlayerDataService.Update, which mirrors the balance to
 -- the player attribute PZ_Credits for the HUD.
--- No vendor is placed yet: nothing is for sale. (The Reception wing vendor was removed 2026-11-24: the owner
--- wants wings found, not bought; see WingPlatformService.) A future vendor calls ShopService.Open(player) and
--- registers itself with ShopService.SetVendor(part) so purchases need the player at the terminal.
+-- Vendor: the Circuit Market kiosk in the Founders' Quarter (CityService registers it with SetVendor and opens the
+-- window with Open). Wings are never sold (the Reception wing vendor was removed 2026-11-24; see WingPlatformService).
 -- ReplicatedStorage.PZ_Remotes.Shop (RemoteEvent):
 --   client -> server: ("buy", itemId) | ("equip", itemId) | ("unequip", slot)     (rate limited)
 --   server -> client: ("open", state) | ("state", state) | ("result", { ok, reason, itemId, action })
---   state = { credits, items = { id = true }, equipped = { slot = id }, catalog = ItemCatalog.ITEMS }
+--   state = { credits, items = { id = true }, equipped = { slot = id }, inventory = { id = count }, catalog = ItemCatalog.ITEMS }
 
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -29,7 +28,7 @@ local last: { [Player]: number } = {}
 local function stateOf(player: Player)
 	local p = PlayerDataService.GetProfile(player)
 	if not p then return nil end
-	return { credits = p.wallet.credits, items = p.items, equipped = p.equipped, catalog = ItemCatalog.ITEMS }
+	return { credits = p.wallet.credits, items = p.items, equipped = p.equipped, inventory = p.inventory, catalog = ItemCatalog.ITEMS }
 end
 
 -- One-time reward (e.g. "mission:M01"). Returns the credits added.
